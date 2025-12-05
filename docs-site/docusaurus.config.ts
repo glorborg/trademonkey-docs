@@ -79,6 +79,14 @@ const config: Config = {
               label: 'Core Workflows',
               to: '/core-workflows/rules-vs-reality',
             },
+            {
+              label: 'Advanced Insight Engines',
+              to: '/advanced-insights/time-scoped-analytics',
+            },
+            {
+              label: 'Reference',
+              to: '/reference/billing-subscription',
+            },
           ],
         },
         {
