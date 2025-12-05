@@ -2,6 +2,7 @@
 id: overview
 title: Getting Started with TradeMonkey
 sidebar_label: Overview
+slug: /
 ---
 
 TradeMonkey is an execution mirror for traders.
