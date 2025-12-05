@@ -6,395 +6,120 @@ sidebar_label: Settings
 
 # Settings
 
+## Purpose
 
-## What Settings Control
+Settings control how TradeMonkey displays your data, enforces optional workflows, and communicates with you. They do **not** change what data is collected or how analytics and rules actually work — they only change how everything is presented and when you're nudged to review it.
 
+There are two types of settings:
 
-Settings configure how TradeMonkey displays data, enforces rules, and communicates insights. They do not change what data is collected or how patterns are detected—they only adjust presentation, timing, and optional workflows.
+- **User settings** – your personal preferences.
+- **Organization settings** – workspace-wide behavior (shared in multi-user setups).
 
+---
 
-Settings are divided into two categories:
+## User Settings
 
+### Profile
 
-1. **User-Level Settings**: Personal preferences (timezone, currency, theme, notifications)
-2. **Organization-Level Settings**: Workspace-wide behaviors (behavior mode, reflection requirements, nudge intensity)
-
-
-Most traders operate as single-user organizations, so both setting types apply to the same person. In multi-user organizations, user settings are individual, organization settings are shared.
-
-
-## User-Level Settings
-
-
-User settings control personal preferences and display options. These settings affect only your view of data, not the underlying data itself.
-
-
-### Profile Settings
-
-
-**First Name and Last Name**
-- **Purpose**: Display name in the interface and email communications
-- **Default**: Empty (optional fields)
-- **Affects**: UI greeting text, email subject lines, report headers
-
-
-**Email Address**
-- **Purpose**: Account login and communication channel
-- **Default**: Set during registration
-- **Affects**: Login credentials, email notifications, password reset
-- **Note**: Email cannot be changed after registration without contacting support (prevents account hijacking)
-
+- **Name** – Used for greetings and reports. Optional.
+- **Email** – Used for login and important notifications.  
+  If you need to change your login email, contact support at **hello@trademonkey.app**.
 
 ### Timezone
 
-
-**Purpose**: Converts all timestamps to your local time for display and rule evaluation.
-
-
-**Options**: Any IANA timezone (e.g., America/New_York, Europe/London, Asia/Tokyo)
-
-
-**Default**: UTC (unless set during onboarding)
-
-
-**Affects**:
-- **Trade timestamps**: Entry and exit times displayed in your timezone
-- **Time window rules**: "Allowed trading: 8:00 AM - 12:00 PM" uses your timezone
-- **Economic calendar**: News events displayed in your timezone
-- **Daily rollover**: "Max 3 trades per day" resets at midnight in your timezone
-- **Analytics filters**: Date range filters use your timezone boundaries
-
-
-**Important**: If your timezone changes (travel, relocation), update this setting. Otherwise:
-- Time window rules will enforce at wrong times
-- Daily counters will reset at wrong times
-- Analytics will group trades incorrectly
-
-
-**Example**:
-- Timezone set to America/New_York (EST/EDT)
-- Trade entered at 10:00 AM (your local time)
-- Rule: "Allowed trading: 8:00 AM - 12:00 PM"
-- Result: Trade passes (10:00 AM is within window)
-
-
-If timezone was UTC, the same trade would show as 3:00 PM (10:00 AM EST = 15:00 UTC), potentially violating time window rules.
-
+- Used to show all times in your local time and to evaluate time-based rules (e.g. "no trading after X").
+- Affects:
+  - How entry/exit times are displayed.
+  - When "per day" limits reset.
+  - When news events show up in the calendar.
+- If you travel or relocate, update your timezone so rules and analytics line up with your actual session times.
 
 ### Preferred Currency
 
-
-**Purpose**: Display all P&L, balances, and risk metrics in your preferred currency.
-
-
-**Options**: USD, EUR, GBP, JPY, AUD, CAD, CHF, NZD (major currencies)
-
-
-**Default**: USD
-
-
-**Affects**:
-- **P&L display**: All profit/loss shown in this currency
-- **Account balances**: Starting and current balance displayed in this currency
-- **Risk calculations**: Risk amount (SL distance × position size) shown in this currency
-- **Analytics**: Cumulative P&L, average P&L, emotional cost displayed in this currency
-
-
-**Does NOT affect**:
-- Underlying trade data (stored in account's native currency)
-- CSV imports (imported in original currency)
-- Conversion rates (no automatic currency conversion)
-
-
-**Note**: If your account trades in a different currency than your preferred currency, you must manually convert P&L before logging trades. TradeMonkey does not perform currency conversion automatically.
-
-
-**Example**:
-- Account trades GBP pairs, account currency is GBP
-- Preferred currency set to USD
-- You log trade with -£200 P&L
-- You must calculate USD equivalent manually: -£200 × 1.27 = -$254
-- Enter -$254 as P&L (or keep account in GBP and set preferred currency to GBP)
-
+- Controls how P&L and risk are **displayed**.
+- Does **not** change how raw trade data is stored or automatically convert between currencies.
+- If you trade in multiple currencies and want everything in one currency, you may need to convert values before logging.
 
 ### Theme
 
+- Switch between light and dark modes.
+- Visual only; does not affect any data or analytics.
 
-**Purpose**: Visual appearance of the interface.
+### Email Recaps
 
+- Turn daily and/or weekly email summaries on or off.
+- Recaps can include:
+  - Trade counts and P&L summary.
+  - High-level rule violations and basic behavioral patterns.
+- Core analytics are always available in-app, even if you disable emails.
 
-**Options**:
-- **Dark**: Dark background, light text (default, reduces eye strain)
-- **Light**: Light background, dark text
+---
 
+## Organization (Workspace) Settings
 
-**Default**: Dark
-
-
-**Affects**: Only visual presentation. No impact on data, analytics, or workflows.
-
-
-**Note**: Theme preference is saved per device. If you use TradeMonkey on multiple devices, set theme separately on each.
-
-
-### Email Notifications
-
-
-**Email Recap Enabled**
-- **Purpose**: Receive daily email summary of trades and performance
-- **Default**: Enabled
-- **Frequency**: Once per day at end of trading session (6:00 PM in your timezone)
-- **Content**: Trade count, P&L summary, rule violations, conviction gaps
-
-
-**Weekly Recap Enabled**
-- **Purpose**: Receive weekly performance summary and patterns
-- **Default**: Enabled
-- **Frequency**: Once per week on Sunday evening (6:00 PM in your timezone)
-- **Content**: Weekly stats, emotion analysis, adherence trends, top violations
-
-
-**Affects**: Only whether you receive emails. Does not affect in-app data or analytics.
-
-
-**Note**: If both are disabled, you will not receive any automated email communications (except critical account notifications like password reset or billing issues).
-
-
-## Organization-Level Settings
-
-
-Organization settings control workspace-wide behaviors and optional workflows. In single-user setups, these are effectively personal settings. In multi-user organizations, these apply to all members.
-
+In a single-user setup, these effectively act as "global" personal settings. In multi-user workspaces, they apply to everyone in that workspace.
 
 ### Workspace Name
 
-
-**Purpose**: Label for your trading workspace (appears in UI header and reports).
-
-
-**Default**: "My Trading Workspace" (set during registration)
-
-
-**Affects**: Display only. No impact on functionality.
-
-
-**Example**: "John's Prop Trading Accounts" or "ACME Trading Team"
-
+- Label shown in the UI and on exports/reports.
+- Cosmetic only.
 
 ### Behavior Mode
 
+Controls how "strict" and direct TradeMonkey feels in its messaging and prompts. It does **not** change the underlying data or rule checks.
 
-**Purpose**: Adjusts the tone and intensity of TradeMonkey's messaging and optional workflow enforcement.
+- **Gentler modes** – Softer language, fewer interruptions, reflections mostly optional.
+- **Stricter modes** – More direct language, more visible warnings, stronger encouragement to review trades and reflect.
 
+Choose the mode that matches how much accountability vs friction you want.
 
-**Options**:
-- **Gentle**: Minimal enforcement, soft language, optional features mostly disabled
-- **Balanced**: Standard enforcement, neutral language, optional features available but not required
-- **Discipline**: Strict enforcement, direct language, optional features encouraged or required
+### Reflection Requirement
 
+- When **off**: reflections are optional; trades are considered complete as soon as they close.
+- When **on**: trades are marked as "unreviewed" until you add at least one reflection.
+- Helpful if you want enforced review; can feel heavy if you take many trades per day.
 
-**Default**: Balanced
+### Streaks and Nudges
 
+- **Streaks** – Can show win/loss streaks by day. Purely informational; does not affect rules.
+- **Nudge intensity** – Controls how often you see reminders and pattern alerts (e.g. repeated rule violations, strong conviction gaps, recurring emotions).
+  - Lower intensity = fewer prompts, more self-directed review.
+  - Higher intensity = more prompts and reminders, more visible alerts.
 
-**Does NOT affect**:
-- Rule violations (rules are always enforced regardless of behavior mode)
-- Data collection (all data is collected the same way)
-- Analytics calculations (patterns are detected identically)
+Adjust based on whether you want more awareness or fewer interruptions.
 
+### Morning Prompts
 
-**Affects**:
-- Messaging tone in UI (encouragement vs directness)
-- Reflection prompts (suggestions vs requirements)
-- Post-trade workflows (optional vs encouraged)
+- Choose where to receive pre-session prompts (in-app, email, or both).
+- Prompts can summarize recent performance, rule violations, and key patterns before you start trading.
 
+---
 
-**Behavior Mode Differences**:
+## AI Features and Limits
 
+Some features (e.g. AI summaries, deep-dive analysis, rule coaching) use AI and may have **daily usage limits** that reset regularly.
 
-#### Gentle Mode
-- **Messaging tone**: "You might consider reviewing this trade"
-- **Reflection prompts**: Suggestions only, never required
-- **Rule violations**: Displayed softly, no persistent reminders
-- **Streaks and nudges**: Disabled by default
-- **Morning prompts**: Disabled
-- **Post-trade reflection**: Optional, low visibility
+- Limits can vary by feature and subscription level.
+- When you hit a limit for a feature, you'll see a clear in-app message and that feature will be temporarily unavailable until the next reset.
+- Core journaling, rules, and analytics continue to work even if you've hit AI limits or choose not to use AI at all.
 
+For current AI availability and limits, see the **pricing page**.
 
-**Use case**: Traders who prefer minimal interruption and self-directed review
+---
 
+## Recommended Setup
 
-#### Balanced Mode (Default)
-- **Messaging tone**: "Pattern detected: Conviction gap of -5"
-- **Reflection prompts**: Available but optional
-- **Rule violations**: Clearly displayed, no forcing
-- **Streaks and nudges**: Enabled but not intrusive
-- **Morning prompts**: Available via in-app or email
-- **Post-trade reflection**: Visible but optional
+When you first start:
 
+1. Set your **timezone** and **preferred currency**.
+2. Pick a **behavior mode** that fits your personality (most traders start with a balanced/standard mode).
+3. Decide whether you want **email recaps** and adjust **nudge intensity** up or down after a week of use.
+4. Consider enabling **reflection requirement** only if you want strict accountability and don't take a large number of trades each day.
 
-**Use case**: Most traders who want awareness without enforcement
+You can change any of these settings later as your workflow evolves.
 
+---
 
-#### Discipline Mode
-- **Messaging tone**: "Violation detected: Max daily loss exceeded by $200"
-- **Reflection prompts**: Encouraged after every significant trade
-- **Rule violations**: Prominently displayed with persistent indicators
-- **Streaks and nudges**: Enabled and visible
-- **Morning prompts**: Encouraged daily
-- **Post-trade reflection**: Required before closing certain trades (if reflection_required is enabled)
+## Support
 
-
-**Use case**: Traders who want maximum accountability and are willing to accept workflow friction
-
-
-**Important**: Behavior mode does NOT disable rule checking or data collection. It only changes how information is presented and whether optional workflows are encouraged.
-
-
-### Reflection Required
-
-
-**Purpose**: Enforces post-trade reflection before a trade can be marked as "complete."
-
-
-**Options**: Enabled or Disabled
-
-
-**Default**: Disabled
-
-
-**When Enabled**:
-- After closing a trade, you must add a post-trade reflection before the trade is considered "reviewed"
-- Trade Recap displays "Reflection Required" indicator for trades without reflections
-- Dashboard may show count of "unreviewed trades"
-- Reflection prompts appear more prominently
-
-
-**When Disabled**:
-- Reflections are optional
-- Trades are considered complete immediately after closing
-- No workflow enforcement
-
-
-**Affects**:
-- Whether reflection is required in post-trade workflow
-- Visibility of reflection prompts
-- "Unreviewed trades" counter on dashboard (if enabled)
-
-
-**Does NOT affect**:
-- Data collection (you can still log trades without reflections)
-- Analytics (trades without reflections are excluded from reflection-based analytics, but included in all other analytics)
-
-
-**Note**: If you enable this setting and have 50 trades without reflections, you will see 50 "unreviewed trades." This can feel overwhelming. Consider enabling this setting only going forward, not retroactively.
-
-
-**Recommended for**: Traders in Discipline mode who want forced accountability after every trade.
-
-
-### Streaks Enabled
-
-
-**Purpose**: Tracks consecutive winning or losing days and displays streak indicators.
-
-
-**Options**: Enabled or Disabled
-
-
-**Default**: Enabled
-
-
-**When Enabled**:
-- Dashboard displays current win/loss streak (e.g., "3-day win streak")
-- Streak counter resets daily based on net P&L (positive day = win, negative day = loss, breakeven = no change)
-- Longest streaks are tracked for reference
-
-
-**When Disabled**:
-- Streak tracking is hidden
-- No streak indicators appear in UI
-
-
-**Affects**: Display only. Streaks do not trigger any workflows or affect analytics.
-
-
-**Note**: Some traders find streaks motivating (win streaks feel good). Others find them distracting or anxiety-inducing (loss streaks feel demoralizing). Choose based on your psychological preference.
-
-
-### Nudge Intensity
-
-
-**Purpose**: Controls the frequency and prominence of behavioral nudges and reminders.
-
-
-**Options**:
-- **Low**: Minimal nudges, only for critical issues (rule violations, compliance breaches)
-- **Medium**: Standard nudges, includes patterns and suggestions
-- **High**: Frequent nudges, proactive pattern alerts and reminders
-
-
-**Default**: Medium
-
-
-**Nudge Types**:
-- **Rule violation alerts**: "You've violated 'Max 3 trades per day' twice this week"
-- **Pattern reminders**: "Your afternoon trades show 40% lower win rate than morning trades"
-- **Reflection prompts**: "You haven't reflected on your last 5 trades"
-- **Compliance warnings**: "Approaching max daily loss limit ($450 of $500 used)"
-
-
-**Intensity Differences**:
-
-
-#### Low Intensity
-- Only critical nudges (rule violations, compliance breaches)
-- Nudges appear once, no repeats
-- Minimal visual prominence (small indicators, no pop-ups)
-
-
-#### Medium Intensity (Default)
-- Critical nudges plus pattern alerts
-- Nudges may repeat if not acknowledged (max once per session)
-- Standard visual prominence (badges, in-app notifications)
-
-
-#### High Intensity
-- All nudges including proactive suggestions
-- Nudges repeat more frequently
-- High visual prominence (prominent indicators, occasional modals for critical issues)
-
-
-**Affects**:
-- Frequency of in-app notifications
-- Visibility of pattern alerts
-- Repetition of reminders
-
-
-**Does NOT affect**:
-- Rule evaluation (rules are checked regardless of nudge intensity)
-- Pattern detection (patterns are detected but nudges control whether you're alerted)
-
-
-**Note**: High intensity can feel intrusive if you trade frequently. Low intensity can cause you to miss important patterns if you don't review analytics regularly. Most traders prefer Medium.
-
-
-### Morning Prompt Channel
-
-
-**Purpose**: Determines how and where you receive daily pre-session prompts (if enabled).
-
-
-**Options**:
-- **In-App**: Prompts appear when you open TradeMonkey before your first trade
-- **Email**: Prompts sent via email at scheduled time (default: 7:00 AM in your timezone)
-- **Both**: Prompts sent via email AND appear in-app
-
-
-**Default**: In-App
-
-
-**Morning Prompt Content** (if behavior mode and settings enable prompts):
-- Summary of previous session performance
-- Active rules reminder
-- Any unreviewed trades from yesterday
-- Calendar of upcoming news events (if integrated)
+If you need help with settings, account changes, or something doesn't behave as expected, email **hello@trademonkey.app**.
