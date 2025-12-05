@@ -1,41 +1,87 @@
-# Website
+# Trading Journal Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This is the Docusaurus documentation project for the Trading Journal. This Repl serves as your documentation workspace where you can hand over markdown files, and they'll be placed in the correct folders ready for GitHub push.
 
-## Installation
+## Folder Structure
 
-```bash
-yarn
 ```
+docs/
+├── 01-getting-started/
+│   ├── overview.md
+│   ├── create-trading-account.md
+│   ├── import-trades.md
+│   ├── manual-trade-entry.md
+│   ├── reflections.md
+│   └── execution-recap-basics.md
+│
+├── 02-core-workflows/
+│   ├── rules-vs-reality.md
+│   ├── rules-helper-ai.md
+│   ├── psychology-tracking.md
+│   ├── threads.md
+│   ├── trade-recap.md
+│   └── settings.md
+│
+├── 03-advanced-insights/
+│   ├── time-scoped-analytics.md
+│   ├── ai-diagnostics.md
+│   ├── ai-deep-dive-explorer.md
+│   ├── rules-vs-reality-dashboard.md
+│   ├── execution-patterns.md
+│   ├── calendar-news-events.md
+│   └── tags-management.md
+│
+├── 04-reference/
+│   ├── billing-subscription.md
+│   ├── ai-usage-limits.md
+│   ├── data-import-export.md
+│   └── security.md
+│
+└── 05-internal/
+    ├── troubleshooting.md
+    ├── glossary.md
+    └── faq.md
+```
+
+## Image Directory
+
+Place screenshots and images in:
+```
+static/img/
+```
+
+Reference them in markdown like:
+```markdown
+![Execution Recap Example](/img/execution-recap-example.png)
+```
+
+## How to Use This Project
+
+1. **Hand over markdown content** - Provide your markdown files and I'll place them in the correct folders
+2. **Upload images** - Provide screenshots and I'll add them to static/img/
+3. **Push to GitHub** - When ready, we'll commit and push changes to your GitHub repository
 
 ## Local Development
 
 ```bash
-yarn start
+cd docs-site
+npm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This starts the development server at http://localhost:3000
 
 ## Build
 
 ```bash
-yarn build
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This generates static content into the `build` directory.
 
-## Deployment
+## Sidebar Categories
 
-Using SSH:
-
-```bash
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+1. **Getting Started** - Onboarding and basics
+2. **Core Workflows** - Day-to-day features
+3. **Advanced Insight Engines** - Analytics and AI features
+4. **Reference** - Billing, limits, and security
+5. **Internal Docs** - Team-only documentation
