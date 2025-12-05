@@ -49,7 +49,7 @@ const config: Config = {
       title: 'TradeMonkey Docs',
       logo: {
         alt: 'TradeMonkey Logo',
-        src: 'img/logo.svg',
+        src: 'img/trademonkey-logo.jpg',
       },
       items: [
         {
