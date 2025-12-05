@@ -1,0 +1,87 @@
+# Trade Recap
+
+## Purpose
+
+Trade Recap is the single-page summary for a specific trade. It brings together financials, psychology, rules, screenshots, and notes so you can review what actually happened after the trade is closed.
+
+## What Trade Recap Shows
+
+### Financial and Risk Data
+- Symbol, side (buy/sell), account
+- Entry and exit price, position size, duration
+- Planned and actual stop loss / take profit
+- P&L in currency and percentage
+- Risk and reward amounts, initial R:R, and actual R outcome
+
+### Psychology and Conviction
+- Entry and exit emotions (you select from common options like Confident, Fear, FOMO, Regret, etc.)
+- Entry and exit conviction scores
+- Entry and exit plan adherence (Yes / Partial / No)
+- Conviction gap (exit conviction minus entry conviction) to show whether your confidence held, improved, or collapsed
+
+### Rules vs Reality
+- Which of your active rules were checked for this trade
+- Which rules passed, violated, or were skipped due to missing data
+- Simple visual indicators so you can see at a glance if this trade was rule-compliant
+
+### Screenshots, Tags, and Notes
+- Entry and exit chart screenshots, shown side-by-side when available
+- Setup, session, strategy, and custom tags
+- Entry, mid-trade, exit notes and any post-trade reflections
+- Optional AI-generated summaries (when you choose to use AI features)
+
+## How to Use Trade Recap
+
+1. **Open a trade**  
+   From your trade list or Execution Recap, open a single trade to view its Trade Recap.
+
+2. **Start with the financial block**  
+   Confirm basic details (symbol, size, entry/exit prices, SL/TP, P&L, R:R). Check whether the actual outcome matched the original risk and reward you planned.
+
+3. **Review plan vs execution**  
+   - Compare planned SL/TP with where you actually exited.  
+   - Look at entry and exit plan adherence to see where you followed or broke your plan.
+
+4. **Check emotions and conviction**  
+   - Review entry and exit emotions and conviction scores.  
+   - Look at the conviction gap to see whether your confidence stayed stable or dropped as the trade unfolded.
+
+5. **Scan rule compliance**  
+   - See which rules fired for this trade and whether each one passed or was violated.  
+   - Use the link from a specific rule to jump into the Rules vs Reality view for more context if needed.
+
+6. **Use screenshots and notes for context**  
+   - Compare entry and exit screenshots to see if the chart context matches how you felt and what you wrote.  
+   - Expand reflections if you added them during or after the trade.
+
+7. **Jump into other views when needed**  
+   - **Threads:** to see the full timeline of events and notes for this trade.  
+   - **Execution Recap:** to find similar trades and patterns.  
+   - **Psychology Tracking:** to compare this trade’s emotions/conviction to others.  
+   - **AI tools (optional):** to generate summaries or deeper pattern analysis when you want AI assistance.
+
+## Suggested Review Routines
+
+- **End of day:**  
+  Quickly walk through Trade Recap for each trade you took, focusing on plan adherence, rule violations, conviction gaps, and emotional shifts.
+
+- **End of week:**  
+  Pick the most important trades (biggest wins/losses, emotional trades, rule violations) and review their Trade Recaps to spot repeated patterns.
+
+- **Monthly:**  
+  Use Execution Recap or analytics to find outlier or representative trades, then open their Trade Recaps to confirm long-term behavioral and rule-based patterns.
+
+- **Pre-session (optional):**  
+  Before you start trading, review the last trade or last emotional trade’s Trade Recap to remind yourself what you want to avoid repeating.
+
+## Important Notes
+
+- Trade Recap is a read-only mirror of your data. It shows what happened; it does not tell you what you should do.
+- The more consistently you log emotions, conviction, notes, tags, and screenshots, the more useful Trade Recap becomes.
+- Trade Recap is for post-trade review. It does not provide real-time alerts or block trades.
+- Trade Recap focuses on one trade at a time. For cross-trade patterns, use Execution Recap, Psychology Tracking, analytics pages, or AI Deep Dive.
+- Core journaling, rules, and analytics work even if you choose not to use AI features.
+
+## Support
+
+If something looks incorrect or you have questions about Trade Recap, contact **hello@trademonkey.app**.
