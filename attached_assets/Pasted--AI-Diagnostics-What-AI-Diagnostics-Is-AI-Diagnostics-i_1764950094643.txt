@@ -1,0 +1,157 @@
+# AI Diagnostics
+
+## What AI Diagnostics Is
+
+AI Diagnostics is a **single-pass analytical summary** that scans your recent trading data and surfaces **behavioral patterns**.
+
+It focuses on **what the data shows**, not what you should do.
+
+> Core question: **“What patterns exist in my recent trading behavior?”**
+
+AI Diagnostics is:
+- **One-shot**: You request a report, it runs once, and returns a structured summary.
+- **Broad**: It scans emotions, conviction, adherence, rules, timing, outcomes, and tags.
+- **Clinical**: It describes correlations and patterns without judgment or advice.
+
+It does **not**:
+- Have a conversation.
+- Explore one pattern deeply.
+- Tell you how to fix anything.
+
+---
+
+## Role in the AI Feature Stack
+
+AI Diagnostics works alongside other AI features:
+
+- **AI Diagnostics (Breadth)**
+  - Scans across all dimensions.
+  - Returns 5–10 key findings.
+  - One-way, single report.
+  - Use when: *“What’s going on in my trading overall?”*
+
+- **AI Deep Dive Explorer (Depth)**
+  - Conversational Q&A.
+  - Explores **one pattern** in detail.
+  - Use when: *“Why does this specific pattern happen?”*
+
+- **Trade Thread Summary (Narrative)**
+  - Analyzes **one trade’s timeline**.
+  - Explains what happened in that trade.
+
+- **Rules Coach (Configuration)**
+  - Helps design and explain rules.
+  - Ties findings into concrete rule definitions.
+
+Typical workflow:
+1. Run **AI Diagnostics** → identify patterns.
+2. Use **Deep Dive Explorer** on the most important pattern(s).
+3. Use **Trade Thread Summary** for key trades mentioned.
+4. Use **Rules Coach** if you decide to enforce new rules.
+
+---
+
+## What Inputs AI Diagnostics Uses
+
+AI Diagnostics looks at **all closed trades** in the selected scope (e.g. last 30 days or last 50 trades), prioritizing psychological and behavioral dimensions.
+
+### Core Inputs
+
+- **Trade Financial Data**
+  - Entry / exit prices  
+  - Position size  
+  - Realized P&L  
+  - Stop loss / Take profit (if set)  
+  - Entry / exit timestamps  
+  - Trade status (closed only)
+
+- **Emotion Data**
+  - Entry emotions (up to 3 per trade)
+  - Exit emotions (up to 3 per trade)
+  - Emotion frequency counts
+  - Entry → Exit emotional transitions
+
+- **Conviction Scores**
+  - Entry conviction (1–10)
+  - Exit conviction (1–10)
+  - Conviction gap = Exit − Entry
+  - Distribution of gap sizes (small / large drops)
+
+- **Plan Adherence**
+  - Entry adherence: Yes / Partial / No
+  - Exit adherence: Yes / Partial / No
+  - Overall adherence percentage
+  - Performance by adherence state
+
+- **Rules vs Reality**
+  - Which rules were evaluated
+  - Which rules were violated
+  - Violation frequency per rule
+  - Timing (at entry, during trade, at exit)
+  - Overall rule adherence score
+
+### Secondary Inputs (If Present)
+
+- **Tags**
+  - Setup tags (e.g. breakout, pullback, reversal)
+  - Session tags (e.g. london-session, new-york-open)
+  - Strategy tags (e.g. scalp, swing)
+  - Performance by tag
+
+- **Notes & Reflections**
+  - Entry notes (why you took the trade)
+  - Exit notes (why you closed it)
+  - Post-trade reflections
+  - Recurring themes / phrases
+
+- **Time-Based Data**
+  - Time of day (morning, afternoon, evening)
+  - Day of week
+  - Trade duration
+
+> Screenshots are not directly processed by AI; they matter for **human review**, not Diagnostics logic.
+
+### Minimum Data Volume
+
+- **Minimum**: ~20 closed trades with decent psychology data.
+- **Recommended**: 50+ trades.
+- **Best**: 100+ trades with consistent emotions + conviction + adherence.
+
+If data is sparse, the report will explicitly note limited completeness.
+
+---
+
+## Expected Output: Structure & Style
+
+AI Diagnostics returns a **structured report**, typically including:
+
+- Timestamp
+- Number of trades analyzed
+- Data completeness (emotions/conviction/adherence coverage)
+- 5–10 key findings, ordered by significance
+
+### Standard Finding Format
+
+Each finding follows this pattern:
+
+- **Pattern Name**  
+- **Observation** – what the pattern is.
+- **Evidence** – concrete numbers (counts, percentages, P&L).
+- **Context** – when/where it shows up (session, tags, after losses, etc.).
+- **No prescription** – no advice, only description.
+
+### Example (Format)
+
+```text
+AI DIAGNOSTIC REPORT
+Generated: 2025-01-15 19:42
+Trades Analyzed: 52 (Last 30 Days)
+Data Completeness: Emotions 94%, Conviction 98%, Adherence 96%
+
+
+FINDING 1: Conviction Decay During Execution
+Your conviction drops an average of 4.2 points from entry to exit on losing trades,
+but only 0.8 points on winning trades. Of 23 trades with conviction gap < -4, 19 (83%)
+were closed before stop loss or take profit was hit. Average P&L on these early exits: -$88.
+
+Evidence: Losers – Entry conviction 7.4 avg, Exit 3.2. Winners – Entry 7.6, Exit 6.8.
