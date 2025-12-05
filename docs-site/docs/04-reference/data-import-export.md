@@ -1,8 +1,104 @@
 ---
-sidebar_position: 3
-title: Data Import/Export
+id: data-import-export
+title: Data Import & Export
+sidebar_label: Data Import/Export
 ---
 
-# Data Import/Export
+# Data Import & Export
 
-*This page is a placeholder. Content will be added soon.*
+## Purpose
+
+TradeMonkey supports importing historical trades via CSV and exporting your data at any time. This enables fast onboarding with past trading activity and full portability of your journal.
+
+This page summarizes **how imports work**, **what formats are supported**, and **how to export your data** without exposing internal implementation details.
+
+## Importing Data
+
+TradeMonkey supports two CSV import methods:
+
+1. **Template Import** – Use TradeMonkey's CSV template.  
+2. **Broker-Mapped Import** – Upload any broker CSV and map its columns to TradeMonkey fields.
+
+Both methods validate data before import and only apply changes to your own account.
+
+## Template Import
+
+### How to Use
+
+1. Go to **Settings → Accounts → [Select Account] → Import Trades**.  
+2. Download the template CSV.  
+3. Fill in your trades using the required fields:
+   - **symbol**  
+   - **side** (buy/sell)  
+   - **entry_time**, **entry_price**  
+   - **exit_time**, **exit_price**  
+   - **pnl** *or* **closing_balance** (one is required)
+
+4. Upload the CSV and review the preview screen.  
+5. Confirm import.
+
+TradeMonkey validates rows for required fields, date formats, numeric fields, and logical consistency (e.g., exit_time must be after entry_time).
+
+If errors exist, the system will flag specific rows so you can correct and re-upload.
+
+## Broker-Mapped Import
+
+If you export trades directly from your broker (MT5, cTrader, TradingView, etc.), you can import the file without changing it.
+
+### Steps
+
+1. Upload your broker CSV.  
+2. Map each column to the correct TradeMonkey field (e.g., "Open Time" → entry_time).  
+3. Choose how P&L should be interpreted:
+   - Use a **P&L column**, or  
+   - Derive P&L from a **closing balance** column  
+4. Review the preview and confirm.
+
+This method allows flexibility when broker CSV formats differ.
+
+## Import Tips
+
+- Dates must use a clear timestamp format (e.g., `YYYY-MM-DD HH:MM:SS`).  
+- Decimal numbers must use a period (`.`).  
+- Empty values can be left blank.  
+- If the CSV includes both `pnl` and `closing_balance`, TradeMonkey prioritizes direct P&L.  
+- The preview screen must be reviewed before imports can be finalized.
+
+## Reconciliation (Manual + CSV)
+
+If you manually log trades during the session and later import broker-confirmed CSVs, TradeMonkey will attempt to **match** them using:
+
+- symbol  
+- side  
+- entry time (within an allowed time window)
+
+If matched, the system merges psychology data (from your manual entry) with financial data (from CSV).  
+If no match is found, the CSV trade is imported normally and can be updated later.
+
+## Exporting Data
+
+You can export your data at any time.
+
+### Available Exports
+
+- **Trades (CSV)** – Includes symbols, timestamps, prices, P&L, psychology fields, notes, tags.  
+- **Journal Entries (CSV)** – Includes all reflections and optional AI summaries.  
+- **Trading Rules (CSV)** – Includes rule details and status.
+
+### How to Export
+
+1. Go to **Settings → Data & Privacy → Export Data**  
+2. Select what you want to export  
+3. Download the generated CSV file
+
+There are no limits on export frequency or file size (browser performance may vary for large files).
+
+## Summary
+
+TradeMonkey provides simple, flexible CSV import and export tools so that:
+
+- You can bring historical trades into your journal quickly  
+- You can reconcile real-time manual captures with broker-confirmed CSVs  
+- You can export your complete dataset at any time  
+
+Your data always remains portable and under your control.

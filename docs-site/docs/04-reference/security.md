@@ -1,8 +1,136 @@
 ---
-sidebar_position: 4
+id: security
 title: Security
+sidebar_label: Security
 ---
 
 # Security
 
-*This page is a placeholder. Content will be added soon.*
+## Purpose of This Page
+
+This page explains, at a high level, how TradeMonkey protects your data and where the security boundary ends.
+
+It covers:
+
+- How access to your data is controlled  
+- How data is protected in transit and at rest  
+- How multi-tenant isolation works  
+- How AI features handle your data  
+- What TradeMonkey is and is not responsible for  
+- How to contact us about security questions
+
+For all security-related questions or concerns, email **hello@trademonkey.app**.
+
+## High-Level Security Approach
+
+TradeMonkey uses a layered security model:
+
+- **Authentication** – Users sign in with email and password, handled by Supabase Auth.  
+- **Authorization** – Database Row-Level Security (RLS) ensures users can only access their own data.  
+- **Encryption** – All traffic uses HTTPS; the database is encrypted at rest by our infrastructure provider.  
+- **Separation of Concerns** – Application data, authentication, billing, and AI processing each use specialized, hardened services (Supabase, Stripe, OpenAI).
+
+TradeMonkey does not store plain text passwords or payment card numbers.
+
+## Authentication and Access Control
+
+- Sign-up and login are handled by **Supabase Auth**.  
+- Passwords are **hashed** before storage and never stored in plain text.  
+- Each request is tied to an authenticated user.  
+- Access to data is enforced at the **database level** using Row-Level Security:
+  - Each record is associated with an organization and/or user.
+  - Queries automatically return only data that belongs to the authenticated user's organization.
+  - Users cannot see or modify other users' data.
+
+Sessions are managed with secure cookies and validated on each request.
+
+## Data Protection (In Transit and At Rest)
+
+- **In transit:**  
+  - All traffic between your browser and TradeMonkey runs over **HTTPS (TLS)**.  
+  - Session cookies are marked to be sent only over secure connections.
+
+- **At rest:**  
+  - Database and storage are encrypted at rest by Supabase and underlying cloud providers.  
+  - Backups are also stored in encrypted form.
+
+TradeMonkey does not run over plain HTTP.
+
+## Multi-Tenant Isolation
+
+TradeMonkey is multi-tenant: multiple users and organizations share the same underlying infrastructure.
+
+Isolation is enforced by:
+
+- An **organization identifier** attached to all relevant records (accounts, trades, rules, reflections, etc.).  
+- Database-level **Row-Level Security (RLS)** policies that ensure:
+  - A user can only read and write data for their own organization.
+  - Cross-tenant access is blocked even if application code is incorrect.
+
+This means one customer cannot see or modify another customer's data.
+
+## AI Features and Your Data
+
+TradeMonkey uses OpenAI's API to power certain features (for example AI Diagnostics, AI Deep Dive Explorer, Rules Coach, Reflection Analysis, and Trade Thread AI).
+
+### What AI Typically Sees
+
+For most AI features, TradeMonkey sends **aggregated statistics**, not raw trade-by-trade data or personal identifiers. Examples include:
+
+- Counts of trades, win rates, average P&L  
+- Aggregated breakdowns by emotion or rule outcome  
+- Summary metrics needed to describe patterns
+
+The AI uses these aggregates to produce **clinical, descriptive insights**. It does not receive:
+
+- Your name, email, or login details  
+- Broker account numbers or platform credentials
+
+### Reflection Analysis (Special Case)
+
+Reflection Analysis is the only feature where **your written text** may be sent to the AI:
+
+- When you click a button such as "Analyze with AI," the reflection text you wrote is sent to the model for analysis.
+- This is **optional**. You can always keep writing reflections without AI analysis.
+
+If you prefer not to send reflection text to AI, simply do not request AI analysis for those entries.
+
+## What TradeMonkey Is Not Responsible For
+
+TradeMonkey secures the application, database, and its own infrastructure. It does **not** control:
+
+- **Broker platforms** (FTMO, prop firms, retail brokers, etc.)  
+- **Trading platforms** (MT5, cTrader, TradingView, etc.)  
+- **Your devices** (laptop, phone, tablet)  
+- **Your network** (home Wi-Fi, office network, public Wi-Fi)
+
+Your responsibilities include:
+
+- Using a strong, unique password for TradeMonkey and your broker accounts  
+- Keeping your devices and browser updated and free of malware  
+- Protecting access to your devices (screen lock, logout on shared computers)  
+- Avoiding untrusted networks or using a VPN when needed
+
+TradeMonkey does not store broker logins or card numbers and cannot secure third-party platforms on your behalf.
+
+## Contact and Security Questions
+
+If you have a security question, concern, or believe you have found a potential issue:
+
+- Email: **hello@trademonkey.app**  
+- Subject: `Security question` or `Potential security issue`
+
+Please include:
+
+- A clear description of the issue  
+- Steps to reproduce (if applicable)  
+- Any screenshots or logs that help explain the behavior (do not include passwords or full card numbers)
+
+## Summary
+
+- TradeMonkey uses **authentication, authorization, encryption, and RLS** to protect your data.  
+- Only your organization can see your organization's data.  
+- AI features primarily use **aggregated, non-identifying** information; Reflection Analysis is optional and only sends the text you choose to analyze.  
+- Core journaling and trading data remain under your control and are not exposed outside the platform except where you explicitly opt in.  
+- Broker security, device security, and network security remain your responsibility.  
+- For anything security-related, contact **hello@trademonkey.app**.

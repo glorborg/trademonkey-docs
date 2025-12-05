@@ -1,0 +1,151 @@
+# AI Usage Limits
+
+## Purpose of This Page
+
+TradeMonkey includes several AI-powered features. These features have **daily usage limits** to ensure consistent performance, fair access, and system stability.
+
+This page explains **what AI limits are**, **how they work**, and **where you can view your usage**.
+
+**Important:**  
+AI limits apply only to AI-powered features. Core journaling, analytics, rule tracking, trade entry, and reflections are **always unlimited**.
+
+---
+
+## What AI Limits Are
+
+AI usage limits are **daily quotas** that define how many times each AI feature can be used within a 24-hour cycle.
+
+Limits vary depending on your current subscription, and the official **pricing page is the source of truth** for the latest quotas.
+
+---
+
+## AI Features With Daily Limits
+
+The following AI tools have daily limits:
+
+### 1. AI Diagnostics
+
+Generates a clinical summary of recent execution patterns.  
+One use = generating a diagnostics report.
+
+### 2. AI Deep Dive Explorer
+
+Structured, multi-step pattern exploration.  
+One use = each follow-up or new exploration step.
+
+### 3. Rules Coach
+
+Helps clarify and define actionable trading rules.  
+One use = each AI interaction inside a coaching session.
+
+### 4. Reflection Analysis
+
+AI interpretation of written reflections.  
+One use = analyzing a reflection.
+
+### 5. Trade Thread AI
+
+Summaries of the full trade lifecycle.  
+One use = generating a thread summary. Cached results do not consume quota.
+
+---
+
+## Features That Are Not Limited
+
+All core TradeMonkey functionality remains unlimited:
+
+- Manual trade entry  
+- CSV imports (subject to per-import limits shown on pricing page)  
+- Rule creation and rule evaluations  
+- Psychology logging (emotions, conviction, adherence)  
+- Writing reflections and journal entries  
+- Execution Recap  
+- Time-Scoped Analytics  
+- Tags and tag-based filtering  
+- Calendar & news guardrails  
+- Viewing dashboards and analytics  
+- Viewing past AI outputs that were already generated  
+
+AI usage limits affect **only** the production of new AI-generated insights.
+
+---
+
+## Why Limits Exist
+
+Daily limits exist to:
+
+- Ensure stable and predictable performance for all users  
+- Keep the system resilient to misuse or rapid-fire requests  
+- Maintain sustainable operation of AI features  
+- Encourage intentional use of AI-generated insights  
+
+Limits help keep the product accessible while ensuring consistency across the user base.
+
+---
+
+## How Limits Reset
+
+AI limits reset **once per day at midnight UTC**.
+
+When the reset occurs:
+
+- All AI feature quotas return to full  
+- Any features that reached their limit become available again  
+
+Your local time equivalent is displayed anywhere limits are shown.
+
+---
+
+## Where You Can See Your Usage
+
+You can view AI usage and remaining quota in:
+
+### 1. Each AI Feature Page
+
+Inline display showing:
+
+- How many uses you’ve consumed  
+- How many remain  
+- When the quota resets  
+
+### 2. Settings → Usage
+
+A consolidated overview showing:
+
+- Your current subscription’s limits  
+- Today’s usage for each AI feature  
+- The next reset time  
+
+### 3. Limit Reached Messages
+
+When a limit is exhausted, the feature becomes temporarily unavailable and displays a clear reset time.
+
+---
+
+## What Happens When You Hit a Limit
+
+- The specific AI feature becomes unavailable until the next reset.  
+- All core journaling, analytics, and rule-tracking features remain fully accessible.  
+- You can continue working normally; only AI-generated insights pause temporarily.
+
+---
+
+## Plan-Specific Limits
+
+Different subscription levels may include different quotas.  
+For current limits, always refer to the **pricing page**, as plan inclusions can change over time.
+
+This document does not list plan names or numbers.
+
+---
+
+## Key Takeaways
+
+- Only AI features have daily limits.  
+- All core trading, journaling, analytics, and rule features are unlimited.  
+- Limits reset daily at midnight UTC.  
+- Usage information is always visible in Settings and on AI pages.  
+- Past AI results remain visible even after reaching limits.  
+- For the latest quota amounts, refer to the pricing page.
+
+
