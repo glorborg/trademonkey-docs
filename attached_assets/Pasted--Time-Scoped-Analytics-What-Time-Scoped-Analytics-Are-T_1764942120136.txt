@@ -1,0 +1,806 @@
+# Time-Scoped Analytics
+
+
+## What Time-Scoped Analytics Are
+
+
+Time-scoped analytics are performance metrics and behavioral patterns calculated over a specific time window rather than your entire trading history. Instead of viewing "all-time" statistics, you can filter to:
+
+
+- **Last 10 trades**: Most recent 10 completed trades
+- **Last 20 trades**: Most recent 20 completed trades
+- **Last 7 days**: All trades from the past week
+- **Last 30 days**: All trades from the past month
+- **All Time**: Complete trading history (no filter)
+
+
+When you apply a time scope, all analytics recalculate using only trades within that window. This reveals whether your behavior is improving, stable, or deteriorating over time.
+
+
+Time-scoped analytics answer: "How am I trading now versus how I traded before?"
+
+
+## Why Recent Windows Reveal Directionality
+
+
+All-time data shows your cumulative patterns. Recent windows show your current trajectory.
+
+
+### All-Time Data (Baseline)
+Your complete trading history aggregates all behavior:
+
+
+- Win rate: 52% (300 trades)
+- Average conviction at entry: 6.5
+- Plan adherence: 65%
+- Most common entry emotion: Confident (45% of trades)
+
+
+This is your baseline. It shows where you've been, but not where you're going.
+
+
+### Recent Data (Trajectory)
+Filtering to "Last 30 days" or "Last 20 trades" shows current behavior:
+
+
+- Win rate: 48% (down from all-time 52%)
+- Average conviction at entry: 5.2 (down from all-time 6.5)
+- Plan adherence: 52% (down from all-time 65%)
+- Most common entry emotion: FOMO (38% of recent trades, up from 22% all-time)
+
+
+This is your trajectory. It shows behavioral deterioration.
+
+
+### Contrast Reveals Directionality
+Comparing recent window to all-time baseline:
+
+
+- **Improvement**: Recent metrics better than all-time → "You're trading better now than your historical average"
+- **Stability**: Recent metrics similar to all-time → "Consistent behavior, no significant change"
+- **Decline**: Recent metrics worse than all-time → "Recent behavior has deteriorated from your baseline"
+
+
+Time-scoped analytics make direction visible. All-time data is static. Recent data shows momentum.
+
+
+![Time Scope Comparison](/img/time-scope-comparison.png)
+
+
+## Time Window Options
+
+
+TradeMonkey provides five time scope filters:
+
+
+### Last 10 Trades
+**Purpose**: Ultra-recent behavior snapshot
+
+
+**Use case**: Detect immediate behavioral shifts
+
+
+**Minimum trades required**: 10
+
+
+**Example scenarios**:
+- You suspect your last session had poor discipline → Filter to Last 10 to isolate recent trades
+- You changed a trading rule yesterday → Filter to Last 10 to see if compliance improved
+- You're on a losing streak → Filter to Last 10 to see if emotions shifted
+
+
+**Strengths**: Immediate feedback, isolates very recent behavior
+
+
+**Limitations**: Small sample, high variance, not statistically stable
+
+
+### Last 20 Trades
+**Purpose**: Short-term trend detection
+
+
+**Use case**: Identify emerging patterns without long-term noise
+
+
+**Minimum trades required**: 20
+
+
+**Example scenarios**:
+- Week 1 of a new strategy → Filter to Last 20 to evaluate performance without historical data dilution
+- Testing new trading hours → Filter to Last 20 to compare session performance
+- Post-prop challenge pass → Filter to Last 20 to see if funded account psychology differs from challenge
+
+
+**Strengths**: Recent enough to reflect current behavior, large enough to reduce noise
+
+
+**Limitations**: Still somewhat volatile, one outlier trade (huge win/loss) can skew metrics
+
+
+### Last 7 Days
+**Purpose**: Weekly behavioral review
+
+
+**Use case**: Detect session-based or short-term emotional patterns
+
+
+**Minimum trades required**: Varies (depends on trading frequency)
+
+
+**Example scenarios**:
+- End-of-week review → Filter to Last 7 Days to summarize this week's behavior
+- Compare this week to last week → Toggle between Last 7 Days windows
+- Detect intraweek decay → Compare Monday-Wednesday vs Thursday-Friday behavior
+
+
+**Strengths**: Calendar-aligned (natural review boundary), captures typical weekly cycle
+
+
+**Limitations**: Trade count varies (5 trades one week, 30 trades another week makes comparison difficult)
+
+
+### Last 30 Days
+**Purpose**: Monthly trend analysis
+
+
+**Use case**: Detect medium-term behavioral changes
+
+
+**Minimum trades required**: Varies (typically 20-50 trades for active traders)
+
+
+**Example scenarios**:
+- Monthly performance review → Filter to Last 30 Days to evaluate this month
+- Compare challenge month to funded month → Toggle between 30-day windows
+- Detect monthly decay → Compare Week 1 vs Week 4 behavior within the 30-day window
+
+
+**Strengths**: Smooths out weekly volatility, statistically more stable than shorter windows
+
+
+**Limitations**: May hide intraweek or intraday patterns, slower to detect recent shifts
+
+
+### All Time
+**Purpose**: Complete historical baseline
+
+
+**Use case**: Benchmark for comparison
+
+
+**Minimum trades required**: All trades in database
+
+
+**Example scenarios**:
+- Establish baseline → View All Time to understand long-term averages
+- Compare recent to historical → Toggle between Last 20 and All Time to see trajectory
+- Identify long-term patterns → Detect if certain emotions or setups have always underperformed
+
+
+**Strengths**: Maximum statistical stability, lowest variance, true baseline
+
+
+**Limitations**: Dilutes recent behavior, cannot detect recent changes, includes outdated data (early learning curve trades)
+
+
+## Which Analytics Modules Update With Time Scope
+
+
+When you apply a time scope filter, the following analytics recalculate using only trades within the selected window:
+
+
+### Performance Metrics (Dashboard and Psychology Page)
+
+
+**Win Rate**
+- Recalculated as: (Winning trades in window) / (Total trades in window) × 100
+- Example: All Time: 52%, Last 20: 45% → Recent decline
+
+
+**Average P&L**
+- Recalculated as: (Sum of P&L in window) / (Trade count in window)
+- Example: All Time: +$85/trade, Last 20: +$62/trade → Recent performance drop
+
+
+**Total P&L**
+- Recalculated as: Sum of P&L for all trades in window
+- Example: All Time: +$25,500, Last 30 Days: +$1,240 → Monthly contribution
+
+
+**Risk/Reward Metrics**
+- Average risk per trade (SL distance × position size)
+- Average reward per trade (TP distance × position size)
+- Average R:R ratio
+- Example: All Time R:R 2.1:1, Last 20 R:R 1.5:1 → Risk management deterioration
+
+
+### Emotion-Based Analytics (Psychology Page)
+
+
+**Performance by Emotion**
+- Win rate and average P&L calculated per emotion tag using only trades in window
+- Example:
+  - All Time FOMO: 25% win rate (40 trades)
+  - Last 20 FOMO: 10% win rate (8 trades) → Recent FOMO trades performing worse
+
+
+**Emotional Cost**
+- Total P&L loss attributed to specific emotions, recalculated for window
+- Example:
+  - All Time FOMO cost: -$4,200
+  - Last 30 Days FOMO cost: -$1,600 → Recent month had significant FOMO losses
+
+
+**Most Common Emotions**
+- Frequency count of emotions recalculated for window
+- Example:
+  - All Time: Confident (45%), Calm (32%), FOMO (22%)
+  - Last 20: FOMO (38%), Confident (28%), Fear (25%) → Emotional shift to impulsive/fearful
+
+
+### Conviction-Based Analytics (Psychology Page)
+
+
+**Average Conviction Scores**
+- Entry conviction, exit conviction, and conviction gap recalculated for window
+- Example:
+  - All Time entry conviction: 6.8
+  - Last 20 entry conviction: 5.1 → Recent trades have lower conviction
+
+
+**Conviction Gap Analysis**
+- Distribution of conviction gaps (how many trades with gap < -3, -3 to -1, 0, +1 to +3, > +3)
+- Example:
+  - All Time: 12% of trades with gap < -4
+  - Last 20: 35% of trades with gap < -4 → Recent discipline decay spike
+
+
+**Performance by Conviction Level**
+- Win rate and P&L calculated per conviction range (1-3, 4-6, 7-10) using only trades in window
+- Example:
+  - All Time conviction 7-10: 68% win rate
+  - Last 20 conviction 7-10: 72% win rate → High conviction still performs, but you're taking fewer high-conviction trades
+
+
+### Plan Adherence Analytics (Psychology Page)
+
+
+**Adherence Percentage**
+- Percentage of trades with full adherence (Yes) vs partial vs violation (No)
+- Example:
+  - All Time: 68% full adherence
+  - Last 20: 45% full adherence → Recent discipline breakdown
+
+
+**Adherence Breakdown**
+- Counts of entry adherence and exit adherence separately
+- Example:
+  - All Time: Entry 78% Yes, Exit 62% Yes
+  - Last 20: Entry 75% Yes, Exit 40% Yes → Exit discipline specifically deteriorated
+
+
+**Performance by Adherence**
+- Win rate and P&L for trades with Yes vs Partial vs No adherence
+- Example:
+  - All Time: Full adherence 65% win rate, No adherence 38% win rate
+  - Last 20: Full adherence 70% win rate, No adherence 20% win rate → Discipline gap widening
+
+
+### Rules vs Reality (Rules Page)
+
+
+**Overall Adherence Score**
+- Percentage of rules passed vs total rules evaluated
+- Example:
+  - All Time: 78% rule adherence
+  - Last 30 Days: 65% rule adherence → Recent rule compliance decline
+
+
+**Rule-Level Adherence**
+- Per-rule violation frequency recalculated for window
+- Example:
+  - Rule: "Max 3 trades per day"
+  - All Time: Violated 8% of days (24 violations out of 300 trading days)
+  - Last 30 Days: Violated 25% of days (8 violations out of 32 trading days) → Recent spike in overtrading
+
+
+**Most Violated Rules**
+- Ranking of rules by violation frequency within window
+- Example:
+  - All Time top violation: "Max 3 trades per day"
+  - Last 20: Top violation: "No trading after 3 losses" → Recent emotional trading pattern
+
+
+### Time-in-Trade Analysis (Psychology Page)
+
+
+**Average Trade Duration**
+- Mean time from entry to exit for trades in window
+- Example:
+  - All Time: 3.2 hours average
+  - Last 20: 1.8 hours average → Recent trades held for shorter duration (impatience?)
+
+
+**Duration by Outcome**
+- Separate averages for winners vs losers
+- Example:
+  - All Time: Winners 4.1 hours, Losers 2.3 hours
+  - Last 20: Winners 3.8 hours, Losers 1.2 hours → Recent losers closed much faster (panic?)
+
+
+### Exit Reason Analysis (Psychology Page)
+
+
+**Exit Reason Distribution**
+- Frequency of each exit reason within window
+- Example:
+  - All Time: Stop loss 38%, Take profit 42%, Manual close 20%
+  - Last 20: Stop loss 45%, Take profit 15%, Manual close 40% → Recent shift to manual closes (discipline breakdown)
+
+
+![Analytics Recalculation](/img/analytics-recalculation.png)
+
+
+## Connection to Execution Mirror Philosophy
+
+
+Time-scoped analytics are the fourth dimension of TradeMonkey's execution mirror:
+
+
+1. **Plan vs Execution**: Did you follow your plan? (static, per-trade)
+2. **State vs Outcome**: What emotions produced what results? (aggregated)
+3. **Rules vs Reality**: Did you follow your rules? (aggregated)
+4. **Historical vs Recent**: Is your behavior improving or declining? (temporal) ← Time-Scoped Analytics
+
+
+### Mirror Language in Time-Scoped Context
+
+
+Time-scoped analytics use mirror language to show trajectory without judgment:
+
+
+**Improvement Pattern (Descriptive)**:
+> "Last 30 days: Plan adherence 82%, entry conviction 7.2, FOMO trades 8%. All Time: Plan adherence 65%, entry conviction 6.5, FOMO trades 22%. Pattern: Recent behavior shows improvement across all discipline metrics."
+
+
+**NOT Coaching (Prescriptive)**:
+> "Great job improving! Keep following your plan and maintaining high conviction. You're doing much better."
+
+
+**Decline Pattern (Descriptive)**:
+> "Last 20 trades: Win rate 38%, conviction gap -4.2, rule adherence 52%. All Time: Win rate 52%, conviction gap -1.8, rule adherence 78%. Pattern: Recent behavior shows deterioration across performance and discipline metrics."
+
+
+**NOT Coaching (Prescriptive)**:
+> "Your trading has gotten worse. You need to refocus and get back to basics. Stop breaking your rules."
+
+
+**Stability Pattern (Descriptive)**:
+> "Last 30 days: Win rate 51%, conviction 6.6, adherence 67%. All Time: Win rate 52%, conviction 6.5, adherence 68%. Pattern: Consistent behavior, no significant change detected."
+
+
+**NOT Coaching (Prescriptive)**:
+> "You're stuck in a rut. Try something new to improve performance."
+
+
+The mirror shows whether behavior is improving, stable, or declining. It does not tell you what to do about it.
+
+
+### Why Directionality Matters for Self-Awareness
+
+
+Knowing you have a 52% all-time win rate is useful. Knowing that your recent win rate is 38% is critical. It indicates:
+
+
+- Something changed recently (strategy, emotions, rules, external factors)
+- Current trajectory is downward
+- Intervention may be needed (or not, depending on context)
+
+
+Time-scoped analytics make behavioral change visible. Without time filtering, you might not notice gradual decline until significant damage is done.
+
+
+Example:
+> Trader has 300 trades, all-time win rate 52%. Last 50 trades averaged 42% win rate. If viewing All Time only, win rate appears fine (52%). If filtering to Last 30 Days or Last 20, decline is obvious (42%). Time scope reveals the trend.
+
+
+## Meaningful Contrast Examples
+
+
+These examples show how time-scoped filters reveal behavioral changes:
+
+
+### Example 1: Post-Challenge Discipline Collapse
+
+
+**Context**: Trader passed prop firm challenge, now trading funded account.
+
+
+**All Time Metrics** (includes challenge + funded):
+- Win rate: 58%
+- Plan adherence: 82%
+- Entry conviction: 7.4
+- Most common emotion: Confident (52%)
+- Rule violations: 5% of trades
+
+
+**Last 30 Days Metrics** (funded account only):
+- Win rate: 44%
+- Plan adherence: 58%
+- Entry conviction: 5.8
+- Most common emotion: FOMO (38%)
+- Rule violations: 22% of trades
+
+
+**Pattern Detected**:
+After passing challenge (high discipline, high conviction), funded account trading shows significant behavioral deterioration. Possible explanations:
+
+
+- Psychological relief after passing challenge (discipline relaxed)
+- Larger account size creates different emotional pressure
+- Strategy that worked in challenge doesn't translate to live conditions
+
+
+Time-scoped analytics reveal this shift. All-time data alone would hide it.
+
+
+### Example 2: Strategy Adjustment Improvement
+
+
+**Context**: Trader identified afternoon deterioration pattern and created "No trading after 2 PM" rule 4 weeks ago.
+
+
+**All Time Metrics** (includes pre-rule and post-rule):
+- Win rate: 48%
+- Plan adherence: 62%
+- Afternoon trades (after 2 PM): 35% of total trades, 32% win rate
+
+
+**Last 30 Days Metrics** (post-rule enforcement):
+- Win rate: 56%
+- Plan adherence: 78%
+- Afternoon trades (after 2 PM): 8% of total trades, 45% win rate (fewer, better quality)
+
+
+**Pattern Detected**:
+Rule enforcement improved performance and discipline. Time scope isolates post-intervention behavior to validate the change worked.
+
+
+### Example 3: Emotional Shift Under Drawdown
+
+
+**Context**: Trader experienced 2-week losing streak starting 3 weeks ago.
+
+
+**All Time Metrics**:
+- Entry emotions: Confident 48%, Calm 32%, FOMO 18%, Revenge 8%
+- Conviction gap: -1.8 average
+- "Revenge" emotion cost: -$2,400 total (18 trades over 8 months)
+
+
+**Last 20 Trades Metrics** (mostly during losing streak):
+- Entry emotions: FOMO 35%, Revenge 28%, Fear 22%, Confident 15%
+- Conviction gap: -4.6 average
+- "Revenge" emotion cost: -$1,100 (7 trades in 3 weeks)
+
+
+**Pattern Detected**:
+Emotional trading spiked during drawdown. Revenge and FOMO trades increased 3x. Time scope reveals acute emotional shift that all-time data dilutes.
+
+
+### Example 4: Intramonth Decay
+
+
+**Context**: Trader suspects discipline weakens as month progresses (pressure to hit profit targets).
+
+
+**Comparison**:
+- **Days 1-15 of month** (filter to first 15 days):
+  - Win rate: 62%
+  - Plan adherence: 81%
+  - Conviction gap: -1.2
+  - Rule violations: 6%
+
+
+- **Days 16-30 of month** (filter to last 15 days):
+  - Win rate: 42%
+  - Plan adherence: 58%
+  - Conviction gap: -3.8
+  - Rule violations: 24%
+
+
+**Pattern Detected**:
+Behavioral decay occurs in second half of month. Possible explanations:
+
+
+- Pressure to recover early losses (if month started poorly)
+- Overconfidence from early gains (if month started well)
+- Mental fatigue accumulation
+
+
+Time-scoped filters allow intramonth comparison to detect this pattern.
+
+
+### Example 5: Stable Baseline vs Volatile Recent
+
+
+**Context**: Trader has 400 trades all-time, generally consistent. Last 10 trades were highly volatile.
+
+
+**All Time Metrics**:
+- Win rate: 54%
+- Average P&L: +$92/trade
+- Conviction 7-10 trades: 65% of total
+
+
+**Last 10 Trades Metrics**:
+- Win rate: 20% (2 wins, 8 losses)
+- Average P&L: -$185/trade
+- Conviction 7-10 trades: 30% of total
+
+
+**Pattern Detected**:
+Recent extreme underperformance. All-time data looks fine (54% win rate stable). Last 10 reveals acute issue (80% loss rate).
+
+
+Time scope isolates the anomaly. Without it, you might dismiss recent struggles as normal variance.
+
+
+![Meaningful Contrasts](/img/time-scope-contrasts.png)
+
+
+## How Time Scope Filters Work
+
+
+Time-scoped analytics are not pre-calculated. When you select a time window, TradeMonkey:
+
+
+1. **Filters trades**: Retrieves only trades within the selected window (by date range or trade count)
+2. **Recalculates all metrics**: Win rate, average P&L, emotion counts, conviction averages, adherence percentages, rule violations—all recalculated from scratch using only filtered trades
+3. **Regenerates charts and visualizations**: All graphs, tables, and summaries update to reflect only the filtered data
+4. **Preserves context**: All-time data remains available for comparison (toggle between windows)
+
+
+### No Data Caching
+Each time you change the filter, calculations re-run. This ensures accuracy but may take 1-2 seconds for large trade histories (500+ trades).
+
+
+### Trade Count vs Date Range
+- **Trade count filters** (Last 10, Last 20): Always return exactly N most recent completed trades
+- **Date range filters** (Last 7 Days, Last 30 Days): Return all trades closed within the date range (count varies)
+
+
+Example:
+- Last 20 Trades: Always 20 trades (if you have at least 20)
+- Last 7 Days: Could be 5 trades (slow week) or 35 trades (active week)
+
+
+Trade count filters produce consistent sample sizes for comparison. Date range filters align with calendar boundaries.
+
+
+### Closed Trades Only
+Open trades (status = "entered") are excluded from time-scoped analytics. Only closed trades (status = "closed") are included. This ensures:
+
+
+- P&L is realized (not floating)
+- Full trade data exists (entry + exit emotions, conviction, adherence)
+- Comparisons are apples-to-apples
+
+
+### Filter Persistence
+Time scope filter selection persists across pages:
+
+
+- Select "Last 20" on Psychology page → Navigate to Rules vs Reality → Still shows Last 20
+- Change to "All Time" on Dashboard → Navigate to Psychology → Shows All Time
+
+
+Reset to "All Time" manually if you want to return to baseline view.
+
+
+## Minimum Data Requirements
+
+
+Time-scoped analytics require sufficient data to produce meaningful patterns. Guidelines:
+
+
+### Last 10 Trades
+**Minimum trades required**: 10 closed trades
+
+
+**Statistical stability**: Low (small sample, high variance)
+
+
+**Use case**: Immediate feedback only (not for trend detection)
+
+
+**Meaningful analysis**:
+- ✅ Detect recent emotional shift (e.g., 8 out of 10 tagged with FOMO)
+- ✅ Check if recent rule changes are being followed
+- ❌ Calculate reliable win rate (10 trades = ±15% variance)
+- ❌ Detect emotion-based performance (need >5 trades per emotion)
+
+
+### Last 20 Trades
+**Minimum trades required**: 20 closed trades
+
+
+**Statistical stability**: Medium (moderate sample, some variance)
+
+
+**Use case**: Short-term trend detection
+
+
+**Meaningful analysis**:
+- ✅ Compare recent to all-time (reliable if all-time has 100+ trades)
+- ✅ Detect conviction trends (20 trades sufficient for average)
+- ✅ Identify most common recent emotions (if 5+ trades per emotion)
+- ❌ Analyze rare emotions (if emotion appears 1-2 times, pattern not meaningful)
+- ❌ Detect multi-dimensional patterns (e.g., "FOMO + afternoon + after losses" needs larger sample)
+
+
+### Last 7 Days
+**Minimum trades required**: 10-15 closed trades
+
+
+**Statistical stability**: Varies (depends on trade count)
+
+
+**Use case**: Weekly review
+
+
+**Meaningful analysis**:
+- ✅ Compare this week to last week (if both weeks have 10+ trades)
+- ✅ Detect intraweek patterns (if daily trade count is consistent)
+- ❌ Analyze rare behaviors (if event occurs once in 7 days, not a pattern)
+
+
+**Note**: If you trade 1-2 times per week, Last 7 Days may only include 2 trades (insufficient for analysis). Use Last 20 Trades instead.
+
+
+### Last 30 Days
+**Minimum trades required**: 20-30 closed trades
+
+
+**Statistical stability**: High (large sample, low variance)
+
+
+**Use case**: Monthly trend analysis, strategy validation
+
+
+**Meaningful analysis**:
+- ✅ Reliable win rate (20+ trades provides ±10% confidence)
+- ✅ Detect emotion-performance correlations (if 5+ trades per emotion)
+- ✅ Validate rule effectiveness (sufficient data to compare pre/post rule)
+- ✅ Identify multi-dimensional patterns (e.g., "low conviction + afternoon + FOMO")
+
+
+**Recommended for**: Primary time scope for most traders
+
+
+### All Time
+**Minimum trades required**: 30+ trades (recommended 100+ for stable baseline)
+
+
+**Statistical stability**: Maximum (complete history, lowest variance)
+
+
+**Use case**: Baseline for comparison
+
+
+**Meaningful analysis**:
+- ✅ Establish performance baseline (true long-term average)
+- ✅ Identify consistent patterns (behaviors that appear across all time periods)
+- ✅ Benchmark for improvement (compare recent to all-time)
+- ❌ Detect recent changes (recent behavior diluted by historical data)
+
+
+### Recommended Workflow by Trade Count
+
+
+**If you have 10-50 trades total**:
+- Use All Time as baseline
+- Use Last 10 or Last 20 for recent comparison
+- Avoid date range filters (insufficient data within narrow windows)
+
+
+**If you have 50-200 trades total**:
+- Use All Time as baseline
+- Use Last 20 or Last 30 Days for trends
+- Avoid Last 10 (too volatile)
+
+
+**If you have 200+ trades total**:
+- Use All Time as baseline
+- Use Last 30 Days as primary review window (stable + recent)
+- Use Last 20 for very recent shifts
+- Use Last 7 Days for weekly reviews (if you trade 10+ times per week)
+
+
+## Limitations and Notes
+
+
+### Time Scope Does Not Change Underlying Data
+Filters adjust which trades are included in calculations. They do not modify trade data. If you filter to Last 20 and see poor performance, switching back to All Time does not erase the recent poor performance—it only shows the blended average.
+
+
+### Small Samples Produce Noise
+Last 10 trades with 3 outliers (e.g., 3 huge wins or losses) will skew all metrics. Use longer time windows for stable patterns. Use shorter windows only for immediate feedback.
+
+
+### Comparison Requires Context
+Comparing Last 20 to All Time is only meaningful if:
+
+
+- All Time has sufficient data (100+ trades preferred)
+- Recent behavior is reasonably representative (not one extreme session)
+- You understand external factors (did market conditions change? did you change strategies?)
+
+
+Time scope shows the data. You provide the context.
+
+
+### Filters Are Not Permanent
+Time scope selection resets if you close the browser or log out (depending on implementation). Re-select your preferred filter each session.
+
+
+### Multi-Account Filtering
+If you trade multiple accounts, time scope applies across all selected accounts. If you want to isolate one account's recent behavior:
+
+
+1. Filter by account first (select single account)
+2. Then apply time scope (e.g., Last 30 Days)
+
+
+This shows recent behavior for that specific account only.
+
+
+### Date Ranges Use Timezone
+Last 7 Days and Last 30 Days use your configured timezone. If timezone is wrong:
+
+
+- Trades may be included or excluded incorrectly
+- Daily boundaries are shifted
+- Analytics may show unexpected results
+
+
+Ensure timezone setting is correct for accurate date-based filtering.
+
+
+### Closed Trades Only
+Open trades are excluded. If you have 10 open trades and filter to Last 20:
+
+
+- Last 20 closed trades are shown
+- Open trades do not count toward the 20
+
+
+This ensures analytics only use complete trade data.
+
+
+### Time Scope Does Not Affect AI Features
+AI Diagnostics, Deep Dive Explorer, and Thread Summaries analyze trades based on their own internal logic. They do not respect time scope filters. They always use complete available data (or specific trades you select for analysis).
+
+
+Time scope only affects analytics dashboards (Psychology page, Rules page, Dashboard).
+
+
+### Historical Trades Retain Original Context
+If you logged a trade 6 months ago with "Confident" emotion, filtering to Last 20 excludes that trade from calculations, but the trade itself is unchanged. When you toggle back to All Time, that trade reappears with original data intact.
+
+
+### Time Scope Is a Lens, Not a Solution
+Seeing recent decline is useful. Time-scoped analytics show you the pattern. They do not explain why decline occurred or how to fix it. You must interpret:
+
+
+- What changed recently? (strategy, rules, emotional state, external factors?)
+- Is the decline acceptable? (learning curve? market conditions?)
+- What action to take? (adjust rules, reduce trading frequency, change session time?)
+
+
+The mirror shows directionality. You decide what it means and what to do about it.
+
+
+
+
+

@@ -1,0 +1,784 @@
+# AI Diagnostics
+
+
+## What AI Diagnostics Is
+
+
+AI Diagnostics is a single-pass analytical summary that identifies behavioral patterns across your recent trades. It processes your trading data—emotions, conviction scores, plan adherence, rule violations, and outcomes—to generate a clinical report of observable patterns.
+
+
+This is not a conversation. It is not exploratory. It is a one-time diagnostic snapshot that answers: "What patterns exist in my recent trading behavior?"
+
+
+AI Diagnostics provides breadth: it scans all available dimensions of your data (emotions, conviction, adherence, rules, timing, outcomes) and highlights the most significant patterns. It does not go deep on any single pattern—that is the role of AI Deep Dive Explorer.
+
+
+## Purpose and Role
+
+
+AI Diagnostics serves as a behavioral pattern detector. After logging 20-50 trades, you run AI Diagnostics to surface:
+
+
+- **Emotional cost patterns**: Which emotions correlate with losses?
+- **Conviction gaps**: When does confidence collapse during execution?
+- **Discipline breakdown**: Where does plan adherence fail?
+- **Rule violation clusters**: Which rules are violated most frequently?
+- **Time-based patterns**: Does performance vary by session or time of day?
+- **Setup quality indicators**: Do certain tags or strategies underperform?
+
+
+The diagnostic output is a structured report, not a conversation. You read it, note significant patterns, and decide what (if anything) to investigate further using other features.
+
+
+### AI Diagnostics vs Other Features
+
+
+**AI Diagnostics (Breadth)**
+- **Purpose**: Scan all data dimensions for significant patterns
+- **Output**: Structured summary report (5-10 key findings)
+- **Interaction**: One-way (you request, AI delivers report, done)
+- **Use case**: "What patterns exist in my data?"
+
+
+**AI Deep Dive Explorer (Depth)**
+- **Purpose**: Explore one specific pattern in detail
+- **Output**: Conversational Q&A (up to 5 levels deep)
+- **Interaction**: Two-way (you ask, AI answers, you ask follow-up, repeat)
+- **Use case**: "Why does my conviction drop during trades?"
+
+
+**Trade Thread Summary (Narrative)**
+- **Purpose**: Explain what happened in one specific trade
+- **Output**: Single-trade timeline analysis
+- **Interaction**: One-way (you request, AI analyzes one trade, done)
+- **Use case**: "What happened during this specific losing trade?"
+
+
+**Rules Coach (Configuration)**
+- **Purpose**: Help define or explain trading rules
+- **Output**: Rule proposals or violation explanations
+- **Interaction**: Guided wizard or Q&A
+- **Use case**: "Help me create rules from my strategy description"
+
+
+AI Diagnostics is the starting point. It identifies patterns worth investigating. Deep Dive explores those patterns. Thread Summary explains individual trades. Rules Coach helps enforce discipline going forward.
+
+
+![AI Features Comparison](/img/ai-features-comparison.png)
+
+
+## What Inputs AI Diagnostics Uses
+
+
+AI Diagnostics analyzes all available trade data, prioritizing psychological and behavioral dimensions:
+
+
+### Primary Inputs (Required)
+
+
+**Trade Financial Data**
+- Entry and exit prices
+- Position size
+- P&L (realized profit/loss)
+- Stop loss and take profit (if set)
+- Trade status (closed trades only)
+- Entry and exit timestamps
+
+
+**Emotion Data**
+- Entry emotions (up to 3 per trade)
+- Exit emotions (up to 3 per trade)
+- Frequency counts of each emotion
+- Emotional transitions (entry → exit patterns)
+
+
+**Conviction Scores**
+- Entry conviction (1-10 scale)
+- Exit conviction (1-10 scale)
+- Conviction gap (exit - entry)
+- Gap distribution (how many trades with large negative gaps)
+
+
+**Plan Adherence Flags**
+- Entry plan adherence (Yes / Partial / No)
+- Exit plan adherence (Yes / Partial / No)
+- Adherence percentage overall
+- Adherence breakdown by outcome (did adherent trades perform better?)
+
+
+**Rule Violations**
+- Which rules were violated
+- Violation frequency per rule
+- Violation timing (at entry, during trade, at exit)
+- Overall rule adherence score
+
+
+### Secondary Inputs (Optional, Enhance Analysis)
+
+
+**Tags**
+- Setup tags (breakout, pullback, reversal, etc.)
+- Session tags (london-session, new-york-open, etc.)
+- Strategy tags (scalp, swing, etc.)
+- Performance by tag
+
+
+**Notes and Reflections**
+- Entry notes (setup reasoning)
+- Exit notes (exit reasoning)
+- Post-trade reflections
+- Common keywords or themes in notes
+
+
+**Time-Based Data**
+- Time of day for entry and exit
+- Day of week
+- Session context (morning, afternoon, evening)
+- Trade duration
+
+
+**Screenshots** (Context Only)
+- Screenshots are not directly analyzed by AI (image processing not implemented)
+- But their presence/absence is noted (trades with screenshots vs without)
+
+
+### Data Volume Requirements
+
+
+AI Diagnostics produces meaningful patterns with:
+
+
+- **Minimum**: 20 closed trades with emotion and conviction data
+- **Recommended**: 50+ trades for stable patterns
+- **Optimal**: 100+ trades for multi-dimensional analysis
+
+
+With fewer than 20 trades, AI Diagnostics will generate a report, but patterns may not be statistically reliable. The report will note data limitations.
+
+
+## Expected Output Structure
+
+
+AI Diagnostics generates a structured clinical report with 5-10 key findings. Each finding follows this format:
+
+
+### Finding Structure
+
+
+**Pattern Name**: Descriptive label (e.g., "Conviction Decay on Losing Trades")
+
+
+**Observation**: Factual statement of what the data shows
+
+
+**Evidence**: Specific numbers supporting the pattern
+
+
+**Context**: When/where the pattern occurs (time of day, setup type, etc.)
+
+
+**No Prescription**: The finding describes what exists, not what to do about it
+
+
+### Example Diagnostic Output
+
+
+```
+AI DIAGNOSTIC REPORT
+Generated: [Timestamp]
+Trades Analyzed: 52 (Last 30 Days)
+Data Completeness: Emotions 94%, Conviction 98%, Adherence 96%
+
+
+---
+
+
+FINDING 1: Conviction Decay During Execution
+Your conviction drops an average of 4.2 points from entry to exit on losing trades,
+but only 0.8 points on winning trades. This suggests confidence collapse predicts
+premature exits. Of 23 trades with conviction gap < -4, 19 (83%) were closed before
+stop loss or take profit was hit. Average P&L on these early-exit trades: -$88.
+
+
+Evidence: Entry conviction (losers): 7.4 avg, Exit conviction (losers): 3.2 avg.
+Winners: Entry 7.6, Exit 6.8 (stable).
+
+
+---
+
+
+FINDING 2: FOMO Entry Cost
+You tagged 12 trades with "FOMO" entry emotion this month. Win rate: 25% (3 wins, 9 losses).
+Average P&L: -$142 per trade. Total cost: -$1,704. FOMO trades averaged entry conviction
+of 4.1, significantly lower than your overall average of 6.8. Exit emotions on FOMO trades:
+Regret (10 times), Frustration (8 times).
+
+
+Evidence: FOMO trades: 12. Non-FOMO trades: 40. FOMO win rate: 25%. Non-FOMO win rate: 58%.
+
+
+---
+
+
+FINDING 3: Afternoon Discipline Breakdown
+Trades entered after 2:00 PM show 38% plan adherence vs 76% adherence before 2:00 PM.
+Afternoon trades: 18 total, 45% win rate, average P&L -$22. Morning trades: 34 total,
+62% win rate, average P&L +$118. Afternoon trades have higher conviction gaps (-3.1 avg)
+than morning trades (-1.4 avg).
+
+
+Evidence: Before 2 PM: 34 trades, 76% adherence. After 2 PM: 18 trades, 38% adherence.
+
+
+---
+
+
+FINDING 4: Rule Violation Clustering After Losses
+You violated "Max 3 trades per day" 8 times this month. Of these 8 violations, 7 occurred
+on days when your first trade was a loss. Pattern: After an opening loss, you continue
+trading despite exceeding limits. Days starting with a win: 2% violation rate. Days
+starting with a loss: 35% violation rate.
+
+
+Evidence: Days starting with loss: 20. Violations on those days: 7. Days starting with
+win: 24. Violations on those days: 1.
+
+
+---
+
+
+FINDING 5: High Conviction Exits Outperform
+Trades where exit conviction remained 7 or higher: 72% win rate (18 wins, 7 losses).
+Trades where exit conviction dropped below 5: 28% win rate (5 wins, 13 losses). This
+suggests maintaining conviction through execution correlates with positive outcomes.
+Exits with conviction < 5 were 85% premature (closed before stop or target).
+
+
+Evidence: Exit conviction ≥ 7: 25 trades, 72% win rate. Exit conviction < 5: 18 trades,
+28% win rate.
+```
+
+
+### Output Characteristics
+
+
+**Clinical Tone**: No motivational language, no criticism, no coaching. Pure observation.
+
+
+**Data-Specific**: Uses your actual numbers (trade counts, percentages, dollar amounts, conviction scores).
+
+
+**Correlation, Not Causation**: States what correlates (FOMO → losses) without claiming causation ("FOMO causes losses").
+
+
+**No Prescription**: Never says "You should stop trading FOMO setups" or "You need to maintain conviction." Only describes the pattern.
+
+
+**Contextualized**: Patterns include when/where they occur (time of day, after losses, certain setups).
+
+
+**Prioritized**: Most significant patterns listed first (ordered by impact: dollar cost, frequency, or deviation from baseline).
+
+
+![Sample Diagnostic Report](/img/sample-diagnostic-report.png)
+
+
+## Rate Limits and Cost Considerations
+
+
+AI Diagnostics is rate-limited to encourage thoughtful usage and prevent the trader from “analysis paralysis”.
+
+
+### Usage Limits
+
+
+**Daily Limit**: 3 requests per day per user
+
+
+**Reset Time**: Midnight UTC
+
+
+**Shared Limits**: AI Diagnostics does NOT share its limit with other AI features. You have:
+- 3 AI Diagnostics per day (separate)
+- 5 Trade Thread Summaries per day (separate)
+- 5 Reflection AI per day (separate)
+- 25 Deep Dive Explorer sessions per day (separate)
+- 20 Rules Coach requests per day (separate)
+
+
+### Cache Behavior
+
+
+AI Diagnostics caches results for 1 hour. If you request AI Diagnostics twice within 1 hour with no new trades logged:
+
+
+- Second request returns cached response
+- Does NOT consume a credit
+- Report is identical to first request
+
+
+If new trades are logged between requests:
+
+
+- Cache is invalidated
+- Fresh analysis runs
+- Consumes a new credit
+
+
+### When to Use Your Daily Credits
+
+
+**Recommended usage pattern**:
+
+
+**Credit 1**: End-of-week review (Friday or Sunday)
+- Review full week's trades
+- Generate diagnostic to identify weekly patterns
+- Use insights to plan next week
+
+
+**Credit 2**: Mid-month check-in (around day 15)
+- Review first half of month
+- Detect early warning signs of behavioral drift
+- Adjust rules or strategy if needed
+
+
+**Credit 3**: End-of-month review (last day or first day of new month)
+- Review full month's trades
+- Generate diagnostic to measure monthly performance and patterns
+- Set goals for next month
+
+
+**Alternative pattern** (for active traders):
+
+
+**Credit 1, 2, 3**: Weekly reviews only
+- Run diagnostics every Sunday for the past week
+- Consistent weekly feedback loop
+- Save mid/end-of-month reviews for Time-Scoped Analytics (no credit consumption)
+
+
+### What Happens When Limit Is Hit
+
+
+If you've used all of your credits:
+
+
+- **In-app message**: "You've reached your daily AI Diagnostics limit (3/3 used). Resets at midnight UTC (X hours)."
+- **Button disabled**: "Generate AI Diagnostics" button is grayed out
+- **Alternative suggested**: "Use Time-Scoped Analytics to review patterns manually until reset."
+
+
+**You can still**:
+- View previous diagnostic reports (saved in your account)
+- Use all other analytics (Psychology page, Rules vs Reality, Time-Scoped filters)
+- Use other AI features (Deep Dive, Thread Summary, Rules Coach have separate limits)
+
+
+### Managing Your Credits
+
+
+**Strategies to avoid wasting credits**:
+
+
+1. **Batch new trades before running diagnostics**: If you log 5 trades on Monday, wait until Friday to run diagnostics (includes all 5 + rest of week). Don't run diagnostics after every trade.
+
+
+2. **Use Time-Scoped Analytics first**: Manually review Psychology page and Rules vs Reality page with time filters. Identify areas of interest. Then run AI Diagnostics to get AI's perspective on those areas.
+
+
+3. **Save reports**: Screenshot or copy-paste diagnostic reports to your notes. You can reference them without re-running diagnostics.
+
+
+4. **Leverage cache**: If you want to re-read a report within 1 hour, just request it again (no credit consumed).
+
+
+5. **Reserve for significant data updates**: If you only traded 2-3 times since last diagnostic, patterns won't change much. Wait until you have 10-20 new trades.
+
+
+## Differences From AI Deep Dive Explorer
+
+
+AI Diagnostics and AI Deep Dive Explorer serve different purposes and have different interaction models.
+
+
+### AI Diagnostics (Single-Pass Breadth)
+
+
+**Interaction Model**: One request → One report → Done
+
+
+**Purpose**: Identify all significant patterns in your data
+
+
+**Output Format**: Structured report with 5-10 findings
+
+
+**Depth**: Shallow (each finding is 2-3 sentences)
+
+
+**Breadth**: Wide (scans emotions, conviction, adherence, rules, timing, outcomes)
+
+
+**Use Case**: "What patterns exist in my data? What should I investigate further?"
+
+
+**Limitations**:
+- Does not answer follow-up questions
+- Does not explore "why" patterns occur
+- Does not provide multi-level causal analysis
+
+
+**Example Output**:
+> "Your conviction drops 4.2 points on losing trades vs 0.8 points on winners. 83% of trades with conviction gap < -4 closed before stop or target."
+
+
+**What it does NOT provide**:
+- Why conviction drops (psychological mechanism)
+- Which specific factors cause the drop (fear? impatience? market conditions?)
+- How to fix the pattern
+
+
+### AI Deep Dive Explorer (Conversational Depth)
+
+
+**Interaction Model**: Question → Answer → Follow-up question → Answer → Repeat (up to 5 levels)
+
+
+**Purpose**: Explore one specific pattern in depth
+
+
+**Output Format**: Conversational Q&A (you ask, AI answers, you refine, AI elaborates)
+
+
+**Depth**: Deep (multi-level exploration of causality, context, conditions)
+
+
+**Breadth**: Narrow (focuses on one pattern at a time)
+
+
+**Use Case**: "Why does my conviction drop? What conditions make it drop more? Is this pattern unique to certain setups?"
+
+
+**Limitations**:
+- Requires you to identify the pattern to explore (doesn't scan all data)
+- Slower (multiple turns required to reach insight)
+- Uses more credits (25/day, but each question consumes 1 session)
+
+
+**Example Conversation**:
+> **You**: "Why does my conviction drop so much on losing trades?"
+> **AI**: "Conviction drops occur most often when price pulls back 10+ pips from entry. Of 18 conviction-drop trades, 16 had pullbacks exceeding 10 pips before hitting stop or target."
+> **You**: "Does this happen more at certain times of day?"
+> **AI**: "Yes. Afternoon trades (after 2 PM) show conviction drops 2.3x more frequently than morning trades. Afternoon pullback tolerance appears lower."
+> **You**: "What emotions correlate with these afternoon conviction drops?"
+> **AI**: "85% of afternoon conviction-drop trades had 'Impatience' or 'FOMO' tagged at entry. Only 12% of morning conviction-drop trades had these emotions."
+
+
+### When to Use Each
+
+
+**Use AI Diagnostics when**:
+- Starting a review session (weekly, monthly)
+- You don't know what patterns exist
+- You want a quick overview of all behavioral trends
+- You have 20+ new trades since last diagnostic
+
+
+**Then use AI Deep Dive Explorer when**:
+- AI Diagnostics revealed an interesting pattern ("conviction drops 4.2 points")
+- You want to understand why that pattern occurs
+- You want to know when/where the pattern is strongest
+- You want to explore solutions or mitigations
+
+
+**Workflow**:
+1. Run AI Diagnostics (1 credit) → Identifies 5-10 patterns
+2. Pick 1-2 most significant patterns
+3. Use AI Deep Dive Explorer (1 session per pattern) → Explore each pattern deeply
+4. Use insights to adjust rules, strategy, or behavior
+
+
+This workflow maximizes credit efficiency: Diagnostics finds patterns (breadth), Deep Dive explains them (depth).
+
+
+![Diagnostics vs Deep Dive](/img/diagnostics-vs-deep-dive.png)
+
+
+## Examples of Diagnostic Statements
+
+
+All examples follow TradeMonkey's mirror philosophy: descriptive, not prescriptive.
+
+
+### Diagnostic Statement 1: Emotional Cost Pattern
+
+
+**Clinical (Correct)**:
+> "Trades tagged with 'Revenge' entry emotion: 9 instances this month. Win rate: 11% (1 win, 8 losses). Average P&L: -$178 per trade. Total cost: -$1,602. Revenge trades averaged entry conviction of 3.4, significantly lower than your overall average of 6.8. Exit emotions on revenge trades: Frustration (7 times), Regret (6 times). Pattern: Revenge emotion correlates with low conviction entries and poor outcomes."
+
+
+**NOT Coaching (Incorrect)**:
+> "You struggle with revenge trading. After losses, you enter impulsively with low conviction and lose money. You need to stop trading after losses and take a break to reset emotionally."
+
+
+**Why the first is correct**:
+- States what the data shows (9 instances, 11% win rate, -$1,602 cost)
+- Notes correlation (revenge → low conviction → poor outcomes)
+- Does not prescribe action ("you need to stop" is coaching)
+
+
+### Diagnostic Statement 2: Conviction Gap and Premature Exits
+
+
+**Clinical (Correct)**:
+> "Your conviction drops an average of 4.8 points from entry to exit on trades closed before stop loss or take profit. Trades closed at planned levels show average conviction gap of -1.2. Of 22 trades with conviction gap < -4, 19 (86%) were closed prematurely. Average P&L on premature exits: -$72. Average P&L on planned exits: +$115. Pattern: Large conviction drops predict premature exits and underperformance."
+
+
+**NOT Coaching (Incorrect)**:
+> "You panic exit trades when conviction drops. You need to trust your setups and let your stop loss protect you instead of closing early."
+
+
+**Why the first is correct**:
+- Quantifies conviction gap (4.8 points vs 1.2 points)
+- Links conviction drops to premature exits (86% correlation)
+- Compares outcomes (premature: -$72, planned: +$115)
+- Does not tell you what to do ("trust your setups" is advice)
+
+
+### Diagnostic Statement 3: Time-Based Discipline Breakdown
+
+
+**Clinical (Correct)**:
+> "Trades entered before 12:00 PM: 38 total, 74% plan adherence, 61% win rate, average P&L +$102. Trades entered after 2:00 PM: 14 total, 43% plan adherence, 36% win rate, average P&L -$34. Afternoon trades show higher conviction gaps (-3.4 avg) than morning trades (-1.6 avg). Most violated rule in afternoon: 'Max 3 trades per day' (6 violations out of 8 total). Pattern: Afternoon trading shows lower adherence, higher conviction decay, and worse performance."
+
+
+**NOT Coaching (Incorrect)**:
+> "Your discipline breaks down in the afternoon. You should stop trading after lunch or take a break before the New York session."
+
+
+**Why the first is correct**:
+- Compares morning vs afternoon metrics across multiple dimensions
+- States factual differences (74% vs 43% adherence, 61% vs 36% win rate)
+- Notes rule violations cluster in afternoon
+- Does not prescribe behavior ("stop trading after lunch" is advice)
+
+
+### Diagnostic Statement 4: Emotional Transition Pattern
+
+
+**Clinical (Correct)**:
+> "Emotional transitions from entry to exit: Confident → Satisfied (14 trades, 79% win rate). Confident → Regret (18 trades, 33% win rate). Calm → Relief (12 trades, 58% win rate). FOMO → Frustration (9 trades, 22% win rate). Pattern: Exit emotions of 'Regret' and 'Frustration' correlate with lower win rates, even when entry emotions were positive."
+
+
+**NOT Coaching (Incorrect)**:
+> "You feel regret and frustration when trades don't go your way. You need to accept losses as part of trading and avoid emotional reactions."
+
+
+**Why the first is correct**:
+- Shows specific emotional transitions and their outcomes
+- Quantifies win rates for each transition
+- Identifies correlation without judgment
+- Does not prescribe emotional management ("accept losses" is coaching)
+
+
+### Diagnostic Statement 5: Rule Violation Clustering
+
+
+**Clinical (Correct)**:
+> "You violated 'No trading after 3 consecutive losses' 5 times this month. All 5 violations occurred after 2:00 PM. Win rate on violation trades: 20% (1 win, 4 losses). Average P&L: -$140. Days without violations: 63% win rate. Pattern: Violation of this rule occurs exclusively in afternoon sessions and correlates with poor outcomes."
+
+
+**NOT Coaching (Incorrect)**:
+> "You break your rules in the afternoon when you're on a losing streak. You need to enforce your limits and stop trading when you hit 3 losses."
+
+
+**Why the first is correct**:
+- States when violations occur (afternoon, after losses)
+- Compares performance with vs without violations (20% vs 63% win rate)
+- Notes clustering (all 5 violations after 2 PM)
+- Does not tell you to enforce rules (that's your decision)
+
+
+### Diagnostic Statement 6: Setup Quality by Conviction
+
+
+**Clinical (Correct)**:
+> "Trades with entry conviction 7-10: 28 total, 68% win rate, average P&L +$134. Trades with entry conviction 4-6: 18 total, 44% win rate, average P&L +$28. Trades with entry conviction 1-3: 6 total, 17% win rate, average P&L -$156. Pattern: Higher entry conviction strongly correlates with better outcomes. Low conviction entries (1-3) consistently underperform."
+
+
+**NOT Coaching (Incorrect)**:
+> "You should only take high-conviction trades. Stop entering low-conviction setups since they lose money."
+
+
+**Why the first is correct**:
+- Segments performance by conviction level
+- Shows clear correlation (68% vs 17% win rate)
+- Quantifies dollar impact (+$134 vs -$156 average)
+- Does not prescribe behavior ("only take high-conviction trades" is advice)
+
+
+### Diagnostic Statement 7: Tag-Based Performance Variance
+
+
+**Clinical (Correct)**:
+> "Trades tagged 'scalp': 22 total, 55% win rate, average P&L +$45. Trades tagged 'swing': 18 total, 61% win rate, average P&L +$112. Trades tagged 'reversal': 12 total, 25% win rate, average P&L -$88. Pattern: Reversal setups significantly underperform scalp and swing strategies. Reversal trades show higher conviction gaps (-4.1 avg) and lower plan adherence (42% vs 71% for scalps)."
+
+
+**NOT Coaching (Incorrect)**:
+> "Your reversal strategy doesn't work. You should stop trading reversals and focus on scalps and swings."
+
+
+**Why the first is correct**:
+- Compares performance across tag categories
+- Provides specific metrics (win rate, P&L, conviction, adherence)
+- Notes underperformance without prescribing strategy change
+- Does not tell you to stop trading reversals (that's your strategic decision)
+
+
+## Limitations and Notes
+
+
+### AI Diagnostics Requires Complete Data
+
+
+Patterns are only as good as the data logged. If you skip emotions, conviction, or adherence on 50% of trades:
+
+
+- AI Diagnostics will note data incompleteness
+- Patterns will be based on partial data
+- Findings may not be representative
+
+
+**Minimum data for meaningful diagnostics**:
+- 80%+ of trades have emotions logged
+- 80%+ of trades have conviction scores
+- 80%+ of trades have plan adherence flags
+
+
+If data is sparse, AI Diagnostics will include a disclaimer:
+> "Data completeness: Emotions 45%, Conviction 60%. Patterns may not be fully representative. Consider logging data consistently for more reliable analysis."
+
+
+### Diagnostics Reflect Recent Behavior
+
+
+AI Diagnostics analyzes the trades you specify (typically Last 30 Days or Last 50 trades). It does not analyze your complete history unless you explicitly select "All Time."
+
+
+- If you filter to Last 30 Days, diagnostics reflect only that month
+- If you filter to Last 50 trades, diagnostics reflect only those trades
+
+
+Always check which time scope is active before running diagnostics.
+
+
+### Correlation Is Not Causation
+
+
+AI Diagnostics identifies correlations (FOMO correlates with losses). It does not claim causation (FOMO causes losses).
+
+
+Possible explanations for "FOMO → losses" correlation:
+- FOMO leads to poor setup selection (causal)
+- You tag trades as FOMO after they lose (hindsight bias)
+- FOMO occurs during volatile conditions (external factor)
+- FOMO trades are taken when you're already tilted (secondary factor)
+
+
+AI cannot distinguish between these. You must interpret causality based on your context.
+
+
+### Diagnostics Do Not Provide Solutions
+
+
+AI Diagnostics shows patterns. It does not recommend fixes. If diagnostics reveal:
+
+
+> "Afternoon trades show 43% plan adherence vs 74% morning adherence."
+
+
+Possible responses:
+- Stop trading after 2 PM (reduce afternoon exposure)
+- Create stricter rules for afternoon trades (increase accountability)
+- Investigate why discipline breaks down (explore with Deep Dive)
+- Accept afternoon performance and adjust position sizing (risk management)
+
+
+AI Diagnostics doesn't choose for you. You decide what action (if any) to take.
+
+
+### Small Sample Patterns Are Noted
+
+
+If a pattern appears only 2-3 times, AI Diagnostics will note the small sample:
+
+
+> "Trades tagged 'reversal': 3 instances. Win rate: 33% (1 win, 2 losses). Note: Small sample size. Pattern may not be stable."
+
+
+Do not over-interpret patterns with <5 instances. They may be noise, not signal.
+
+
+### Historical Patterns May Be Outdated
+
+
+If your last diagnostic was 3 months ago, patterns from that report may no longer apply. Behavior changes over time. Always run fresh diagnostics after significant data updates (20+ new trades).
+
+
+### Diagnostics Are Descriptive, Not Predictive
+
+
+AI Diagnostics describes past behavior. It does not predict future performance:
+
+
+- "FOMO trades lost money in the past" ≠ "Your next FOMO trade will lose"
+- "Conviction drops correlate with losses" ≠ "If conviction drops, you will lose"
+
+
+Patterns reveal tendencies, not certainties. Use them for awareness, not as trading signals.
+
+
+### AI Limitations
+
+
+AI Diagnostics uses language models (GPT-4o-mini) which have known limitations:
+
+
+- **Hallucination risk**: AI may occasionally misinterpret data or invent statistics. Always cross-check findings against raw data in analytics pages.
+- **Pattern detection bias**: AI may emphasize patterns that fit narrative structures (human-readable stories) over statistically significant but boring patterns.
+- **Context blindness**: AI does not know external factors (market conditions, life events, strategy changes). You must provide context.
+
+
+If a finding seems incorrect, verify it manually using Psychology page or Rules vs Reality page.
+
+
+### Reports Are Saved But Not Indefinite
+
+
+AI Diagnostic reports are saved in your account for reference. However:
+
+
+- Storage is limited (last 10 reports retained)
+- Older reports are archived or deleted
+- If you want to keep a report long-term, save it externally (copy-paste to notes, screenshot, export)
+
+
+### Diagnostics Do Not Replace Manual Review
+
+
+AI Diagnostics is a tool, not a substitute for self-reflection. After reading a diagnostic report:
+
+
+- Review raw data in Psychology page and Rules vs Reality page
+- Open Trade Recap for significant trades mentioned in the report
+- Use Threads to understand individual trade narratives
+- Validate patterns before making strategy changes
+
+
+AI accelerates pattern detection. It does not replace critical thinking.
+
+
+
+
+
