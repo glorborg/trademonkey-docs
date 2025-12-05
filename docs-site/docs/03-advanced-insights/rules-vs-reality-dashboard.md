@@ -200,19 +200,19 @@ Weighted Adherence = (Sum of Weighted Passes) / (Sum of Weighted Evaluations) ×
 
 
 **Deteriorating (Red)**
-- Recent adherence (Last 20) is >10% lower than all-time
+- Recent adherence (Last 20) is more than 10% lower than all-time
 - Example: All-time 85%, Last 20: 68%
 - Pattern: Discipline decay
 
 
 **Improving (Blue)**
-- Recent adherence (Last 20) is >10% higher than all-time
+- Recent adherence (Last 20) is more than 10% higher than all-time
 - Example: All-time 65%, Last 20: 82%
 - Pattern: Discipline recovery
 
 
 **Unstable (Yellow)**
-- Recent adherence fluctuates >15% between reviews
+- Recent adherence fluctuates more than 15% between reviews
 - Example: Week 1: 90%, Week 2: 65%, Week 3: 88%
 - Pattern: Inconsistent discipline
 
@@ -233,7 +233,7 @@ Weighted Adherence = (Sum of Weighted Passes) / (Sum of Weighted Evaluations) ×
 
 
 **Criteria**:
-- Adherence <60%
+- Adherence below 60%
 - Violations spread across multiple weeks
 - No significant improvement in recent window
 
@@ -249,7 +249,7 @@ Weighted Adherence = (Sum of Weighted Passes) / (Sum of Weighted Evaluations) ×
 
 
 **Criteria**:
-- Adherence >75% overall
+- Adherence above 75% overall
 - Violations clustered in 1-2 time periods (days, weeks)
 - Recent adherence may show spike then recovery
 
@@ -417,12 +417,12 @@ When 3+ violations occur within 5 trades or 2 days, dashboard highlights:
 
 
 **Consider tightening rules when**:
-- Adherence >95% (rules may be too easy)
+- Adherence above 95% (rules may be too easy)
 - Performance is poor despite high adherence (rules don't protect you)
 
 
 **Consider loosening rules when**:
-- Adherence <50% (rules may be unrealistic)
+- Adherence below 50% (rules may be unrealistic)
 - Violations don't correlate with worse performance (rules may be unnecessary)
 
 
