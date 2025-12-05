@@ -67,9 +67,6 @@ For challenge and funded accounts, you can define:
 These fields enable the Rules vs Reality engine to flag compliance breaches automatically.
 
 
-![Account Configuration Example](/img/account-configuration.png)
-
-
 ## How Account Choice Affects Your Data
 
 
