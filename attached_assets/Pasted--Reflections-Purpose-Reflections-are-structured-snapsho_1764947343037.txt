@@ -1,0 +1,126 @@
+# Reflections
+
+## Purpose
+
+Reflections are structured snapshots of your mindset and rule adherence at key decision points. They turn your emotions, conviction, and behavior into data TradeMonkey can analyze, instead of vague memories or diary-style notes.
+
+---
+
+## What a Reflection Captures
+
+For **trades**, reflections are recorded at:
+
+- **Entry** – what you felt and intended when opening the position.
+- **Exit** – what you felt and decided when closing the position.
+
+Each reflection can include:
+
+- **Emotions** – up to a few labels (e.g., confident, calm, fearful, FOMO, revenge).
+- **Conviction score** – how sure you were (e.g., 1–10).
+- **Plan adherence** – whether you followed your rules (Yes / Partial / No).
+- **Notes** – short factual explanation of what you saw and did.
+- **Tags** – context like setup, strategy, or session (e.g., `breakout`, `scalp`, `london-open`).
+
+You can also create **journal reflections** not tied to trades, to log:
+
+- Pre-session plans and expectations.
+- Post-session reviews.
+- Days you chose not to trade and why.
+
+Imported trades from CSV have financial data only; you can add reflections later if you want those trades included in psychology-based analytics.
+
+---
+
+## How to Use Reflections
+
+1. **At entry**
+   - When you open (or plan) a trade, add:
+     - Entry emotions  
+     - Entry conviction  
+     - Plan adherence (Did this match your rules?)  
+     - A brief note and any relevant tags
+
+2. **At exit**
+   - When you close the trade, add:
+     - Exit emotions  
+     - Exit conviction  
+     - Exit adherence  
+     - Exit reason (e.g., hit stop, hit target, manual exit)  
+     - A brief note
+
+3. **After the trade (optional)**
+   - In the trade’s thread, write a concise reflection:
+     - What went as planned  
+     - What drifted from plan  
+     - What you would repeat or avoid next time
+
+4. **On days you don’t trade**
+   - Create a journal reflection:
+     - Emotions (e.g., calm, patient, frustrated)  
+     - Why you did or didn’t trade  
+     - Any key observations about the market or yourself
+
+Aim for short, factual entries that you can maintain consistently.
+
+---
+
+## How Reflection Data Drives Insights
+
+When you log reflections consistently, TradeMonkey can show:
+
+- **Performance by emotion**
+  - e.g., “Confident entries vs. FOMO entries” in terms of win rate and P&L.
+- **Conviction patterns**
+  - How often you enter low-conviction trades and what they cost you.
+  - Where conviction collapses between entry and exit (discipline decay).
+- **Plan adherence behavior**
+  - Trades where you followed your plan end-to-end vs. trades where you drifted.
+  - Whether rule violations are clustered in specific times, setups, or emotional states.
+- **Richer AI insights**
+  - More specific summaries of your behavior instead of generic “you traded X times” statements.
+
+Without reflections, analytics are limited to price and P&L only.
+
+---
+
+## What Makes a Good Reflection
+
+Good reflections are:
+
+- **Structured** – emotions, conviction, and adherence are selected as fields, not buried only in text.
+- **Specific** – describe concrete things (session, setup, key levels, what rule you broke).
+- **Factual** – focus on what happened, not self-judgment.
+
+**Example (entry):**
+
+> Emotions: Confident, Calm  
+> Conviction: 8/10  
+> Plan adherence: Yes  
+> Notes: “Waited for pullback to support, 3 confluences present, entered 10 min after London open as planned.”
+
+Avoid vague or purely emotional venting like “Felt bad, market sucks, I’m undisciplined” without any structured data.
+
+---
+
+## Best Practices & Notes
+
+- **Log close to real time**  
+  Reflections are most accurate when recorded near the decision, not days later.
+
+- **Be honest, not flattering**  
+  Tag emotions and adherence as they were, not as you wish they had been.
+
+- **Be consistent, not exhaustive**  
+  Pick a minimal set you’ll always fill in (e.g., emotions + conviction + adherence) and apply it to every trade.
+
+- **Use hybrid depth**  
+  Full notes for important trades (big wins/losses, rule breaks, emotional spikes); lighter reflections for routine trades.
+
+- **Optional, but powerful**  
+  You can use TradeMonkey without reflections, but meaningful psychology and behavior insights depend on them.
+
+---
+
+## Support
+
+If you’re unsure how to structure your reflection workflow, contact **hello@trademonkey.app**.

@@ -6,257 +6,122 @@ sidebar_label: Execution Recap
 
 # Execution Recap
 
+## Purpose
 
-## What Execution Recap Is
+Execution Recap is a visual review workspace that shows each trade as a before/after snapshot. It combines your charts, emotions, conviction, plan adherence, and P&L so you can see **how** you traded, not just what the result was.
 
+The goal is pattern detection: spotting repeatable execution habits that are hard to see in spreadsheets or raw P&L.
 
-Execution Recap is a visual review workflow that displays your trades as before/after snapshots. Each trade shows:
+---
 
+## What Execution Recap Shows
 
-- Entry chart screenshot (what price action looked like when you opened)
-- Exit chart screenshot (what price action looked like when you closed)
-- Entry emotions, conviction, and plan adherence
-- Exit emotions, conviction, and plan adherence
-- P&L result
+For each trade, Recap can display:
 
+- **Entry context**
+  - Entry chart screenshot (if provided)
+  - Entry emotions
+  - Entry conviction score
+  - Entry plan adherence (Yes / Partial / No)
 
-Recap is not a gallery or archive. It is a pattern detection tool. By viewing multiple trades in sequence, you can identify execution patterns that are invisible when reviewing trades individually. These patterns feed into Time-Scoped Analytics and AI Diagnostics.
+- **Exit context**
+  - Exit chart screenshot (if provided)
+  - Exit emotions
+  - Exit conviction score
+  - Exit plan adherence
 
+- **Financial context**
+  - P&L for the trade
+  - Win/Loss status
+  - Entry/exit prices and timestamps
 
-## Why Entry and Exit Screenshots Matter
+Screenshots are optional. If they are missing, you still see the psychological and financial data.
 
+---
 
-Screenshots provide visual context that financial data cannot capture. Two trades with identical P&L outcomes can have completely different psychological contexts:
+## How to Use Execution Recap
 
+1. **Filter the trades you want to review**
+   - By date range (e.g., this week, this month)
+   - By account (e.g., a specific challenge)
+   - By emotion (e.g., FOMO, revenge, fear)
+   - By P&L (e.g., biggest wins/losses)
 
-- **Trade A**: Entered on a clean breakout, exited at target after smooth run
-- **Trade B**: Entered on a fakeout, endured whipsaw, panic sold near breakout point
+2. **Review the entry side**
+   - Look at the entry screenshot (if available).
+   - Check entry emotions, conviction, and adherence.
+   - Ask: does the chart support the conviction score and "Yes"/"No" adherence you logged?
 
+3. **Review the exit side**
+   - Look at the exit screenshot.
+   - Check exit emotions, conviction, and adherence.
+   - Ask: did you exit where you planned (stop/target), or did you cut early, chase, or panic?
 
-Both trades might show the same symbol, entry price, and exit price in a CSV. But the screenshots reveal the difference. Trade A shows a disciplined execution. Trade B shows a chaotic execution that happened to break even.
+4. **Compare P&L to execution quality**
+   - Identify:
+     - Good execution, good result  
+     - Good execution, bad result (acceptable loss)  
+     - Poor execution, good result (lucky win)  
+     - Poor execution, bad result  
 
+5. **Write down recurring patterns**
+   - Examples:
+     - Conviction starts high and collapses on small pullbacks.
+     - Afternoon trades show lower conviction and more plan violations.
+     - FOMO-tagged trades cluster around high-volatility spikes and news.
+     - Trades after a loss show more impulsive entries and lower-quality setups.
 
-Screenshots also expose behavioral drift:
+These notes become hypotheses you can verify later in Time-Scoped Analytics and AI tools.
 
+---
 
-- Entry screenshot shows a textbook setup (high conviction entry makes sense)
-- Exit screenshot shows you closed in the middle of a pullback, nowhere near your stop loss or take profit (low conviction exit reveals panic or impatience)
+## What Patterns Recap Helps Reveal
 
+Common patterns traders notice:
 
-This before/after visual pairing creates accountability. You cannot rationalize a panic exit if the exit screenshot shows price was still 20 pips above your stop.
+- **Conviction decay**
+  - Strong entry conviction, weak exit conviction.
+  - Frequent early exits during normal volatility instead of at planned levels.
 
+- **Session-based deterioration**
+  - Morning trades show cleaner setups and higher adherence.
+  - Later trades show more cluttered charts, lower conviction, and more impulsive decisions.
 
-## What Data Execution Recap Uses
+- **Emotion-result links**
+  - FOMO or impatience at entry correlates with choppy price action and poor outcomes.
+  - Calm or patient entries correlate with more structured setups.
 
+- **Revenge clusters**
+  - Losing trades followed by fast sequences of lower-conviction trades with "revenge" or "frustration" emotions.
 
-### Visual Context
-- **Entry Chart Screenshot**: Captured at or near entry time, showing what you saw when you decided to open the trade
-- **Exit Chart Screenshot**: Captured at or near exit time, showing what you saw when you decided to close the trade
+Recap does not tell you what to change. It shows you where your behavior is different from what you believe you are doing.
 
+---
 
-Screenshots are optional but strongly recommended. If missing, Recap displays a placeholder or skips the visual comparison.
+## Screenshots: Optional but Powerful
 
+- **You can use Recap without screenshots**  
+  You'll still see emotions, conviction, adherence, and P&L.
 
-### Psychological Context
-- **Entry Emotions**: What you felt when entering (confident, fearful, impulsive, calm, etc.)
-- **Entry Conviction**: How confident you were in the setup (1-10 scale)
-- **Entry Plan Adherence**: Whether you followed your entry rules (Yes / Partial / No)
+- **Screenshots add the most value when:**
+  - Reviewing big wins/losses or challenge accounts.
+  - Studying repeated rule violations (e.g., early exits, chasing entries).
+  - You're actively trying to understand your execution on a specific setup or session.
 
+- **You don't need screenshots for every trade**
+  - Many traders use a hybrid approach: screenshots for the most instructive trades, psychology and P&L only for the rest.
 
-- **Exit Emotions**: What you felt when exiting (relief, regret, pride, frustration, satisfied)
-- **Exit Conviction**: How confident you were in the exit decision (1-10 scale)
-- **Exit Plan Adherence**: Whether you followed your exit plan (Yes / Partial / No)
+---
 
+## Important Notes
 
-### Financial Context
-- **P&L**: Profit or loss in currency
-- **Win/Loss**: Binary outcome (green for profit, red for loss)
-- **Entry and Exit Prices**: Displayed alongside screenshots for reference
+- Recap relies on the **reflection data** you log (emotions, conviction, adherence). Without it, you see only price and P&L.
+- Patterns are **descriptive**, not prescriptive. Recap does not recommend rules or strategies; it reflects what you actually did.
+- Your interpretation is subjective. Use Recap together with other views (Rules vs Reality, Time-Scoped Analytics, AI insights) to validate what you think you're seeing.
+- Reviewing trades soon after they happen gives more accurate context than reviewing them months later.
 
+---
 
-### Temporal Context
-- **Trade Date and Time**: When the trade occurred
-- **Session or Time of Day**: If you tag trades by session (London, New York, Asian), Recap can group them accordingly
+## Support
 
-
-## How Execution Recap Ties to Pattern Discovery
-
-
-Recap is designed for sequential review. When you view 10-20 trades in order, patterns emerge:
-
-
-### Conviction Decay Patterns
-You notice that five trades show entry conviction of 8-9, but exit conviction of 3-4. All five exit screenshots show you closed during minor pullbacks, not at your planned stop loss. Pattern detected: You enter strong but panic exit on volatility.
-
-
-### Session-Based Deterioration
-You notice that trades taken before 10 AM (entry screenshots show clean setups, high conviction, disciplined exits) perform well. Trades taken after 2 PM (entry screenshots show late-stage breakouts, low conviction, impulsive entries) perform poorly. Pattern detected: Afternoon trading is emotionally driven, not setup-driven.
-
-
-### Emotion-Result Correlation
-You notice that trades tagged with "FOMO" or "Impatience" at entry consistently show choppy price action in the entry screenshot. These trades rarely reach your take profit. Pattern detected: FOMO entries occur during low-quality setups, not high-probability setups.
-
-
-### Setup vs Execution Mismatch
-You notice that winning trades show aligned emotions (Confident → Satisfied or Calm → Relief). Losing trades show emotional reversal (Confident → Regret or Calm → Frustration). Pattern detected: Emotional shift during trade execution predicts dissatisfaction, even when the trade is rule-compliant.
-
-
-These patterns are invisible in spreadsheets or P&L summaries. Recap surfaces them by forcing you to review the visual and psychological context of each trade in sequence.
-
-
-## Clinical Examples of Patterns Users Notice
-
-
-### Example 1: Afternoon Deterioration
-> "I reviewed 40 trades in Recap. Trades 1-20 (morning session) show clean entry screenshots, conviction scores of 7-9, and adherence marked 'Yes.' Exit screenshots show disciplined exits at target or stop. Trades 21-40 (afternoon session) show cluttered entry screenshots, conviction scores of 4-6, and adherence marked 'Partial' or 'No.' Exit screenshots show I closed mid-trade, often before stop or target was hit. Afternoon trades averaged -$85 per trade. Morning trades averaged +$120 per trade."
-
-
-### Example 2: Conviction Drop on Reversals
-> "I reviewed 30 trades filtered by 'Frustration' exit emotion. Entry screenshots show strong directional moves (high conviction entries make sense). Exit screenshots show price reversed and I closed at or near breakeven. Entry conviction averaged 8.2. Exit conviction averaged 3.1. Gap: -5.1. I consistently lose confidence when price pulls back, even though pullbacks are normal."
-
-
-### Example 3: FOMO Entries During News
-> "I reviewed trades tagged 'FOMO.' Entry screenshots show large candles and high volatility. Exit screenshots show whipsaw and stop-outs. Timestamps show these trades occurred within 30 minutes of scheduled news events. My 'No trading during news' rule was violated 12 times this month. Average loss per FOMO-news trade: -$180."
-
-
-### Example 4: Overtrading After Losses
-> "I reviewed trades sorted by time. After each losing trade, the next 2-3 trades show lower conviction scores and 'Revenge' or 'Impatience' emotions. Entry screenshots show weaker setups (late breakouts, no pullback, counter-trend). These revenge-cluster trades lost $1,400 total. Isolated trades (no preceding loss) won $2,100 total."
-
-
-These observations are factual and clinical. They describe what the data shows, not what the trader "should" do. The mirror reflects the pattern. The trader decides how to respond.
-
-
-## How Execution Recap Strengthens Later Features
-
-
-### Time-Scoped Analytics
-Time-Scoped Analytics allows you to filter trades by date range and compare performance metrics. If you've reviewed trades in Recap and noticed session-based deterioration, you can use Time-Scoped Analytics to quantify it:
-
-
-- Filter to "Morning trades only" → Win rate: 68%
-- Filter to "Afternoon trades only" → Win rate: 32%
-- Compare conviction scores, adherence percentages, and P&L across time windows
-
-
-Recap identifies the pattern visually. Time-Scoped Analytics measures it numerically.
-
-
-### AI Deep Dive Explorer
-AI Deep Dive Explorer generates specific insights based on your trade data. If you've noticed patterns in Recap (e.g., low conviction exits), you can ask Explorer:
-
-
-- "Why does my conviction drop so much from entry to exit?"
-- "What happens to my trades when I exit with conviction below 5?"
-- "Do afternoon trades with low conviction perform differently than morning trades with low conviction?"
-
-
-The AI uses your screenshots, emotions, conviction scores, and timestamps to answer. The more complete your Recap data, the more specific the AI's responses.
-
-
-### Rules vs Reality Dashboard
-Rules vs Reality tracks violations of your self-imposed rules. If Recap reveals that you frequently close trades before your stop or target is hit (exit plan adherence: No), you can create a rule:
-
-
-- "Do not exit until stop loss or take profit is hit"
-
-
-The system will then flag violations automatically on future trades. Recap identifies the gap. Rules vs Reality enforces accountability going forward.
-
-
-### Behavioral Insights Section
-Behavioral Insights aggregates patterns across your trades. If Recap shows that "FOMO" trades consistently lose money, Behavioral Insights will surface:
-
-
-- "FOMO-tagged trades: 12 instances, 25% win rate, -$2,160 total cost"
-- "Highest emotional cost emotion: FOMO"
-
-
-Recap is the discovery phase. Behavioral Insights is the aggregation phase.
-
-
-## Execution Recap Workflow
-
-
-### Step 1: Filter or Sort Your Trades
-Recap works best when reviewing trades in a meaningful sequence:
-
-
-- **By Date**: Review trades chronologically to detect time-based patterns (session deterioration, weekly trends)
-- **By Account**: Review one challenge account at a time to isolate psychological context
-- **By Emotion**: Filter to "FOMO" or "Revenge" trades to see common entry patterns
-- **By P&L**: Sort by biggest losses or biggest wins to identify outlier behavior
-
-
-Choose a filter that matches what you want to investigate.
-
-
-### Step 2: Review Entry Context
-For each trade, observe:
-
-
-- Entry screenshot: What did price action look like?
-- Entry emotion: What did you feel?
-- Entry conviction: How confident were you?
-- Entry adherence: Did you follow your plan?
-
-
-Ask yourself: Does the screenshot support the conviction score? If you marked conviction as 9, does the screenshot show a clean, high-probability setup? If you marked adherence as "Yes," does the screenshot confirm you waited for your entry criteria?
-
-
-### Step 3: Review Exit Context
-For the same trade, observe:
-
-
-- Exit screenshot: What did price action look like when you closed?
-- Exit emotion: What did you feel?
-- Exit conviction: How confident were you in the exit?
-- Exit adherence: Did you follow your exit plan?
-
-
-Ask yourself: Does the exit screenshot show a planned exit (stop or target hit) or an emotional exit (panic sold on pullback, closed "just to lock in profit")? If conviction dropped significantly from entry to exit, why? What changed?
-
-
-### Step 4: Compare P&L to Execution Quality
-A winning trade can have poor execution. A losing trade can have excellent execution.
-
-
-- **Good execution, bad result**: Entry screenshot shows clean setup, high conviction, exit screenshot shows you were stopped out as planned. Loss is acceptable. No behavioral issue detected.
-- **Poor execution, good result**: Entry screenshot shows weak setup, low conviction, exit screenshot shows you panic closed but price happened to be in profit. Win is luck, not skill. Behavioral issue exists.
-
-
-Recap reveals when you're getting lucky despite poor discipline, or unlucky despite good discipline.
-
-
-### Step 5: Note Patterns and Hypotheses
-As you review 10-20 trades, write down observations:
-
-
-- "Five trades show conviction drop of 5+ points. All five closed during pullbacks, not at planned levels."
-- "Trades after 2 PM show weaker entry screenshots and lower adherence percentages."
-- "FOMO trades (7 instances) all show large candles in entry screenshots and whipsaw in exit screenshots."
-
-
-These observations become hypotheses to test in Time-Scoped Analytics or AI Deep Dive Explorer.
-
-
-## Screenshot Optionality and Placeholder Behavior
-
-
-### Screenshots Are Optional
-Not all traders capture screenshots for every trade. TradeMonkey does not require them. If you log a trade without screenshots, Recap displays:
-
-
-- Emotion, conviction, adherence, and P&L data as usual
-- A placeholder image or text label where screenshots would appear (e.g., "No entry screenshot available")
-
-
-The psychological and financial data is still usable. The visual context is missing.
-
-
-### When to Skip Screenshots
-Screenshots add significant value but also add friction. Consider skipping screenshots if:
-
-
-- You trade very frequently (scalpers taking 20+ trades per session may find screenshot capture too slow)
-- You trade on mobile or in situations where screenshot tools are unavailable
-- You import trades via CSV and don't have access to historical chart images
+If you need help setting up a review routine or think Recap is not showing data as expected, contact **hello@trademonkey.app**.
