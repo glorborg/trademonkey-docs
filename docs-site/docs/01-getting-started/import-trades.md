@@ -6,244 +6,96 @@ sidebar_label: Import Trades
 
 # Importing Trades
 
+## Purpose
+
+Trade import lets you quickly load historical trades from your broker into TradeMonkey using CSV files. This builds your equity curve, P&L history, and rule-compliance context without manually typing every trade.
+
+---
 
 ## What Trade Import Does
 
+- **Loads trades from broker CSVs** into a specific TradeMonkey account.
+- **Maps your broker's columns** (symbol, times, prices, size, P&L) into TradeMonkey's trade fields.
+- Supports two P&L modes:
+  - **Direct P&L** – your CSV has a profit/loss column per trade.
+  - **Balance-based** – your CSV has opening and closing balance per row; P&L is calculated from the difference.
+- **Avoids duplicate trades** when you re-import overlapping history.
+- **Highlights balance jumps** so you can spot missing trades, deposits, or withdrawals.
 
-Trade import loads your historical trading data from broker CSV exports into TradeMonkey. This populates your account with trades, P&L history, and balance snapshots. The system maps your broker's column format to TradeMonkey's data structure and reconciles imported trades with any manual entries you've already created.
+Trade import is the fastest way to give TradeMonkey enough history for meaningful analytics, rule checks, and AI diagnostics.
 
+---
 
-Two import modes exist:
+## How to Import Trades
 
+1. **Export a CSV from your broker**
+   - Use your platform's history or statements export.
+   - Choose the date range you want (e.g., last 3–12 months).
 
-- **Direct P&L Mode**: Your CSV contains a profit/loss column per trade
-- **Balance-Based Mode**: Your CSV contains opening and closing balance per trade (P&L is calculated from balance changes)
+2. **Choose the target account in TradeMonkey**
+   - Select the TradeMonkey account that matches the broker account or challenge.
+   - Each TradeMonkey account should represent one real account or challenge.
 
+3. **Upload and map columns**
+   - Upload your CSV.
+   - If TradeMonkey recognizes the format, mapping is automatic.
+   - Otherwise, match your CSV headers to required fields like:
+     - Symbol  
+     - Side (Buy/Sell)  
+     - Entry time and price  
+     - Exit time and price  
+     - Position size  
+     - Either P&L **or** opening/closing balance  
 
-Most brokers export in one of these formats. TradeMonkey detects common formats automatically (MT5, cTrader) and allows manual column mapping for all others.
+4. **Confirm P&L mode**
+   - Use **Direct P&L** if your CSV has a profit column.
+   - Use **Balance-based** if it only shows balances per row.
 
+5. **Review the import summary**
+   - See which trades were imported, which matched existing journal entries, and any rows that failed validation.
+   - If some rows failed, you can fix the CSV or add those trades manually.
 
-## Why This Is the Fastest Path to Insight
+6. **Check your equity curve**
+   - Open the account's balance/equity view and look for unexpected jumps or gaps.
+   - Jumps usually indicate deposits/withdrawals or missing trades.
 
+You can also export your data from TradeMonkey as CSV at any time.
 
-If you have 50+ historical trades, manual entry would take hours. Importing them takes minutes. More importantly:
+---
 
+## Orphaned Trades (Imported Without Psychology)
 
-- **Pattern detection requires volume**: AI diagnostics and execution analytics need sufficient data to detect behavioral patterns. Five trades won't reveal conviction gaps or emotional cost patterns. Fifty trades will.
-- **Balance reconciliation requires history**: TradeMonkey tracks your equity curve to detect drawdown breaches and balance discontinuities. Without historical balance data, you start from zero context.
-- **Rules vs Reality needs a baseline**: If you set "Max 3 trades per day" today but broke it ten times last month, your data will show the gap between stated rules and actual behavior. Import gives you that baseline.
+When you import trades that were **never logged manually in TradeMonkey**, they come in with:
 
+- Financial data: entry, exit, size, P&L.
+- **No psychology data**: no emotions, conviction, or plan adherence.
 
-Importing historical trades front-loads your insight timeline. You skip the "waiting for data" phase and immediately see where your execution diverges from your plan.
+These trades still count for P&L and rule checks, but:
 
+- They **don't** fully participate in emotion- or conviction-based analytics until you add that information.
+- You can edit any imported trade later to fill in emotions and notes, turning it into a complete journal entry.
 
-## Supported CSV Formats
+---
 
+## Important Notes and Limits
 
-### Auto-Detected Formats
-TradeMonkey recognizes these broker exports automatically:
+- **One CSV per account**  
+  If you trade multiple real accounts or challenges, export and import each one separately into its own TradeMonkey account.
 
+- **Duplicates are filtered**  
+  If you re-import overlapping history, TradeMonkey skips trades it has already seen to prevent double counting.
 
-- **MT5** (MetaTrader 5 history export)
-- **cTrader** (standard CSV export)
+- **Psychology is never in broker files**  
+  Brokers only provide financial data. Emotional and plan-related fields must be added in TradeMonkey.
 
+- **Time zones matter**  
+  Broker timestamps are imported as-is. If your rules use specific session times (e.g., "No trades before 8:00"), make sure your account and rules use a consistent time zone.
 
-If you export from these platforms, no column mapping is required. The system parses the file and extracts trades, timestamps, P&L, and symbols.
+- **Partial imports still apply**  
+  If some rows fail validation, the valid trades are still imported. You can correct and re-import the failed ones later.
 
+---
 
-### Custom Mapping for Other Brokers
-If your broker is not auto-detected, you map columns manually. TradeMonkey shows your CSV headers and asks you to match them to required fields:
+## Support
 
-
-- Symbol
-- Side (Buy/Sell)
-- Entry Time
-- Exit Time
-- Entry Price
-- Exit Price
-- Position Size
-- P&L (or Opening/Closing Balance)
-
-
-You only need to map fields that exist in your CSV. If your broker doesn't export stop loss or take profit, those fields remain empty.
-
-
-## P&L Calculation Modes
-
-
-### Direct P&L Mode
-Your CSV has a "Profit" or "P&L" column. TradeMonkey uses that value directly. No calculation required.
-
-
-**When to use**: Most broker exports include realized P&L per trade. This is the default and simplest mode.
-
-
-### Balance-Based Mode
-Your CSV has "Opening Balance" and "Closing Balance" columns. TradeMonkey calculates P&L as:
-
-
-```
-P&L = Closing Balance - Opening Balance
-```
-
-
-**When to use**: Some broker exports (especially prop firm dashboards) show balance snapshots instead of per-trade P&L. This mode reconstructs P&L from equity changes.
-
-
-**Note**: Balance-based mode also enables TradeMonkey's reconciliation engine to detect deposits, withdrawals, and balance discontinuities. If your balance jumps unexpectedly, the system flags it for review.
-
-
-## What Column Mapping Means
-
-
-Your broker's CSV uses its own column names. TradeMonkey needs to know which column contains which data.
-
-
-Example broker headers:
-```
-Ticket, Open Time, Type, Lots, Item, Open Price, Close Price, S/L, T/P, Close Time, Commission, Swap, Profit
-```
-
-
-You map them to TradeMonkey fields:
-- "Item" → Symbol
-- "Type" → Side
-- "Open Time" → Entry Time
-- "Close Time" → Exit Time
-- "Open Price" → Entry Price
-- "Close Price" → Exit Price
-- "Lots" → Position Size
-- "Profit" → P&L
-
-
-If your CSV doesn't have a field (e.g., no "S/L" column for stop loss), you skip that mapping. TradeMonkey imports what exists.
-
-
-## Orphaned Trades and Accountability
-
-
-An **orphaned trade** is a trade that appears in your broker CSV but does not exist in TradeMonkey as a manual entry.
-
-
-This happens when:
-
-
-- You traded but didn't log the psychology (emotions, conviction, plan adherence) at the time
-- You imported old trades before you started using TradeMonkey
-- You forgot to manually enter a trade
-
-
-TradeMonkey creates these trades with status **PENDING_MANUAL**, meaning:
-
-
-- The financial data is complete (entry, exit, P&L from your broker)
-- The psychology data is missing (no emotions, no conviction score, no plan adherence)
-
-
-Why this matters:
-
-
-- **Accountability**: You cannot hide trades. If you took a revenge trade and didn't log it, the CSV import will surface it.
-- **Incomplete insights**: AI diagnostics and emotion-based analytics skip orphaned trades. A trade without emotional context cannot contribute to "Win Rate by Emotion" or conviction gap analysis.
-- **Reconciliation integrity**: The system knows which trades are "complete" (psychology + finance) versus "financial proof only."
-
-
-You can manually add psychology data to orphaned trades later by editing them.
-
-
-## Import Workflow
-
-
-### Step 1: Export from Your Broker
-Log into your broker platform and export trade history as CSV. Most platforms have a "History" or "Reports" section with an export button.
-
-
-- **MT5**: Account History → Right-click → Save as Detailed Report (choose CSV if available, or HTML and convert)
-- **cTrader**: History → Export → CSV
-- **Other platforms**: Look for "Trade History Export" or "Account Statement"
-
-
-Export the date range you want to import (e.g., last 3 months, last year).
-
-
-### Step 2: Select Account in TradeMonkey
-Choose which trading account these trades belong to. If you have multiple accounts, make sure you're importing to the correct one. Each account has its own balance history—importing to the wrong account breaks reconciliation.
-
-
-### Step 3: Upload CSV and Map Columns
-Upload your CSV file. If the format is auto-detected (MT5, cTrader), TradeMonkey skips to validation. If not, you'll see a column mapping screen:
-
-
-- Match your broker's column names to TradeMonkey's required fields
-- Choose P&L mode (direct P&L or balance-based)
-- Confirm mappings
-
-
-### Step 4: Validate and Review Results
-TradeMonkey parses the file and shows you:
-
-
-- **Imported**: Trades successfully added to your account
-- **Reconciled**: Trades that matched existing manual entries (psychology data merged with financial data)
-- **Skipped**: Duplicate trades or trades with validation errors
-- **Errors**: Rows that couldn't be parsed (missing required fields, invalid dates, etc.)
-
-
-Review the summary. If errors exist, check the error details to see which rows failed and why.
-
-
-### Step 5: Verify Balance Continuity
-After import, check your account balance history. TradeMonkey should show a smooth equity curve. If you see unexpected jumps or gaps, this indicates:
-
-
-- A deposit or withdrawal (expected)
-- A missing trade in your CSV (gap)
-- An incorrect starting balance (reconciliation failure)
-
-
-If balance discontinuities are flagged, you may need to add missing trades or adjust your account's starting balance.
-
-
-## Limitations & Notes
-
-
-### One CSV = One Account
-You cannot import trades for multiple accounts in a single CSV. If you have three challenge accounts, export each separately and import each to its corresponding TradeMonkey account.
-
-
-### Duplicate Prevention
-TradeMonkey checks for duplicate trades based on symbol, entry time, and position size. If a trade already exists, it will not be imported again. This prevents accidental double-imports.
-
-
-### Psychology Data Is Not in CSVs
-Brokers do not export your emotions, conviction scores, or plan adherence. Imported trades will always be missing this data unless you manually add it later or you had already logged the trade in TradeMonkey before importing.
-
-
-### Time Zone Handling
-Broker timestamps are often in your broker's server time zone (e.g., GMT+2 for MT5 brokers). TradeMonkey imports timestamps as-is. If your rules reference specific time windows (e.g., "No trading before 8 AM"), ensure your broker's time zone matches your rule's time zone, or adjust accordingly.
-
-
-### Partial Imports
-If you import a CSV with 100 trades and 10 fail validation, the 90 successful trades are still imported. TradeMonkey does not roll back partial imports. Review the error report to fix the failed rows, then re-import only those rows (or manually add them).
-
-
-## Common Troubleshooting Pointers
-
-
-### Import Fails with "Invalid Date Format"
-Your broker's date format doesn't match expected patterns. Check if dates are in `MM/DD/YYYY HH:MM` or `YYYY-MM-DD HH:MM:SS`. Some brokers use European `DD.MM.YYYY` format, which may require manual adjustment before import.
-
-
-### Balance Discontinuity Detected
-TradeMonkey flagged an unexpected balance jump. Verify:
-- Did you deposit or withdraw funds during this period?
-- Are all trades from your broker export present in the CSV?
-- Is your account's starting balance correct?
-
-
-### "No Symbol Column Found"
-Your column mapping skipped the symbol field. Go back and map your broker's instrument/symbol/item column to the Symbol field.
-
-
-### Trades Imported but Not Showing in Analytics
-Orphaned trades (PENDING_MANUAL status) are excluded from psychology-based analytics. Add emotions and conviction scores to those trades to include them in analysis.
+If you're unsure how to format your CSV or imports don't look right, contact **hello@trademonkey.app**.
