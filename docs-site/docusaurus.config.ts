@@ -96,14 +96,6 @@ const config: Config = {
               label: 'Open TradeMonkey',
               href: 'https://app.trademonkey.app/login',
             },
-            {
-              label: "What's New",
-              href: '#',
-            },
-            {
-              label: 'System Status',
-              href: '#',
-            },
           ],
         },
         {
@@ -111,10 +103,6 @@ const config: Config = {
           items: [
             {
               label: 'Contact Support',
-              href: 'mailto:hello@trademonkey.app',
-            },
-            {
-              label: 'Feature Request',
               href: 'mailto:hello@trademonkey.app',
             },
           ],
