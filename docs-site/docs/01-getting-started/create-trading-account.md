@@ -6,115 +6,95 @@ sidebar_label: Create Trading Account
 
 # Create a Trading Account
 
+## Purpose
 
-## What a Trading Account Is
+Trading accounts in TradeMonkey let you separate trades, balances, and analytics by broker, prop firm challenge, funded account, or personal capital. This keeps risk, rules, and psychology for each environment clearly isolated.
 
+---
 
-A trading account in TradeMonkey is a container that tracks trades, balances, and performance for a single trading environment. Each account represents one broker account, prop firm challenge, funded account, or personal trading setup.
+## What a Trading Account Does
 
+Each account:
+
+- Represents one real trading environment (prop challenge, funded account, or personal account).
+- Has its own:
+  - Balance history and equity curve
+  - Rule set (for Rules vs Reality)
+  - Analytics (win rate, drawdown, emotions, etc.)
+- Owns its trades — every trade is linked to exactly one account.
 
 TradeMonkey supports three account types:
 
+- **Challenge** – evaluation or challenge-style accounts.
+- **Funded** – passed and actively traded funded accounts.
+- **Personal** – your own capital, not tied to a prop firm.
 
-- **Challenge**: Prop firm evaluation accounts (FTMO, MyForexFunds, etc.)
-- **Funded**: Accounts you passed and are now trading live
-- **Personal**: Your own capital, not tied to a prop firm
+You can also store optional risk/compliance fields (like daily loss limits and max drawdown) so Rules vs Reality can flag potential breaches.
 
+---
 
-Each account maintains its own balance history, rule set, and analytics. Trades are always linked to exactly one account.
+## How to Create an Account
 
+When creating a new account, fill in:
 
-## Why Multi-Account Support Matters
+**Required fields**
 
+- **Account Name** – something you'll recognize in filters and reports (e.g., `FTMO 100K Phase 1`).
+- **Account Type** – Challenge, Funded, or Personal.
+- **Starting Balance** – equity when the account began.
+- **Currency** – used for P&L display (e.g., USD, EUR, GBP).
 
-Prop traders commonly manage multiple challenge accounts simultaneously. Each account has its own:
+**Optional (for prop-style tracking)**
 
+- Daily loss limit  
+- Max drawdown and drawdown type  
+- Profit target  
+- Minimum trading days  
 
-- Starting balance and current equity
-- Daily loss limits and max drawdown rules
-- Profit targets and minimum trading day requirements
-- Psychological context (challenge vs funded behavior often differs)
+These optional fields help TradeMonkey monitor prop-style rules but are not required for basic journaling.
 
+---
 
-Without multi-account separation, your analytics mix different risk profiles, rule sets, and emotional states. A $10K challenge account and a $200K funded account require different discipline frameworks. TradeMonkey isolates them.
+## How Accounts Affect Your Data
 
+- **Analytics filters**  
+  You can filter dashboards and reports by account (e.g., see "Win rate by emotion" for a single challenge only).
 
-## Required Fields
+- **Rules vs Reality**  
+  Rules can apply to:
+  - All accounts (global rules), or  
+  - Specific accounts only (e.g., stricter limits on challenges than on a personal account).
 
+- **Balance tracking**  
+  Each account has its own running balance and equity curve. When you import or log trades, you assign them to an account so its history stays accurate.
 
-Every account needs:
-
-
-- **Account Name**: A label you'll recognize (e.g., "FTMO 100K Phase 1", "Funded MFF", "Personal NinjaTrader")
-- **Account Type**: Challenge, Funded, or Personal
-- **Starting Balance**: The initial equity when the account was opened
-- **Currency**: USD, EUR, GBP, etc. (used for P&L calculations and display)
-
-
-## Optional Fields (Prop Firm Compliance)
-
-
-For challenge and funded accounts, you can define:
-
-
-- **Daily Loss Limit**: Maximum loss allowed in a single day before breach
-- **Max Drawdown**: Maximum cumulative loss from high water mark
-- **Drawdown Type**: How drawdown is calculated (static, end-of-day trailing, or intraday trailing)
-- **Profit Target**: Challenge passing requirement
-- **Minimum Trading Days**: Number of active days required to pass
-
-
-These fields enable the Rules vs Reality engine to flag compliance breaches automatically.
-
-
-## How Account Choice Affects Your Data
-
-
-### Analytics Scope
-All analytics can be filtered by account. If you view "Win Rate by Emotion," you can isolate one challenge account to avoid mixing funded account psychology with challenge account psychology.
-
-
-### Rules Application
-Trading rules can apply to:
-- All accounts (global rule)
-- Specific accounts only (e.g., "Max 5 trades/day" only on your $10K challenges, not your funded account)
-
-
-### Balance Tracking
-Each account maintains its own running balance. When you close a trade, the account balance updates. CSV imports reconcile against the correct account balance history.
-
-
-### Reconciliation
-When importing CSV files, you select which account the trades belong to. TradeMonkey matches imported trades with manual entries for that account only.
-
+---
 
 ## Best Practices
 
+- **Separate each real-world account**  
+  Create one TradeMonkey account for each live account or challenge. Don't merge multiple challenges or brokers into one.
 
-### Separate by Prop Firm or Strategy
-If you run three FTMO challenges and two MyForexFunds challenges, create five separate accounts. Don't merge them. Each has different rules, different equity, and different psychological pressure.
+- **Restart for new phases or resets**  
+  If a challenge resets or moves to a new phase, create a new account instead of reusing the old one.
 
+- **Use clear names**  
+  Prefer descriptive names like `FTMO 100K Phase 2 – Nov 2024` over `Challenge 1`.
 
-### Don't Mix Time Periods
-If you reset a challenge or start a new phase, create a new account. Mixing Phase 1 trades with Phase 2 trades in the same account distorts your balance history and makes drawdown calculations incorrect.
+- **Fill in prop-style limits for challenges**  
+  Set daily loss, max drawdown, and profit target if you want Rules vs Reality to highlight potential compliance issues.
 
+---
 
-### Use Descriptive Names
-"Challenge 1" is less useful than "FTMO 100K Phase 2 - Nov 2024". You will reference this account name in filters, exports, and rule configurations. Make it clear.
+## Important Notes
 
+- You cannot delete an account that already has trades; archive or deactivate it instead.
+- Changing the starting balance after trades exist can make historical balances inaccurate and should only be done to correct obvious setup mistakes.
+- TradeMonkey does not perform automatic currency conversion. If broker and journal currencies differ, you'll need to handle conversion yourself.
+- Account-level analytics assume a consistent risk/strategy profile. If you make major strategy changes, consider starting a new account for cleaner data.
 
-### Set Compliance Fields for Challenges
-If you don't define daily loss limits and max drawdown, TradeMonkey cannot flag compliance violations. These fields exist to catch breaches before you do.
+---
 
+## Support
 
-### One Account = One Balance Stream
-If you withdraw, deposit, or transfer funds, the balance changes. TradeMonkey tracks this via opening and closing balance on each trade. If you mix multiple balance streams in one account, reconciliation will flag discontinuities.
-
-
-## Limitations & Notes
-
-
-- You cannot delete an account that has trades linked to it. Archive or deactivate it instead.
-- Changing the starting balance after trades exist will break balance reconciliation. Only edit this field if correcting an initial error.
-- Currency conversion is not automatic. If you trade a GBP account but log trades in USD, you must handle conversion manually.
-- Account-level analytics assume all trades in that account share the same risk context. If you change your strategy mid-account, consider creating a new account.
+If you're unsure how to structure your accounts or think balances look off, contact **hello@trademonkey.app**.
