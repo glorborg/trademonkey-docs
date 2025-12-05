@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Trading Journal Documentation',
-  tagline: 'Your complete guide to mastering the Trading Journal',
+  title: 'TradeMonkey Documentation',
+  tagline: 'Your execution mirror for trading',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -14,8 +14,8 @@ const config: Config = {
   url: 'https://your-docusaurus-site.example.com',
   baseUrl: '/',
 
-  organizationName: 'your-org',
-  projectName: 'trading-journal-docs',
+  organizationName: 'trademonkey',
+  projectName: 'trademonkey-docs',
 
   onBrokenLinks: 'throw',
 
@@ -29,8 +29,8 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
           routeBasePath: '/',
+          sidebarPath: './sidebars.ts',
         },
         blog: false,
         theme: {
@@ -46,9 +46,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Trading Journal Docs',
+      title: 'TradeMonkey Docs',
       logo: {
-        alt: 'Trading Journal Logo',
+        alt: 'TradeMonkey Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -59,7 +59,7 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com/your-org/trading-journal-docs',
+          href: 'https://github.com/trademonkey/trademonkey-docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -86,12 +86,12 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/your-org/trading-journal-docs',
+              href: 'https://github.com/trademonkey/trademonkey-docs',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Trading Journal. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} TradeMonkey. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
