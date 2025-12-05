@@ -1,0 +1,832 @@
+# Execution Patterns
+
+
+## What Execution Patterns Are
+
+
+Execution patterns are statistically meaningful recurring behaviors that appear across multiple dimensions of your trading data. Unlike single-trade observations or one-time events, patterns represent consistent tendencies that repeat under similar conditions.
+
+
+A pattern combines:
+
+
+- **Psychology**: Emotions, conviction scores, plan adherence
+- **Compliance**: Rule violations and adherence rates
+- **Outcomes**: P&L, win rate, risk-reward
+- **Timing**: Time of day, session, day of week
+- **Context**: Setup tags, account type, market conditions
+
+
+Execution patterns answer: "What behaviors consistently repeat? Under what conditions? With what outcomes?"
+
+
+Patterns are not rules. Rules are prescriptive statements you set ("Max 3 trades per day"). Patterns are descriptive observations TradeMonkey detects ("After losing first trade, you exceed daily trade limit 35% of the time").
+
+
+## What Qualifies as a Pattern
+
+
+Not every correlation is a pattern. TradeMonkey identifies patterns based on statistical thresholds and repetition criteria:
+
+
+### Statistical Significance Requirements
+
+
+**Minimum Occurrences**: Pattern must appear in at least 5 instances
+
+
+**Example**:
+- "FOMO entries lose money": Requires at least 5 FOMO-tagged trades
+- "Afternoon conviction drops": Requires at least 5 afternoon trades with conviction drops
+
+
+**Rationale**: Fewer than 5 instances may be noise, not signal.
+
+
+**Correlation Strength**: Pattern must show meaningful difference from baseline
+
+
+**Example**:
+- FOMO trades: 22% win rate
+- Non-FOMO trades: 58% win rate
+- Difference: 36 percentage points (meaningful)
+
+
+vs
+
+
+- Morning trades: 54% win rate
+- Afternoon trades: 52% win rate
+- Difference: 2 percentage points (not meaningful, likely variance)
+
+
+**Threshold**: Minimum 15% difference in win rate, or ±$50 difference in average P&L, or 20% difference in adherence
+
+
+**Consistency**: Pattern must appear across multiple time periods
+
+
+**Example**:
+- Week 1: FOMO trades 20% win rate
+- Week 2: FOMO trades 25% win rate
+- Week 3: FOMO trades 18% win rate
+- Pattern: Consistently low win rate (stable pattern)
+
+
+vs
+
+
+- Week 1: FOMO trades 20% win rate
+- Week 2: FOMO trades 65% win rate
+- Week 3: FOMO trades 15% win rate
+- Not a pattern: High variance, inconsistent (likely small sample or changing conditions)
+
+
+### Repetition Criteria
+
+
+**Temporal Consistency**: Pattern appears across at least 2 distinct time periods (weeks, sessions, or trade batches)
+
+
+**Conditional Consistency**: Pattern appears across multiple examples of the same condition
+
+
+**Example**:
+- Condition: "After 2+ consecutive losses"
+- Instances: 8 times
+- Pattern behavior: 7 out of 8 times, next trade violated "Max trades" rule
+- Consistency: 87% (strong pattern)
+
+
+**Multi-Dimensional Validation**: Pattern appears in related metrics, not just one
+
+
+**Example**:
+- Pattern: "Afternoon trades underperform"
+- Evidence across dimensions:
+  - Win rate: 38% afternoon vs 68% morning (30% gap)
+  - Average P&L: -$34 afternoon vs +$118 morning ($152 gap)
+  - Conviction scores: 5.2 afternoon vs 7.4 morning (2.2 point gap)
+  - Plan adherence: 43% afternoon vs 76% morning (33% gap)
+- Multi-dimensional validation: All metrics point to same pattern
+
+
+**Example of non-pattern** (single dimension only):
+- Afternoon trades: 52% win rate vs morning 58% (small gap)
+- Afternoon P&L: +$85 vs morning +$92 (negligible)
+- Afternoon conviction: 6.8 vs morning 6.9 (negligible)
+- Only win rate shows minor difference, other metrics similar → Not a pattern
+
+
+![Pattern Qualification Criteria](/img/pattern-qualification-criteria.png)
+
+
+## How Patterns Are Detected
+
+
+TradeMonkey uses multiple systems to surface execution patterns:
+
+
+### 1. Psychology Tracking Analytics
+
+
+**Detection Method**: Aggregates trades by emotion, conviction level, and adherence, then calculates performance metrics for each category.
+
+
+**Patterns Detected**:
+- **Emotional cost**: Which emotions correlate with losses?
+- **Conviction gaps**: When does confidence collapse?
+- **Adherence breakdown**: Where does discipline fail?
+
+
+**Example Output**:
+> "FOMO-tagged trades: 18 instances, 22% win rate, -$2,610 total cost. Pattern: FOMO emotion consistently correlates with poor outcomes."
+
+
+**Data Used**: Emotions, conviction scores, plan adherence flags, P&L
+
+
+### 2. Rules vs Reality Dashboard
+
+
+**Detection Method**: Tracks rule violations over time, identifies clustering and contextual conditions.
+
+
+**Patterns Detected**:
+- **Violation clustering**: Do violations concentrate in specific conditions?
+- **Chronic vs acute failures**: Is rule-breaking systemic or situational?
+- **Conditional compliance**: Does adherence vary by time, emotion, or setup?
+
+
+**Example Output**:
+> "Max 3 trades/day violated 8 times. 7 out of 8 violations occurred after first trade was a loss. Pattern: Opening loss triggers overtrading."
+
+
+**Data Used**: Rule evaluations, violation timestamps, trade outcomes, tags
+
+
+### 3. Time-Scoped Analytics
+
+
+**Detection Method**: Compares performance metrics across different time windows (morning vs afternoon, weekday vs weekend, recent vs historical).
+
+
+**Patterns Detected**:
+- **Session-based variance**: Do results differ by time of day?
+- **Behavioral decay**: Is discipline eroding over time?
+- **Day-of-week effects**: Does performance vary by day?
+
+
+**Example Output**:
+> "Morning trades (before 12 PM): 68% win rate, 76% adherence. Afternoon trades (after 2 PM): 38% win rate, 43% adherence. Pattern: Afternoon discipline collapse."
+
+
+**Data Used**: Trade timestamps, performance metrics, adherence scores
+
+
+### 4. AI Diagnostics
+
+
+**Detection Method**: Scans all data dimensions using machine learning to identify correlations and multi-dimensional patterns human analysis might miss.
+
+
+**Patterns Detected**:
+- **Multi-factor patterns**: Combinations of conditions (e.g., afternoon + FOMO + after losses)
+- **Hidden correlations**: Non-obvious relationships (e.g., conviction drops occur 22 minutes after entry)
+- **Temporal patterns**: Sequences and cascades (e.g., violation triggers more violations)
+
+
+**Example Output**:
+> "Conviction drops by 4.2 points on losing trades vs 0.8 on winners. 83% of trades with conviction gap < -4 closed before stop or target. Pattern: Large conviction drops predict premature exits."
+
+
+**Data Used**: All available structured data (emotions, conviction, adherence, outcomes, timing, tags)
+
+
+### 5. AI Deep Dive Explorer
+
+
+**Detection Method**: User-directed exploration to investigate specific patterns in depth through follow-up questions.
+
+
+**Patterns Detected**:
+- **Causal chains**: Why does pattern X occur?
+- **Amplifying conditions**: What makes pattern X stronger?
+- **Conditional variance**: Does pattern X differ under condition Y?
+
+
+**Example Output**:
+> **You**: "Why does my conviction drop during trades?"
+> **AI**: "Conviction drops occur most frequently when trades go 15+ pips negative. 86% of conviction-drop trades had drawdowns exceeding 15 pips."
+
+
+**Data Used**: Same as AI Diagnostics, but explored interactively based on user questions
+
+
+### 6. Execution Recap
+
+
+**Detection Method**: Visual review of multiple trades in sequence, allowing human pattern recognition through before/after screenshots and psychological data.
+
+
+**Patterns Detected**:
+- **Visual setup deterioration**: Do entry screenshots show weaker setups in certain conditions?
+- **Emotional consistency**: Do certain emotions appear together frequently?
+- **Exit behavior clusters**: Do premature exits concentrate in specific sessions?
+
+
+**Example Output**:
+> User observes: "8 out of last 10 afternoon trades show cluttered entry screenshots and low conviction scores, while morning trades show clean setups and high conviction. Visual pattern: Afternoon setup quality deteriorates."
+
+
+**Data Used**: Screenshots, emotions, conviction, outcomes
+
+
+![Pattern Detection Systems](/img/pattern-detection-systems.png)
+
+
+## How Patterns Feed Into AI Features
+
+
+Execution patterns are the raw material for TradeMonkey's AI features. Detected patterns enable AI to provide specific, data-driven insights.
+
+
+### AI Diagnostics Uses Patterns
+
+
+**Pattern Detection → Diagnostic Finding**
+
+
+**Example 1**:
+- **Pattern Detected**: FOMO entries have 22% win rate across 18 instances, $2,610 total cost
+- **Diagnostic Finding**: "FOMO entry cost: -$2,610 this month. 18 instances, 22% win rate. Pattern: FOMO emotion consistently correlates with poor outcomes."
+
+
+**Example 2**:
+- **Pattern Detected**: Afternoon trades show 43% adherence vs 76% morning adherence across 52 trades
+- **Diagnostic Finding**: "Afternoon discipline breakdown: 43% plan adherence vs 76% morning adherence. 18 afternoon trades, 45% win rate. Pattern: Afternoon trading shows lower adherence and worse performance."
+
+
+**Without patterns**: AI Diagnostics would only report raw statistics ("52 trades this month"). With patterns, it surfaces significant correlations.
+
+
+### AI Deep Dive Explorer Uses Patterns
+
+
+**Pattern Detection → Exploration Starting Point**
+
+
+**Example**:
+- **Pattern Detected**: Conviction drops 4.2 points on losing trades
+- **User Asks Deep Dive**: "Why does my conviction drop so much on losing trades?"
+- **AI Explores Pattern**: Analyzes when conviction drops occur, what triggers them, which conditions amplify them
+
+
+**Pattern provides context for exploration**: Without detected pattern, user wouldn't know what to explore. Pattern detection identifies which questions to ask.
+
+
+### Time-Scoped Analytics Uses Patterns
+
+
+**Pattern Detection → Temporal Comparison**
+
+
+**Example**:
+- **Pattern Detected**: Recent win rate (48%) is 10% lower than all-time (58%)
+- **Time-Scoped Display**: "Last 30 Days: 48% win rate (↓ 10% from all-time 58%). Pattern: Recent performance decline."
+
+
+**Pattern provides directionality**: Without pattern detection (comparing recent to all-time), Time-Scoped Analytics would just show current metrics without revealing trends.
+
+
+### Rules vs Reality Dashboard Uses Patterns
+
+
+**Pattern Detection → Violation Context**
+
+
+**Example**:
+- **Pattern Detected**: "Max trades/day" rule violated 8 times, 7 after opening loss
+- **Dashboard Display**: "Violations: 8. Pattern: 87% of violations occur after first trade of day was a loss. Days starting with losses: 35% violation rate."
+
+
+**Pattern provides actionable context**: Without pattern detection, dashboard would only show violation count. Pattern reveals when/why violations occur.
+
+
+### Execution Recap Uses Patterns
+
+
+**Pattern Detection → Visual Validation**
+
+
+**Example**:
+- **Pattern Detected**: 8 out of 10 afternoon trades have low conviction and poor outcomes
+- **Recap Display**: Shows afternoon trades with screenshots side-by-side
+- **User Validates Pattern**: Visually confirms afternoon entry screenshots show weaker setups
+
+
+**Pattern guides visual review**: Without pattern detection, user might not notice afternoon trades cluster at bottom of performance list. Pattern detection highlights what to review visually.
+
+
+![Patterns Feed AI Features](/img/patterns-feed-ai-features.png)
+
+
+## Clinical Pattern Examples
+
+
+These examples show execution patterns using TradeMonkey's mirror language: descriptive, not prescriptive.
+
+
+### Pattern 1: Afternoon Discipline Collapse
+
+
+**Detected Across**:
+- Psychology Tracking: Afternoon trades show entry conviction 5.2 avg vs morning 7.4 avg
+- Rules Dashboard: Afternoon plan adherence 43% vs morning 76%
+- Time-Scoped Analytics: Afternoon win rate 38% vs morning 68%
+- Execution Recap: Visual confirmation of weaker entry setups in afternoon
+
+
+**Pattern Statement (Clinical)**:
+> "Trades entered after 2 PM show 38% plan adherence vs 76% before 2 PM. Afternoon trades: 18 total, 38% win rate, average P&L -$34, entry conviction 5.2. Morning trades: 34 total, 68% win rate, average P&L +$118, entry conviction 7.4. Conviction gap in afternoon: -3.1 avg vs -1.4 morning. Pattern: Afternoon trading shows lower conviction, lower adherence, and worse performance across all dimensions."
+
+
+**What pattern reveals**: Time of day correlates with discipline and performance variance. Afternoon sessions exhibit multi-dimensional deterioration.
+
+
+**What pattern does NOT say**: "Stop trading after 2 PM" or "You're tired in the afternoon" (coaching/interpretation).
+
+
+### Pattern 2: Conviction Decay Predicts Premature Exits
+
+
+**Detected Across**:
+- Psychology Tracking: Conviction gap -4.2 avg on losing trades vs -0.8 on winners
+- Trade Recap: 83% of trades with gap < -4 closed before stop or target
+- Threads: Mid-trade notes show doubt appearing 15-30 min after entry on gap trades
+
+
+**Pattern Statement (Clinical)**:
+> "Your conviction drops 4.2 points from entry to exit on losing trades, 0.8 points on winners. Of 23 trades with conviction gap < -4, 19 (83%) closed before stop loss or take profit hit. Average exit: 8 pips before planned stop. Average P&L on premature exits: -$88 vs -$65 on trades held to stop. Pattern: Large conviction drops predict premature exits and slightly worse losses."
+
+
+**What pattern reveals**: Conviction collapse during execution correlates with exits before planned levels.
+
+
+**What pattern does NOT say**: "Trust your stops" or "Your emotions override your plan" (coaching/interpretation).
+
+
+### Pattern 3: FOMO Emotional Cost
+
+
+**Detected Across**:
+- Psychology Tracking: FOMO emotion appears 18 times, 22% win rate, -$142 avg P&L
+- Rules Dashboard: FOMO trades violate R:R rule 68% of time (vs 10% overall)
+- Execution Recap: FOMO-tagged trades show entry after 20-40 pip moves (late entry)
+
+
+**Pattern Statement (Clinical)**:
+> "FOMO-tagged trades: 18 instances, 22% win rate (vs 58% overall), average P&L -$142 (vs +$85 overall). Total cost: -$2,556. FOMO trades averaged entry conviction 4.1 (vs 6.8 overall), R:R ratio 1.1:1 (vs 2.3:1 overall). Exit emotions: Regret (14 times), Frustration (11 times). Pattern: FOMO emotion correlates with low conviction entries, poor risk-reward, and consistently negative outcomes."
+
+
+**What pattern reveals**: FOMO emotion is a reliable negative performance indicator across multiple metrics.
+
+
+**What pattern does NOT say**: "Avoid FOMO trades" or "Control your impulses" (coaching/advice).
+
+
+### Pattern 4: Post-Loss Overtrading
+
+
+**Detected Across**:
+- Rules Dashboard: "Max 3 trades/day" violated 8 times, 7 after opening loss
+- Time-Scoped Analytics: Days starting with losses average 4.2 trades (vs 2.8 on winning days)
+- Psychology Tracking: Trades after losses show "Revenge" emotion 28% of time (vs 8% overall)
+
+
+**Pattern Statement (Clinical)**:
+> "Days starting with a losing trade: 20 total. Average trades per day: 4.2. Rule violations: 7 (35% violation rate). Days starting with a winning trade: 24 total. Average trades per day: 2.8. Rule violations: 1 (4% violation rate). Trades taken after losses: 'Revenge' emotion tagged 28% of time. Pattern: Opening losses trigger increased trading activity and higher rule violation rate."
+
+
+**What pattern reveals**: Loss events correlate with behavioral changes (increased trading, revenge emotion, rule violations).
+
+
+**What pattern does NOT say**: "Stop trading after a loss" or "Take a break to reset" (coaching/advice).
+
+
+### Pattern 5: High Conviction Setup Quality
+
+
+**Detected Across**:
+- Psychology Tracking: Conviction 7-10 trades: 68% win rate, +$134 avg P&L
+- Rules Dashboard: High conviction trades: 95% plan adherence (vs 65% overall)
+- Execution Recap: High conviction entry screenshots show clean setups, multiple confluence factors
+
+
+**Pattern Statement (Clinical)**:
+> "Trades with entry conviction 7-10: 28 total, 68% win rate, average P&L +$134, plan adherence 95%. Trades with entry conviction 1-3: 6 total, 17% win rate, average P&L -$156, plan adherence 42%. Trades with entry conviction 4-6: 18 total, 44% win rate, average P&L +$28, plan adherence 68%. Pattern: Higher entry conviction strongly correlates with better outcomes, higher adherence, and larger positive P&L."
+
+
+**What pattern reveals**: Conviction scores reliably predict performance and discipline across ranges.
+
+
+**What pattern does NOT say**: "Only take high-conviction trades" (prescriptive strategy advice).
+
+
+### Pattern 6: Setup-Specific Performance Variance
+
+
+**Detected Across**:
+- Psychology Tracking: "Scalp" tag: 55% win rate. "Swing" tag: 61% win rate. "Reversal" tag: 25% win rate.
+- Rules Dashboard: Reversal trades show 42% adherence (vs 71% scalp, 78% swing)
+- Execution Recap: Reversal trades show cluttered entry screenshots, multiple false signals
+
+
+**Pattern Statement (Clinical)**:
+> "Trades tagged 'reversal': 12 total, 25% win rate, average P&L -$88. Conviction gap: -4.1 avg. Plan adherence: 42%. Trades tagged 'scalp': 22 total, 55% win rate, average P&L +$45. Conviction gap: -1.8 avg. Plan adherence: 71%. Trades tagged 'swing': 18 total, 61% win rate, average P&L +$112. Conviction gap: -1.4 avg. Plan adherence: 78%. Pattern: Reversal setups significantly underperform other strategies across all metrics."
+
+
+**What pattern reveals**: Setup type (by tag) reliably differentiates performance and discipline.
+
+
+**What pattern does NOT say**: "Stop trading reversals" (strategy recommendation).
+
+
+### Pattern 7: Violation Cascades
+
+
+**Detected Across**:
+- Rules Dashboard: 4 days with 3+ violations (10% of trading days account for 38% of total violations)
+- Psychology Tracking: Cascade days show "Frustration" exit emotion 78% of time
+- Threads: Cascade trades show rapid sequential entries with declining conviction
+
+
+**Pattern Statement (Clinical)**:
+> "Violation cascade days: 4 total (10% of 40 trading days). Violations per cascade day: 3.75 avg (15 violations / 4 days). Non-cascade days: 24 violations / 36 days (0.67 avg). Cascade days account for 38% of total violations in 10% of trading time. Average P&L on cascade days: -$420. Trades per cascade day: 6.2 avg (vs 2.4 overall). Pattern: Multiple-rule-violation days account for disproportionate share of violations and losses."
+
+
+**What pattern reveals**: Violations cluster into acute breakdown episodes rather than spreading evenly.
+
+
+**What pattern does NOT say**: "Stop trading when you violate one rule" (behavioral prescription).
+
+
+![Clinical Pattern Examples](/img/clinical-pattern-examples.png)
+
+
+## Pattern vs Noise: Distinguishing Signal
+
+
+Not every correlation is a meaningful pattern. TradeMonkey applies filters to separate signal from noise:
+
+
+### Signal (Meaningful Pattern)
+
+
+**Characteristics**:
+- Appears in ≥5 instances
+- Shows ≥15% difference from baseline
+- Consistent across multiple time periods
+- Validated across multiple dimensions
+
+
+**Example**:
+- FOMO trades: 18 instances, 22% win rate (vs 58% baseline = 36% gap)
+- Consistent: Week 1: 20%, Week 2: 25%, Week 3: 18% (stable low)
+- Multi-dimensional: Low conviction (4.1), poor R:R (1.1:1), frequent regret emotions
+- **Verdict**: Strong signal, meaningful pattern
+
+
+### Noise (Not a Pattern)
+
+
+**Characteristics**:
+- Few instances (<5)
+- Small difference from baseline (<10%)
+- Inconsistent across time periods
+- Only one dimension shows difference
+
+
+**Example**:
+- "Night trades" (10 PM - 2 AM): 3 instances, 33% win rate (vs 58% baseline = 25% gap)
+- Small sample (3 trades)
+- Inconsistent: Not enough instances to measure consistency
+- Single dimension: Only win rate differs, conviction/adherence/P&L similar to baseline
+- **Verdict**: Noise, not a pattern (insufficient data)
+
+
+### Edge Cases
+
+
+**Example 1: Large Gap, Small Sample**
+- "Counter-trend after news" trades: 4 instances, 0% win rate (vs 58% baseline = 58% gap)
+- Large gap but only 4 instances (below 5 threshold)
+- **Verdict**: Possible pattern, needs more data to confirm
+
+
+**Example 2: Large Sample, Small Gap**
+- Weekend trades: 15 instances, 54% win rate (vs 58% baseline = 4% gap)
+- Large sample but gap too small (4% within normal variance)
+- **Verdict**: No pattern, performance equivalent to baseline
+
+
+**Example 3: Inconsistent Pattern**
+- "Friday trades": 12 instances
+- Week 1-4: 30% win rate (poor)
+- Week 5-8: 70% win rate (excellent)
+- Large sample but highly inconsistent
+- **Verdict**: Not a stable pattern (likely external factors changing, not behavioral constant)
+
+
+### Dashboard Indicators for Signal vs Noise
+
+
+**Signal Indicators**:
+- ✅ Pattern badge: "Statistically significant"
+- ✅ Consistency score: 85%+ (appears reliably)
+- ✅ Multi-dimensional icon: Shows correlation across 3+ metrics
+
+
+**Noise Indicators**:
+- ⚠️ Warning badge: "Small sample (3 instances)"
+- ⚠️ Consistency score: <60% (unreliable)
+- ⚠️ Single-dimensional icon: Only one metric differs
+
+
+**Users can toggle**: "Show all patterns" (includes noise) vs "Show significant patterns only" (default, filters noise)
+
+
+## Pattern Hierarchies and Combinations
+
+
+Patterns can be simple (single factor) or complex (multi-factor). TradeMonkey detects both.
+
+
+### Single-Factor Patterns
+
+
+**Definition**: Pattern driven by one primary condition.
+
+
+**Examples**:
+- Time of day: "Afternoon trades underperform"
+- Emotion: "FOMO trades lose money"
+- Conviction: "Low conviction correlates with poor outcomes"
+- Setup: "Reversal trades underperform"
+
+
+**Detection**: Simple aggregation by single dimension (group by time, emotion, conviction, or tag).
+
+
+### Two-Factor Patterns
+
+
+**Definition**: Pattern driven by combination of two conditions.
+
+
+**Examples**:
+- Time + Emotion: "Afternoon FOMO trades underperform more than morning FOMO trades"
+- Conviction + Adherence: "Low conviction + plan deviation performs worse than low conviction + plan adherence"
+- Emotion + Outcome: "Fear entries that win show 'Relief' exits. Fear entries that lose show 'Regret' exits."
+
+
+**Detection**: Two-dimensional aggregation (group by dimension A, then sub-group by dimension B).
+
+
+### Multi-Factor Patterns (3+)
+
+
+**Definition**: Pattern driven by combination of three or more conditions.
+
+
+**Examples**:
+- Time + Emotion + Context: "Afternoon + FOMO + after losses = 18% win rate"
+- Conviction + Adherence + Setup: "Low conviction + non-adherent + reversal trades = 12% win rate"
+- Time + Rules + Emotion: "Afternoon + violated 'Max trades' + Revenge emotion = violation cascade risk"
+
+
+**Detection**: Multi-dimensional aggregation (requires sufficient data in each sub-group).
+
+
+**Data Requirements**: Multi-factor patterns need 5+ instances in each sub-group. If "Afternoon + FOMO + after losses" only has 3 instances, pattern is noise.
+
+
+### Pattern Hierarchy Example
+
+
+**Level 1 (Single Factor)**: "Afternoon trades: 38% win rate (vs 68% morning)"
+
+
+**Level 2 (Two Factors)**: "Afternoon + FOMO: 20% win rate (vs 40% morning FOMO)"
+
+
+**Level 3 (Three Factors)**: "Afternoon + FOMO + after losses: 18% win rate (vs 22% afternoon FOMO without prior losses)"
+
+
+**Insight**: Each additional factor refines the pattern. Most significant pattern: Afternoon + FOMO + after losses (18% win rate, 9 instances).
+
+
+**AI Deep Dive Explorer specializes in multi-factor exploration**: User can drill from Level 1 → Level 2 → Level 3 through follow-up questions.
+
+
+![Pattern Hierarchies](/img/pattern-hierarchies.png)
+
+
+## Limitations and Data Requirements
+
+
+Execution pattern detection has several limitations and requirements:
+
+
+### Minimum Data Volume
+
+
+**For single-factor patterns**: 20-30 trades with complete data
+
+
+**For two-factor patterns**: 50+ trades (enough instances in each sub-group)
+
+
+**For three-factor patterns**: 100+ trades (sufficient multi-dimensional data)
+
+
+**Example**:
+- 30 total trades
+- Can detect: "FOMO underperforms" (single factor, if 5+ FOMO trades)
+- Cannot detect: "Afternoon FOMO after losses" (multi-factor, insufficient sub-group instances)
+
+
+### Requires Full Psychological Metadata
+
+
+**Critical fields for pattern detection**:
+- Emotions (entry and exit)
+- Conviction scores (entry and exit)
+- Plan adherence (entry and exit)
+- Tags (setup types, session markers)
+
+
+**If data is incomplete**:
+- 50% of trades missing emotions → Emotion-based patterns unreliable
+- 80% of trades missing conviction → Conviction patterns impossible
+- No tags → Setup-specific patterns unavailable
+
+
+**Dashboard shows data completeness**:
+```
+Pattern Detection Data Quality:
+- Emotions: 88% complete (53 / 60 trades)
+- Conviction: 95% complete (57 / 60 trades)
+- Adherence: 92% complete (55 / 60 trades)
+- Tags: 78% complete (47 / 60 trades)
+
+
+Verdict: Sufficient data for reliable pattern detection.
+```
+
+
+### Pattern Detection Lag
+
+
+**Patterns emerge over time**: Immediate feedback not possible
+
+
+**Timeline**:
+- Week 1 (5-10 trades): Too early, no patterns
+- Week 2-3 (20-30 trades): Single-factor patterns begin appearing
+- Week 4-8 (50-100 trades): Multi-factor patterns emerge
+- Month 3+ (200+ trades): Stable, reliable patterns
+
+
+**Example**:
+- After 10 trades: AI Diagnostics may say "Insufficient data for pattern detection"
+- After 30 trades: AI Diagnostics surfaces 2-3 single-factor patterns
+- After 60 trades: AI Diagnostics surfaces 5-7 patterns including multi-factor
+
+
+### Patterns Reflect Past, Not Future
+
+
+**Patterns are descriptive, not predictive**:
+
+
+- "FOMO trades have lost money historically" ≠ "Your next FOMO trade will lose"
+- "Afternoon trades underperform" ≠ "All afternoon trades will underperform"
+
+
+**Patterns show tendencies**: Probabilistic, not deterministic. Use for awareness, not as trading signals.
+
+
+### External Factors Not Captured
+
+
+**TradeMonkey cannot detect**:
+- Market conditions (volatility, trending vs ranging)
+- News events (unless manually tagged)
+- Personal life factors (stress, illness, fatigue)
+- Strategy changes (unless reflected in tags)
+
+
+**Pattern might be confounded by external factors**:
+
+
+**Example**:
+- Pattern detected: "Week 3-4 trades underperformed"
+- Actual cause: Major market event (Fed rate decision)
+- TradeMonkey shows pattern but cannot identify external cause
+
+
+**User must provide context**: If pattern appears suddenly, consider external factors.
+
+
+### Pattern Stability Depends on Consistency
+
+
+**Patterns can change** if behavior or conditions change:
+
+
+**Example**:
+- Pattern detected (Weeks 1-8): "Afternoon trades: 38% win rate"
+- Weeks 9-12: Trader stops trading afternoons
+- Pattern no longer applies (behavior changed)
+
+
+**Pattern recency matters**: Always check if pattern is current (use Last 30 Days filter) or historical (All Time).
+
+
+### Small Sub-Group Instability
+
+
+**Multi-factor patterns with small sub-groups are volatile**:
+
+
+**Example**:
+- "Afternoon + FOMO + after losses": 18% win rate (9 instances)
+- Add 2 wins to sub-group: Win rate jumps to 36% (4 wins, 7 losses out of 11)
+- Pattern is real but unstable due to small sample
+
+
+**Dashboard notes instability**:
+> "Pattern: Afternoon + FOMO + after losses (18% win rate, 9 instances). Note: Small sample, pattern may be volatile."
+
+
+### Correlation Is Not Causation
+
+
+**Patterns show correlation**: A correlates with B. Patterns do NOT prove A causes B.
+
+
+**Example**:
+- Pattern: "FOMO trades lose money"
+- Possible causality:
+  1. FOMO emotion → poor decision-making → losses (causal)
+  2. Trades that lose → retrospectively tagged as FOMO (hindsight bias)
+  3. FOMO occurs during volatile conditions → volatility causes losses (confounding variable)
+
+
+**TradeMonkey shows correlation**: User must interpret causality based on context.
+
+
+### Pattern Detection Does Not Prescribe Action
+
+
+**Patterns reveal behavior**: They do not tell you what to do.
+
+
+**Example**:
+- Pattern: "Afternoon trades underperform"
+- Possible responses:
+  1. Stop trading afternoons (avoid pattern)
+  2. Adjust position sizing in afternoons (risk management)
+  3. Create stricter afternoon rules (increase accountability)
+  4. Accept afternoon performance (conscious choice)
+  5. Investigate why afternoons differ (deeper analysis)
+
+
+**TradeMonkey does not choose for you**: Patterns are inputs for decision-making, not decisions themselves.
+
+
+## Summary
+
+
+Execution patterns are statistically meaningful recurring behaviors detected across psychology, compliance, outcomes, timing, and context. They qualify as patterns when:
+
+
+- Appearing in ≥5 instances
+- Showing ≥15% difference from baseline
+- Consistent across time periods
+- Validated across multiple dimensions
+
+
+Patterns feed into AI Diagnostics, Deep Dive Explorer, Time-Scoped Analytics, Rules Dashboard, and Execution Recap to provide clinical, factual insights without coaching or prescription.
+
+
+Pattern detection requires sufficient data (20-30 trades minimum, 100+ for multi-factor patterns) with complete psychological metadata (emotions, conviction, adherence, tags).
+
+
+Patterns are descriptive mirrors reflecting past behavior, not predictive signals for future outcomes.
+
+
+
+
+

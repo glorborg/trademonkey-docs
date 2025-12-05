@@ -1,0 +1,974 @@
+# AI Deep Dive Explorer
+
+
+## What AI Deep Dive Explorer Is
+
+
+AI Deep Dive Explorer is a conversational pattern analysis tool that allows you to explore specific behavioral patterns through multi-level questioning. Unlike AI Diagnostics (which scans all data for patterns), Deep Dive focuses on one pattern at a time and investigates it through iterative follow-up questions.
+
+
+This is Perplexity-style exploration: you ask a question, AI answers using your data, you ask a follow-up question to go deeper, AI refines its analysis, repeat up to 5 levels deep.
+
+
+Deep Dive Explorer answers: "Why does this pattern occur? When is it strongest? What conditions amplify or reduce it?"
+
+
+## Purpose and Role
+
+
+Deep Dive Explorer serves as a behavioral microscope. After identifying a pattern (through AI Diagnostics, Time-Scoped Analytics, or Execution Recap), you use Deep Dive to:
+
+
+- **Understand causality**: Why does conviction drop during trades?
+- **Identify conditions**: When does FOMO emotion lead to losses vs breakeven?
+- **Detect amplifiers**: What makes afternoon discipline worse (time alone? or time + losses + specific setups)?
+- **Explore multi-dimensional patterns**: Do low-conviction + FOMO + afternoon trades perform worse than any single factor alone?
+
+
+Deep Dive provides depth on a single topic. It does not scan all your data for patterns—that's AI Diagnostics' role. It digs into one pattern you already identified.
+
+
+### Deep Dive vs Other AI Features
+
+
+**AI Deep Dive Explorer (Depth)**
+- **Purpose**: Explore one specific pattern through multi-level questioning
+- **Interaction**: Conversational Q&A (up to 5 levels deep)
+- **Output**: Sequential answers that build on previous context
+- **Breadth**: Narrow (one pattern at a time)
+- **Depth**: Deep (explores causality, conditions, amplifiers, context)
+- **Use case**: "Why does X happen? When is X strongest? What conditions cause X?"
+
+
+**AI Diagnostics (Breadth)**
+- **Purpose**: Identify all significant patterns in your data
+- **Interaction**: Single request → Report
+- **Output**: Structured summary with 5-10 key findings
+- **Breadth**: Wide (scans all dimensions)
+- **Depth**: Shallow (each finding is 2-3 sentences)
+- **Use case**: "What patterns exist in my data?"
+
+
+**Trade Thread Summary (Narrative)**
+- **Purpose**: Explain what happened in one specific trade
+- **Interaction**: Single request → Trade timeline analysis
+- **Output**: Chronological narrative of one trade's execution
+- **Breadth**: Narrow (one trade)
+- **Depth**: Medium (trade-specific context)
+- **Use case**: "What happened during this losing trade?"
+
+
+**Rules Coach (Configuration)**
+- **Purpose**: Help define or explain trading rules
+- **Interaction**: Guided wizard or Q&A
+- **Output**: Rule proposals or violation explanations
+- **Breadth**: N/A (not pattern detection)
+- **Depth**: N/A (not analysis, just configuration)
+- **Use case**: "Help me create rules from my strategy"
+
+
+### Typical Workflow
+
+
+1. **Identify pattern** (AI Diagnostics, Time-Scoped Analytics, or Execution Recap):
+   > "Conviction drops 4.2 points from entry to exit on losing trades"
+
+
+2. **Open Deep Dive Explorer** and ask initial question:
+   > "Why does my conviction drop so much on losing trades?"
+
+
+3. **AI answers** using your data:
+   > "Conviction drops occur most often when price pulls back 10+ pips from entry. Of 18 conviction-drop trades, 16 had pullbacks exceeding 10 pips before hitting stop or target."
+
+
+4. **Ask follow-up** to go deeper:
+   > "Does this happen more at certain times of day?"
+
+
+5. **AI refines** analysis:
+   > "Yes. Afternoon trades (after 2 PM) show conviction drops 2.3x more frequently than morning trades. Afternoon pullback tolerance appears lower."
+
+
+6. **Continue drilling** up to 5 levels total:
+   > "What emotions correlate with these afternoon conviction drops?"
+   > AI: "85% of afternoon conviction-drop trades had 'Impatience' or 'FOMO' tagged at entry..."
+
+
+7. **Session ends** after 5 questions or when you close it
+
+
+8. **Use insights** to adjust rules, strategy, or behavior
+
+
+![Deep Dive Workflow](/img/deep-dive-workflow.png)
+
+
+## Five-Level Depth Limit and Follow-Up System
+
+
+Deep Dive Explorer allows up to 5 question-answer turns per exploration session. This creates a structured drilling process:
+
+
+### Level Structure
+
+
+**Level 1 (Initial Question)**
+- You ask broad question about a pattern
+- AI analyzes your complete trade data
+- AI provides initial answer with supporting evidence
+
+
+**Level 2 (First Follow-Up)**
+- You refine or redirect based on Level 1 answer
+- AI narrows focus to specific sub-pattern
+- AI provides more targeted answer
+
+
+**Level 3 (Second Follow-Up)**
+- You drill into conditions or context
+- AI isolates specific scenarios or combinations
+- AI provides conditional analysis
+
+
+**Level 4 (Third Follow-Up)**
+- You explore amplifiers or edge cases
+- AI identifies what makes pattern stronger/weaker
+- AI provides comparative analysis
+
+
+**Level 5 (Final Follow-Up)**
+- You clarify remaining questions or validate hypothesis
+- AI provides final contextual details
+- AI may summarize pattern's key factors
+
+
+**Session End**: After Level 5, session closes. You can start a new session (consumes another credit) if more exploration needed.
+
+
+### Example 5-Level Exploration
+
+
+**Level 1 Question**:
+> "Why does my conviction drop between entry and exit?"
+
+
+**Level 1 Answer**:
+> "Your conviction drops an average of 3.8 points from entry to exit across 42 trades with negative conviction gaps. Drops occur most frequently (78%) when trades move against you initially, even if they later recover. Only 22% of conviction drops occur on trades that never go negative."
+
+
+**Level 2 Question**:
+> "How much initial drawdown triggers conviction loss?"
+
+
+**Level 2 Answer**:
+> "Conviction drops by 3+ points when trades go 15+ pips negative from entry. Of 28 trades with 15+ pip drawdowns, 24 (86%) showed conviction drops. Smaller drawdowns (5-10 pips) correlate with conviction drops only 35% of the time. Pattern: Your conviction is sensitive to mid-level drawdowns (15-25 pips), not minor noise."
+
+
+**Level 3 Question**:
+> "Does this pattern differ by time of day?"
+
+
+**Level 3 Answer**:
+> "Yes. Morning trades (before 12 PM) maintain conviction despite 15+ pip drawdowns 42% of the time. Afternoon trades (after 2 PM) maintain conviction only 12% of the time under same drawdown conditions. Afternoon conviction is 3.5x more fragile than morning conviction when facing drawdowns."
+
+
+**Level 4 Question**:
+> "What emotions appear when afternoon conviction drops?"
+
+
+**Level 4 Answer**:
+> "In afternoon trades with conviction drops during drawdowns, 82% had 'Impatience' or 'Fear' tagged at entry. Morning trades with similar drawdowns but stable conviction had 'Calm' or 'Confident' at entry 76% of the time. Pattern: Entry emotion predicts conviction resilience under drawdown stress."
+
+
+**Level 5 Question**:
+> "Do afternoon trades with calm/confident entry maintain conviction better?"
+
+
+**Level 5 Answer**:
+> "Partially. Afternoon trades with 'Calm' or 'Confident' entry maintain conviction 58% of the time under 15+ pip drawdowns (vs 12% overall afternoon rate). However, this is still below morning rate (42%). Pattern: Afternoon timing weakens conviction resilience even with positive entry emotions, but positive emotions help."
+
+
+**Session End**: 5 levels reached. Key insight: Afternoon + drawdown + impatient/fearful entry = highest conviction drop risk.
+
+
+### Why 5 Levels?
+
+
+**Cost control**: Each question-answer pair consumes OpenAI API tokens. Limiting to 5 levels caps per-session costs.
+
+
+**Cognitive load**: Beyond 5 levels, exploration becomes unfocused. Five levels force concise, targeted drilling.
+
+
+**Sufficient depth**: Most patterns can be explored adequately in 3-5 levels. If more depth is needed, start a new session with refined initial question.
+
+
+**Session credits**: 25 sessions per day allows multiple 5-level explorations without hitting limits.
+
+
+### Follow-Up Question Guidelines
+
+
+Good follow-up questions build on previous answers:
+
+
+**Good Follow-Ups**:
+- "Does this pattern occur more in [specific condition]?"
+- "What emotions correlate with this behavior?"
+- "How does this compare to [different scenario]?"
+- "What percentage of [pattern] also has [other attribute]?"
+
+
+**Poor Follow-Ups**:
+- Unrelated topic changes ("Now tell me about my win rate" when exploring conviction gaps)
+- Overly broad ("What's wrong with my trading?")
+- Coaching requests ("How do I fix this?")
+- Repetition of previous question without new angle
+
+
+AI may refuse poor follow-ups:
+> "This question changes topic. Current session is exploring conviction gaps. Please ask a follow-up related to conviction gaps, or end this session and start a new one."
+
+
+![Five-Level Depth System](/img/five-level-depth.png)
+
+
+## What Data Is Used
+
+
+Deep Dive Explorer analyzes aggregated trade statistics and patterns, not raw individual trade details.
+
+
+### Data Used (Aggregated Only)
+
+
+**Performance Metrics**
+- Win rate by category (emotion, conviction level, time of day, tag, etc.)
+- Average P&L by category
+- Trade count by category
+- Percentage distributions
+
+
+**Psychology Aggregates**
+- Emotion frequency counts
+- Average conviction scores by condition
+- Conviction gap distributions
+- Adherence percentages by condition
+
+
+**Rule Compliance**
+- Violation counts by rule
+- Adherence percentages overall and per rule
+- Violation timing patterns (when violations occur)
+
+
+**Time-Based Patterns**
+- Trade count by hour, day, session
+- Performance by time window
+- Duration averages
+
+
+**Tag-Based Patterns**
+- Performance by tag
+- Tag co-occurrence (how often tags appear together)
+- Tag correlation with outcomes
+
+
+**Conditional Combinations**
+- Multi-dimensional analysis (e.g., "FOMO + afternoon + after losses")
+- Interaction effects (e.g., does morning + FOMO perform differently than afternoon + FOMO?)
+
+
+### Data NOT Used
+
+
+**Raw Notes and Reflections**
+- Deep Dive does NOT read your free-text notes, reflections, or trade reasoning
+- Rationale: Notes may contain PII (personal identifiers, account numbers, broker names)
+- Notes are unstructured text that requires different AI processing (privacy risk)
+
+
+**Screenshots**
+- Deep Dive does NOT analyze chart screenshots
+- Rationale: Image processing not implemented, privacy concerns
+
+
+**Individual Trade Details**
+- Deep Dive does NOT reference specific trade IDs, timestamps, or prices
+- Rationale: Aggregated patterns only, not individual trade analysis (use Trade Thread Summary for that)
+
+
+**External Data**
+- Deep Dive does NOT know market conditions, news events, or external factors unless you mention them in your question
+- Rationale: TradeMonkey only has your trade data, not market data
+
+
+### Privacy and PII
+
+
+Deep Dive Explorer is designed to avoid processing personally identifiable information (PII):
+
+
+- **No broker names**: Questions about "FTMO" or "MyForexFunds" are fine (common knowledge), but avoid "My Account #12345 at XYZ Broker"
+- **No account numbers**: Deep Dive references "Challenge Account 1" (your label), not external account IDs
+- **No external identifiers**: Avoid mentioning email addresses, phone numbers, real names in questions
+
+
+**AI cannot access**:
+- Your email address
+- Your account password
+- Your billing information
+- Your notes or reflections (free-text fields)
+
+
+**AI can access**:
+- Aggregated trade statistics
+- Emotion/conviction/adherence data (structured fields)
+- Tag names (if you created tags with PII, that's your responsibility—don't create tags like "john.doe@email.com")
+
+
+### No Coaching or Advice
+
+
+Deep Dive Explorer follows TradeMonkey's mirror philosophy: descriptive analysis only.
+
+
+**AI will NOT**:
+- Tell you what to do ("You should stop trading FOMO setups")
+- Recommend strategies ("Try scalping instead of swing trading")
+- Offer psychological advice ("Take a break after losses to reset emotionally")
+- Predict future outcomes ("Your next afternoon trade will likely fail")
+
+
+**AI will ONLY**:
+- Describe patterns in your data ("FOMO trades have 22% win rate vs 58% for non-FOMO trades")
+- Identify correlations ("Afternoon trades correlate with lower conviction")
+- Quantify relationships ("85% of conviction drops occur when drawdown exceeds 15 pips")
+- Compare conditions ("Morning FOMO trades perform better than afternoon FOMO trades")
+
+
+If you ask a coaching question ("How do I fix my conviction drops?"), AI will reframe:
+> "I can show you when conviction drops occur, what conditions amplify them, and how they correlate with outcomes. I cannot prescribe solutions. Would you like to explore conditions that correlate with stable conviction?"
+
+
+## Example Exploration Paths
+
+
+These examples show complete 5-level explorations following TradeMonkey's mirror philosophy.
+
+
+### Exploration Path 1: Conviction Drop Investigation
+
+
+**Context**: AI Diagnostics revealed "Conviction drops 4.2 points on losing trades."
+
+
+**Level 1**:
+> **You**: "Why does my conviction drop so much during losing trades?"
+> **AI**: "Conviction drops occur most frequently when trades move into drawdown. Of 28 trades with conviction drop > 3 points, 24 (86%) went 15+ pips negative from entry before closing. Only 4 conviction-drop trades never went negative. Pattern: Drawdown triggers conviction loss."
+
+
+**Level 2**:
+> **You**: "How quickly does conviction drop after drawdown starts?"
+> **AI**: "Based on mid-trade notes with timestamps, conviction drops occur 15-30 minutes after drawdown exceeds 15 pips. Of 12 trades with timestamped mid-trade notes, conviction had dropped by Level 2 note (avg 22 minutes after entry). Pattern: Conviction erosion is rapid, not gradual."
+
+
+**Level 3**:
+> **You**: "Does this pattern differ between morning and afternoon trades?"
+> **AI**: "Yes. Morning trades (before 12 PM) maintain conviction longer under drawdown: Average 38 minutes before conviction drops. Afternoon trades (after 2 PM): Average 14 minutes. Afternoon conviction is 2.7x more fragile. Both still show conviction drops after 15+ pip drawdowns, but timing differs."
+
+
+**Level 4**:
+> **You**: "What percentage of these conviction-drop trades were closed before hitting stop loss?"
+> **AI**: "82% (23 out of 28). Only 5 conviction-drop trades reached stop loss. Average exit: 8 pips before planned stop. Pattern: Conviction drop predicts premature exit. You close before stop loss when confidence collapses."
+
+
+**Level 5**:
+> **You**: "Do trades where I let the stop loss hit (despite conviction drops) perform better?"
+> **AI**: "Small sample (only 5 trades), but 2 of 5 won (recovered after drawdown). 3 hit stop as planned. Average P&L on 'held through conviction drop' trades: -$65. Average P&L on 'closed early due to conviction drop' trades: -$88. Pattern: Holding through conviction drops slightly reduces losses, but sample too small for strong conclusions."
+
+
+**Key Insight**: Conviction drops trigger premature exits 8 pips before stop, slightly worsening losses. Pattern strongest in afternoon.
+
+
+### Exploration Path 2: FOMO Emotion Analysis
+
+
+**Context**: Time-Scoped Analytics shows FOMO emotion appearing more frequently in recent trades.
+
+
+**Level 1**:
+> **You**: "When do I most commonly feel FOMO at trade entry?"
+> **AI**: "FOMO entries occur most frequently after missed opportunities. Of 18 FOMO trades, 14 (78%) were entered after you observed a setup but didn't take it, then price moved, then you entered late. 4 FOMO trades had no identifiable missed-opportunity trigger. Pattern: FOMO follows hesitation."
+
+
+**Level 2**:
+> **You**: "How much price movement typically occurs before I enter with FOMO?"
+> **AI**: "Based on entry notes mentioning price movement, FOMO entries occur after 20-40 pip moves in the intended direction. You observe setup at price X, hesitate, price moves 25 pips to X+25, then you enter (chasing). Average entry price is 28 pips from your initially identified entry level."
+
+
+**Level 3**:
+> **You**: "Do FOMO entries still have stop losses set, or do I skip risk management?"
+> **AI**: "68% of FOMO trades have stop loss defined (12 out of 18). However, R:R ratio on FOMO trades averages 1.1:1 vs overall average of 2.3:1. Pattern: FOMO trades have stop losses, but poor risk-reward due to late entry (price closer to target, risk unchanged)."
+
+
+**Level 4**:
+> **You**: "How does this compare to high-conviction entries? Do they also chase price?"
+> **AI**: "Trades with entry conviction 8-10 (high conviction): 8% entered after 20+ pip move. FOMO trades (conviction avg 4.1): 78% entered after 20+ pip move. Pattern: High-conviction entries occur at planned levels. FOMO entries occur after price moves away from planned levels."
+
+
+**Level 5**:
+> **You**: "Do FOMO trades ever recover and hit take profit despite late entry?"
+> **AI**: "Rarely. 3 of 18 FOMO trades (17%) reached take profit. 11 hit stop loss (61%). 4 were closed manually before stop or target (22%). Average P&L: -$142. Pattern: Late entry reduces profit potential even when direction is correct. FOMO trades hit stop loss 3.6x more often than take profit."
+
+
+**Key Insight**: FOMO is triggered by hesitation, followed by chasing 20-40 pip moves, resulting in poor R:R and 17% take-profit rate.
+
+
+### Exploration Path 3: Plan Adherence Breakdown
+
+
+**Context**: Rules vs Reality Dashboard shows 68% plan adherence overall, but 42% exit adherence (entry better than exit).
+
+
+**Level 1**:
+> **You**: "Why is my exit adherence so much lower than entry adherence?"
+> **AI**: "Exit adherence drops when trades move into profit then pull back. Of 22 trades with exit adherence marked 'No,' 18 (82%) closed during pullbacks while still in profit. Pattern: You exit prematurely when price retraces, even if take profit wasn't hit and stop loss wasn't threatened."
+
+
+**Level 2**:
+> **You**: "How much pullback triggers premature exit?"
+> **AI**: "Based on exit notes and P&L data, premature exits occur after 40-60% retracement of profit. Example: Trade reaches +30 pips, pulls back to +12 pips, you close (+12 pips exit, target was +50 pips). Average retracement before premature close: 52% of peak profit."
+
+
+**Level 3**:
+> **You**: "Do these premature exits occur more often at certain times of day?"
+> **AI**: "Yes. Afternoon premature exits: 68% of total (15 out of 22). Morning premature exits: 32% (7 out of 22). You trade 60% morning / 40% afternoon (trade count), but premature exits are 68% afternoon. Afternoon timing amplifies premature exit behavior."
+
+
+**Level 4**:
+> **You**: "What emotions correlate with these afternoon premature exits?"
+> **AI**: "Exit emotions on afternoon premature exits: 'Impatience' (11 times), 'Fear' (9 times), 'Relief' (8 times). Morning premature exits: 'Relief' (5 times), 'Satisfied' (3 times). Pattern: Afternoon premature exits are emotion-driven (impatience, fear). Morning premature exits are acceptance-driven (relief, satisfaction)."
+
+
+**Level 5**:
+> **You**: "If I had held these premature exits to stop or target, what would the average outcome be?"
+> **AI**: "Cannot calculate precisely (don't have price data after your exit). However, of 22 premature exits, 18 were still in profit when closed. Average exit P&L: +$48. Your average planned take profit: +$150 (based on R:R ratio). Pattern: You're sacrificing ~$100 profit per premature exit by closing during retracements instead of holding to target or stop."
+
+
+**Key Insight**: Premature exits occur after 50% profit retracement, mostly in afternoon, driven by impatience/fear, sacrificing ~$100/trade.
+
+
+### Exploration Path 4: Multi-Dimensional Pattern
+
+
+**Context**: AI Diagnostics mentions "Afternoon trades with low conviction show poor outcomes."
+
+
+**Level 1**:
+> **You**: "How much worse do afternoon low-conviction trades perform compared to morning high-conviction trades?"
+> **AI**: "Morning trades with conviction 7-10: 68% win rate, +$128 avg P&L (22 trades). Afternoon trades with conviction 1-6: 28% win rate, -$74 avg P&L (18 trades). Gap: 40% win rate difference, $202 avg P&L difference. Pattern: Time + conviction combine to create strong performance variance."
+
+
+**Level 2**:
+> **You**: "Is it just time and conviction, or do emotions also play a role?"
+> **AI**: "Emotions amplify the pattern. Afternoon + low conviction + FOMO/Impatience entry: 18% win rate (2 wins, 9 losses), -$136 avg P&L. Afternoon + low conviction + Calm/Confident entry: 44% win rate (4 wins, 5 losses), +$12 avg P&L. Pattern: Negative emotions worsen afternoon low-conviction outcomes significantly."
+
+
+**Level 3**:
+> **You**: "Do morning trades with FOMO emotion perform better than afternoon FOMO trades?"
+> **AI**: "Yes. Morning FOMO: 40% win rate (4 wins, 6 losses), -$65 avg P&L. Afternoon FOMO: 20% win rate (2 wins, 8 losses), -$158 avg P&L. Pattern: FOMO underperforms in both sessions, but afternoon FOMO is significantly worse (-$93 difference)."
+
+
+**Level 4**:
+> **You**: "What percentage of my afternoon low-conviction FOMO trades also violated rules?"
+> **AI**: "72% (8 out of 11). Most common violation: 'Max 3 trades per day' (6 violations). Pattern: Afternoon + low conviction + FOMO often represents trade #4 or #5, exceeding daily limits. These are late-session revenge or desperation trades."
+
+
+**Level 5**:
+> **You**: "Do any of these afternoon low-conviction FOMO trades occur on winning days, or only losing days?"
+> **AI**: "90% occur on days already net-negative (10 out of 11). Only 1 afternoon FOMO trade occurred on a winning day. Pattern: Afternoon FOMO trades are almost always attempts to recover earlier losses. They rarely occur on profitable days."
+
+
+**Key Insight**: Afternoon + low conviction + FOMO + after losses = cluster of high-risk revenge trades with 18% win rate.
+
+
+![Example Exploration Paths](/img/example-exploration-paths.png)
+
+
+## Mirror Principle in Deep Dive
+
+
+AI Deep Dive Explorer adheres strictly to TradeMonkey's mirror philosophy: descriptive insight, no prescription.
+
+
+### What Deep Dive Provides
+
+
+**Correlations**:
+> "FOMO trades have 22% win rate. Non-FOMO trades have 58% win rate."
+
+
+**Conditional Analysis**:
+> "Morning FOMO: 40% win rate. Afternoon FOMO: 20% win rate."
+
+
+**Quantified Relationships**:
+> "85% of conviction drops occur when drawdown exceeds 15 pips."
+
+
+**Comparative Patterns**:
+> "High-conviction trades ($128 avg P&L) outperform low-conviction trades (-$74 avg P&L) by $202 per trade."
+
+
+**Temporal Patterns**:
+> "Conviction drops occur 14 minutes after entry in afternoon trades, 38 minutes in morning trades."
+
+
+### What Deep Dive Does NOT Provide
+
+
+**Advice**:
+❌ "You should stop trading FOMO setups."
+✅ "FOMO trades have 22% win rate vs 58% for non-FOMO."
+
+
+**Predictions**:
+❌ "Your next afternoon trade will likely fail."
+✅ "Afternoon trades historically show 28% win rate vs 68% for morning trades."
+
+
+**Coaching**:
+❌ "Take a break after losses to reset emotionally."
+✅ "Trades entered after losses show 35% rule violation rate vs 8% on other days."
+
+
+**Strategy Recommendations**:
+❌ "Try scalping instead of swing trading."
+✅ "Scalp-tagged trades: 55% win rate. Swing-tagged trades: 61% win rate."
+
+
+**Emotional Management**:
+❌ "Accept that pullbacks are normal and trust your stop loss."
+✅ "82% of premature exits occur during pullbacks while still in profit."
+
+
+### Reframing Coaching Questions
+
+
+If you ask coaching questions, Deep Dive reframes to descriptive analysis:
+
+
+**You**: "How do I stop revenge trading?"
+**AI**: "I can show you when revenge-tagged trades occur, what conditions correlate with them, and how they perform. I cannot prescribe behavior changes. Would you like to explore patterns around revenge trades?"
+
+
+**You**: "What should I do about my conviction drops?"
+**AI**: "I can identify when conviction drops occur, what factors amplify them, and how they correlate with outcomes. Would you like to explore those patterns?"
+
+
+**You**: "Is it bad to trade in the afternoon?"
+**AI**: "Afternoon trades in your data show 42% win rate vs 68% morning win rate. Whether this matters depends on your goals and strategy, which I cannot evaluate. Would you like to explore what makes afternoon trades differ from morning trades?"
+
+
+The mirror shows you the data. You decide what it means and what to do about it.
+
+
+## Rate Limits and Session Boundaries
+
+
+AI Deep Dive Explorer is rate-limited to manage costs and encourage focused exploration.
+
+
+### Usage Limits
+
+
+**Daily Limit**: 25 sessions per day per user
+
+
+**Session Definition**: One complete exploration (up to 5 question-answer pairs)
+
+
+**Reset Time**: Midnight UTC
+
+
+**Shared Limits**: Deep Dive does NOT share its limit with other AI features. You have:
+- 25 Deep Dive sessions per day (separate)
+- 3 AI Diagnostics per day (separate)
+- 5 Trade Thread Summaries per day (separate)
+- 5 Reflection AI per day (separate)
+- 20 Rules Coach requests per day (separate)
+
+
+### Session Boundaries
+
+
+**Session Start**: When you click "Start New Exploration" or ask your first question
+
+
+**Session Active**: While you're asking follow-up questions (up to 5 total)
+
+
+**Session End**: When you:
+- Reach 5 questions (automatic end)
+- Click "End Session" (manual end)
+- Start a new exploration (previous session auto-ends)
+- Close the browser (session abandoned)
+
+
+**Abandoned Sessions**: If you ask 2 questions, then leave, that counts as 1 session (consumes 1 credit). You cannot resume abandoned sessions. Each new exploration starts fresh.
+
+
+### Session Count vs Question Count
+
+
+**Session-based limit**, not question-based:
+
+
+- 1 session = 1-5 questions (consumes 1 credit regardless of question count)
+- You can ask 1 question and end (1 credit used)
+- You can ask 5 questions (1 credit used)
+- Efficient use: Use all 5 levels before ending session
+
+
+**Example**:
+- Session 1: Ask 5 questions about conviction drops (1 credit)
+- Session 2: Ask 3 questions about FOMO emotion (1 credit)
+- Session 3: Ask 2 questions about time-based patterns (1 credit)
+- Total credits used: 3 out of 25
+
+
+### Cost Justification
+
+
+Each session uses OpenAI API with estimated cost:
+
+
+- Per session (5 questions): ~$0.10-0.25 (depending on data volume and question complexity)
+- Daily cost for max usage (25 sessions): ~$2.50-6.25 per user
+
+
+Rate limits ensure:
+- Cost control for the platform
+- Prevents compulsive checking (encourages focused weekly exploration)
+- Ensures fair access in multi-user organizations
+
+
+### When to Use Your Sessions
+
+
+**Recommended usage pattern**:
+
+
+**5-10 sessions per week**: Reserve for significant pattern investigation
+- Use AI Diagnostics first to identify patterns (3 credits per week)
+- Use 1-2 Deep Dive sessions per identified pattern (5-10 sessions per week)
+- Save remaining sessions for ad-hoc exploration
+
+
+**Not recommended**: Using all 25 sessions in one day
+- Exploration fatigue (too much analysis at once)
+- Diminishing returns (patterns don't change daily)
+- Wastes credits (could spread over week for fresher data)
+
+
+### What Happens When Limit Is Hit
+
+
+If you've used all 25 sessions:
+
+
+- **In-app message**: "You've reached your daily Deep Dive Explorer limit (25/25 used). Resets at midnight UTC (X hours)."
+- **Button disabled**: "Start New Exploration" button grayed out
+- **Alternative suggested**: "Use Time-Scoped Analytics and Execution Recap to review patterns manually until reset."
+
+
+**You can still**:
+- Read previous exploration transcripts (saved in your account)
+- Use all other analytics (Psychology page, Rules vs Reality, Execution Recap)
+- Use other AI features (Diagnostics, Thread Summary, Rules Coach have separate limits)
+
+
+### Managing Your Session Credits
+
+
+**Strategies to maximize value**:
+
+
+1. **Use Diagnostics first**: Spend 1 Diagnostics credit to identify 5-10 patterns. Then spend 2-3 Deep Dive sessions exploring the most significant ones.
+
+
+2. **Ask all 5 questions**: Don't end sessions after 2-3 questions. Use the full depth.
+
+
+3. **Plan your questions**: Before starting a session, outline what you want to explore. Avoid aimless questioning.
+
+
+4. **Focus on high-impact patterns**: Explore patterns with financial or psychological significance (large P&L impact, frequent occurrence, high emotional cost).
+
+
+5. **Batch exploration sessions**: Reserve 1-2 hours weekly for deep exploration. Run 5-8 sessions back-to-back. Don't spread throughout the week (patterns change with new data).
+
+
+6. **Save transcripts**: Copy-paste exploration transcripts to your notes. You can reference them without re-running sessions.
+
+
+## Connection to Time-Scoped Analytics and Execution Recap
+
+
+Deep Dive Explorer integrates with other TradeMonkey features to create a complete analysis workflow.
+
+
+### Time-Scoped Analytics → Deep Dive
+
+
+**Workflow**:
+1. Open Psychology page
+2. Apply time scope filter (Last 30 Days)
+3. Notice pattern: "Win rate dropped from 58% (all-time) to 42% (last 30 days)"
+4. Open Deep Dive Explorer
+5. Ask: "Why has my win rate declined in the last 30 days?"
+6. AI analyzes Last 30 Days data and compares to historical baseline
+7. Continue drilling to identify causes (emotion shift? time-based change? rule violations?)
+
+
+**Deep Dive respects time scope**: If you have Last 30 Days selected when you open Deep Dive, AI analyzes only that window. Toggle to All Time if you want broader analysis.
+
+
+**Example Question for Time-Scoped Analysis**:
+> "My Last 30 Days conviction average is 5.2 vs 6.8 all-time. What changed recently?"
+
+
+AI will compare recent trades to historical trades and identify differences (emotion frequency, tag distribution, time-of-day shifts, etc.).
+
+
+### Execution Recap → Deep Dive
+
+
+**Workflow**:
+1. Open Execution Recap
+2. Filter to "Last 20 trades"
+3. Notice visual pattern: 8 of last 10 afternoon trades have cluttered entry screenshots and low conviction
+4. Open Deep Dive Explorer
+5. Ask: "Why do my recent afternoon trades show lower conviction and worse setup quality?"
+6. AI analyzes afternoon trades vs morning trades, recent vs historical
+7. Continue drilling to identify contributing factors
+
+
+**Recap provides visual context, Deep Dive provides quantitative analysis**:
+- Recap shows you the before/after screenshots
+- Deep Dive quantifies the pattern (conviction scores, win rates, emotion frequencies)
+
+
+**Example Question from Recap Observation**:
+> "I noticed 7 out of 10 recent losing trades were closed before stop loss. Why do I keep exiting prematurely?"
+
+
+AI analyzes early-exit trades vs planned-exit trades to identify triggers (conviction drops, emotion patterns, time-based factors).
+
+
+### Rules vs Reality → Deep Dive
+
+
+**Workflow**:
+1. Open Rules vs Reality Dashboard
+2. Notice: "Max 3 trades per day" rule violated 8 times this month (8 violations out of 32 trading days = 25% violation rate)
+3. Open Deep Dive Explorer
+4. Ask: "When do I violate 'Max 3 trades per day' rule most often?"
+5. AI identifies conditions (after losses? on certain days? in certain sessions?)
+6. Continue drilling to explore amplifiers
+
+
+**Deep Dive reveals rule violation triggers**:
+
+
+**Example**:
+> **You**: "When do I exceed max trades per day?"
+> **AI**: "7 out of 8 violations occurred on days when your first trade was a loss. Days starting with wins: 2% violation rate. Days starting with losses: 35% violation rate. Pattern: Opening loss triggers overtrading."
+
+
+### Psychology Page Metrics → Deep Dive
+
+
+**Workflow**:
+1. Open Psychology page
+2. Notice: "FOMO emotion cost: -$2,800 this quarter"
+3. Open Deep Dive Explorer
+4. Ask: "What conditions lead to FOMO entries?"
+5. AI identifies patterns (missed opportunities? after losses? specific setups?)
+6. Continue drilling
+
+
+**Deep Dive explains metrics from analytics dashboards**:
+
+
+**Example**:
+> **You**: "My conviction gap average is -3.8. What causes conviction to drop so much?"
+> **AI**: "Conviction gaps > 3 points occur most often (68%) when trades go into 15+ pip drawdown before recovering or hitting stop. Smaller drawdowns correlate with smaller conviction gaps."
+
+
+### Integrated Workflow Summary
+
+
+**Complete Analysis Loop**:
+
+
+1. **Broad Scan** (AI Diagnostics): Identify 5-10 significant patterns
+2. **Visual Review** (Execution Recap): Observe patterns visually across multiple trades
+3. **Quantify** (Time-Scoped Analytics): Measure pattern magnitude and time-based changes
+4. **Drill Deep** (Deep Dive Explorer): Explore causality, conditions, amplifiers
+5. **Validate** (Trade Recap / Threads): Review specific trades mentioned in exploration
+6. **Enforce** (Rules vs Reality): Create rules to prevent negative patterns going forward
+
+
+Deep Dive sits in the middle: after you've identified patterns, before you take action.
+
+
+![Integrated Analysis Workflow](/img/integrated-analysis-workflow.png)
+
+
+## Limitations and Notes
+
+
+### Deep Dive Requires Sufficient Data
+
+
+Exploration quality depends on data volume. Minimum requirements:
+
+
+- **50+ trades**: Basic pattern detection
+- **100+ trades**: Reliable multi-dimensional analysis
+- **200+ trades**: Stable conditional comparisons (morning vs afternoon, emotion X vs Y)
+
+
+With fewer than 50 trades, AI may respond:
+> "Insufficient data for reliable analysis. You have 32 trades. For stable patterns, 50+ trades recommended. Would you like to proceed with limited data?"
+
+
+### Deep Dive Analyzes Structured Data Only
+
+
+AI cannot analyze:
+- Free-text notes (unstructured, privacy risk)
+- Chart screenshots (image processing not implemented)
+- External factors not logged in TradeMonkey (market conditions, news events)
+
+
+If your question references notes or screenshots:
+> **You**: "In my notes, I mentioned being tired during afternoon trades. Does fatigue correlate with performance?"
+> **AI**: "I cannot access your notes. However, I can analyze whether afternoon trades (when you mentioned fatigue) differ from morning trades in performance, conviction, or emotions. Would you like that analysis?"
+
+
+### Correlation Is Not Causation
+
+
+Deep Dive identifies correlations. You must interpret causality.
+
+
+**Example**:
+> **AI**: "Afternoon trades show 28% win rate vs 68% morning win rate."
+
+
+**Possible causalities**:
+- Afternoon timing causes worse performance (fatigue, impatience)
+- Afternoon market conditions are different (lunch chop, session overlap)
+- You trade different setups in afternoon (lower quality)
+- Afternoon trades are emotionally driven (morning trades are planned)
+
+
+AI cannot distinguish between these. You provide context.
+
+
+### Small Sample Warnings
+
+
+If a pattern has <5 instances, AI will note:
+> "FOMO + afternoon + after losses: 3 trades, 0 wins. Note: Sample size too small for reliable conclusions. Pattern may be noise."
+
+
+Do not over-interpret patterns with <5 instances.
+
+
+### Session Transcripts Are Temporary
+
+
+Exploration transcripts are saved for 30 days, then archived. If you want to keep insights long-term:
+- Copy-paste transcript to your notes
+- Screenshot key findings
+- Export to external document
+
+
+### Deep Dive Is Not Real-Time
+
+
+Deep Dive analyzes closed trades only. Open trades are excluded. If you have 5 open trades and ask about recent performance, those 5 are not included in analysis.
+
+
+### No Predictive Claims
+
+
+Deep Dive describes past behavior. It does not predict future:
+
+
+❌ "Your next afternoon trade will likely lose."
+✅ "Afternoon trades historically have 28% win rate vs 68% morning win rate."
+
+
+Past patterns may continue or change. Deep Dive shows tendencies, not certainties.
+
+
+### Questions Must Be Data-Based
+
+
+Deep Dive cannot answer hypothetical or opinion questions:
+
+
+❌ "Should I switch from scalping to swing trading?"
+❌ "What's the best time of day to trade?"
+❌ "Is my strategy fundamentally flawed?"
+
+
+These require judgment, not data analysis.
+
+
+✅ "How do scalp-tagged trades perform vs swing-tagged trades?"
+✅ "What time of day shows highest win rate in my data?"
+✅ "What percentage of my trades follow my strategy rules?"
+
+
+These are data-based and answerable.
+
+
+### AI Limitations Apply
+
+
+Language models (GPT-4o-mini) have known limitations:
+
+
+- **Hallucination risk**: AI may occasionally misinterpret data. Cross-check findings against raw analytics.
+- **Context window limits**: Very complex multi-dimensional questions may exceed AI's context window.
+- **Ambiguity handling**: Vague questions get vague answers. Be specific.
+
+
+If an answer seems incorrect, rephrase your question or verify against Psychology page / Rules vs Reality page.
+
+
+### Exploration Is Not a Solution
+
+
+Deep Dive reveals patterns and conditions. It does not fix them. After exploration, you must:
+
+
+- Decide if the pattern matters (some correlations are acceptable)
+- Determine what to change (rules, strategy, session timing, emotional management)
+- Implement changes (adjust rules in Rules vs Reality, change trading schedule, etc.)
+- Re-evaluate after 20-30 new trades (did changes improve outcomes?)
+
+
+Deep Dive is a diagnostic tool, not a treatment.
+
+
+
+
+

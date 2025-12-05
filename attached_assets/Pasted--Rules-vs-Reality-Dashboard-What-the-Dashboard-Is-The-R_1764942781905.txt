@@ -1,0 +1,1261 @@
+# Rules vs Reality Dashboard
+
+
+## What the Dashboard Is
+
+
+The Rules vs Reality Dashboard is TradeMonkey's long-term execution mirror for rule adherence. It aggregates rule evaluation data across all trades to show whether you follow the rules you set for yourself.
+
+
+This is not an analytics vanity page showing performance metrics. It is a behavioral truth instrument that reveals:
+
+
+- **Adherence over time**: Are you following your rules consistently, or is discipline eroding?
+- **Discipline decay trends**: Is adherence declining week-over-week or month-over-month?
+- **Violation streaks**: Are rule violations isolated incidents or clustered patterns?
+- **Structural rule-breaking patterns**: Which rules are violated most often? Under what conditions?
+
+
+The dashboard answers: "Do I follow my stated rules? If not, when and why do I break them?"
+
+
+## Role as Execution Mirror
+
+
+The Rules vs Reality Dashboard completes TradeMonkey's execution mirror trilogy:
+
+
+1. **Plan vs Execution**: Did you follow your trade plan? (per-trade adherence flags)
+2. **State vs Outcome**: What mental state produced what results? (emotion-based analytics)
+3. **Rules vs Reality**: Did you follow your self-imposed rules? (long-term compliance) ← This
+
+
+The dashboard does not judge whether your rules are good or bad. It only shows whether you follow them. You can have:
+
+
+- **High adherence + poor performance**: You consistently follow bad rules
+- **Low adherence + good performance**: You break your rules but profit anyway (discipline issue remains)
+- **High adherence + good performance**: Rules work and you follow them (ideal)
+- **Low adherence + poor performance**: You break rules and lose money (double problem)
+
+
+The dashboard reflects adherence, not effectiveness. Rules Coach helps define rules. Rules vs Reality Dashboard shows whether you follow them.
+
+
+![Dashboard Role Diagram](/img/rules-dashboard-role.png)
+
+
+## What the Dashboard Measures
+
+
+The dashboard calculates and displays multiple dimensions of rule adherence:
+
+
+### Global Adherence Score
+
+
+**Definition**: Percentage of rule evaluations that passed across all trades and all rules.
+
+
+**Calculation**:
+```
+Global Adherence Score = (Total Rules Passed) / (Total Rules Evaluated) × 100
+```
+
+
+**Example**:
+- 60 trades
+- 5 active rules per trade
+- 300 total rule evaluations (60 × 5)
+- 261 passed, 39 violated
+- Global Adherence Score: 87% (261 / 300)
+
+
+**What it shows**: Overall compliance across all rules. A declining global score indicates behavioral drift.
+
+
+**What it does NOT show**: Which specific rules are violated, or which conditions trigger violations. For that, use rule-level breakdown.
+
+
+### Rule-by-Rule Adherence Breakdown
+
+
+**Definition**: Adherence percentage calculated separately for each rule.
+
+
+**Calculation**:
+```
+Rule Adherence = (Times Rule Passed) / (Times Rule Evaluated) × 100
+```
+
+
+**Example**:
+- Rule: "Max 3 trades per day"
+- Evaluated: 40 trading days
+- Passed: 36 days
+- Violated: 4 days
+- Adherence: 90% (36 / 40)
+
+
+**Displayed as table**:
+
+
+| Rule Name | Evaluated | Passed | Violated | Adherence |
+|-----------|-----------|--------|----------|-----------|
+| Max 3 trades per day | 40 | 36 | 4 | 90% |
+| Allowed time window (8-12) | 60 | 52 | 8 | 87% |
+| Min 2:1 R:R ratio | 60 | 54 | 6 | 90% |
+| No trading after 3 losses | 12 | 9 | 3 | 75% |
+
+
+**What it shows**: Which rules you follow consistently vs which you break frequently. Identifies weak points in discipline.
+
+
+### Severity Weighting (Optional)
+
+
+**Definition**: Not all violations are equally significant. Severity weighting allows more important rules to carry more weight in global adherence score.
+
+
+**Implementation** (if enabled):
+- Daily loss limit violations: Weight × 3 (high severity)
+- Time window violations: Weight × 2 (medium severity)
+- Tag requirement violations: Weight × 1 (low severity)
+
+
+**Weighted Calculation**:
+```
+Weighted Adherence = (Sum of Weighted Passes) / (Sum of Weighted Evaluations) × 100
+```
+
+
+**Example**:
+- Daily loss rule violated once (weight 3): -3 points
+- Time window rule violated twice (weight 2): -4 points
+- Tag rule violated once (weight 1): -1 point
+- Weighted score reflects that daily loss violation is more significant
+
+
+**Note**: Severity weighting is optional and configured per organization. Default: all rules weighted equally.
+
+
+### Daily and Session-Based Violation Summaries
+
+
+**Daily Summary**: Count of violations per calendar day.
+
+
+**Example**:
+- Monday: 0 violations (clean day)
+- Tuesday: 2 violations (time window, max trades)
+- Wednesday: 0 violations
+- Thursday: 4 violations (max trades, max loss, no trading after losses, position size)
+- Friday: 1 violation (time window)
+
+
+**What it shows**: Violation clustering by day. Identifies whether violations are isolated or clustered (multi-violation days indicate discipline collapse).
+
+
+**Session-Based Summary**: Count of violations by time of day or trading session.
+
+
+**Example**:
+- Morning session (8 AM - 12 PM): 2 violations out of 34 trades (6% violation rate)
+- Afternoon session (2 PM - 6 PM): 9 violations out of 26 trades (35% violation rate)
+
+
+**What it shows**: Time-based discipline patterns. Reveals whether violations concentrate in specific sessions.
+
+
+### Cumulative Violations by Rule Type
+
+
+**Definition**: Total count of violations per rule since inception or within time window.
+
+
+**Grouped by rule category**:
+
+
+| Rule Category | Total Violations |
+|---------------|------------------|
+| Time & Session | 12 |
+| Trade Count & Exposure | 8 |
+| Risk & Loss | 5 |
+| Behavior & Discipline | 11 |
+| Tag Compliance | 3 |
+
+
+**What it shows**: Which rule types are violated most often. Identifies behavioral weakness areas (e.g., time management vs risk management vs setup discipline).
+
+
+### Color-Coded Adherence Categories
+
+
+**Definition**: Visual indicators showing whether adherence is stable, improving, or deteriorating.
+
+
+**Categories**:
+
+
+**Stable (Green)**
+- Adherence 80-100%
+- Recent adherence (Last 20 trades) within 5% of all-time adherence
+- Pattern: Consistent compliance
+
+
+**Deteriorating (Red)**
+- Recent adherence (Last 20) is >10% lower than all-time
+- Example: All-time 85%, Last 20: 68%
+- Pattern: Discipline decay
+
+
+**Improving (Blue)**
+- Recent adherence (Last 20) is >10% higher than all-time
+- Example: All-time 65%, Last 20: 82%
+- Pattern: Discipline recovery
+
+
+**Unstable (Yellow)**
+- Recent adherence fluctuates >15% between reviews
+- Example: Week 1: 90%, Week 2: 65%, Week 3: 88%
+- Pattern: Inconsistent discipline
+
+
+**Color coding applies to**:
+- Global adherence score
+- Individual rule adherence
+- Session-based adherence
+
+
+**What it shows**: Trajectory of discipline, not just current state. Reveals improvement or relapse even if absolute adherence is moderate.
+
+
+### Chronic vs Acute Rule Failure
+
+
+**Chronic Failure**: Rule violated consistently over time, low adherence percentage.
+
+
+**Criteria**:
+- Adherence <60%
+- Violations spread across multiple weeks
+- No significant improvement in recent window
+
+
+**Example**:
+- Rule: "Max 3 trades per day"
+- Adherence: 52% (violated 19 out of 40 days)
+- Violations spread across 8 weeks
+- Pattern: Chronic overtrading
+
+
+**Acute Failure**: Rule violated in clusters, high adherence overall but severe lapses.
+
+
+**Criteria**:
+- Adherence >75% overall
+- Violations clustered in 1-2 time periods (days, weeks)
+- Recent adherence may show spike then recovery
+
+
+**Example**:
+- Rule: "No trading after 3 losses"
+- Adherence: 83% (violated 2 out of 12 applicable situations)
+- Both violations occurred in same week (losing streak)
+- Pattern: Acute breakdown under pressure
+
+
+**Dashboard indicators**:
+- Chronic: "Consistently violated" badge, trend line shows flat low adherence
+- Acute: "Violation cluster detected" badge, trend line shows spike then recovery
+
+
+**What it shows**: Whether discipline issues are systemic (chronic) or situational (acute). Guides intervention strategy.
+
+
+![Dashboard Measurements](/img/rules-dashboard-measurements.png)
+
+
+## Dashboard Components
+
+
+The dashboard is organized into four main panels:
+
+
+### 1. Adherence Score Panel
+
+
+**Location**: Top of dashboard, prominently displayed
+
+
+**Contents**:
+- **Global Adherence Score**: Large percentage (e.g., "87%")
+- **Recent vs All-Time Comparison**: "Last 20: 82% | All Time: 87%"
+- **Trend Indicator**: Arrow showing improvement, decline, or stability
+- **Color Coding**: Green (stable), Red (deteriorating), Blue (improving), Yellow (unstable)
+
+
+**Score Calculation** (detailed):
+
+
+**Step 1**: Sum all rule evaluations across all trades
+- Trade 1: 5 rules evaluated, 4 passed, 1 violated
+- Trade 2: 5 rules evaluated, 5 passed, 0 violated
+- Trade 3: 4 rules evaluated (1 skipped due to missing data), 3 passed, 1 violated
+- Total: 14 rules evaluated, 12 passed, 2 violated
+
+
+**Step 2**: Calculate percentage
+```
+Adherence = 12 / 14 × 100 = 85.7%
+```
+
+
+**Severity Weighting** (if enabled):
+
+
+**Step 1**: Multiply passes/violations by rule weight
+- Trade 1: Daily loss rule (weight 3) passed = 3 points
+- Trade 1: Time window rule (weight 2) violated = -2 points (violation reduces weighted score)
+- Trade 2: All 5 rules passed (weights: 3, 2, 2, 1, 1) = 9 points
+- Total weighted passes: 20 points out of 24 possible
+
+
+**Step 2**: Calculate weighted percentage
+```
+Weighted Adherence = 20 / 24 × 100 = 83.3%
+```
+
+
+**Note**: Weighted adherence typically lower than unweighted if high-severity rules are violated.
+
+
+**What this panel shows**: At-a-glance compliance status. First thing you see when reviewing rules.
+
+
+### 2. Rule-Level Breakdown Table
+
+
+**Location**: Middle of dashboard, sortable table
+
+
+**Columns**:
+1. **Rule Name**: Human-readable rule label (e.g., "Max 3 trades per day")
+2. **Type**: Rule category (Time & Session, Risk & Loss, Behavior, etc.)
+3. **Evaluated**: How many times rule was checked
+4. **Passed**: Count of passes
+5. **Violated**: Count of violations
+6. **Adherence %**: Pass percentage
+7. **Recent Trend**: Arrow (up/down/flat) comparing recent to all-time
+8. **Status**: Stable / Deteriorating / Improving / Unstable
+
+
+**Example Table**:
+
+
+| Rule Name | Type | Evaluated | Passed | Violated | Adherence | Trend | Status |
+|-----------|------|-----------|--------|----------|-----------|-------|--------|
+| Max 3 trades/day | Trade Count | 40 | 36 | 4 | 90% | ↓ | Deteriorating |
+| Time window 8-12 | Time & Session | 60 | 52 | 8 | 87% | → | Stable |
+| Min 2:1 R:R | Risk & Loss | 60 | 54 | 6 | 90% | ↑ | Improving |
+| No trade after 3 losses | Behavior | 12 | 9 | 3 | 75% | ↓ | Deteriorating |
+| Only approved tags | Tag Compliance | 60 | 57 | 3 | 95% | → | Stable |
+
+
+**Sorting Options**:
+- By adherence (lowest first): Shows weakest rules
+- By violations (highest first): Shows most frequently broken rules
+- By recent trend (deteriorating first): Shows where discipline is slipping
+- By evaluation count (highest first): Shows most relevant rules (evaluated often)
+
+
+**Clicking a rule**: Opens detailed view showing:
+- All trades where rule was evaluated
+- Violation context (time of day, emotion tags, trade outcome)
+- Violation timeline
+- Link to trades for review
+
+
+**What this table shows**: Granular rule-by-rule compliance. Identifies which specific rules need attention.
+
+
+### 3. Violation Timeline
+
+
+**Location**: Bottom half of dashboard, chronological visualization
+
+
+**Display Format**: Timeline with markers for each violation
+
+
+**Example**:
+```
+Week 1:  ✓ ✓ ✓ ✓ ✓ ✓ ✓   (clean week, 7 trades, 0 violations)
+Week 2:  ✓ ✓ ✗ ✓ ✓ ✓ ✗   (2 violations)
+Week 3:  ✓ ✓ ✓ ✓ ✓ ✓ ✓   (clean week)
+Week 4:  ✗ ✗ ✗ ✓ ✗ ✓ ✗   (5 violations - CLUSTER)
+```
+
+
+**Violation markers show**:
+- Rule name (hover to see which rule)
+- Violation reason (hover for details)
+- Trade outcome (win/loss, P&L)
+- Emotion tags (if violation correlates with specific emotions)
+
+
+**Clustering Detection**:
+When 3+ violations occur within 5 trades or 2 days, dashboard highlights:
+> "Violation cascade detected: 5 violations in 7 trades from [date] to [date]"
+
+
+**What clustering reveals**:
+- Emotional breakdown periods (after losses, during drawdowns)
+- Discipline collapse after long sessions
+- Revenge trading episodes
+- Tilting patterns
+
+
+**Contextual Filtering**:
+- Filter by rule type (show only "Max trades/day" violations)
+- Filter by time of day (show only afternoon violations)
+- Filter by emotion (show only violations with "FOMO" or "Revenge" entry emotion)
+- Filter by outcome (show only violations that also lost money)
+
+
+**What this timeline shows**: When violations occur, whether they cluster, and what conditions surround them.
+
+
+### 4. Trend Line Analysis
+
+
+**Location**: Right side of dashboard or below timeline, graph format
+
+
+**Display**: Line chart showing adherence percentage over time
+
+
+**X-axis**: Time (days, weeks, or trade count)
+
+
+**Y-axis**: Adherence percentage (0-100%)
+
+
+**Multiple Lines**:
+- **Global adherence**: Overall compliance across all rules
+- **Rule-specific adherence**: Selectable (e.g., show only "Max trades/day" adherence over time)
+
+
+**Trend Indicators**:
+- **Upward trend**: Adherence improving over time
+- **Downward trend**: Adherence declining over time
+- **Flat trend**: Stable adherence
+- **Volatile trend**: Adherence fluctuates (unstable discipline)
+
+
+**Example Graph**:
+```
+100% ┤                              ╭─╮
+ 90% ┤    ╭───╮                ╭───╯ │
+ 80% ┤  ╭─╯   ╰─╮            ╭─╯     │
+ 70% ┤ ╭╯       ╰───╮     ╭──╯       │
+ 60% ┼─╯             ╰─────╯         │
+     └─────────────────────────────────
+      W1  W2  W3  W4  W5  W6  W7  W8
+```
+
+
+**Interpretation**:
+- Weeks 1-3: Low adherence (60-75%), improving
+- Weeks 4-5: Adherence dropped to 60% (relapse)
+- Weeks 6-8: Adherence recovered to 90% (discipline restoration)
+
+
+**Rolling Averages**:
+- 7-day rolling average: Smooths daily volatility
+- 30-day rolling average: Shows longer-term trends
+
+
+**Comparison Mode**:
+- Overlay multiple rules on same graph
+- Example: "Max trades/day" vs "Time window" adherence over time
+- Reveals whether all rules deteriorate together or independently
+
+
+**What this trend line shows**: Long-term trajectory of discipline. Detects improvement, decay, or recovery periods.
+
+
+![Dashboard Components](/img/rules-dashboard-components.png)
+
+
+## How Tags Affect the Dashboard
+
+
+Tags integrate with the Rules vs Reality Dashboard to enable strategy-specific and context-specific violation analysis.
+
+
+### Tag-Based Rule Applicability
+
+
+Rules can be scoped to apply only to trades with specific tags:
+
+
+**Example Rule**:
+- Rule: "Max 5 trades per day"
+- Applies to: Trades tagged "scalp" only
+- Does NOT apply to: Trades tagged "swing" or other tags
+
+
+**Dashboard Impact**:
+- Rule is evaluated only for scalp-tagged trades
+- Violation count reflects only scalp trades
+- Adherence percentage calculated using only scalp trade denominator
+
+
+**Dashboard Display**:
+```
+Rule: Max 5 scalp trades per day
+Evaluated: 22 days (days with at least 1 scalp trade)
+Passed: 20 days
+Violated: 2 days
+Adherence: 91%
+```
+
+
+**Without tag scoping**, this rule would evaluate all 40 trading days (including days with 0 scalp trades), distorting adherence calculation.
+
+
+### Tag-Based Violation Clustering
+
+
+Dashboard shows which tags correlate with violations:
+
+
+**Example Analysis**:
+> "Your 'Max 3 trades per day' rule was violated 8 times. Of these 8 violations, 7 occurred on days when 'breakout' tag appeared 3+ times. Pattern: Breakout setups lead to overtrading."
+
+
+**Tag Cluster Report** (in dashboard):
+
+
+| Tag | Violations | % of Total Violations |
+|-----|------------|----------------------|
+| breakout | 7 | 87% |
+| scalp | 1 | 13% |
+| swing | 0 | 0% |
+
+
+**What it shows**: Which strategies or setups are associated with rule-breaking. Identifies high-risk contexts.
+
+
+### Tag-Based Contextual Grouping
+
+
+Dashboard groups violations by tag context to reveal patterns:
+
+
+**Example**:
+- Rule: "Allowed time window: 8 AM - 12 PM"
+- Violations: 8 total
+- Tag breakdown:
+  - 6 violations: trades tagged "revenge" or "FOMO"
+  - 2 violations: trades tagged "A+ setup"
+
+
+**Dashboard Display**:
+> "Time window violations: 8 total. 75% (6 out of 8) had emotion-driven tags ('revenge', 'FOMO'). 25% had quality tags. Pattern: Time window violations correlate with impulsive trades, not setup-driven trades."
+
+
+**What it shows**: Whether violations are strategic (trading outside window for good setups) vs emotional (trading outside window due to FOMO/revenge).
+
+
+### Tag-Based Adherence Scoring
+
+
+If rules use tag scoping, global adherence score reflects only applicable trades:
+
+
+**Example Scenario**:
+- Total trades: 60
+- Rule A: "Max 5 scalp trades/day" (applies to 22 scalp trades)
+- Rule B: "Min 2:1 R:R" (applies to all 60 trades)
+- Rule C: "Only trade 'approved' tags" (applies to all 60 trades)
+
+
+**Total Evaluations**:
+- Scalp trades: Rule A + Rule B + Rule C = 3 evaluations per scalp trade (22 × 3 = 66)
+- Non-scalp trades: Rule B + Rule C only = 2 evaluations per trade (38 × 2 = 76)
+- Total: 142 evaluations
+
+
+**Global Adherence**:
+- Passed: 128 / 142 = 90%
+
+
+**Without tag scoping**, Rule A would evaluate all 60 trades (40 days), artificially inflating evaluation count and distorting adherence.
+
+
+### Tag Weighting (Optional)
+
+
+Some organizations assign severity weights based on tags:
+
+
+**Example**:
+- Violations on "challenge-account" tagged trades: Weight × 2 (higher stakes)
+- Violations on "funded-account" tagged trades: Weight × 3 (highest stakes)
+- Violations on "demo-account" tagged trades: Weight × 1 (lower stakes)
+
+
+**Dashboard Impact**:
+- Weighted adherence score reflects violation severity based on account context
+- Challenge and funded violations penalize global adherence more than demo violations
+
+
+**Note**: This is advanced configuration, not enabled by default.
+
+
+![Tags and Dashboard](/img/tags-dashboard-integration.png)
+
+
+## How Time Windows Affect Dashboard
+
+
+The dashboard respects time-scoped filters (same as Time-Scoped Analytics):
+
+
+### Time Window Options
+
+
+- **Last 10 trades**: Most recent 10 closed trades
+- **Last 20 trades**: Most recent 20 closed trades
+- **Last 7 days**: All trades from past week
+- **Last 30 days**: All trades from past month
+- **All Time**: Complete history
+
+
+### Dashboard Recalculation
+
+
+When you change time window, ALL dashboard metrics recalculate:
+
+
+**Adherence Score**: Uses only trades within window
+
+
+**Example**:
+- All Time: 87% adherence (261 passed / 300 evaluated)
+- Last 30 Days: 78% adherence (78 passed / 100 evaluated)
+
+
+**Rule-Level Breakdown**: Recalculates per-rule adherence
+
+
+**Example**:
+- Rule: "Max 3 trades/day"
+- All Time: 90% adherence (36 passed / 40 days)
+- Last 30 Days: 75% adherence (24 passed / 32 days) → Recent deterioration
+
+
+**Violation Timeline**: Shows only violations within window
+
+
+**Trend Line**: Displays trend within selected window
+
+
+### Revealing Recent Behavioral Change
+
+
+Time windows reveal whether discipline is improving or declining:
+
+
+**Scenario 1: Recent Improvement**
+
+
+**All Time Metrics**:
+- Global adherence: 68%
+- "Max trades/day" adherence: 62%
+- "Time window" adherence: 71%
+
+
+**Last 30 Days Metrics**:
+- Global adherence: 82%
+- "Max trades/day" adherence: 85%
+- "Time window" adherence: 88%
+
+
+**Pattern Detected**: Adherence improved across all rules in recent month. Discipline recovery.
+
+
+**Scenario 2: Recent Decline**
+
+
+**All Time Metrics**:
+- Global adherence: 85%
+- "No trading after 3 losses" adherence: 81%
+
+
+**Last 20 Trades Metrics**:
+- Global adherence: 72%
+- "No trading after 3 losses" adherence: 58%
+
+
+**Pattern Detected**: Recent adherence declined significantly. Discipline decay, possibly due to recent losing streak or emotional pressure.
+
+
+**Scenario 3: Stable Consistency**
+
+
+**All Time Metrics**:
+- Global adherence: 88%
+
+
+**Last 30 Days Metrics**:
+- Global adherence: 87%
+
+
+**Pattern Detected**: No significant change. Consistent discipline.
+
+
+### Dashboard Indicators for Time-Based Patterns
+
+
+**Recent vs All-Time Comparison** (displayed prominently):
+
+
+```
+Global Adherence: 78%
+Recent (Last 20): 68% ↓ (10% decline)
+```
+
+
+**Color Coding**:
+- Red: Recent < All-Time by >10% (deteriorating)
+- Blue: Recent > All-Time by >10% (improving)
+- Green: Recent within ±5% of All-Time (stable)
+- Yellow: Recent varies >15% (unstable)
+
+
+**Trend Arrow**:
+- ↓: Declining adherence
+- ↑: Improving adherence
+- →: Stable adherence
+- ↕: Volatile adherence
+
+
+**What time windows enable**: Detection of recent changes that all-time data obscures. Critical for identifying discipline relapse before significant damage occurs.
+
+
+![Time Windows Dashboard](/img/time-windows-dashboard.png)
+
+
+## How the Dashboard Supports Behavior Discovery
+
+
+The dashboard's longitudinal view reveals behavioral patterns that single-trade analysis cannot:
+
+
+### Pattern 1: Overtrading After Wins
+
+
+**Dashboard Evidence**:
+> "Your 'Max 3 trades/day' rule was violated 8 times. Violation timeline shows 7 out of 8 occurred on days when your first trade was a win. Days starting with losses: 2% violation rate. Days starting with wins: 28% violation rate."
+
+
+**What it reveals**: Overconfidence after wins leads to overtrading. Winning first trade triggers increased risk-taking.
+
+
+**Discovery method**: Violation timeline + trade outcome correlation
+
+
+### Pattern 2: Time-of-Day Breakdown
+
+
+**Dashboard Evidence**:
+> "Your 'Allowed time window 8-12 PM' rule: 12 violations total. Session breakdown: 0 violations before 2 PM. 12 violations between 2 PM - 6 PM. Pattern: All time window violations occur in afternoon, none in morning."
+
+
+**What it reveals**: Afternoon discipline collapses. Morning discipline stable.
+
+
+**Discovery method**: Violation timeline + time-of-day filtering
+
+
+### Pattern 3: Violations After Emotional Spikes
+
+
+**Dashboard Evidence**:
+> "Your 'No trading after 3 losses' rule: 5 violations. Tag analysis: 4 out of 5 violations had 'Revenge' or 'FOMO' entry emotion on the 4th trade. 1 violation had 'Confident' entry (anomaly). Pattern: Emotional entry emotions predict rule violations."
+
+
+**What it reveals**: Revenge/FOMO emotions correlate with discipline breakdown.
+
+
+**Discovery method**: Violation timeline + emotion tag filtering
+
+
+### Pattern 4: Setup-Specific Breakdown
+
+
+**Dashboard Evidence**:
+> "Your 'Min 2:1 R:R ratio' rule: 90% adherence overall. Tag breakdown: 'Scalp' trades: 72% adherence. 'Swing' trades: 98% adherence. 'Breakout' trades: 88% adherence. Pattern: Scalp setups consistently violate R:R rule (lower R:R tolerance)."
+
+
+**What it reveals**: Strategy-specific discipline variance. Scalping tempts you to take sub-2:1 R:R trades.
+
+
+**Discovery method**: Rule-level breakdown + tag clustering
+
+
+### Pattern 5: Discipline Lapse Sequences (Violation Cascades)
+
+
+**Dashboard Evidence**:
+> "Violation cascade detected: 7 violations across 5 trades from Nov 12-14. Rules violated: Max trades (3×), Max daily loss (2×), Time window (1×), No trade after losses (1×). All 5 trades lost money. Total cascade cost: -$1,240."
+
+
+**What it reveals**: Emotional breakdown episodes where multiple rules are violated in rapid succession. Tilting behavior.
+
+
+**Discovery method**: Violation timeline + clustering detection + outcome correlation
+
+
+### Pattern 6: Chronic vs Situational Breakdown
+
+
+**Dashboard Evidence**:
+> "Your 'Max 3 trades/day' rule: 52% adherence (chronic failure). Violations spread across 12 weeks. No significant recent improvement. Pattern: Structural overtrading issue, not situational."
+
+
+vs
+
+
+> "Your 'No trading after 3 losses' rule: 83% adherence (acute failure). 2 violations, both during Week 4 (losing streak week). All other weeks: 100% adherence. Pattern: Situational breakdown under pressure."
+
+
+**What it reveals**: Whether discipline issues are systemic (chronic, require rule adjustment or strategy change) vs episodic (acute, require emotional management during specific conditions).
+
+
+**Discovery method**: Rule-level adherence + violation timeline + chronic/acute classification
+
+
+### Clinical Interpretation (Mirror Language)
+
+
+Dashboard discoveries use descriptive language, not coaching:
+
+
+**Clinical (Correct)**:
+> "90% of your 'Max trades/day' violations occur on days when your first trade wins. Days starting with wins: 28% violation rate. Days starting with losses: 2% violation rate."
+
+
+**NOT Coaching (Incorrect)**:
+> "You get overconfident after winning trades and take too many trades. You need to stick to your limits even when winning."
+
+
+**Clinical (Correct)**:
+> "Your adherence to 'Time window 8-12' rule declined from 88% (all-time) to 62% (last 30 days). All recent violations occurred after 2 PM. 75% of afternoon violations had 'Impatience' or 'FOMO' entry tags."
+
+
+**NOT Coaching (Incorrect)**:
+> "Your afternoon discipline is falling apart. Stop trading after lunch or you'll keep breaking your rules."
+
+
+The dashboard shows the pattern. You decide what it means and what (if anything) to do about it.
+
+
+![Behavior Discovery Patterns](/img/behavior-discovery-patterns.png)
+
+
+## Examples of Meaningful Insights
+
+
+These examples show clinical, factual insights the dashboard provides:
+
+
+### Insight 1: Post-Loss Overtrading
+
+
+**Dashboard Display**:
+> "Rule: Max 3 trades per day
+> Adherence: 78% (31 passed / 40 days)
+> Violations: 9 days
+> Pattern: 8 out of 9 violations occurred on days when your first trade was a loss. Days starting with losses: 40% violation rate (8 violations / 20 days). Days starting with wins: 5% violation rate (1 violation / 20 days). Violation days averaged 5.2 trades. Compliant days averaged 2.4 trades."
+
+
+### Insight 2: Adherence Deterioration Trend
+
+
+**Dashboard Display**:
+> "Global Adherence:
+> All Time: 85%
+> Last 60 Days: 88% (improving)
+> Last 30 Days: 78% (declined 10% from 60-day)
+> Last 10 Trades: 72% (declined further)
+> Pattern: Adherence peaked 30-60 days ago, has declined 16% since. Trend line shows consistent decline over past 4 weeks. Recent violations cluster in last 2 weeks."
+
+
+### Insight 3: London Session Rule Violations
+
+
+**Dashboard Display**:
+> "Rule: London session only (2-6 AM EST)
+> Adherence: 85% (51 passed / 60 trades)
+> Violations: 9 trades
+> Violation breakdown:
+> - 7 violations: Trades entered 2-6 PM EST (afternoon)
+> - 2 violations: Trades entered 7-8 AM EST (post-London)
+> Tags on violation trades: 'FOMO' (6 trades), 'breakout' (4 trades), 'revenge' (3 trades)
+> Pattern: Afternoon FOMO entries account for 78% of London-only rule violations."
+
+
+### Insight 4: Multiple-Rule Violation Days
+
+
+**Dashboard Display**:
+> "Violation cascade days: 4 total (10% of trading days)
+> Cascade definition: 3+ rule violations in single day
+> Day 1 (Nov 8): 4 violations (Max trades, Time window, R:R, No trade after losses)
+> Day 2 (Nov 14): 3 violations (Max trades, Max daily loss, Position size)
+> Day 3 (Nov 21): 5 violations (Max trades ×2, Time window, R:R, Daily loss)
+> Day 4 (Nov 28): 3 violations (Time window, Max trades, No trade after losses)
+> Cascade days: 15 total violations (38% of all violations). Average P&L on cascade days: -$420."
+
+
+### Insight 5: Rule-Specific Improvement
+
+
+**Dashboard Display**:
+> "Rule: Min 2:1 R:R ratio
+> All Time Adherence: 74% (44 passed / 60 trades)
+> Last 20 Trades Adherence: 85% (17 passed / 20 trades)
+> Improvement: +11%
+> Pattern: R:R adherence improved in recent trades. Violations declined from 26% to 15%. Last violation occurred 8 trades ago. Trend line shows consistent improvement over past month."
+
+
+### Insight 6: Tag-Correlated Violations
+
+
+**Dashboard Display**:
+> "Rule: Only approved setup tags ('breakout', 'pullback', 'range')
+> Adherence: 92% (55 passed / 60 trades)
+> Violations: 5 trades
+> Unapproved tags used: 'reversal' (3 trades), 'counter-trend' (2 trades)
+> Outcome on violation trades: 1 win, 4 losses. Win rate: 20%.
+> Outcome on compliant trades: 35 wins, 20 losses. Win rate: 64%.
+> Pattern: Unapproved tag usage correlates with poor outcomes (20% vs 64% win rate)."
+
+
+### Insight 7: Chronic Overtrading Baseline
+
+
+**Dashboard Display**:
+> "Rule: Max 5 trades per day
+> Adherence: 42% (17 passed / 40 days)
+> Violations: 23 days (58% of trading days)
+> Violation frequency: Consistent across all weeks (no clustering)
+> Average trades on violation days: 7.2
+> Pattern: Chronic overtrading. Rule violated more often than followed. No recent improvement (Last 30 days: 38% adherence, worse than all-time). This rule is structurally ignored, not situationally violated."
+
+
+These insights are factual, quantified, and contextualized. They do not prescribe action.
+
+
+![Meaningful Insights Examples](/img/meaningful-insights-examples.png)
+
+
+## Limitations and Edge Cases
+
+
+The dashboard has several limitations and handles edge cases in specific ways:
+
+
+### Conditional Rules and Applicability
+
+
+**Issue**: Some rules only apply under certain conditions (tag-scoped, context-dependent).
+
+
+**Example**:
+- Rule: "No trading after 3 consecutive losses"
+- Only evaluates when 3 consecutive losses have occurred
+- If you have a 10-win streak, rule is never evaluated
+
+
+**Dashboard Handling**:
+- Rule shows "Evaluated: 8 times" (only days with 3 prior losses)
+- Adherence calculated only from those 8 evaluations
+- Dashboard notes: "Conditional rule: Only evaluated after 3 consecutive losses"
+
+
+**Limitation**: Low evaluation count makes adherence percentage less stable. 2 violations out of 8 evaluations = 75% adherence, but 2 violations out of 50 evaluations = 96% adherence.
+
+
+### Partially Satisfied Rules
+
+
+**Issue**: Some rules have multi-stage evaluation (entry and exit).
+
+
+**Example**:
+- Rule: "Allowed time window: 8 AM - 12 PM"
+- Trade entered at 11:00 AM (compliant)
+- Trade closed at 1:00 PM (outside window)
+
+
+**Dashboard Handling**:
+- By default, rules evaluate at entry only
+- If rule specifies exit-time evaluation, violation flagged at exit
+- Dashboard shows: "Time window rule: Entry compliant, Exit violated"
+
+
+**Limitation**: Rules evaluated at multiple points may show ambiguous adherence (passed at entry, violated at exit = overall violation).
+
+
+### Missing Data Prevents Evaluation
+
+
+**Issue**: Rules requiring specific fields cannot evaluate if data is missing.
+
+
+**Example**:
+- Rule: "Min 2:1 R:R ratio"
+- Requires: Entry price, stop loss, take profit
+- Trade logged without stop loss or take profit
+
+
+**Dashboard Handling**:
+- Rule evaluation status: "SKIPPED_MISSING_DATA"
+- Not counted as pass or violation
+- Dashboard shows: "Evaluated: 55 / 60 trades (5 skipped due to missing SL/TP)"
+
+
+**Limitation**: Inconsistent data logging reduces evaluation count, making adherence less meaningful. If 30 of 60 trades skip evaluation, adherence based on only 30 trades.
+
+
+### Inactive or Deleted Rules
+
+
+**Issue**: Rules can be deactivated or deleted. Historical data remains.
+
+
+**Scenario 1: Inactive Rule**
+- Rule exists but is deactivated
+- Historical evaluations remain in database
+- Dashboard shows rule but marks it "Inactive"
+- Historical adherence still calculated ("All Time: 78%")
+- Recent adherence shows "N/A - Rule inactive"
+
+
+**Scenario 2: Deleted Rule**
+- Rule is permanently deleted
+- Historical violations remain linked to trades
+- Dashboard shows "Deleted Rule #12345" with historical adherence
+- Recent adherence shows "N/A - Rule deleted"
+
+
+**Dashboard Handling**:
+- Inactive rules: Displayed in separate "Inactive Rules" section
+- Deleted rules: Displayed only if "Show historical rules" toggle is enabled
+- Global adherence score: Excludes inactive/deleted rules by default
+
+
+**Limitation**: Comparing historical vs recent adherence is complicated if rules were active historically but inactive recently.
+
+
+### Trades Imported Without Complete Metadata
+
+
+**Issue**: CSV imports may lack emotion, conviction, or tag data.
+
+
+**Example**:
+- Import 100 trades from broker CSV
+- Financial data complete (entry, exit, P&L)
+- Psychology data missing (no emotions, conviction, adherence)
+- Tags missing
+
+
+**Dashboard Handling**:
+- Financial rules (max trades, time window, R:R, daily loss) evaluate normally
+- Behavioral rules (e.g., "Required tag: 'setup-confirmed'") skip evaluation due to missing tags
+- Global adherence calculated using only rules that could evaluate
+
+
+**Dashboard Display**:
+```
+Global Adherence: 88%
+Note: 40 out of 60 trades imported without psychology data. Behavioral rules skipped on these trades.
+```
+
+
+**Limitation**: Imported trades without full data reduce behavioral rule evaluation count, potentially inflating adherence (only compliant trades have data to evaluate).
+
+
+### Adherence Recalculation After Retroactive Changes
+
+
+**Issue**: Rules can be edited or trades can be updated retroactively.
+
+
+**Scenario 1: Rule Threshold Changed**
+- Original rule: "Max 3 trades per day"
+- Change to: "Max 5 trades per day"
+- Retroactive recalculation: Days with 4 trades were violations, now compliant
+
+
+**Dashboard Handling**:
+- Recalculates all historical evaluations using new rule definition
+- Adherence score updates immediately
+- Violation timeline updates (violations removed or added based on new threshold)
+
+
+**Dashboard Display**:
+```
+Rule: Max 5 trades per day (updated from 3)
+Adherence: 92% (37 passed / 40 days)
+Note: Rule threshold changed on Dec 1. Adherence recalculated retroactively.
+```
+
+
+**Scenario 2: Trade Data Updated**
+- Trade originally logged without stop loss
+- Stop loss added later (retroactive edit)
+- R:R rule can now evaluate (previously skipped)
+
+
+**Dashboard Handling**:
+- Rule evaluation re-runs for that trade
+- If trade now passes, adherence improves
+- If trade now violates, adherence declines
+
+
+**Limitation**: Retroactive rule changes can dramatically alter historical adherence, making before/after comparisons confusing.
+
+
+### Multi-Account Rules and Aggregation
+
+
+**Issue**: Rules can apply to specific accounts or all accounts.
+
+
+**Example**:
+- Rule A: "Max $500 daily loss" on Challenge Account 1
+- Rule B: "Max $2,000 daily loss" on Funded Account
+- Global adherence aggregates both
+
+
+**Dashboard Handling**:
+- Account filter: Select specific account to view adherence for that account only
+- Without filter: Adherence aggregates across all accounts
+
+
+**Dashboard Display**:
+```
+Global Adherence: 85% (all accounts)
+
+
+Filter by Account:
+- Challenge Account 1: 78% adherence
+- Funded Account: 92% adherence
+```
+
+
+**Limitation**: Aggregating adherence across accounts with different rule sets can obscure account-specific issues.
+
+
+### Time Zone Handling for Time-Based Rules
+
+
+**Issue**: Time window rules use configured timezone. If timezone is wrong, violations may be incorrectly flagged.
+
+
+**Example**:
+- Rule: "Allowed time window: 8 AM - 12 PM EST"
+- User timezone set to UTC (incorrect)
+- Trade entered at 10 AM EST (should pass)
+- System interprets as 3 PM UTC (outside 8 AM - 12 PM UTC window) → Violation
+
+
+**Dashboard Handling**:
+- Uses timezone from settings for all time-based rule evaluations
+- If timezone changes, historical evaluations do NOT recalculate (timestamp is absolute)
+
+
+**Dashboard Display**:
+```
+Rule: Allowed time window 8-12
+Adherence: 72%
+Note: Ensure timezone in settings matches your trading timezone. Incorrect timezone causes false violations.
+```
+
+
+**Limitation**: Retroactive timezone fixes do not correct historical violations. Time-based adherence may be permanently inaccurate if timezone was wrong during logging.
+
+
+### Rules with External Dependencies (News Events)
+
+
+**Issue**: News-based rules depend on economic calendar data.
+
+
+**Example**:
+- Rule: "No trading 30 minutes before high-impact news"
+- If economic calendar is incomplete or outdated, rule may not evaluate correctly
+
+
+**Dashboard Handling**:
+- Rule status shows "CALENDAR_DEPENDENCY"
+- If calendar data is missing for a trade's timestamp, rule skips evaluation
+- Dashboard shows: "Evaluated: 55 / 60 trades (5 skipped due to missing calendar data)"
+
+
+**Limitation**: News-based rule adherence is only as accurate as economic calendar data completeness.
+
+
+### Deleted Trades and Adherence Impact
+
+
+**Issue**: If a trade is deleted, its rule evaluations are removed.
+
+
+**Scenario**:
+- 60 trades logged, 300 rule evaluations, 261 passed → 87% adherence
+- Delete 5 trades (all had violations)
+- 55 trades remain, 275 evaluations, 261 passed → 95% adherence
+
+
+**Dashboard Handling**:
+- Adherence recalculates immediately when trade is deleted
+- Violation timeline updates (deleted trades removed)
+
+
+**Dashboard Display**:
+```
+Global Adherence: 95%
+Note: 5 trades deleted on Dec 5. Adherence recalculated.
+```
+
+
+**Limitation**: Selective deletion of losing or violating trades can artificially inflate adherence. Dashboard notes deletion events but cannot prevent gaming.
+
+
+## Summary
+
+
+The Rules vs Reality Dashboard is a behavioral truth instrument that shows whether you follow your self-imposed rules. It provides:
+
+
+- Global and rule-level adherence scores
+- Violation timelines with clustering detection
+- Trend analysis showing improvement or decay
+- Tag-based contextual analysis
+- Time-windowed comparisons
+
+
+The dashboard does not judge or prescribe. It mirrors your compliance data and reveals patterns. You decide what those patterns mean and how to respond.
+
+
+
+
+
