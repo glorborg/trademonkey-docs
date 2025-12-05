@@ -59,8 +59,8 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com/glorborg/trademonkey-docs',
-          label: 'GitHub',
+          href: 'https://app.trademonkey.app',
+          label: 'TradeMonkey App',
           position: 'right',
         },
       ],
