@@ -14,7 +14,7 @@ const config: Config = {
   url: 'https://your-docusaurus-site.example.com',
   baseUrl: '/',
 
-  organizationName: 'trademonkey',
+  organizationName: 'glorborg',
   projectName: 'trademonkey-docs',
 
   onBrokenLinks: 'throw',
@@ -59,7 +59,7 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com/trademonkey/trademonkey-docs',
+          href: 'https://github.com/glorborg/trademonkey-docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -86,7 +86,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/trademonkey/trademonkey-docs',
+              href: 'https://github.com/glorborg/trademonkey-docs',
             },
           ],
         },
