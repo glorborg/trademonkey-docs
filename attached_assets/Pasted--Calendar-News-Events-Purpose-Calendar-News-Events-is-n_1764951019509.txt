@@ -1,0 +1,361 @@
+# Calendar & News Events
+
+## Purpose
+
+Calendar & News Events is **not** a generic economic calendar. It is an **execution context guardrail** designed to protect discipline during scheduled volatility — especially for challenge traders and rule-based workflows.
+
+Its core job is to answer:
+
+> “Are you trading during scheduled uncertainty you said you’d avoid?”
+
+It does this by:
+
+- Highlighting **high-impact scheduled events** (CPI, NFP, FOMC, rate decisions, etc.)
+- Defining **volatility windows** before/after those events
+- Enforcing **news-based rules** via the Rules vs Reality engine
+- Creating **predictable avoidance zones** around high-risk periods
+
+This is a **protective layer**, not a strategy or prediction tool.
+
+---
+
+## What This Feature Is NOT
+
+To avoid confusion with full economic calendars (ForexFactory, MyFxBook, broker calendars):
+
+**It is NOT:**
+
+- A full economic calendar with every low/medium/high event  
+- A forecasting tool (no forecasts, actuals, or “beats/misses” logic)
+- A signal generator or trade idea source
+- A sentiment/positioning dashboard
+- A real-time, intraday news feed
+
+**It IS:**
+
+- A **curated list of high-impact events only**
+- Integrated tightly with **Rules vs Reality** for:
+  - time-based restrictions
+  - violation detection
+  - post-trade review
+
+| Aspect                  | Traditional Calendars              | TradeMonkey Calendar            |
+|------------------------|------------------------------------|---------------------------------|
+| Coverage               | Low/Med/High events                | High-impact only                |
+| Forecast / Actual      | Yes                                | No                              |
+| Sentiment / Positioning| Often                              | No                              |
+| Historical history     | Yes                                | Upcoming focus (guardrails)     |
+| Purpose                | Market analysis & strategy         | Execution context & discipline  |
+| Integration            | Standalone                         | Rules vs Reality engine         |
+
+---
+
+## What the Calendar Surfaces
+
+The Calendar & News Events feature provides five execution-relevant elements.
+
+### 1. High-Impact Events
+
+Curated macro events that commonly cause large moves and execution risk:
+
+- **Monetary policy**: FOMC, ECB/BOE/BOJ/RBA/SNB rate decisions, statements, minutes
+- **Employment**: NFP, US unemployment rate, major employment releases
+- **Inflation**: CPI, PPI, key CPI prints for majors (USD, EUR, GBP, etc.)
+- **Growth / Activity**: Major GDP releases, key retail sales, select high-impact prints
+
+**Event fields:**
+
+- Title (e.g. `US Non-Farm Payrolls`)
+- Description (short context)
+- Time (in your configured timezone)
+- Currency (USD, EUR, GBP, JPY, etc.)
+- Impact level (high)
+- Optional duration metadata
+
+No forecasts, actual values, or previous values are stored.
+
+---
+
+### 2. Volatility Windows
+
+Every high-impact event defines a **volatility window** around its scheduled time:
+
+- **Pre-event window**: X minutes before event (e.g. 15 / 30 / 60)
+- **Post-event window**: Y minutes after event (e.g. 15 / 30 / 60)
+
+Example:
+
+- Event: US CPI at **8:30 AM**
+- Pre: 8:00–8:30
+- Post: 8:30–9:00  
+→ Volatility window: **8:00–9:00**
+
+These windows are what your rules reference and what the Rules vs Reality engine uses for violation checks.
+
+---
+
+### 3. Restricted News Zones (Rule-Based)
+
+News rules turn volatility windows into **restricted zones** where trading is not allowed (according to your own rules).
+
+Typical behaviors:
+
+- “No trading ±30 minutes around high-impact USD events”
+- “No trades if high-impact news is within 15 minutes ahead”
+- “No trading pairs whose currencies have high-impact news within ±30 minutes”
+
+When a trade’s timestamp falls inside one of these restricted zones, Rules vs Reality flags a **news violation** and logs:
+
+- Which rule was evaluated
+- Which event triggered the restriction
+- How many minutes before/after the event the trade occurred
+
+---
+
+### 4. Session Context
+
+Calendar data is layered on top of your session structure (Asian / London / New York):
+
+- Shows **which sessions** contain high-impact events
+- Helps reconcile **session rules** (e.g. “London only”) with **news rules** (e.g. “Avoid FOMC days”)
+- Makes it obvious when your “normal trading hours” are mostly blocked by news
+
+Example:
+
+> UK CPI at 7:00 AM inside London session → London session is partially or fully blocked by news rules.
+
+---
+
+### 5. Visual Cueing of High-Risk Periods
+
+In calendar or timeline views, the feature visually marks elevated-risk windows:
+
+- Red/blocked bands around news times
+- Event markers at release timestamps
+- Shaded ranges during pre/post volatility windows
+
+This lets you **pre-scan** your day and immediately see:
+
+- “Clean” periods
+- “Red zones” around events
+- Days that may not be worth trading at all
+
+---
+
+## Integration With Rules vs Reality
+
+Calendar & News Events is designed primarily to power **news-based rules** inside the Rules vs Reality engine.
+
+### How Rule Evaluation Works
+
+For each new trade:
+
+1. Convert trade timestamp and event timestamps to a common time basis (UTC internally, displayed in your timezone).
+2. For each active news rule:
+   - Find relevant events (by currency, impact level, and time window).
+   - Compute pre/post windows around event(s).
+   - Check if entry (and optionally exit) timestamps fall inside any restricted window.
+3. If they do, log a **VIOLATION** with:
+   - Rule name
+   - Linked trade
+   - Linked event
+   - Minutes to/from the event
+   - Plain-language reason (e.g. “Trade opened 12 minutes before CPI release”)
+
+These evaluations show up in the **Rules vs Reality Dashboard** and can be filtered, grouped, and trended like any other rule.
+
+---
+
+### Supported News-Based Rule Types
+
+The engine supports several common patterns.
+
+#### 1. No Trading Around Events (±X Minutes)
+
+**Definition**
+
+> “No trading within X minutes before and Y minutes after high-impact events for currency C.”
+
+- Uses an event’s pre/post window to define a blocked range.
+- Applies to all trades in affected instruments, according to rule config.
+
+Example:
+
+- Rule: `No trading ±30 minutes around high-impact USD events`
+- Event: US CPI at 8:30
+- Window: 8:00–9:00
+- Trade at 8:15 → **Violation**
+
+---
+
+#### 2. No Trading If Event Is Imminent (Look-Ahead Only)
+
+**Definition**
+
+> “No trading if there is a high-impact event for currency C within N minutes ahead.”
+
+- Only looks **forward** from trade time (pre-event avoidance).
+- Often used by traders willing to trade post-news, but not pre-news.
+
+Example:
+
+- Rule: `No trading if high-impact USD event within 15 minutes`
+- Event: NFP at 8:30
+- Trade at 8:20 → Event is 10 minutes ahead → **Violation**
+- Trade at 8:40 → Event already released → **Pass**
+
+---
+
+#### 3. No Trading Pairs Whose Currencies Have News
+
+**Definition**
+
+> “No trading symbol X/Y when either X or Y has a high-impact event within a defined window.”
+
+- Extracts both currencies from the pair.
+- Checks events for **either** side (e.g. EUR *or* USD).
+- Used by traders who want zero exposure to any news on either leg.
+
+Example:
+
+- Rule: `No trading EURUSD ±30 minutes around EUR or USD high-impact events`
+- ECB decision at 7:45, US CPI at 8:30
+- Trade EURUSD at 8:00 → Inside post-ECB and pre-CPI windows → **Violation**
+
+---
+
+### System Tags
+
+Calendar context also drives automatic **system tags** for trades, even if no explicit rule is violated:
+
+- `sys:news-window` – Trade inside a broad news window (e.g. ±60 minutes)
+- `sys:pre-news` – Trade opened before event in pre-window
+- `sys:post-news` – Trade opened after event in post-window
+- `sys:violated-news-rule` – Trade violated a news-based rule
+
+These tags feed into **Execution Patterns**, AI Diagnostics, and analytics to show how “trading near news” behaves across your history.
+
+---
+
+## Typical Workflow
+
+### 1. Pre-Session: Scan the Day
+
+Before trading:
+
+1. Open calendar view or widget.
+2. Look at **today’s high-impact events** and their windows.
+3. Mark **restricted zones** based on your rules (e.g. ±30 minutes).
+4. Decide:
+   - Whether to trade at all today.
+   - Which hours are realistically “clean.”
+
+Example:
+
+> “CPI at 8:30 and FOMC at 2:00 → I’ll only consider trading 9:30–12:00. No afternoon trades.”
+
+---
+
+### 2. During Session: Guardrails Against Impulses
+
+When a setup appears:
+
+1. Check time vs upcoming/ongoing events.
+2. Compare with your news rules (e.g. “no trades within 30 minutes of news”).
+3. If inside a restricted window, you know **this is a rule break**, not just “a bit risky.”
+
+This helps:
+
+- Reduce FOMO entries right before news.
+- Avoid chasing moves immediately after releases.
+- Maintain consistency with your stated plan, even when setups look tempting.
+
+---
+
+### 3. Post-Session: Review Trades Near Events
+
+After trading:
+
+1. Open Rules vs Reality Dashboard.
+2. Filter for:
+   - News-rule violations
+   - Trades tagged `sys:news-window`
+3. For each trade, review:
+   - Which event it was near
+   - How many minutes before/after the event it occurred
+   - Emotions, conviction, plan adherence
+   - Outcome (P&L, slippage, execution quality)
+
+Over time, this reveals patterns such as:
+
+- “Pre-news entries are low-conviction and often FOMO.”
+- “News-window trades have worse slippage and worse R:R.”
+- “News violations frequently start multi-rule violation cascades.”
+
+The system **describes** these patterns; you decide what, if anything, to change.
+
+---
+
+## Why It Matters for Challenge Traders
+
+For prop firm challenges and funded accounts, news guardrails are especially important:
+
+- **Preventing account blowouts**
+  - High-impact events can cause large spikes and slippage that exceed daily loss limits.
+  - News guardrails help avoid “one-event challenge failure” days.
+
+- **Reducing slippage**
+  - News windows are where stop fills are most unreliable.
+  - Trading outside these windows improves average execution quality.
+
+- **Aligning with prop firm rules**
+  - Many firms explicitly restrict news trading.
+  - You can mirror those into TradeMonkey rules and see violations before the prop firm does.
+
+- **Creating predictable routines**
+  - You know in advance which hours are “off limits.”
+  - This reduces randomness in daily risk and P&L swings.
+
+---
+
+## Limitations and Clarifications
+
+- **High-Impact Only (by design)**  
+  Calendar is **curated** to major events (CPI, NFP, FOMC, key central bank decisions, major GDP prints).  
+  Medium/low-impact releases are typically not included in MVP.
+
+- **No forecasts/actuals/sentiment**  
+  The feature does not show consensus forecasts, actual values, previous values, revisions, or positioning.  
+  Use external calendars if you need those; TradeMonkey’s calendar exists for **guardrails**, not analysis.
+
+- **Depends on your timezone setting**  
+  Events are stored in UTC and displayed in your configured timezone.  
+  Incorrect timezone settings will make windows and violation timing inaccurate.
+
+- **Not synced with broker calendars**  
+  Broker-specific restrictions/holidays are not automatically mirrored.  
+  If needed, model them as additional manual rules.
+
+- **Scheduled times only**  
+  The system uses scheduled release times. If events are delayed or early, the calendar does not adjust in real time.
+
+- **Rules are not retroactive**  
+  Adding a news-based rule today does not re-label old trades.  
+  Historical violations reflect only rules that existed at the time.
+
+---
+
+## How It Fits Into the Execution Mirror
+
+Calendar & News Events completes the picture by adding **time- and event-based context** to:
+
+- **Plan vs Execution** – Did you follow the plan?
+- **State vs Outcome** – What mental state led to which results?
+- **Rules vs Reality** – Did you follow your rules?
+- **Calendar & News Events** – Did you trade during scheduled uncertainty you chose to avoid?
+
+It doesn’t tell you what to trade. It simply makes it impossible to say:
+
+> “I didn’t realize there was news then.”
+
+The data will show exactly when you chose to step into, or avoid, scheduled volatility.
