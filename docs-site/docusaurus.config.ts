@@ -107,11 +107,15 @@ const config: Config = {
           ],
         },
         {
-          title: 'More',
+          title: 'Support',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/glorborg/trademonkey-docs',
+              label: 'Contact Support',
+              href: 'mailto:hello@trademonkey.app',
+            },
+            {
+              label: 'Feature Request',
+              href: 'mailto:hello@trademonkey.app',
             },
           ],
         },
