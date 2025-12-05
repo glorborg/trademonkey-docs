@@ -73,7 +73,7 @@ const config: Config = {
           items: [
             {
               label: 'Getting Started',
-              to: '/getting-started/overview',
+              to: '/',
             },
             {
               label: 'Core Workflows',

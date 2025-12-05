@@ -1,0 +1,118 @@
+20:38:43.969 Running build in Washington, D.C., USA (East) – iad1
+20:38:43.969 Build machine configuration: 4 cores, 8 GB
+20:38:44.085 Cloning github.com/glorborg/trademonkey-docs (Branch: main, Commit: ca10c04)
+20:38:44.317 Cloning completed: 231.000ms
+20:38:44.552 Restored build cache from previous deployment (9EQKQgdFUsCm8zT76u3fgmdxAtmZ)
+20:38:45.219 Warning: Detected "engines": { "node": ">=20.0" } in your `package.json` that will automatically upgrade when a new major Node.js Version is released. Learn More: http://vercel.link/node-version
+20:38:45.219 Running "vercel build"
+20:38:45.648 Vercel CLI 48.12.1
+20:38:46.301 Warning: Detected "engines": { "node": ">=20.0" } in your `package.json` that will automatically upgrade when a new major Node.js Version is released. Learn More: http://vercel.link/node-version
+20:38:46.318 Installing dependencies...
+20:38:48.811 
+20:38:48.811 up to date in 2s
+20:38:48.811 
+20:38:48.811 406 packages are looking for funding
+20:38:48.812   run `npm fund` for details
+20:38:48.854 Running "npm run build"
+20:38:48.972 
+20:38:48.972 > docs-site@0.0.0 build
+20:38:48.972 > docusaurus build
+20:38:48.972 
+20:38:50.313 [INFO] [en] Creating an optimized production build...
+20:38:51.245 [info] [webpackbar] Compiling Client
+20:38:51.279 [info] [webpackbar] Compiling Server
+20:39:09.915 [success] [webpackbar] Server: Compiled successfully in 18.64s
+20:39:17.893 [success] [webpackbar] Client: Compiled successfully in 26.65s
+20:39:20.937 
+20:39:20.937 [ERROR] Error: Unable to build website for locale en.
+20:39:20.937     at tryToBuildLocale (/vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/build.js:83:15)
+20:39:20.938     at async /vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/build.js:35:9
+20:39:20.938     ... 4 lines matching cause stack trace ...
+20:39:20.938     at async file:///vercel/path0/docs-site/node_modules/@docusaurus/core/bin/docusaurus.mjs:44:3 {
+20:39:20.938   [cause]: Error: Docusaurus found broken links!
+20:39:20.938   
+20:39:20.938   Please check the pages of your site in the list below, and make sure you don't reference any path that does not exist.
+20:39:20.938   Note: it's possible to ignore broken links with the 'onBrokenLinks' Docusaurus configuration, and let the build pass.
+20:39:20.938   
+20:39:20.938   It looks like some of the broken links we found appear in many pages of your site.
+20:39:20.939   Maybe those broken links appear on all pages through your site layout?
+20:39:20.939   We recommend that you check your theme configuration for such links (particularly, theme navbar and footer).
+20:39:20.939   Frequent broken links are linking to:
+20:39:20.939   - /getting-started/overview
+20:39:20.939   
+20:39:20.939   Exhaustive list of all broken links found:
+20:39:20.939   - Broken link on source page path = /404.html:
+20:39:20.939      -> linking to /getting-started/overview
+20:39:20.939   - Broken link on source page path = /advanced-insights/ai-deep-dive-explorer:
+20:39:20.939      -> linking to /getting-started/overview
+20:39:20.939   - Broken link on source page path = /advanced-insights/ai-diagnostics:
+20:39:20.939      -> linking to /getting-started/overview
+20:39:20.939   - Broken link on source page path = /advanced-insights/calendar-news-events:
+20:39:20.939      -> linking to /getting-started/overview
+20:39:20.939   - Broken link on source page path = /advanced-insights/execution-patterns:
+20:39:20.940      -> linking to /getting-started/overview
+20:39:20.940   - Broken link on source page path = /advanced-insights/rules-vs-reality-dashboard:
+20:39:20.940      -> linking to /getting-started/overview
+20:39:20.940   - Broken link on source page path = /advanced-insights/tags-management:
+20:39:20.940      -> linking to /getting-started/overview
+20:39:20.940   - Broken link on source page path = /advanced-insights/time-scoped-analytics:
+20:39:20.940      -> linking to /getting-started/overview
+20:39:20.940   - Broken link on source page path = /core-workflows/psychology-tracking:
+20:39:20.940      -> linking to /getting-started/overview
+20:39:20.940   - Broken link on source page path = /core-workflows/rules-helper-ai:
+20:39:20.940      -> linking to /getting-started/overview
+20:39:20.940   - Broken link on source page path = /core-workflows/rules-vs-reality:
+20:39:20.940      -> linking to /getting-started/overview
+20:39:20.940   - Broken link on source page path = /core-workflows/settings:
+20:39:20.940      -> linking to /getting-started/overview
+20:39:20.941   - Broken link on source page path = /core-workflows/threads:
+20:39:20.941      -> linking to /getting-started/overview
+20:39:20.941   - Broken link on source page path = /core-workflows/trade-recap:
+20:39:20.941      -> linking to /getting-started/overview
+20:39:20.941   - Broken link on source page path = /getting-started/create-trading-account:
+20:39:20.941      -> linking to /getting-started/overview
+20:39:20.941   - Broken link on source page path = /getting-started/execution-recap-basics:
+20:39:20.941      -> linking to /getting-started/overview
+20:39:20.941   - Broken link on source page path = /getting-started/import-trades:
+20:39:20.941      -> linking to /getting-started/overview
+20:39:20.941   - Broken link on source page path = /getting-started/manual-trade-entry:
+20:39:20.941      -> linking to /getting-started/overview
+20:39:20.941   - Broken link on source page path = /getting-started/reflections:
+20:39:20.941      -> linking to /getting-started/overview
+20:39:20.941   - Broken link on source page path = /internal/faq:
+20:39:20.942      -> linking to /getting-started/overview
+20:39:20.942   - Broken link on source page path = /internal/glossary:
+20:39:20.942      -> linking to /getting-started/overview
+20:39:20.943   - Broken link on source page path = /internal/troubleshooting:
+20:39:20.943      -> linking to /getting-started/overview
+20:39:20.943   - Broken link on source page path = /reference/ai-usage-limits:
+20:39:20.943      -> linking to /getting-started/overview
+20:39:20.943   - Broken link on source page path = /reference/billing-subscription:
+20:39:20.943      -> linking to /getting-started/overview
+20:39:20.943   - Broken link on source page path = /reference/data-import-export:
+20:39:20.943      -> linking to /getting-started/overview
+20:39:20.943   - Broken link on source page path = /reference/security:
+20:39:20.943      -> linking to /getting-started/overview
+20:39:20.943   - Broken link on source page path = /:
+20:39:20.943      -> linking to /getting-started/overview
+20:39:20.943   
+20:39:20.944       at throwError (/vercel/path0/docs-site/node_modules/@docusaurus/logger/lib/logger.js:80:11)
+20:39:20.944       at reportBrokenLinks (/vercel/path0/docs-site/node_modules/@docusaurus/core/lib/server/brokenLinks.js:250:47)
+20:39:20.944       at handleBrokenLinks (/vercel/path0/docs-site/node_modules/@docusaurus/core/lib/server/brokenLinks.js:282:5)
+20:39:20.944       at executeBrokenLinksCheck (/vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/buildLocale.js:119:47)
+20:39:20.944       at /vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/buildLocale.js:94:67
+20:39:20.944       at Object.async (/vercel/path0/docs-site/node_modules/@docusaurus/logger/lib/perfLogger.js:42:47)
+20:39:20.944       at buildLocale (/vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/buildLocale.js:94:31)
+20:39:20.944       at async runBuildLocaleTask (/vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/build.js:98:5)
+20:39:20.944       at async /vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/build.js:79:13
+20:39:20.944       at async tryToBuildLocale (/vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/build.js:75:9)
+20:39:20.945       at async /vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/build.js:35:9
+20:39:20.945       at async mapAsyncSequential (/vercel/path0/docs-site/node_modules/@docusaurus/utils/lib/jsUtils.js:21:24)
+20:39:20.945       at async Command.build (/vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/build/build.js:34:5)
+20:39:20.945       at async Promise.all (index 0)
+20:39:20.945       at async runCLI (/vercel/path0/docs-site/node_modules/@docusaurus/core/lib/commands/cli.js:56:5)
+20:39:20.945       at async file:///vercel/path0/docs-site/node_modules/@docusaurus/core/bin/docusaurus.mjs:44:3
+20:39:20.945 }
+20:39:20.945 [INFO] Docusaurus version: 3.9.2
+20:39:20.945 Node version: v24.11.1
+20:39:21.003 Error: Command "npm run build" exited with 1
