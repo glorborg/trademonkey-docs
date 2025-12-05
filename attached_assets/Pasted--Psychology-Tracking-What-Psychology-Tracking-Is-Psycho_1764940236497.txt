@@ -1,0 +1,522 @@
+# Psychology Tracking
+
+
+## What Psychology Tracking Is
+
+
+Psychology tracking captures your mental state at critical decision points during trade execution. This data links what you felt to what you did and what resulted. The system does not interpret these links as good or bad—it only shows correlations and patterns.
+
+
+Psychology tracking is the second mirror in TradeMonkey's trilogy:
+
+
+1. **Plan vs Execution**: Did you follow your stated plan?
+2. **State vs Outcome**: What mental state produced what execution results? ← This
+3. **Rules vs Reality**: Did you follow your defined rules?
+
+
+The goal is factual pattern detection: "When you felt X and had conviction level Y, your trades resulted in Z." No judgment. No coaching. Just the mirror reflecting the data.
+
+
+## The Psychology Data Model
+
+
+TradeMonkey captures three types of psychological data:
+
+
+### Emotions
+Multi-select emotion tags that describe your mental state at entry and exit. You can select up to 3 emotions per decision point.
+
+
+**Entry Emotions:**
+- **Confident**: Strong belief in the setup, clear edge identified
+- **Calm**: Relaxed, no urgency, executing according to plan
+- **Fear**: Nervous about risk, uncertain about outcome, hesitant
+- **FOMO** (Fear of Missing Out): Impulsive entry driven by watching price move without you
+- **Revenge**: Entering to "get back" losses, emotionally driven
+- **Greed**: Oversized expectations, targeting unrealistic profits
+
+
+**Exit Emotions:**
+- **Relief**: Glad to be out, regardless of outcome
+- **Regret**: Wish you had exited differently (earlier, later, at different price)
+- **Pride**: Satisfied with execution quality, followed plan well
+- **Frustration**: Annoyed by outcome or your decision-making
+- **Satisfied**: Content with result and execution process
+
+
+Emotions are not single-state. Real trading decisions often combine multiple emotions:
+- Confident + Impatient (strong setup, rushed execution)
+- Fear + Calm (nervous but disciplined)
+- FOMO + Greed (chasing price with inflated expectations)
+
+
+Multi-emotion tagging produces richer analytics than single-emotion tagging.
+
+
+### Conviction Scores
+Numeric rating (1-10 scale) representing your confidence in the trade decision at entry and exit.
+
+
+**Score Interpretation:**
+- **1-3**: Low conviction (weak setup, breaking rules, impulsive, uncertain)
+- **4-6**: Medium conviction (decent setup, some criteria met, moderate confidence)
+- **7-9**: High conviction (strong setup, all criteria satisfied, aligned with plan)
+- **10**: Maximum conviction (rare, perfect setup, highest confidence)
+
+
+Conviction scores are subjective but should be anchored to observable criteria. Define what each range means for you and score consistently.
+
+
+**Entry Conviction**: How confident were you in the setup when you opened the trade?
+
+
+**Exit Conviction**: How confident were you in the exit decision when you closed the trade?
+
+
+The gap between entry and exit conviction reveals discipline trends:
+- Negative gap (e.g., entry 8, exit 3) = Discipline decay during execution
+- Positive gap (e.g., entry 3, exit 8) = Strengthened confidence (less common)
+- Zero gap = Consistent conviction throughout trade
+
+
+### Plan Adherence
+Binary or ternary flag indicating whether you followed your trading plan at entry and exit.
+
+
+**Values:**
+- **Yes**: Followed plan exactly, all entry/exit criteria met
+- **Partial**: Mostly followed plan, minor deviation (e.g., one criterion skipped)
+- **No**: Ignored plan, impulsive or off-plan trade
+
+
+**Entry Plan Adherence**: Did you follow your entry rules when opening this trade?
+
+
+**Exit Plan Adherence**: Did you follow your exit plan when closing this trade?
+
+
+Plan adherence is subjective. Only you know if you "sort of" followed your plan. Log it honestly. The system uses this data to detect when adherence breaks down (time of day? after losses? certain setups?).
+
+
+![Psychology Data Model](/img/psychology-data-model.png)
+
+
+## Why Mental State Tracking Matters
+
+
+Financial data (entry price, exit price, P&L) shows what happened. Psychology data shows why it happened and how it felt. This context enables pattern detection that financial data alone cannot provide.
+
+
+### Financial Data Alone (Incomplete Story)
+> "Trade 1: EURUSD, entered 1.0850, exited 1.0830, -$200 loss"
+
+
+This tells you what happened but not why. Was this a disciplined stop-out on a good setup? Or a panic exit on a bad entry?
+
+
+### Financial + Psychology Data (Complete Story)
+> "Trade 1: EURUSD, entered 1.0850, exited 1.0830, -$200 loss
+> - Entry emotion: Confident, Calm
+> - Entry conviction: 8/10
+> - Entry plan adherence: Yes
+> - Exit emotion: Frustration, Regret
+> - Exit conviction: 3/10
+> - Exit plan adherence: No
+> - Exit reason: Panic sold on pullback, stop loss was 1.0820"
+
+
+This reveals the pattern: You entered strong and disciplined, but conviction collapsed during execution. You exited emotionally (frustration, regret), not at your planned level (SL was 1.0820, you closed at 1.0830). This is a discipline decay pattern, not a bad setup pattern.
+
+
+Without psychology data, this looks like a failed trade. With psychology data, this looks like an execution failure despite a valid setup.
+
+
+### Pattern Detection Across Multiple Trades
+One trade with psychology data is interesting. Twenty trades with psychology data reveal patterns:
+
+
+- "When entry emotion includes 'FOMO,' win rate is 22%"
+- "When entry conviction is below 5, average loss is -$180 per trade"
+- "When exit conviction drops 5+ points from entry, 80% of trades are closed before stop or target is hit"
+- "Confident + Calm entries outperform Fear + Impatient entries by 35% win rate"
+
+
+These patterns are invisible without mental state data. Financial data shows results. Psychology data shows why those results occurred.
+
+
+## How Psychology Data Flows Through TradeMonkey
+
+
+Psychology inputs feed into four key systems:
+
+
+### 1. State vs Outcome Analytics
+Located on the Psychology page, these analytics calculate performance by mental state:
+
+
+**Performance by Emotion:**
+- Win rate by entry emotion (e.g., "Confident: 68%, FOMO: 25%")
+- Average P&L by entry emotion (e.g., "Calm: +$142, Revenge: -$95")
+- Emotional cost (e.g., "FOMO-tagged trades cost you $2,800 this quarter")
+
+
+**Performance by Conviction Level:**
+- Win rate by conviction range (e.g., "Conviction 7-10: 65%, Conviction 1-3: 30%")
+- Average P&L by conviction level (e.g., "High conviction wins more and loses less than low conviction")
+
+
+**Conviction Gap Analysis:**
+- Measures discipline decay (exit conviction - entry conviction)
+- Identifies trades where confidence collapsed during execution
+- Correlates conviction gaps with outcomes (negative gaps = worse performance)
+
+
+**Emotional Transitions:**
+- Entry emotion → Exit emotion patterns (e.g., "Confident → Regret" vs "Confident → Satisfied")
+- Identifies which emotional shifts predict dissatisfaction or poor outcomes
+
+
+**Plan Adherence Breakdown:**
+- Percentage of trades with full adherence vs partial vs violations
+- Performance comparison: adherence vs non-adherence
+- Time-based adherence trends (adherence decay over days/weeks)
+
+
+### 2. Execution Recap
+Execution Recap displays psychology data alongside entry/exit screenshots. When reviewing trades visually, you see:
+
+
+- Entry screenshot + entry emotions + entry conviction → Validates if conviction matched setup quality
+- Exit screenshot + exit emotions + exit conviction → Reveals if exit was planned or emotional
+
+
+This visual + psychological pairing exposes execution gaps:
+- Entry screenshot shows clean setup (conviction 9 makes sense), exit screenshot shows you closed mid-pullback (conviction 3 reveals panic)
+
+
+### 3. Time-Scoped Analytics
+Time-Scoped Analytics allows filtering by date range to detect time-based psychological trends:
+
+
+- "Week 1: Average entry conviction 7.8, Week 4: Average entry conviction 5.2" (conviction decay over time)
+- "Morning trades: 75% plan adherence, Afternoon trades: 40% plan adherence" (session-based discipline collapse)
+- "First 10 trades of month: Fear appears 2 times, Last 10 trades: Fear appears 8 times" (emotional shift under pressure)
+
+
+### 4. AI Insight Engines
+TradeMonkey's AI features (Trade Thread Summary, Deep Dive Explorer, Mirror Analysis) analyze psychology data to surface behavioral patterns:
+
+
+**AI Diagnostics (3/day limit):**
+Generates insights like:
+> "Your conviction drops an average of 4.2 points from entry to exit on losing trades, but only 0.8 points on winning trades. This suggests confidence collapse predicts exits before stop or target is hit."
+
+
+**Deep Dive Explorer (25 sessions/day):**
+Allows follow-up questions:
+- "Why does my conviction drop so much on losing trades?"
+- "What happens when I enter with FOMO emotion?"
+- "Do afternoon trades with low conviction perform differently than morning trades with low conviction?"
+
+
+**Trade Thread Summaries (5/day limit):**
+Analyzes individual trades with full psychological context:
+> "Entry: Confident + Calm, conviction 8, plan adherence Yes. Exit: Frustration + Regret, conviction 3, plan adherence No. Pattern: Discipline decay. You entered strong, exited emotionally before planned level."
+
+
+The more complete your psychology data, the more specific and actionable the AI insights.
+
+
+![Psychology Data Flow](/img/psychology-data-flow.png)
+
+
+## Meaningful Emotional Pattern Examples
+
+
+These examples are factual, clinical observations derived from psychology tracking. They describe patterns without prescribing solutions.
+
+
+### Pattern 1: FOMO Entry Cost
+> "You tagged 18 trades with 'FOMO' entry emotion this month. Win rate: 22%. Average P&L: -$145 per trade. Total cost: -$2,610. These trades averaged entry conviction of 4.2, significantly lower than your overall average of 6.8. Exit emotions on FOMO trades: Regret (14 times), Frustration (11 times), Relief (8 times). Pattern: FOMO entries correlate with low conviction, high regret, and poor performance."
+
+
+### Pattern 2: Conviction Gap and Early Exits
+> "You have 23 trades with conviction gap of -4 or worse (entry conviction at least 4 points higher than exit conviction). Of these, 19 (83%) were closed before stop loss or take profit was hit. Average P&L: -$88. Exit emotions on gap trades: Frustration (16 times), Regret (15 times), Relief (10 times). Pattern: Large negative conviction gaps predict emotional exits before planned levels."
+
+
+### Pattern 3: Calm + Confident Outperformance
+> "You tagged 32 trades with entry emotions 'Calm' and 'Confident' simultaneously. Win rate: 72%. Average P&L: +$185 per trade. Plan adherence on these trades: 91% (Yes or Partial). Exit emotions: Satisfied (22 times), Pride (18 times), Relief (14 times). Pattern: Calm confidence at entry correlates with high adherence, positive outcomes, and emotional satisfaction at exit."
+
+
+### Pattern 4: Revenge Trading After Losses
+> "You tagged 9 trades with 'Revenge' entry emotion. Eight of these occurred within 30 minutes of a losing trade. Win rate: 11% (1 win, 8 losses). Average P&L: -$210 per trade. Entry conviction on revenge trades: 3.1 average. Plan adherence: 0% (all marked 'No' or 'Partial'). Pattern: Revenge entries occur immediately after losses, have minimal conviction, violate plans, and lose money."
+
+
+### Pattern 5: Session-Based Emotional Shift
+> "Trades entered before 12:00 PM: Average entry conviction 7.4, 'Confident' tagged 65% of the time, 'Fear' tagged 12% of the time. Trades entered after 2:00 PM: Average entry conviction 5.1, 'Confident' tagged 28% of the time, 'Fear' or 'FOMO' tagged 58% of the time. Win rate before noon: 68%. Win rate after 2 PM: 34%. Pattern: Afternoon trading shows lower conviction, more impulsive emotions, and worse performance."
+
+
+### Pattern 6: Plan Adherence and Emotional Outcome
+> "Trades with entry adherence 'Yes' and exit adherence 'Yes' (full alignment): 45 trades, win rate 61%, exit emotions mostly 'Satisfied' or 'Pride.' Trades with entry adherence 'Yes' and exit adherence 'No' (execution drift): 22 trades, win rate 32%, exit emotions mostly 'Regret' or 'Frustration.' Pattern: Discipline decay during execution (adherence breakdown) correlates with regret and worse performance, even when entry was planned."
+
+
+### Pattern 7: Fear Paralysis vs Fear Discipline
+> "You tagged 'Fear' entry emotion on 28 trades. Of these, 16 had conviction below 5 (fear + low confidence), 12 had conviction above 7 (fear + disciplined setup). Fear + low conviction trades: 25% win rate, -$95 average P&L. Fear + high conviction trades: 58% win rate, +$110 average P&L. Pattern: Fear is not inherently bad. Fear with high conviction (nervous but disciplined) performs well. Fear with low conviction (hesitant, uncertain) performs poorly."
+
+
+These patterns are descriptive, not prescriptive. TradeMonkey shows you the correlations. You decide what to do with them.
+
+
+![Emotional Pattern Examples](/img/emotional-pattern-examples.png)
+
+
+## The Mirror Philosophy
+
+
+Psychology tracking in TradeMonkey operates under a strict mirror philosophy: the system reflects your data back to you without judgment, interpretation, or advice.
+
+
+### What the Mirror Does
+- **Shows correlations**: "When you felt X, outcome was Y"
+- **Measures gaps**: "Entry conviction 8, exit conviction 3, gap: -5"
+- **Counts frequencies**: "FOMO appeared 18 times this month"
+- **Calculates costs**: "Revenge trades cost $1,890 total"
+- **Identifies patterns**: "Conviction drops occur most often after 2 PM"
+
+
+### What the Mirror Does NOT Do
+- **Prescribe solutions**: Never says "You should stop trading after 2 PM"
+- **Judge emotions**: Never says "FOMO is bad" or "Confident is good"
+- **Interpret intent**: Never says "You struggle with discipline" or "You need to work on patience"
+- **Predict behavior**: Never says "You're likely to revenge trade today"
+- **Offer coaching**: Never says "Try journaling before trading" or "Take a break after losses"
+
+
+### Mirror Language Examples
+
+
+**Mirror (Descriptive):**
+> "Trades tagged with 'FOMO' entry emotion: 18 instances, 22% win rate, -$2,610 total cost."
+
+
+**NOT Mirror (Prescriptive):**
+> "You struggle with FOMO. You should avoid impulsive entries and wait for confirmation."
+
+
+**Mirror (Factual):**
+> "Your conviction drops an average of 4.2 points from entry to exit on losing trades. 83% of trades with -4 or worse conviction gap were closed before stop or target."
+
+
+**NOT Mirror (Coaching):**
+> "You lose confidence too quickly. You need to trust your setups and let them play out."
+
+
+**Mirror (Observational):**
+> "Afternoon trades (after 2 PM) show 40% plan adherence. Morning trades (before 12 PM) show 78% plan adherence. Win rate: 34% afternoon, 68% morning."
+
+
+**NOT Mirror (Advice):**
+> "Your discipline breaks down in the afternoon. Stop trading after lunch or take a break to reset."
+
+
+The mirror shows the gap. You decide how to respond.
+
+
+### Why This Philosophy Matters
+TradeMonkey is not a coach or therapist. It does not know your personal context, goals, or constraints. Only you know whether a pattern matters or not:
+
+
+- Maybe afternoon performance is worse because you trade lower-quality setups (fixable)
+- Maybe afternoon performance is worse because you're tired (consider schedule change)
+- Maybe afternoon performance is worse because New York session volatility doesn't suit your strategy (consider different market)
+
+
+The system cannot distinguish between these. It only shows the pattern. You interpret and decide.
+
+
+Some patterns are actionable (e.g., "FOMO trades always lose, stop taking them"). Some are not (e.g., "Calm trades break even—is this good or bad?"). The mirror doesn't decide for you.
+
+
+## Psychology Tracking Workflow
+
+
+### Step 1: Define Your Emotional Vocabulary
+Before logging psychology data, decide how you'll interpret each emotion:
+
+
+- What does "Confident" mean to you? (Strong edge? All criteria met? High win expectancy?)
+- What does "Fear" mean? (Nervous about risk? Uncertain about outcome? Breaking rules?)
+- What does "FOMO" mean? (Chasing price? Entering late? Impulsive reaction to movement?)
+
+
+Write these definitions down. Reference them when logging emotions. This reduces emotional drift over time.
+
+
+### Step 2: Anchor Conviction Scores to Criteria
+Define what each conviction range means:
+
+
+- 1-3: Weak setup, breaking rules, impulsive, low probability
+- 4-6: Decent setup, some criteria met, moderate edge
+- 7-9: Strong setup, all criteria satisfied, clear edge
+- 10: Perfect setup (rare)
+
+
+Your definitions may differ. The goal is consistency.
+
+
+### Step 3: Log Psychology Data in Real Time
+Memory distorts quickly. Log emotions and conviction scores as close to execution as possible:
+
+
+- **At entry**: Log within 5 minutes of opening the trade
+- **At exit**: Log within 5 minutes of closing the trade
+
+
+If you must log after the fact, note the delay in your trade notes: "Logged 2 hours post-close, memory may be inaccurate."
+
+
+### Step 4: Be Honest, Not Aspirational
+Log what you actually felt, not what you wish you felt:
+
+
+- If you entered impulsively, tag "FOMO" even if it's embarrassing
+- If conviction was low, score it low even if the setup looked decent in hindsight
+- If you violated your plan, mark adherence as "No" even if the trade won
+
+
+TradeMonkey does not judge. It only counts and correlates. Sanitizing your data prevents pattern detection.
+
+
+### Step 5: Use Multi-Emotion Tagging
+Real decisions are rarely single-emotion states. Use 2-3 emotions when applicable:
+
+
+- Confident + Impatient (strong setup, rushed execution)
+- Fear + Calm (nervous but disciplined)
+- FOMO + Greed (chasing with inflated expectations)
+
+
+Multi-emotion combinations produce richer analytics than single emotions.
+
+
+### Step 6: Review Patterns Periodically
+Once you have 20-30 trades logged with psychology data, review:
+
+
+- Performance by emotion (which emotions correlate with wins/losses?)
+- Conviction gap trends (are you losing confidence during execution?)
+- Plan adherence breakdown (where does discipline collapse?)
+- Time-based emotional shifts (do emotions change by session or day?)
+
+
+Use these patterns to inform rule creation (Rules vs Reality) or to focus deeper exploration (AI Deep Dive).
+
+
+## Limitations and Notes
+
+
+### Patterns Require Sufficient Data
+Meaningful patterns emerge from volume. Guidelines:
+
+
+- **Minimum for basic patterns**: 20-30 trades with psychology data
+- **Minimum for emotion-specific patterns**: 10+ trades with the same emotion tag
+- **Minimum for time-based trends**: 10+ days of trading with consistent logging
+
+
+If you have 5 trades, psychology analytics will show percentages, but they're not statistically meaningful.
+
+
+### Psychology Data Is Optional
+You can use TradeMonkey without logging emotions, conviction, or plan adherence. Financial tracking, Rules vs Reality, and CSV imports work without psychology data. But:
+
+
+- Performance by emotion analytics will be empty
+- Conviction gap analysis will not run
+- AI insights will be generic (P&L-focused, not behavior-focused)
+- Execution Recap will show screenshots and financials, but no emotional context
+
+
+Psychology tracking is optional, but it's the heart of the "State vs Outcome" mirror.
+
+
+### Consistency Matters More Than Completeness
+You don't need to log every field for every trade. But if you log conviction scores, log them consistently. Partial data is better than no data. Inconsistent data breaks pattern detection:
+
+
+- Logging conviction on winning trades but skipping it on losing trades → Biased patterns
+- Tagging emotions only on emotional trades → Can't compare emotional vs calm performance
+- Logging adherence inconsistently → Adherence trends are meaningless
+
+
+Pick a minimum data set (e.g., emotions + conviction) and log it every time.
+
+
+### Subjectivity Is Unavoidable
+Emotions, conviction, and adherence are subjective. Two traders might score the same setup differently. This is fine. The goal is internal consistency (your patterns over time), not objective standards.
+
+
+Over time, you may "calibrate" your scoring:
+
+
+- Early on, you might rate every decent setup as conviction 8
+- Later, you realize conviction 8 should be reserved for best setups, and most are 6-7
+- Your scoring shifts, but internal consistency remains
+
+
+If you recalibrate, note it in your journal: "Starting today, reserving 8-10 conviction for truly exceptional setups."
+
+
+### Memory Bias Affects Delayed Entries
+If you log trades days or weeks after execution, your memory of emotions and conviction is distorted by hindsight:
+
+
+- Winning trades may be remembered as more confident than they were
+- Losing trades may be remembered as less confident than they were
+
+
+For accurate psychology data, log in real time or within hours of execution.
+
+
+### Not All Patterns Are Actionable
+Some patterns you discover may not have clear solutions:
+
+
+- "Calm entries break even, Confident entries win" → Is calm bad? Or just neutral?
+- "Conviction 6 trades perform the same as conviction 8 trades" → Should you stop filtering by conviction?
+- "Fear + high conviction wins 58% of the time" → Is fear helping or neutral?
+
+
+The mirror shows all patterns. Some are actionable (e.g., "FOMO always loses, stop FOMO trades"). Some are just observations. You decide what matters.
+
+
+### Emotional Honesty Is a Skill
+Early in your psychology tracking, you may sanitize entries:
+
+
+- Marking "Calm" when you actually felt "Impatient"
+- Scoring conviction as 7 when it was actually 4
+- Marking adherence as "Yes" when it was really "Partial"
+
+
+This is normal. Over time, as you see the value of honest data, logging becomes more accurate. TradeMonkey does not judge emotions. It only mirrors them. Honest data produces useful patterns. Sanitized data produces noise.
+
+
+### Psychology Tracking Is a Tool, Not a Solution
+Knowing your patterns does not automatically fix them. You might discover:
+
+
+> "I lose money every time I trade with FOMO emotion."
+
+
+This is valuable information. But knowing it doesn't stop you from feeling FOMO. Psychology tracking reveals the problem. Solving it requires behavior change, rule enforcement (Rules vs Reality), or other interventions outside TradeMonkey's scope.
+
+
+The mirror shows the gap. You close it.
+
+
+
+
+
