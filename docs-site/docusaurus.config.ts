@@ -90,6 +90,23 @@ const config: Config = {
           ],
         },
         {
+          title: 'Application',
+          items: [
+            {
+              label: 'Open TradeMonkey',
+              href: 'https://app.trademonkey.app/login',
+            },
+            {
+              label: "What's New",
+              href: '#',
+            },
+            {
+              label: 'System Status',
+              href: '#',
+            },
+          ],
+        },
+        {
           title: 'More',
           items: [
             {
