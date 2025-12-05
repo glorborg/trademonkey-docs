@@ -53,16 +53,6 @@ const sidebars: SidebarsConfig = {
         'reference/security',
       ],
     },
-    {
-      type: 'category',
-      label: '5. Internal Docs (In-House Only)',
-      collapsible: true,
-      items: [
-        'internal/troubleshooting',
-        'internal/glossary',
-        'internal/faq',
-      ],
-    },
   ],
 };
 
