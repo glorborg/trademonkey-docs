@@ -1,0 +1,731 @@
+# Trade Recap
+
+
+## What Trade Recap Is
+
+
+Trade Recap is the comprehensive data summary view for a single trade. It displays all financial, psychological, and compliance data in one consolidated screen, designed for post-trade evaluation and review.
+
+
+Trade Recap answers: "What are all the facts about this specific trade?"
+
+
+It differs from related features:
+
+
+- **Execution Recap**: Multi-trade visual feed for pattern scanning across trades
+- **Threads**: Chronological timeline showing events as they unfolded during the trade
+- **Trade Recap**: Static summary view showing all data fields and metrics in organized sections
+
+
+Think of Trade Recap as the "trade report card"—not grading performance, but presenting all data points for your own evaluation.
+
+
+## Data Displayed in Trade Recap
+
+
+Trade Recap organizes data into sections:
+
+
+### Financial Data Section
+
+
+**Core Trade Details:**
+- Symbol, side (buy/sell), account
+- Entry price, exit price, position size
+- Entry time, exit time, duration
+- Stop loss (planned and actual if changed)
+- Take profit (planned and actual if changed)
+- P&L in currency and percentage
+
+
+**Risk Metrics:**
+- Risk amount (distance from entry to stop loss × position size)
+- Reward amount (distance from entry to take profit × position size)
+- R:R ratio (calculated at entry)
+- Actual R outcome (P&L divided by risk amount)
+
+
+Example:
+> Entry: 1.0850, SL: 1.0830 (20 pips), TP: 1.0890 (40 pips)
+> Position size: 1.0 lot, Risk: $200, Reward: $400, R:R: 2:1
+> Exit: 1.0830 (stopped out), P&L: -$200, Actual R: -1R
+
+
+### Psychology Data Section
+
+
+**Entry Psychology:**
+- Entry emotions (up to 3): Confident, Calm, Fear, FOMO, Revenge, Greed
+- Entry conviction score (1-10)
+- Entry plan adherence (Yes / Partial / No)
+- Entry notes (free-text reasoning)
+
+
+**Exit Psychology:**
+- Exit emotions (up to 3): Relief, Regret, Pride, Frustration, Satisfied
+- Exit conviction score (1-10)
+- Exit plan adherence (Yes / Partial / No)
+- Exit reason and notes
+
+
+**Conviction Gap:**
+- Calculated automatically: Exit Conviction - Entry Conviction
+- Displayed with interpretation indicator (negative gap = discipline decay, positive gap = strengthened confidence, zero gap = consistent)
+
+
+Example:
+> Entry: Confident + Calm, conviction 8, adherence Yes
+> Exit: Frustration + Regret, conviction 3, adherence No
+> **Conviction Gap: -5** (Discipline decay detected)
+
+
+### Visual Context Section
+
+
+**Screenshots:**
+- Entry chart screenshot (with timestamp)
+- Exit chart screenshot (with timestamp)
+- Additional mid-trade screenshots if logged
+
+
+**Screenshot Comparison:**
+If both entry and exit screenshots exist, Trade Recap displays them side-by-side for quick visual comparison. This allows you to validate:
+
+
+- Did the setup quality at entry support your entry conviction score?
+- Did the exit conditions justify your exit decision?
+- Was the exit at your planned level (stop/target) or emotional (mid-trade)?
+
+
+### Rules vs Reality Section
+
+
+**Rule Evaluation Summary:**
+- Total rules evaluated
+- Rules passed
+- Rules violated
+- Rules skipped (missing data)
+
+
+**Violation Details:**
+For each violated rule:
+- Rule name (e.g., "Max 3 trades per day")
+- Violation reason (e.g., "Trade #4 exceeds limit of 3")
+- Violation timestamp (when it was detected)
+- Severity (warning or violation)
+
+
+**Adherence Indicators:**
+- Visual indicators (pass/fail/skip) for each rule
+- Link to Rules vs Reality Dashboard for full context
+
+
+Example:
+> **Rules Evaluated: 5**
+> - ✅ Allowed time window (8:00-12:00 EST) - Pass
+> - ✅ Min R:R ratio (2:1) - Pass
+> - ❌ Max 3 trades per day - **Violation** (Trade #4)
+> - ⚠️ No trading after 3 losses - Skipped (no prior losses today)
+> - ✅ Allowed instruments (EURUSD) - Pass
+
+
+### Tags and Classification
+
+
+**Trade Tags:**
+- Setup tags (e.g., breakout, pullback, reversal)
+- Session tags (e.g., london-session, new-york-open)
+- Strategy tags (e.g., scalp, swing)
+- Custom tags
+
+
+Tags serve two purposes in Trade Recap:
+
+
+1. **Filtering and searching**: Find similar trades by tag
+2. **Rule context**: Shows which tag-scoped rules were evaluated
+
+
+### Reflections and Notes
+
+
+**Notes:**
+- Entry notes (logged at entry)
+- Mid-trade notes (if any were added during execution)
+- Exit notes (logged at exit)
+
+
+**Post-Trade Reflections:**
+- All reflections attached to this trade (can be multiple)
+- Reflection timestamps (immediate, end-of-session, weekly review)
+- AI-generated reflection summaries if available
+
+
+Reflections in Trade Recap are displayed collapsed by default but expandable for review.
+
+
+![Trade Recap Layout](/img/trade-recap-layout.png)
+
+
+## Role in Post-Trade Evaluation
+
+
+Trade Recap is designed for structured post-trade review. It presents data in a way that supports systematic evaluation across multiple dimensions.
+
+
+### Plan Adherence Review
+
+
+Trade Recap consolidates plan-related data:
+
+
+**Entry Plan:**
+- Did you enter at your planned price? (Compare planned entry vs actual entry)
+- Did you set SL and TP as planned? (Compare planned risk vs actual risk)
+- Did you follow entry rules? (Entry plan adherence flag)
+- Did you enter with conviction? (Entry conviction score)
+
+
+**Exit Plan:**
+- Did you exit at your planned level? (Check if exit price = SL or TP)
+- Did you follow exit rules? (Exit plan adherence flag)
+- Did you exit with conviction? (Exit conviction score)
+
+
+**Plan Variance Detection:**
+If entry or exit plan adherence is marked "No" or "Partial," Trade Recap highlights this with visual indicators. You can quickly see:
+
+
+- Where the plan broke down (entry or exit)
+- What the variance was (notes explain the deviation)
+- Whether the variance was profitable or costly
+
+
+Example:
+> **Entry Plan Adherence: Yes** (All criteria met, R:R 2:1, within time window)
+> **Exit Plan Adherence: No** (Planned exit: Stop loss at 1.0820, Actual exit: 1.0830 panic close)
+> **Variance Cost: $0** (Stopped out anyway, but closed 10 pips early)
+
+
+### Emotional State Review
+
+
+Trade Recap shows your emotional state at critical decision points:
+
+
+**Entry Emotions:**
+Did your entry emotions align with setup quality?
+
+
+- High conviction + Confident/Calm emotions → Likely a solid setup
+- Low conviction + Fear/FOMO emotions → Likely a weak or impulsive setup
+
+
+**Exit Emotions:**
+Did your exit emotions indicate disciplined execution or emotional override?
+
+
+- Exit at planned level + Satisfied/Pride emotions → Disciplined exit
+- Exit before planned level + Regret/Frustration emotions → Emotional exit
+
+
+**Emotional Consistency:**
+Trade Recap shows whether emotions remained stable or shifted:
+
+
+- Confident → Satisfied = Emotional alignment (good sign)
+- Confident → Regret = Emotional reversal (discipline breakdown or outcome disappointment)
+
+
+### SL/TP Variance Analysis
+
+
+Trade Recap calculates variance between planned and actual SL/TP:
+
+
+**Stop Loss Variance:**
+- Planned SL: 1.0830
+- Actual exit: 1.0835
+- Variance: +5 pips (closed before stop was hit)
+
+
+**Take Profit Variance:**
+- Planned TP: 1.0890
+- Actual exit: 1.0875
+- Variance: -15 pips (closed before target was hit)
+
+
+**Variance Interpretation:**
+- Positive SL variance (closed before stop) → Panic exit or breakeven close
+- Negative TP variance (closed before target) → Impatience or fear of reversal
+- Zero variance (exit = SL or TP) → Plan-compliant execution
+
+
+Trade Recap does not judge variance. It only shows the gap between plan and execution.
+
+
+### Conviction Change Analysis
+
+
+Conviction gap is displayed prominently:
+
+
+```
+Entry Conviction: 8
+Exit Conviction: 3
+Gap: -5
+```
+
+
+**Gap Categories:**
+- **-5 or worse**: Severe discipline decay (conviction collapsed)
+- **-3 to -4**: Moderate discipline decay (confidence weakened significantly)
+- **-1 to -2**: Minor discipline decay (slight confidence loss, normal)
+- **0**: Consistent conviction (stable throughout trade)
+- **+1 to +3**: Strengthened confidence (rare, usually positive sign)
+
+
+Trade Recap displays gap category visually (color-coded or labeled) to make patterns obvious during review.
+
+
+### Rule Compliance Summary
+
+
+Rules vs Reality section in Trade Recap shows:
+
+
+- Which rules were checked (all active rules that apply to this trade)
+- Which rules passed (you followed these rules)
+- Which rules violated (you broke these rules)
+- Which rules skipped (insufficient data to evaluate)
+
+
+This allows you to quickly assess:
+
+
+- Was this trade rule-compliant overall?
+- If violations occurred, which rules were broken?
+- Were violations due to missing data or actual rule-breaking?
+
+
+Example:
+> **Overall Compliance: 80%** (4 passed, 1 violated, 0 skipped, 0 errors)
+> Violated: "Max 3 trades per day" (This was trade #4)
+
+
+![Trade Recap Evaluation Sections](/img/trade-recap-evaluation-sections.png)
+
+
+## How Trade Recap Integrates With Other Features
+
+
+Trade Recap is a hub that connects to multiple TradeMonkey features:
+
+
+### Integration with Rules vs Reality
+
+
+**Rules Display:**
+Trade Recap shows all rule evaluations for this trade. Clicking on a rule violation opens the Rules vs Reality Dashboard filtered to that specific rule, showing:
+
+
+- All trades that violated this rule
+- Adherence percentage for this rule
+- Patterns around when this rule is broken
+
+
+**Rules Coach Link:**
+If you want to understand why a rule was violated, Trade Recap provides a "Ask Rules Coach" button. This opens the Rules Helper AI with context pre-loaded:
+
+
+> "Explain why my 'Max 3 trades per day' rule was violated on this trade. What led to trade #4?"
+
+
+### Integration with Psychology Tracking
+
+
+**Psychology Data Display:**
+All psychology data (emotions, conviction, adherence) is shown in Trade Recap. Clicking on emotion tags or conviction scores opens the Psychology Tracking page filtered to:
+
+
+- All trades with the same entry emotion
+- All trades with similar conviction scores
+- All trades with the same adherence status
+
+
+This allows you to compare: "How do all my FOMO trades perform?"
+
+
+### Integration with Threads
+
+
+**View Full Thread:**
+Trade Recap includes a "View Thread" button that opens the chronological timeline for this trade. This shows:
+
+
+- How events unfolded in sequence
+- Mid-trade notes and thoughts
+- When conviction shifted
+- When rule violations occurred
+
+
+Use Trade Recap to review the data. Use Threads to understand the story.
+
+
+### Integration with Execution Recap
+
+
+**Find Similar Trades:**
+Trade Recap includes filters that link to Execution Recap:
+
+
+- "View all trades with entry emotion: FOMO"
+- "View all trades with conviction gap < -4"
+- "View all trades on this account"
+- "View all trades with this symbol"
+
+
+This allows you to move from single-trade analysis (Trade Recap) to pattern detection (Execution Recap).
+
+
+### Integration with AI Features
+
+
+**AI Thread Summary:**
+If you generated an AI Thread Summary for this trade (5/day limit), it appears in the reflections section of Trade Recap. The AI summary highlights:
+
+
+- Key patterns detected (conviction gaps, emotional shifts, rule violations)
+- Behavioral signals (discipline decay, impulsive entry, panic exit)
+- Context-specific insights (how this trade compares to your typical behavior)
+
+
+**Deep Dive Explorer:**
+Trade Recap includes a "Explore in AI Deep Dive" button. Clicking it opens AI Deep Dive Explorer with this trade pre-loaded as context. You can ask:
+
+
+- "Why did my conviction drop so much on this trade?"
+- "Was this exit emotion typical for me, or unusual?"
+- "Do all my trades on this symbol show similar patterns?"
+
+
+### Integration with Screenshots
+
+
+**Screenshot Display:**
+Entry and exit screenshots are displayed side-by-side in Trade Recap. Clicking a screenshot opens full-screen lightbox for detailed review.
+
+
+**Screenshot Context:**
+Trade Recap overlays key data on screenshots:
+
+
+- Entry screenshot: Entry price, SL, TP, entry time, entry conviction
+- Exit screenshot: Exit price, exit time, exit conviction, P&L
+
+
+This visual context validates whether your emotions and conviction matched observable setup quality.
+
+
+![Trade Recap Integration Map](/img/trade-recap-integration-map.png)
+
+
+## Trade Recap in Daily and Weekly Review Workflows
+
+
+Trade Recap is designed for structured review sessions. Here are common workflows:
+
+
+### End-of-Day Review (5-10 Minutes)
+
+
+**Goal**: Quickly review today's trades for immediate patterns and lessons.
+
+
+**Workflow:**
+1. Open Trade Recap for each trade taken today (typically 1-5 trades)
+2. For each trade, check:
+   - Plan adherence (entry and exit): Did you follow your plan?
+   - Rule compliance: Did you break any rules?
+   - Conviction consistency: Did conviction stay stable or collapse?
+   - Emotional state: What emotions appeared, and do they match setup quality?
+3. Note any immediate patterns:
+   - "All 3 afternoon trades had lower conviction than morning trades"
+   - "I violated 'Max 3 trades per day' rule on last trade"
+   - "Exit emotions on losing trades: all Frustration or Regret"
+4. Add brief end-of-day reflections to significant trades (biggest win, biggest loss, most emotional)
+5. Close without deep analysis (save deep analysis for weekly review)
+
+
+**What to look for:**
+- Discipline breakdowns (plan adherence marked "No")
+- Rule violations (especially repeated violations)
+- Emotional inconsistency (confident entry, regretful exit)
+- Conviction gaps > 3 (discipline decay)
+
+
+### End-of-Week Review (30-60 Minutes)
+
+
+**Goal**: Identify patterns across the week and adjust rules or behavior.
+
+
+**Workflow:**
+1. Open Trade Recap for all significant trades from the week:
+   - Biggest winners and losers (by P&L)
+   - Trades with rule violations
+   - Trades with conviction gap > 4
+   - Trades with emotional exit emotions (Regret, Frustration)
+2. For each trade, review:
+   - What was the plan? (Entry notes, planned SL/TP, entry conviction)
+   - What actually happened? (Exit notes, actual exit, exit conviction)
+   - Where did discipline break? (Adherence flags, conviction gap, emotional shift)
+   - What rules were violated? (Rules vs Reality section)
+3. Look for repeating patterns across multiple Trade Recaps:
+   - "4 out of 5 losing trades had conviction gap > 4"
+   - "All FOMO-tagged trades were rule violations (exceeded max daily trades)"
+   - "3 out of 4 afternoon trades closed before stop or target was hit"
+4. Add weekly review reflections to trades:
+   - "Part of a larger pattern: I panic exit on minor pullbacks"
+   - "This was typical of my Friday trading: lower conviction, more impulsive"
+5. Use insights to update rules:
+   - If "Max 3 trades per day" was violated 3 times this week, either enforce it better or adjust it to "Max 5 trades per day"
+   - If afternoon trades consistently underperform, create "No trading after 2 PM" rule
+6. Generate AI Thread Summaries for 2-3 most significant trades (5/day limit) to get deeper insights
+
+
+**What to look for:**
+- Repeated rule violations (same rule broken multiple times)
+- Emotional patterns (same emotions correlate with poor outcomes)
+- Session-based deterioration (morning vs afternoon performance)
+- Conviction decay trends (does conviction always collapse in certain conditions?)
+
+
+### Monthly Review (1-2 Hours)
+
+
+**Goal**: Assess long-term behavioral trends and strategy effectiveness.
+
+
+**Workflow:**
+1. Use Execution Recap to filter and scan 50-100 trades from the month
+2. Identify 10-15 trades worth deep review (outliers, violations, emotional trades)
+3. Open Trade Recap for each selected trade and review systematically
+4. Look for month-long patterns:
+   - Did conviction gap worsen over time? (Week 1 vs Week 4)
+   - Did rule violations increase? (First half vs second half of month)
+   - Did emotional tags shift? (More FOMO or Revenge trades as month progressed?)
+5. Compare Trade Recap data to Time-Scoped Analytics and Psychology Tracking pages to validate patterns
+6. Adjust rules, session schedules, or account limits based on findings
+
+
+**What to look for:**
+- Behavioral decay over time (discipline starts strong, deteriorates)
+- Strategy performance variance (which setups/tags/times work best)
+- Account-specific patterns (do challenge accounts show different psychology than funded?)
+
+
+### Pre-Session Review (Optional)
+
+
+**Goal**: Review yesterday's last trade or most recent emotional trade before starting new session.
+
+
+**Workflow:**
+1. Open Trade Recap for most recent trade (or most recent losing trade)
+2. Quickly check:
+   - What emotion did I exit with? (Frustration? Regret?)
+   - Did I violate any rules?
+   - Did conviction collapse?
+3. Use this as context for today's session:
+   - If yesterday ended with revenge trade, be extra cautious about first trade today
+   - If yesterday ended with discipline violation, review rules before trading
+
+
+**What to look for:**
+- Emotional carryover (frustration from yesterday may affect today's first trade)
+- Rule violations (reminder of what not to do today)
+
+
+![Trade Recap Review Workflows](/img/trade-recap-workflows.png)
+
+
+## Clinical Interpretation (Mirror, Not Advice)
+
+
+Trade Recap presents data without judgment or prescription. It shows what happened, not what you should do.
+
+
+### What Trade Recap Shows (Descriptive)
+
+
+**Plan Variance:**
+> "Entry plan adherence: Yes. Exit plan adherence: No. Planned exit: Stop loss at 1.0820. Actual exit: 1.0835 (15 pips before stop)."
+
+
+This is factual. It does not say "You should have let the stop protect you" or "You panicked." It shows the gap between plan and execution.
+
+
+**Conviction Gap:**
+> "Entry conviction: 8. Exit conviction: 3. Gap: -5 (Severe discipline decay detected)."
+
+
+This is observational. It does not say "You need to work on mental resilience" or "You should trust your setups." It shows conviction collapsed.
+
+
+**Emotional Data:**
+> "Entry emotions: Confident, Calm. Exit emotions: Frustration, Regret."
+
+
+This is a record. It does not say "Regret is bad" or "You should feel satisfied instead." It shows emotional shift occurred.
+
+
+**Rule Violations:**
+> "Max 3 trades per day: Violated (Trade #4). You have violated this rule 3 times this week."
+
+
+This is compliance tracking. It does not say "You lack discipline" or "You should reduce max trades to 2." It shows you broke your own rule repeatedly.
+
+
+### What Trade Recap Does NOT Do (Prescriptive)
+
+
+Trade Recap never says:
+
+
+- "You should have held until your stop loss was hit"
+- "Stop trading with FOMO emotion"
+- "You need to increase your conviction before entering"
+- "This was a bad trade" or "This was a good trade"
+- "You're overtrading" or "You're undertrading"
+
+
+It only mirrors the data. You interpret and decide what to do with it.
+
+
+### Why This Matters
+
+
+TradeMonkey is not a coach or therapist. It does not know:
+
+
+- Whether your plan was good (maybe your planned stop was too tight)
+- Whether your emotional exit was wrong (maybe price was rejecting and your intuition saved you)
+- Whether your rule violation was justified (maybe market conditions changed and breaking the rule made sense)
+
+
+Only you have the full context. Trade Recap gives you the data. You apply the context and decide:
+
+
+- Was this acceptable or unacceptable?
+- Should I adjust my plan, my rules, or my execution?
+- Is this a pattern that matters or a one-off anomaly?
+
+
+### Interpretation Examples
+
+
+**Pattern 1: Conviction Collapse on Minor Pullbacks**
+Trade Recap shows:
+> Trade A: Entry conviction 8, exit conviction 3, closed 10 pips before stop
+> Trade B: Entry conviction 9, exit conviction 4, closed 8 pips before stop
+> Trade C: Entry conviction 7, exit conviction 3, closed 12 pips before stop
+
+
+**What the mirror shows:**
+You consistently close trades early when conviction collapses. Exit screenshots show minor pullbacks, not stop-outs.
+
+
+**What the mirror does NOT say:**
+"Stop panic selling" or "Trust your setups." It only shows the pattern.
+
+
+**Your decision:**
+Maybe you need tighter stops (so your planned exit matches your emotional tolerance). Maybe you need to avoid trades where conviction isn't 9+. Maybe you need a rule: "No closing trades unless stop or target is hit." Trade Recap doesn't decide for you.
+
+
+**Pattern 2: High Conviction, Low Adherence**
+Trade Recap shows:
+> Entry conviction: 9, Entry plan adherence: No, Entry notes: "Perfect setup but entered 5 pips early, didn't wait for confirmation"
+
+
+**What the mirror shows:**
+You had high confidence in the setup but didn't follow your entry criteria.
+
+
+**What the mirror does NOT say:**
+"You should wait for confirmation" or "Your impatience is costing you." It only shows the gap.
+
+
+**Your decision:**
+Maybe your entry criteria are too strict (perfect setups are rare, so you jump early). Maybe you need a rule: "No entry unless all criteria met." Maybe high conviction justifies bending rules occasionally. Trade Recap doesn't decide for you.
+
+
+## Limitations and Notes
+
+
+### Trade Recap Requires Complete Data
+If you skip emotions, conviction, notes, or screenshots, Trade Recap becomes a sparse financial record. The more complete your data, the more useful Trade Recap becomes for evaluation.
+
+
+### Trade Recap Is Not Real-Time
+Trade Recap is designed for post-trade review. It does not provide real-time alerts or prevent bad decisions. It shows you what happened after the fact.
+
+
+### Trade Recap Does Not Aggregate
+Trade Recap focuses on one trade at a time. For cross-trade patterns, use:
+
+
+- Execution Recap (visual pattern scanning)
+- Psychology Tracking (emotion-based analytics)
+- Time-Scoped Analytics (time-based trends)
+- AI Deep Dive Explorer (pattern exploration)
+
+
+### Multiple Views Serve Different Purposes
+TradeMonkey provides multiple ways to view trade data:
+
+
+- **Trade Recap**: Single-trade data summary (all fields in sections)
+- **Threads**: Single-trade chronological timeline (events as they unfolded)
+- **Execution Recap**: Multi-trade visual feed (pattern detection)
+
+
+You need all three:
+
+
+- Trade Recap for systematic evaluation
+- Threads for narrative understanding
+- Execution Recap for pattern scanning
+
+
+### Trade Recap Interpretation Depends on Context
+Trade Recap shows variance and gaps, but not whether they matter:
+
+
+- Conviction gap of -5 might be acceptable if you still exited at your planned stop
+- Plan adherence "No" might be justified if market conditions changed
+- Rule violation might be necessary if the rule is too strict
+
+
+Only you know whether a gap is a problem or not. Trade Recap surfaces the gap. You decide its significance.
+
+
+### Review Frequency Varies
+Some traders review every trade immediately. Some review only at end of day. Some review only significant trades (big wins, big losses, emotional trades). All approaches are valid.
+
+
+More frequent review produces more awareness but adds friction. Less frequent review reduces friction but may miss patterns. Find your balance.
+
+
+### Trade Recap Is Backward-Looking
+Trade Recap analyzes completed trades. It does not predict future performance or prevent mistakes. It helps you learn from what already happened, not prevent what might happen.
+
+
+For forward-looking accountability, use Rules vs Reality (creates rules for future trades) and pre-session reviews (remind yourself of recent patterns before trading).
+
+
+
+
+

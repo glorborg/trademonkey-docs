@@ -1,0 +1,650 @@
+# Threads (Life of a Trade)
+
+
+## What a Thread Is
+
+
+A thread is the complete chronological timeline of a single trade's lifecycle. It captures everything that happened from plan to execution to reflection, displayed as a sequential narrative.
+
+
+Each thread contains:
+
+
+- **Entry events**: When you opened the trade, your emotions, conviction, notes, screenshots
+- **Mid-trade events**: Notes added while the trade was open, rule violations detected, psychological shifts
+- **Exit events**: When you closed the trade, exit emotions, conviction, plan adherence, exit screenshots
+- **Post-trade events**: Reflections, AI analysis, pattern observations
+
+
+Threads differ from Execution Recap in purpose and structure:
+
+
+- **Execution Recap**: Visual feed showing multiple trades with before/after screenshots. Purpose: pattern detection across trades.
+- **Threads**: Deep narrative view of a single trade's execution story. Purpose: understand what happened inside one trade from start to finish.
+
+
+Threads answer: "What was the complete psychological and execution journey of this specific trade?"
+
+
+## How Threads Centralize Execution Context
+
+
+When you log a trade, data is scattered across multiple fields:
+
+
+- Entry price, stop loss, take profit (financial data)
+- Entry emotions, conviction, adherence (psychology at entry)
+- Exit price, exit time, P&L (financial outcome)
+- Exit emotions, conviction, adherence (psychology at exit)
+- Screenshots (visual context)
+- Notes (reasoning and observations)
+- Rule violations (compliance events)
+- Reflections (post-trade analysis)
+
+
+Threads bring all of this data together in chronological order. Instead of viewing fields in a form, you see the story:
+
+
+1. **10:05 AM**: Trade planned, conviction 8, emotions: Confident + Calm, notes: "Clean breakout setup, three confluence factors present"
+2. **10:07 AM**: Trade entered at 1.0850
+3. **10:15 AM**: Mid-trade note added: "Price pulling back to entry, testing support"
+4. **10:22 AM**: Rule violation detected: "Max daily trades exceeded (trade #4, limit is 3)"
+5. **10:47 AM**: Trade closed at 1.0830, P&L: -$200
+6. **10:48 AM**: Exit emotions logged: Frustration + Regret, conviction 3, adherence: No, notes: "Panic sold on pullback, stop was 1.0820, closed too early"
+7. **11:02 AM**: Post-trade reflection added: "Good setup, bad execution. Conviction collapsed when price tested entry. Should have trusted the plan and let stop protect me."
+8. **11:05 AM**: AI Thread Summary generated: "Entry conviction 8, exit conviction 3, gap: -5. Pattern: Discipline decay. You entered strong, exited emotionally before planned level. This is the 4th trade this week with conviction gap > 4."
+
+
+This timeline shows not just what you did, but when you did it and how your mental state evolved during execution.
+
+
+![Thread Timeline Example](/img/thread-timeline-example.png)
+
+
+## Thread Events and Their Meanings
+
+
+Threads are composed of discrete events, each representing a moment in the trade's lifecycle:
+
+
+### Entry Events
+
+
+**Entry Created**
+- **When**: Trade is first logged (planned or entered status)
+- **Data**: Symbol, side, entry price, position size, account, status
+- **Purpose**: Marks the beginning of the thread
+
+
+**Entry Emotions**
+- **When**: Logged at entry (can be added later if missing)
+- **Data**: Up to 3 emotions (confident, fear, FOMO, revenge, calm, greed)
+- **Purpose**: Captures mental state when decision was made
+
+
+**Entry Notes**
+- **When**: Logged at entry (optional)
+- **Data**: Free-text reasoning for why you took the trade
+- **Purpose**: Documents your thought process and setup criteria
+
+
+**Entry Screenshot**
+- **When**: Captured at or near entry time
+- **Data**: Chart image showing market context at entry
+- **Purpose**: Visual proof of what you saw when you entered
+
+
+**Entry Conviction and Adherence**
+- **When**: Logged at entry
+- **Data**: Conviction score (1-10), plan adherence (Yes/Partial/No)
+- **Purpose**: Quantifies confidence and discipline at entry
+
+
+### Mid-Trade Events
+
+
+**Mid-Trade Note**
+- **When**: Added while trade is open (status = "entered")
+- **Data**: Free-text observation or reaction
+- **Purpose**: Captures real-time thoughts during execution
+- **Examples**:
+  - "Price hit TP1, scaled out 50%"
+  - "Getting nervous, price chopping near entry"
+  - "Strong move in my favor, considering trailing stop"
+
+
+**Rule Violation**
+- **When**: Detected automatically when rule is broken (entry, close, or edit)
+- **Data**: Rule name, violation reason, severity, timestamp
+- **Purpose**: Documents compliance breaches in context
+- **Note**: Violations are logged automatically by the Rules vs Reality engine
+
+
+**Screenshot Added**
+- **When**: Manually added during or after the trade
+- **Data**: Chart image with optional caption
+- **Purpose**: Captures additional visual context (e.g., mid-trade setup change, key level break)
+
+
+### Exit Events
+
+
+**Exit Notes**
+- **When**: Logged when trade is closed
+- **Data**: Free-text explanation of exit decision
+- **Purpose**: Documents why you closed (hit stop? hit target? panic? plan change?)
+
+
+**Exit Emotions**
+- **When**: Logged at exit
+- **Data**: Up to 3 emotions (relief, regret, pride, frustration, satisfied)
+- **Purpose**: Captures emotional state at exit
+
+
+**Exit Screenshot**
+- **When**: Captured at or near exit time
+- **Data**: Chart image showing market context at exit
+- **Purpose**: Visual proof of what price action looked like when you closed
+
+
+**Exit Conviction and Adherence**
+- **When**: Logged at exit
+- **Data**: Exit conviction score (1-10), exit plan adherence (Yes/Partial/No)
+- **Purpose**: Quantifies confidence in exit decision and whether you followed exit plan
+
+
+### Post-Trade Events
+
+
+**Reflection**
+- **When**: Added after trade is closed (can be minutes, hours, or days later)
+- **Data**: Free-form reflection text (up to 2000 characters)
+- **Purpose**: Post-trade analysis, lessons learned, pattern observations
+- **Note**: Multiple reflections can be added to one trade over time
+
+
+**AI Thread Summary**
+- **When**: Generated on-demand after trade is closed (5/day limit)
+- **Data**: AI-generated summary of the trade's psychological journey
+- **Purpose**: Highlights patterns, conviction gaps, emotional shifts, behavioral signals
+- **Example**: "Conviction drop of 5 points from entry to exit. Pattern: Discipline decay. Exit occurred 10 pips before stop loss, suggesting panic response to volatility."
+
+
+**Deep Psychology Analysis**
+- **When**: Generated on-demand for significant trades (separate from Thread Summary)
+- **Data**: AI analysis of cognitive biases, behavioral risks, emotional patterns
+- **Purpose**: Deeper exploration of why certain decisions were made
+- **Note**: This is distinct from AI Diagnostics (global patterns) and focuses on single-trade psychology
+
+
+![Thread Event Types](/img/thread-event-types.png)
+
+
+## Threads vs Execution Recap
+
+
+Both features show trade execution data, but they serve different purposes:
+
+
+### Execution Recap (Pattern Detection Feed)
+
+
+**Structure**: Multi-trade grid or list view
+
+
+**Display**: Before/after screenshots side-by-side, with emotions and P&L for each trade
+
+
+**Purpose**: Review 10-20+ trades in sequence to identify patterns across trades
+
+
+**Use case**: "I want to see if my afternoon trades show weaker setups and lower conviction"
+
+
+**Typical workflow**:
+1. Filter trades by time of day, emotion, or account
+2. Scroll through multiple trades rapidly
+3. Notice visual patterns (weaker entry screenshots after 2 PM)
+4. Notice psychological patterns (conviction drops in afternoon)
+5. Form hypothesis about behavioral trends
+
+
+**Strengths**: Fast pattern scanning across many trades
+
+
+**Limitations**: Shallow per-trade context (no mid-trade notes, no reflections, no timeline)
+
+
+### Threads (Deep Single-Trade Narrative)
+
+
+**Structure**: Chronological timeline of one trade's events
+
+
+**Display**: Vertical event feed showing each moment from plan to reflection
+
+
+**Purpose**: Understand the complete execution story of a specific trade
+
+
+**Use case**: "I want to understand what happened during my biggest loss this week"
+
+
+**Typical workflow**:
+1. Open thread for a specific trade (e.g., biggest loss, biggest win, rule violation)
+2. Read through events chronologically
+3. See how conviction shifted from entry to exit
+4. Review mid-trade notes to understand what you were thinking during execution
+5. See rule violations in context (when they occurred, what triggered them)
+6. Read post-trade reflections and AI analysis
+
+
+**Strengths**: Complete psychological and execution context for deep analysis
+
+
+**Limitations**: Slow (one trade at a time), not useful for cross-trade pattern detection
+
+
+### When to Use Each
+
+
+**Use Execution Recap when**:
+- Reviewing 20-30 trades to detect patterns
+- Comparing morning vs afternoon performance visually
+- Scanning for emotion-based setup quality differences
+- Looking for session or time-of-day trends
+
+
+**Use Threads when**:
+- Analyzing a significant trade (big win, big loss, emotional trade)
+- Investigating a rule violation (what led to it? what happened after?)
+- Reviewing a trade for lessons learned (post-session or post-week review)
+- Understanding conviction decay (how and when confidence collapsed)
+- Preparing for AI Deep Dive questions (need full context to ask good questions)
+
+
+In practice, traders use both:
+
+
+1. Scan Execution Recap to find interesting trades (e.g., "5 trades with conviction gap > 5")
+2. Open threads for those trades to see the full story
+3. Use insights from threads to ask better questions in AI Deep Dive Explorer
+
+
+## How Data Accumulates Inside a Thread
+
+
+Threads are append-only timelines. Events are added as they occur, creating a historical record.
+
+
+### Initial Thread Creation
+When you first log a trade (planned or entered), the thread is created with minimal data:
+
+
+- Entry created event (time, symbol, side, entry price, status)
+
+
+At this point, the thread has one event. This is the minimum required to start a thread.
+
+
+### Real-Time Additions (During Trade)
+As the trade progresses, you can add:
+
+
+- Entry emotions, conviction, adherence (if not added initially)
+- Entry screenshot (if not added initially)
+- Entry notes (reasoning for the trade)
+- Mid-trade notes (observations while trade is open)
+- Additional screenshots (if price reaches key levels or setup changes)
+
+
+These additions are timestamped and inserted into the chronological timeline.
+
+
+### Exit Event Cluster
+When you close the trade, several events are typically logged at once:
+
+
+- Trade closed (exit price, exit time, P&L)
+- Exit emotions, conviction, adherence
+- Exit notes (why you closed)
+- Exit screenshot (what price action looked like at exit)
+
+
+The thread now shows a clear before/during/after structure.
+
+
+### Post-Trade Accumulation
+After the trade is closed, the thread remains open for additional context:
+
+
+- **Reflections**: You can add multiple reflections over time. For example:
+  - Immediate reflection (within minutes of close): Emotional reaction, initial thoughts
+  - End-of-session reflection (hours later): Calmer analysis, pattern recognition
+  - Weekly review reflection (days later): How this trade fits into larger patterns
+
+
+- **AI Analysis**: You can generate AI Thread Summary or Deep Psychology Analysis on-demand. These are added as events with timestamps.
+
+
+- **Screenshots**: You can upload additional screenshots later (e.g., "Here's what happened 10 minutes after I closed—price went to my target without me")
+
+
+Each addition is timestamped and inserted in chronological order. The thread grows as a living document of the trade's complete story.
+
+
+### Thread Immutability and Editing
+Events are generally immutable once logged (to preserve historical accuracy). However:
+
+
+- **Emotions and conviction can be edited** (within 24 hours if lock setting is enabled) to correct logging errors
+- **Notes can be edited** (free-form text is always editable)
+- **Screenshots can be added or removed** (visual context can be updated)
+- **Reflections can be edited** (post-trade analysis can be refined)
+
+
+Rule violations and timestamps are immutable. You cannot delete a violation or change when an event occurred.
+
+
+![Thread Data Accumulation](/img/thread-data-accumulation.png)
+
+
+## Future Intent: Accountability and Social Layer
+
+
+Threads are designed with future expansion in mind. While TradeMonkey currently functions as a solo tool, the thread structure supports potential social features:
+
+
+### Accountability Groups (Future Capability)
+Small, invite-only groups where traders can optionally share specific trades for peer review. This would work as follows:
+
+
+- Trader selects a thread and marks it "shareable with group"
+- Group members can view the thread timeline (all events visible)
+- Group members can add comments or observations (appended to the thread as external events)
+- Trader retains full control (can unshare at any time)
+
+
+**Why threads enable this**:
+- Complete context: Peer reviewers see the full execution story, not just P&L
+- Chronological clarity: Comments can reference specific moments ("At 10:15 when you added that mid-trade note, your conviction had already dropped to 4. Did you consider closing then?")
+- Non-judgmental structure: Threads show facts (emotions, conviction, timeline), not opinions. Peer feedback is contextual, not speculative.
+
+
+**What this is NOT**:
+- Not a public forum or leaderboard (no performance competition)
+- Not a signal service (threads are backwards-looking, not predictive)
+- Not a coaching group (peers observe and ask questions, not advise)
+
+
+This capability is not yet implemented. Threads are currently private and visible only to you.
+
+
+### Mentor/Mentee Layer (Future Capability)
+Prop firm coaches or trading mentors could review trader threads with explicit permission:
+
+
+- Mentee shares specific threads with mentor
+- Mentor sees full timeline and psychological context
+- Mentor can annotate or ask clarifying questions
+- Mentee retains data ownership and control
+
+
+**Why threads enable this**:
+- Mentors see execution process, not just results
+- Mentors can pinpoint exact moments where discipline broke down
+- Mentors can validate whether trader's self-assessment (emotions, conviction) matches observable setup quality
+
+
+This capability is not yet implemented. Mentioning it here to clarify why threads preserve such granular detail—the structure anticipates collaborative review in the future.
+
+
+### Why Threads Are Built for Sharing (Even Though It's Not Enabled Yet)
+Threads capture complete execution context because future use cases require it:
+
+
+- Sharing a trade with a peer/mentor without screenshots or mid-trade notes would be like sharing a highlight reel—incomplete context
+- Accountability requires transparency: full timeline shows not just what you did, but when and how your mental state shifted
+- Non-judgmental sharing is only possible with factual data: emotions, conviction, and timestamps are objective inputs, not subjective interpretations
+
+
+Even if you never share threads, the granular structure serves solo review. You are your own accountability partner. The thread shows you the full story, no rationalizations.
+
+
+## How Threads Support Downstream Analytics
+
+
+Threads preserve the intra-trade psychological timeline, which enables analytics and AI features that depend on timing and sequence.
+
+
+### Conviction Gap Timing
+Conviction gap analytics measure how much conviction changed from entry to exit:
+
+
+```
+Gap = Exit Conviction - Entry Conviction
+```
+
+
+But timing matters:
+
+
+- **Slow decay**: Entry conviction 8 at 10:00 AM, mid-trade note at 11:30 AM mentions doubt, exit conviction 4 at 2:00 PM → Gradual confidence loss over 4 hours
+- **Instant collapse**: Entry conviction 8 at 10:00 AM, exit conviction 3 at 10:15 AM → Rapid panic response
+
+
+Threads capture mid-trade notes with timestamps. AI can analyze: "How quickly does your conviction typically collapse? Is it gradual erosion or sudden panic?"
+
+
+### Rule Violation Context
+Rules vs Reality flags violations, but threads show when and why violations occurred in the trade's lifecycle:
+
+
+- Violation at entry → Impulsive trade (broke rule before entering)
+- Violation mid-trade → Discipline breakdown during execution (e.g., widened stop loss after entry)
+- Violation at exit → Emotional override (e.g., exceeded max daily loss by closing another trade)
+
+
+Without thread timestamps, violations are just binary flags. With threads, violations have narrative context.
+
+
+### Emotional Transition Detection
+Psychology tracking captures entry and exit emotions, but threads show whether emotions shifted during the trade or after close:
+
+
+- Mid-trade note logged at 10:30 AM: "Getting nervous" → Emotion shift happened during execution
+- No mid-trade notes, but exit emotions show frustration → Emotion shift happened at or after close
+
+
+AI can detect: "Do your emotions shift during trade execution (real-time stress) or after close (hindsight regret)?"
+
+
+### Reflection Timing Patterns
+Threads timestamp reflections. Analytics can detect:
+
+
+- **Immediate reflections** (within 30 minutes of close): Emotional, reactive
+- **End-of-session reflections** (2-4 hours later): Calmer, more analytical
+- **Weekly review reflections** (days later): Pattern-focused, less emotional
+
+
+AI can analyze: "Your immediate reflections mention 'panic' and 'frustration' frequently. Your weekly reflections mention 'pattern' and 'setup quality.' This suggests emotional reactions cloud immediate analysis."
+
+
+### Screenshot Context in AI Analysis
+AI features (Thread Summary, Deep Psychology Analysis) can reference screenshots if they're timestamped in the thread:
+
+
+- Entry screenshot shows clean breakout, but exit screenshot shows you closed during a minor pullback → AI detects: "Entry screenshot supports conviction 8. Exit screenshot shows price was still 15 pips above your stop. Conviction drop from 8 to 3 appears to be panic response to normal volatility, not objective setup deterioration."
+
+
+Without thread context, AI only has static data (prices, emotions). With threads, AI has visual proof of what you saw at each decision point.
+
+
+### Session and Time-Based Psychological Trends
+Threads with mid-trade notes allow AI to detect when discipline breaks down:
+
+
+- Morning trades: No mid-trade notes, clean entry-to-exit flow
+- Afternoon trades: Multiple mid-trade notes mentioning doubt, impatience, or second-guessing
+
+
+AI can surface: "Your morning trades show conviction stability (few mid-trade notes). Afternoon trades show conviction instability (frequent mid-trade notes expressing doubt). Pattern: Afternoon execution involves more psychological turbulence."
+
+
+![Thread Support for Analytics](/img/thread-analytics-support.png)
+
+
+## Thread Workflow
+
+
+### Step 1: Log Entry Events
+When you open a trade (or plan one), log:
+
+
+- Entry price, position size, stop loss, take profit (financial data)
+- Entry emotions, conviction, adherence (psychology data)
+- Entry screenshot (optional but recommended)
+- Entry notes (optional, but valuable for future review)
+
+
+This creates the thread's foundation.
+
+
+### Step 2: Add Mid-Trade Context (Optional)
+If something significant happens during the trade, log a mid-trade note:
+
+
+- "Price reached TP1, scaled out 50%"
+- "Getting nervous, price chopping near entry"
+- "News event just hit, volatility spiked"
+- "Considering moving stop to breakeven"
+
+
+Mid-trade notes are optional, but they add rich context for post-trade review and AI analysis.
+
+
+### Step 3: Log Exit Events
+When you close the trade, log:
+
+
+- Exit price, exit time, P&L (auto-calculated)
+- Exit emotions, conviction, adherence (psychology data)
+- Exit screenshot (optional but recommended)
+- Exit notes (why you closed)
+
+
+The thread now has a complete entry → exit story.
+
+
+### Step 4: Add Post-Trade Reflections
+After the trade closes, add reflections:
+
+
+- **Immediate reflection** (within minutes): Gut reaction, what you're feeling
+- **End-of-session reflection** (hours later): Analytical review, what you learned
+- **Weekly reflection** (days later): How this trade fits into larger patterns
+
+
+You can add multiple reflections. Each is timestamped and appended to the thread.
+
+
+### Step 5: Generate AI Analysis (Optional)
+If the trade is significant (big loss, big win, emotional trade, rule violation), generate AI Thread Summary:
+
+
+- AI analyzes the full thread (entry, mid-trade, exit, reflections)
+- AI highlights patterns (conviction gaps, emotional shifts, discipline decay)
+- AI summary is appended to the thread as an event
+
+
+This uses one of your daily AI Thread Summary credits (5/day limit).
+
+
+### Step 6: Review Thread During Weekly Review
+During your weekly trading review, open threads for:
+
+
+- Biggest winners and losers
+- Trades with rule violations
+- Trades with large conviction gaps
+- Trades with emotional exit emotions (regret, frustration)
+
+
+Read the timeline. Ask yourself:
+
+
+- What led to this outcome?
+- When did conviction shift?
+- What mid-trade thoughts indicated problems?
+- What patterns repeat across threads?
+
+
+Use insights from threads to update rules, adjust session schedules, or focus AI Deep Dive exploration.
+
+
+## Limitations and Notes
+
+
+### Threads Require Consistent Data Entry
+A thread is only as useful as the data you log. If you skip emotions, conviction, notes, and screenshots, the thread is just a financial record (entry price, exit price, P&L). Threads shine when you log psychological and visual context.
+
+
+### Mid-Trade Notes Are Optional but Valuable
+Most traders skip mid-trade notes (adds friction during execution). But trades with mid-trade notes produce richer threads and better AI insights. Consider logging mid-trade notes for:
+
+
+- Significant trades (biggest positions, highest conviction)
+- Emotional trades (feeling nervous, impatient, or euphoric)
+- Rule violations (capture what you were thinking when you broke a rule)
+
+
+You don't need mid-trade notes on every trade. Selective logging is fine.
+
+
+### Thread Length Varies
+Some threads have 5 events (entry, exit, basic psychology data). Some have 20+ events (entry, mid-trade notes, screenshots, reflections, AI analysis). Both are valid. Thread depth depends on trade significance and how much context you want to preserve.
+
+
+### Threads Are Private (For Now)
+All threads are currently visible only to you. Future social features (accountability groups, mentor review) are not yet implemented. Even when implemented, sharing will be opt-in and controlled by you.
+
+
+### Threads Do Not Replace Execution Recap
+Threads are for deep single-trade analysis. Execution Recap is for cross-trade pattern scanning. You need both:
+
+
+- Recap identifies patterns ("10 trades with conviction gap > 5")
+- Threads explain why ("Each of these trades had mid-trade notes mentioning doubt or fear")
+
+
+### AI Analysis Is Optional and Rate-Limited
+AI Thread Summary and Deep Psychology Analysis are on-demand features with daily limits:
+
+
+- AI Thread Summary: 5 per day
+- Deep Psychology Analysis: Shares the AI Diagnostics limit (3 per day)
+
+
+You cannot generate AI analysis for every trade. Reserve it for significant trades.
+
+
+### Thread Editing Has Guardrails
+You can edit notes, reflections, and add screenshots at any time. But emotions, conviction, and timestamps are designed to be immutable (or locked after 24 hours) to preserve historical accuracy. If you want to update emotions or conviction, do so within the lock window. After that, add a reflection explaining the correction instead of editing the original data.
+
+
+### Threads Work Best With Volume
+A single thread is interesting. Twenty threads reveal patterns. Use threads consistently for 2-4 weeks to see repeating execution narratives:
+
+
+- "Every afternoon trade has mid-trade notes mentioning impatience"
+- "Every revenge trade has entry conviction below 5"
+- "Every trade with conviction gap > 5 was closed before stop or target"
+
+
+Threads are pattern detection tools that work at scale.
+
+
+
+
+
