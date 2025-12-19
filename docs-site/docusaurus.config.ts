@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'TradeMonkey Documentation',
+  title: 'TradeMonkey Docs - Behavior Dashcam for Traders',
   tagline: 'Your execution mirror for trading',
   favicon: 'img/favicon.ico',
 
