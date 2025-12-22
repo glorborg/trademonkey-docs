@@ -1,101 +1,180 @@
 ---
 id: import-trades
-title: Importing Trades
+title: Importing Trades (Broker Reconciliation)
 sidebar_label: Import Trades
 ---
 
-# Importing Trades
+# Importing Trades (Broker Reconciliation)
 
 ## Purpose
 
-Trade import lets you quickly load historical trades from your broker into TradeMonkey using CSV files. This builds your equity curve, P&L history, and rule-compliance context without manually typing every trade.
+Trade import establishes financial ground truth.
 
----
+Importing trades lets TradeMonkey load broker-confirmed execution data so outcomes, equity curves, rules, and analytics are based on what actually happened — not estimates or memory.
+
+This is a core part of the Behavior Dashcam loop:
+
+Behavior is captured in real time.  
+Financial truth is reconciled from the broker.
+
+## When to Import Trade Data
+
+Trade import is used at two key moments in your workflow.
+
+### 1. When Getting Started (Baseline)
+
+If you are new to TradeMonkey, your first import creates a historical baseline.
+
+Use a broker CSV to:
+
+Build your equity and P&L history  
+Activate rule checks on real outcomes  
+Give Drift Detection and analytics enough data to surface patterns
+
+Without a baseline import, TradeMonkey can record behavior, but outcome-based insights are limited.
+
+### 2. Ongoing Reconciliation (Weekly / Monthly)
+
+After you begin logging trades live:
+
+You record intent, emotions, conviction, and plan adherence during or right after trades.
+
+Later, you import the broker CSV for that period.
+
+TradeMonkey then reconciles:
+
+Logged trades ↔ broker-confirmed prices, timing, and P&L  
+Preserves all behavioral data  
+Corrects financial fields to broker truth
+
+This ensures:
+
+Rules are evaluated against real execution  
+Analytics reflect actual money outcomes  
+Behavioral drift is measured against reality, not approximation
 
 ## What Trade Import Does
 
-- **Loads trades from broker CSVs** into a specific TradeMonkey account.
-- **Maps your broker's columns** (symbol, times, prices, size, P&L) into TradeMonkey's trade fields.
-- Supports two P&L modes:
-  - **Direct P&L** – your CSV has a profit/loss column per trade.
-  - **Balance-based** – your CSV has opening and closing balance per row; P&L is calculated from the difference.
-- **Avoids duplicate trades** when you re-import overlapping history.
-- **Highlights balance jumps** so you can spot missing trades, deposits, or withdrawals.
+When you import a CSV, TradeMonkey:
 
-Trade import is the fastest way to give TradeMonkey enough history for meaningful analytics, rule checks, and AI diagnostics.
+Loads broker trades into a specific TradeMonkey account  
+Maps broker fields (symbol, times, prices, size, P&L)
 
----
+Supports two financial formats:
+
+Direct P&L – profit/loss per trade  
+Balance-based – P&L calculated from balance changes
+
+Matches imported trades to existing entries when possible  
+Prevents duplicate trades on re-import  
+Highlights equity jumps to surface missing trades, deposits, or withdrawals
+
+Trade import is the fastest way to move from behavioral logging to verified execution analysis.
 
 ## How to Import Trades
 
-1. **Export a CSV from your broker**
-   - Use your platform's history or statements export.
-   - Choose the date range you want (e.g., last 3–12 months).
+### 1. Export a CSV from your broker
 
-2. **Choose the target account in TradeMonkey**
-   - Select the TradeMonkey account that matches the broker account or challenge.
-   - Each TradeMonkey account should represent one real account or challenge.
+Use your platform's trade history or statement export  
+Choose a clean date range (e.g., last 3–12 months or last week)  
+Export one account or challenge at a time
 
-3. **Upload and map columns**
-   - Upload your CSV.
-   - If TradeMonkey recognizes the format, mapping is automatic.
-   - Otherwise, match your CSV headers to required fields like:
-     - Symbol  
-     - Side (Buy/Sell)  
-     - Entry time and price  
-     - Exit time and price  
-     - Position size  
-     - Either P&L **or** opening/closing balance  
+### 2. Select the target TradeMonkey account
 
-4. **Confirm P&L mode**
-   - Use **Direct P&L** if your CSV has a profit column.
-   - Use **Balance-based** if it only shows balances per row.
+Choose the TradeMonkey account that corresponds to the broker account  
+Each TradeMonkey account should represent one real account or prop challenge
 
-5. **Review the import summary**
-   - See which trades were imported, which matched existing journal entries, and any rows that failed validation.
-   - If some rows failed, you can fix the CSV or add those trades manually.
+### 3. Upload and map columns
 
-6. **Check your equity curve**
-   - Open the account's balance/equity view and look for unexpected jumps or gaps.
-   - Jumps usually indicate deposits/withdrawals or missing trades.
+Upload your CSV
 
-You can also export your data from TradeMonkey as CSV at any time.
+If the format is recognized, mapping happens automatically
 
----
+Otherwise, map required fields:
 
-## Orphaned Trades (Imported Without Psychology)
+Symbol  
+Side (Buy / Sell)  
+Entry time and price  
+Exit time and price  
+Position size
 
-When you import trades that were **never logged manually in TradeMonkey**, they come in with:
+Either:
 
-- Financial data: entry, exit, size, P&L.
-- **No psychology data**: no emotions, conviction, or plan adherence.
+Per-trade P&L or  
+Opening and closing balance
 
-These trades still count for P&L and rule checks, but:
+### 4. Confirm the P&L mode
 
-- They **don't** fully participate in emotion- or conviction-based analytics until you add that information.
-- You can edit any imported trade later to fill in emotions and notes, turning it into a complete journal entry.
+Direct P&L – use when your CSV includes profit per trade  
+Balance-based – use when only balances are provided
 
----
+### 5. Review the import summary
 
-## Important Notes and Limits
+See which trades were imported  
+See which matched existing logged trades  
+Review any rows that failed validation
 
-- **One CSV per account**  
-  If you trade multiple real accounts or challenges, export and import each one separately into its own TradeMonkey account.
+Failed rows do not block the rest of the import.
 
-- **Duplicates are filtered**  
-  If you re-import overlapping history, TradeMonkey skips trades it has already seen to prevent double counting.
+### 6. Verify the equity curve
 
-- **Psychology is never in broker files**  
-  Brokers only provide financial data. Emotional and plan-related fields must be added in TradeMonkey.
+Open the account's balance/equity view  
+Look for unexpected jumps or gaps  
+Jumps usually indicate deposits, withdrawals, or missing trades
 
-- **Time zones matter**  
-  Broker timestamps are imported as-is. If your rules use specific session times (e.g., "No trades before 8:00"), make sure your account and rules use a consistent time zone.
+## Imported Trades Without Behavior (Orphaned Trades)
 
-- **Partial imports still apply**  
-  If some rows fail validation, the valid trades are still imported. You can correct and re-import the failed ones later.
+When trades are imported without prior behavioral logging, they include:
 
----
+Entry and exit prices  
+Position size  
+Broker-confirmed P&L
+
+They do not include:
+
+Emotional state  
+Conviction (1–10)  
+Plan adherence  
+Notes or reflections
+
+These trades still:
+
+Count toward P&L and equity  
+Participate in rule checks
+
+To include them in behavioral analysis:
+
+Open the trade  
+Add reflections, emotions, and notes
+
+The trade then becomes a complete dashcam record
+
+## Exporting Data
+
+You can export your TradeMonkey data to CSV at any time for:
+
+External analysis  
+Backup  
+Review outside the platform
+
+## Important Notes
+
+One CSV per account  
+Import each broker account or prop challenge separately.
+
+Duplicate protection is automatic  
+Re-importing overlapping history will not double-count trades.
+
+Psychology never comes from brokers  
+Emotional and plan-related fields must be recorded in TradeMonkey.
+
+Time zones matter  
+Broker timestamps are imported as-is. Ensure your account and rule time zones match.
+
+Partial imports still apply  
+Valid rows are imported even if some fail validation.
 
 ## Support
 
-If you're unsure how to format your CSV or imports don't look right, contact **hello@trademonkey.app**.
+If your CSV format is unclear or imported data doesn't look right, contact  
+hello@trademonkey.app

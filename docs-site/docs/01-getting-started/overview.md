@@ -5,216 +5,245 @@ sidebar_label: Overview
 slug: /
 ---
 
-TradeMonkey is an execution mirror for traders.
+# Getting Started with TradeMonkey
 
-Instead of working like a traditional journal—where you reconstruct trades after the fact—TradeMonkey captures your **intentions**, **emotional state**, **risk decisions**, and **rule boundaries** *as they occur*. This removes hindsight bias and creates an accurate, objective record of your execution behavior.
+TradeMonkey captures your trading behavior in real time.  
+Instead of working like a traditional where you reconstruct trades, TradeMonkey captures your intentions, Emotional State, risk decisions, and rule boundaries as they occur. This removes hindsight bias and creates an accurate, objective Behavioral Record of your trading behavior.  
+TradeMonkey surfaces these gaps clinically, through three primary lenses.
 
-TradeMonkey reflects these gaps back to you clinically, through three primary lenses:
+## The Three Lenses
 
----
+### Plan Adherence
 
-## The Three Lenses of the Execution Mirror
-
-### **1. Plan vs Execution**
-
-Compares what you *intended* to do with what you *actually* did.
+Compare how you intended to trade according to your plan and compare it with what you actually did.
 
 TradeMonkey captures:
+- Planned risk vs actual risk
+- Planned stop vs actual exit
+- Planned target vs realized R:R
+- Whether you followed your trading plan while taking trades (Plan Adherence)
 
-- Planned risk vs actual risk  
-- Planned stop vs actual exit  
-- Planned target vs realized R:R  
-- Whether you followed your execution plan  
+Key question:  
+"Did I trade the plan I wrote down?"
 
-**Key question:**  
-**"Did I trade the plan I wrote down?"**
+### Behavioral State (Before You Trade)
 
----
-
-### **2. State vs Outcome**
-
-Connects your internal state with your results.
+Connect your internal (psychological) state with your trade results.
 
 TradeMonkey records:
+- Entry emotions (Emotional State)
+- Exit emotions (Emotional State)
+- Conviction changes from entry to exit (Conviction (1–10))
+- Stress patterns around volatility or uncertainty
 
-- Entry emotions  
-- Exit emotions  
-- Conviction changes from entry to exit  
-- Stress patterns around volatility or uncertainty  
+Key question:  
+"What mental states consistently help or hurt my trade performance?"
 
-**Key question:**  
-**"What mental states consistently help or hurt my performance?"**
+### Rules vs Reality
 
----
-
-### **3. Rules vs Reality**
-
-Tracks whether you follow the boundaries you set for yourself.
+Track whether you follow the boundaries you set for yourself.
 
 Examples:
-
-- Max daily loss  
-- Max trades per day  
-- Session-only trading  
-- No trading around high-impact news  
-- Position size limits  
+- Max daily loss
+- Max trades per day
+- Session-only trading
+- No trading around high-impact news
+- Position size limits
 
 TradeMonkey checks every trade against your rules and exposes violations objectively.
 
-**Key question:**  
-**"Am I respecting the guardrails I said I would?"**
+Key question:  
+"Am I respecting the guardrails I said I would?"
 
----
+## Why TradeMonkey Must Be Used During Trading
 
-## Why TradeMonkey Must Be Used *During* Trading
+Traditional after-session review happens after the trading session is over. That is when memory, emotions, and narratives change the truth.
 
-Traditional journaling happens **after the session**, when memory, emotions, and narratives change the truth.
-
-TradeMonkey works differently.
-
-It is designed to be used **alongside your trading**, not afterward. This ensures the data reflects what was *actually happening in the moment*, not a reconstruction of it.
+TradeMonkey works differently.  
+It is designed to be used alongside your trading, not afterward. This ensures the behavior data reflects what was actually happening in the moment, not a reconstruction of it.
 
 Real-time usage allows TradeMonkey to:
+- Capture emotions without hindsight distortion
+- Track Conviction (1–10) before outcome influences perception
+- Measure Plan Adherence accurately
+- Detect rule violations as they happen
+- Produce clean psychological and behavior patterns
+- Provide objective, actionable insights
 
-- Capture emotions without hindsight distortion  
-- Track conviction before outcome influences perception  
-- Measure plan adherence accurately  
-- Detect rule violations as they happen  
-- Produce clean psychological and execution patterns  
-- Provide objective, actionable insights  
+If you wait until after the trade, the signal becomes distorted.
 
-If you wait until after the trade, the mirror becomes blurred.
-
-**TradeMonkey is an instrument panel, not a diary.  
-Instruments must be read during the flight, not after landing.**
-
----
+TradeMonkey is an instrument panel, not a notebook.  
+Instruments must be read during the flight, not after landing.
 
 ## Your First 15 Minutes
 
 You do not need to configure everything immediately.  
 A few simple steps will produce your first insight.
 
----
-
-### 1. Create a Trading Account
+### Create an Account
 
 Create one account for each real account you trade:
-
-- Challenge accounts  
-- Funded accounts  
-- Personal accounts  
-- Futures / Forex / Crypto accounts  
+- Challenge accounts
+- Funded accounts
+- Personal accounts
+- Futures / Forex / Crypto accounts
 
 This keeps analytics, risk limits, and rules isolated per account.
 
----
-
-### 2. Bring in Trades (The Foundation for All Insights)
+### Bring in Trades (The Foundation for All Insights)
 
 You can:
+- Import a CSV, which instantly populates your history, or
+- Manually log a few trades, if you prefer to start small
+- Simply copy and paste an image of your trade entry, take profit, & stoploss.
 
-- **Import a CSV**, which instantly populates your history, or  
-- **Manually log a few trades**, if you prefer to start small  
-- **Simply copy and paste an image** of your trade entry, take profit, & stoploss.
-
-Even 10–20 trades are enough for the mirror to begin reflecting patterns.
+Even 10–20 trades are enough for the system to begin reflecting patterns.
 
 TradeMonkey will automatically:
+- Detect orphans (missing manual entries)
+- Reconcile plan vs actual
+- Tag rule violations
+- Build early psychological baselines
 
-- Detect orphans (missing manual entries)  
-- Reconcile plan vs actual  
-- Tag rule violations  
-- Build early psychological baselines  
+### Add Reflections When You Close Trades
 
----
-
-### 3. Add Reflections When You Close Trades
-
-Reflections are captured **at the moment of decision**, not afterward.
+Reflections are captured at the moment of decision, not afterward.
 
 For each closed trade, record:
-
-- Entry emotions  
-- Exit emotions  
-- Conviction score  
-- Whether you followed your plan  
+- Entry emotions (Emotional State)
+- Exit emotions (Emotional State)
+- Conviction score (Conviction (1–10))
+- Whether you followed your plan (Plan Adherence)
 
 These data points feed:
-
-- State vs Outcome analytics  
-- Conviction drop patterns  
-- AI Diagnostics  
-- AI Deep Dive Explorer  
-- Execution Recap summaries  
+- Insights that connect state and outcome
+- Conviction drop patterns
+- AI diagnostics
+- AI deep dives
+- Behavioral Recap summaries
 
 Accurate reflections = accurate insights.
 
----
-
-### 4. Keep TradeMonkey Open While You Trade
+### Keep TradeMonkey Open While You Trade
 
 This unlocks TradeMonkey's full value:
+- Real-time rule checking
+- Accurate risk comparisons
+- Clean emotional data
+- Live adherence tracking (Plan Adherence, Rule Adherence)
+- Immediate violation detection
+- More truthful patterns
 
-- Real-time rule checking  
-- Accurate risk comparisons  
-- Clean emotional data  
-- Live adherence tracking  
-- Immediate violation detection  
-- More truthful patterns  
+Think of TradeMonkey as a live behavioral dashcam sitting beside your charts.
 
-Think of TradeMonkey as a **live mental dashboard** sitting beside your charts.
+### Review Your Behavioral Recap (Your First A-Ha Moment)
 
----
-
-### 5. Review Your Execution Recap (Your First A-Ha Moment)
-
-Once you have a few trades and reflections, open **Execution Recap** to see:
-
-- Entry vs exit screenshots (if uploaded)  
-- Plan vs execution alignment  
-- Changes in conviction  
-- Emotional patterns  
-- Rule violations  
-- Notes or breakdowns per trade  
+Once you have a few trades and reflections, open Behavioral Recap to see:
+- Entry vs exit screenshots (if uploaded)
+- Plan vs execution alignment (Plan Adherence)
+- Changes in conviction (Conviction (1–10))
+- Emotional patterns (Emotional State)
+- Rule violations (Rule Adherence)
+- Notes or breakdowns per trade
 
 This is where most traders notice the first clear pattern in their behavior.
 
 Examples:
+- "My conviction collapses mid-trade during consolidations."
+- "I risk more when frustrated."
+- "My afternoon trades violate my session rule consistently."
 
-- "My conviction collapses mid-trade during consolidations."  
-- "I risk more when frustrated."  
-- "My afternoon trades violate my session rule consistently."  
-
-Execution Recap makes discrepancies visual, objective, and impossible to ignore.
-
----
+Behavioral Recap makes discrepancies visual, objective, and impossible to ignore.
 
 ## What to Do Next
 
 Once your first trades are logged:
+- Add 1–2 basic rules (e.g., max daily loss, max trades per day).
+- Explore time-scoped analytics ("Last 20 trades" reveals recent progress).
+- Review AI diagnostics when they appear.
+- Begin checking your trades against your rules daily.
 
-1. Add 1–2 basic rules (e.g., max daily loss, max trades per day).  
-2. Explore **Time-Scoped Analytics** ("Last 20 trades" reveals recent progress).  
-3. Review **AI Diagnostics** when they appear.  
-4. Begin checking your trades against your rules daily.  
-
-This gradual approach builds the cleanest execution dataset possible.
-
----
+This gradual approach builds the cleanest behavior dataset possible.
 
 ## If Something Seems Off
 
 Common steps:
-
-- Ensure you selected the correct account  
-- Confirm your timezone and session rules  
-- Check the CSV import guide if numbers don't line up  
-- Ensure reflections are being added to closed trades  
+- Ensure you selected the correct account
+- Confirm your timezone and session rules
+- Check the CSV import guide if numbers don't line up
+- Ensure reflections are being added to closed trades
 
 TradeMonkey will guide you as more data becomes available.
 
----
+## The Reconciliation Loop (How TradeMonkey Becomes the Source of Truth)
 
-You can continue to the next page:  
-**[Create a Trading Account →](./create-trading-account.md)**
+TradeMonkey is designed around a two-phase capture process that mirrors how trading actually happens in real life.
+
+### Phase 1: Real-Time Behavior Capture
+
+During the trading day (or week), you record trades as you take them — manually or shortly after execution.
+
+This is where TradeMonkey acts as a Behavior Dashcam:
+- You log the trade when the decision is fresh
+- You capture intent, emotion, conviction, and rule adherence
+- You attach screenshots, notes, or reflections while context is intact
+
+At this stage, the goal is behavioral accuracy, not perfect accounting.
+
+This data answers:  
+What did I think I was doing in the moment?
+
+### Phase 2: Broker Reconciliation (Financial Ground Truth)
+
+At the end of a session, week, or month, you upload the official CSV export from your broker or prop firm.
+
+This file represents what actually happened financially:
+- True fills
+- Final P&L
+- Execution timing
+- Position sizing
+- Slippage and partials
+
+TradeMonkey uses this broker data to reconcile your logged trades with reality.
+
+Where possible:
+- Manually logged trades are matched to broker-confirmed trades
+- Behavioral data (emotions, rules, reflections) is preserved
+- Financial fields (P&L, prices, timestamps) are corrected to broker truth
+
+This ensures your analytics, statistics, and rule evaluations are based on real money outcomes, not estimates.
+
+This phase answers:  
+What actually happened?
+
+## Why This Two-Step Process Matters
+
+Most journals force you to choose between:
+- Behavioral insight (subjective, inaccurate P&L), or
+- Broker accuracy (no psychology, no intent)
+
+TradeMonkey deliberately separates the two — then reconciles them.
+
+This gives you:
+- Honest behavioral data captured under pressure
+- Verified financial data grounded in broker reality
+- A clean bridge between intent → execution → outcome
+
+In other words:  
+You don't lose psychological truth just to get clean P&L — and you don't lose financial accuracy just to log behavior.
+
+## The Result: A Complete Execution Record
+
+After reconciliation, each trade reflects:
+- What you planned
+- What you felt
+- What rules you followed or broke
+- What the market actually paid you
+
+This unified record is what powers:
+- Rules vs Reality
+- Time-Scoped Analytics
+- Execution Patterns
+- AI Diagnostics
+
+And it's why TradeMonkey functions as a behavioral dashcam, not just a logbook.
