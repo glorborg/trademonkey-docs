@@ -1,98 +1,197 @@
 ---
 id: psychology-tracking
-title: Psychology Tracking
-sidebar_label: Psychology Tracking
+title: Drift Detection
+sidebar_label: Drift Detection
 ---
 
-# Psychology Tracking
+# Drift Detection
 
 ## Purpose
 
-Psychology Tracking records your mental state at key decision points in a trade. It links how you felt and how confident you were to how you executed and what the outcome was. The goal is to surface factual patterns, not to judge or coach you.
+Drift Detection identifies behavioral and execution drift across your trades.
 
-## What Psychology Tracking Captures
+It analyzes how your emotional state, conviction, and plan adherence correlate with actual outcomes over time, and surfaces repeatable patterns — both strengths and risk areas — without coaching or judgment.
 
-### Emotions
+This view exists to answer one question:
 
-You can tag up to a few emotions at **entry** and **exit**, for example:
+Where does my execution reliably hold — and where does it drift?
 
-- Confident, Calm
-- Fear, FOMO, Revenge, Greed
-- Relief, Regret, Pride, Frustration, Satisfied
+## What Drift Detection Analyzes
 
-You can combine emotions (e.g. *Confident + Impatient*, *Fear + Calm*) to better describe how you actually felt.
+Drift Detection works by aggregating recorded behavior across many trades and comparing it to results.
 
-### Conviction (1–10 Scale)
+## Emotional State Patterns
 
-You rate your confidence at:
+TradeMonkey analyzes the emotional tags you recorded at entry and exit, such as:
 
-- **Entry conviction** – how strong the setup felt when you entered.
-- **Exit conviction** – how confident you were in the exit decision.
+Calm, Confident
 
-The difference between them (exit minus entry) is the **conviction gap**, which helps you see when confidence holds, erodes, or strengthens during a trade.
+Fear, FOMO, Greed, Revenge
 
-### Plan Adherence
+Regret, Frustration, Relief, Satisfaction
 
-At entry and exit you mark whether you followed your trading plan:
+Emotions can be combined (e.g. Confident + Impatient, Fear + Calm) to reflect how you actually felt.
 
-- **Yes** – followed the plan.
-- **Partial** – mostly followed, with minor deviation.
-- **No** – off-plan or impulsive.
+Drift Detection then evaluates:
 
-This makes it easy to compare performance when you did versus didn't follow your own rules.
+Win rate and P&L by emotional state
 
-## How TradeMonkey Uses This Data
+Which emotions correlate with stability vs degradation
 
-Psychology data feeds into several views and analytics:
+Which emotional combinations tend to precede drift
 
-- **Performance by emotion**  
-  Win rate and P&L by entry and exit emotions (e.g. FOMO vs Calm vs Confident).
+## Conviction Patterns (1–10)
 
-- **Performance by conviction**  
-  Results grouped by conviction levels and by conviction gap (how often conviction collapses before you exit).
+Conviction scores are evaluated across trades:
 
-- **Plan adherence vs outcome**  
-  How trades perform when adherence is Yes vs Partial vs No.
+Entry conviction — how strong the setup felt when you entered
 
-- **Time-based trends**  
-  Changes in conviction, emotions, and adherence by session or date range.
+Exit conviction — how confident you were when closing
 
-- **Threads, Trade Recap, and AI features**  
-  Emotions, conviction, and adherence appear inside Threads and Trade Recap, and are used by AI summaries and deep-dive tools to highlight behavioral patterns. AI usage and features may be limited by subscription level; see the pricing page for current details.
+Drift Detection highlights:
 
-All outputs are descriptive: "When you felt X with conviction Y, your trades tended to do Z." You decide what those patterns mean and what to change.
+Performance by conviction level
 
-## How to Use Psychology Tracking
+Conviction gaps (exit minus entry)
 
-1. **At entry**
-   - Tag your entry emotions.
-   - Set an entry conviction score (1–10).
-   - Mark entry plan adherence (Yes / Partial / No).
-   - Optionally add a short note explaining why you took the trade.
+Situations where conviction reliably collapses or holds
 
-2. **At exit**
-   - Tag your exit emotions.
-   - Set an exit conviction score (1–10).
-   - Mark exit plan adherence.
-   - Optionally add a note explaining why you closed.
+This surfaces confidence erosion patterns, not opinions.
 
-3. **During reviews**
-   - Go to Psychology or analytics views to:
-     - Compare performance by emotion and conviction.
-     - Spot conviction gaps and plan adherence breakdowns.
-     - Filter by session, date range, or account to see where patterns cluster.
+## Plan Adherence vs Outcome
 
-4. **With AI (optional)**
-   - Use AI summaries or deep-dive tools on trades or time ranges where you want more behavioral insight. These tools work best when emotions, conviction, and adherence are logged consistently.
+Drift Detection compares outcomes based on how closely you followed your plan:
+
+Followed
+
+Partial
+
+Not followed
+
+This makes it possible to see, in aggregate:
+
+How execution quality affects results
+
+Where discretionary behavior consistently helps or hurts
+
+## What Drift Detection Produces
+
+Drift Detection outputs are descriptive signals, not instructions.
+
+Strengths
+
+Patterns where your execution shows consistency, stability, or edge  
+(e.g. "When calm and confident, win rate remains elevated.")
+
+Areas to Watch
+
+Patterns where drift or degradation appears  
+(e.g. "Rule violations increase after conviction drops.")
+
+Detected Patterns
+
+AI-assisted summaries that highlight repeatable behavioral correlations across your selected time range.
+
+All findings follow the same format:
+
+When X behavior appears, Y outcome tends to follow.
+
+## How Drift Detection Fits Into the System
+
+Drift Detection pulls from:
+
+Emotional state
+
+Conviction
+
+Plan adherence
+
+Rule outcomes
+
+Trade results
+
+It then feeds insight into:
+
+Behavioral Recap (single-trade context)
+
+Threads (timeline evidence)
+
+Rules vs Reality
+
+AI Diagnostics and Deep Dive tools (optional)
+
+Think of Drift Detection as the wide-angle lens, while Threads and Recaps provide the close-up footage.
+
+## How to Use Drift Detection
+
+Choose a time scope
+
+Select the range you want to analyze:
+
+Last N trades
+
+Recent days or weeks
+
+All time
+
+Custom range
+
+Review high-level signals first
+
+Start with:
+
+Net P&L
+
+Win rate
+
+Profit factor
+
+Average trade
+
+These anchor interpretation in outcomes, not feelings.
+
+Scan strengths and risk areas
+
+Review:
+
+Strengths worth protecting
+
+Areas where drift begins to appear
+
+Patterns that repeat across multiple trades
+
+Use filters (execution, rules, AI analysis) to isolate specific dimensions.
+
+Drill down when needed
+
+When a pattern stands out:
+
+Click through to related trades
+
+Open Behavioral Recaps or Threads
+
+Review the underlying events and context
+
+Drift Detection points to where to look, not what to change.
 
 ## Important Notes
 
-- Psychology tracking is **optional**. Core journaling, rules, and analytics work even if you never log emotions or conviction.
-- Patterns become reliable only after you have enough trades logged (dozens, not just a few).
-- Consistency and honesty matter more than perfection. It is better to log simple, truthful tags than to overthink them.
-- TradeMonkey describes correlations; it does not tell you what you "should" do next.
-- Plan, feature, and AI limits may vary by subscription. For current details, see the pricing page.
+Drift Detection is descriptive, not prescriptive.  
+It shows correlations between behavior and outcome. Interpretation and correction remain yours.
+
+Signal quality improves with volume.  
+Reliable patterns emerge over dozens of trades, not a handful.
+
+Consistency beats precision.  
+Simple, honest tagging produces clearer signals than overthinking.
+
+All data comes from what you log.  
+No emotions or conviction → no behavioral signal.
+
+AI features are optional.  
+Core drift detection works without AI; AI enhances pattern surfacing when used.
 
 ## Support
 
-If you have questions about Psychology Tracking or see something that doesn't look right, contact **hello@trademonkey.app**.
+If Drift Detection looks incorrect or you have questions, contact  
+hello@trademonkey.app
