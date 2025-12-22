@@ -1,0 +1,147 @@
+---
+id: behavioral-recap
+title: Behavioral Recap
+sidebar_label: Behavioral Recap
+---
+
+# Behavioral Recap
+
+## Purpose
+
+Behavioral Recap is the behavior dashcam for a single trade.
+
+It brings everything that occurred during that trade into one place — financial outcome, execution details, emotional state, rule checks, screenshots, and notes — so you can replay what actually happened after the fact, not what you remember later.
+
+It does not coach, grade, or advise.
+It records and presents the evidence.
+
+## What Behavioral Recap Shows
+
+Behavioral Recap is organized to answer one question clearly:
+
+What did I plan, what did I do, and what was the result?
+
+### Trade & Financial Record
+
+* Symbol, direction (buy/sell), account
+* Entry and exit prices, position size, duration
+* Planned vs actual stop loss and take profit
+* Final P&L (currency and percentage)
+* Planned R:R vs realized R outcome
+
+This is the broker-reconciled outcome of the trade.
+
+### Psychology & Execution State
+
+* Entry and exit emotional state (you select from defined labels)
+* Entry and exit conviction scores (1–10)
+* Plan adherence at entry and exit (Followed / Partial / No)
+* Conviction gap showing whether confidence held, improved, or collapsed during the trade
+
+This section captures how your internal state changed as the trade unfolded.
+
+### Rules vs Reality (Single-Trade View)
+
+* Which active rules were evaluated for this trade
+* Which rules passed, violated, or were skipped due to missing data
+* Clear visual indicators showing rule compliance at a glance
+
+This answers:
+
+Did this trade comply with the rules I said I follow?
+
+### Context: Screenshots, Tags, and Notes
+
+* Entry and exit chart screenshots (side-by-side when available)
+* Strategy, session, setup, and custom tags
+* Notes or reflections added at entry, mid-trade, exit, or post-trade
+* Optional AI summaries only when you choose to generate them
+
+This provides visual and narrative context around the numbers and states.
+
+## The Trade Thread (Timeline View)
+
+Each trade also has a Thread tab.
+
+The Trade Thread is the event timeline for that trade:
+
+* Trade creation
+* Updates
+* Notes and reflections
+* Rule evaluations
+* Optional AI analysis events
+
+Think of this as the raw footage, while the Behavioral Recap is the condensed replay.
+
+## How to Use Behavioral Recap
+
+### 1. Open a trade
+
+From the Behavioral Recap grid, Trades list, or analytics views, click a trade to open its recap.
+
+### 2. Start with the outcome
+
+Review the financial block first:
+
+* Entry vs exit
+* Planned vs actual risk
+* Final P&L and realized R
+
+This anchors the review in what actually happened.
+
+### 3. Compare plan vs execution
+
+* Planned SL/TP vs actual exit
+* Entry and exit plan adherence
+* Where execution drift occurred, if any
+
+This surfaces behavioral gaps, not opinions.
+
+### 4. Review emotional and conviction changes
+
+* Entry vs exit emotional state
+* Entry vs exit conviction
+* Conviction gap
+
+This shows whether confidence stayed stable or degraded under pressure.
+
+### 5. Check rule compliance
+
+* Scan which rules fired
+* Identify violations or skipped checks
+* Jump to Rules vs Reality for broader context if needed
+
+### 6. Use context to interpret behavior
+
+* Compare screenshots to emotions and notes
+* Read reflections in sequence
+* Switch to the Trade Thread if you want the full timeline
+
+## How Behavioral Recap Fits Into the System
+
+Behavioral Recap focuses on one trade at a time.
+
+For broader views:
+
+* Trades / Analytics → cross-trade patterns
+* Drift Detection → emotion and conviction trends
+* Rules vs Reality → rule adherence over time
+* AI tools (optional) → summarized or deeper pattern exploration
+
+## Important Notes
+
+Behavioral Recap is a behavior dashcam.
+It documents what occurred; it does not tell you what to do next.
+Once behavioral drift is visible, correction becomes possible.
+
+The quality of insights depends on what you log.
+More consistent emotions, conviction, notes, tags, and screenshots → clearer replays.
+
+Behavioral Recap is post-trade only.
+It does not provide real-time alerts or block trades.
+
+Core tracking, rules, and analytics work with or without AI.
+
+## Support
+
+If something looks incorrect or you have questions about Behavioral Recap, contact hello@trademonkey.app

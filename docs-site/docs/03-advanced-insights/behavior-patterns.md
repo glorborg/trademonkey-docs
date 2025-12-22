@@ -1,5 +1,5 @@
 ---
-id: execution-patterns
+id: behavior-patterns
 title: Behavior Patterns
 sidebar_label: Behavior Patterns
 ---
