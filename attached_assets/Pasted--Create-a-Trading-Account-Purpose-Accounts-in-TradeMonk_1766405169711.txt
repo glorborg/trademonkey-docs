@@ -1,0 +1,88 @@
+# Create a Trading Account
+
+## Purpose
+
+Accounts in TradeMonkey let you separate trades, balances, and analytics by broker, prop firm challenge, funded account, or personal capital. This keeps risk, rules, and psychology for each environment clearly isolated.
+
+## What a Trading Account Does
+
+Each account:  
+Represents one real trading environment (prop challenge, funded account, or personal account).  
+Has its own:  
+- Balance history and equity curve  
+- Rule set (for Rules vs Reality)  
+- Analytics (win rate, drawdown, emotions, etc.)  
+
+Owns its trades — every trade is linked to exactly one account.
+
+TradeMonkey supports three account types:  
+- Challenge – evaluation or challenge-style accounts.  
+- Funded – passed and actively traded funded accounts.  
+- Personal – your own capital, not tied to a prop firm.  
+
+You can also store optional risk/compliance fields (like daily loss limits and max drawdown) so Rules vs Reality can flag potential breaches.
+
+## How to Create an Account
+
+When creating a new account, fill in:
+
+### Required fields
+
+- Account Name – something you'll recognize in filters and reports (e.g., FTMO 100K Phase 1).  
+- Account Type – Challenge, Funded, or Personal.  
+- Starting Balance – equity when the account began.  
+- Currency – used for P&L display (e.g., USD, EUR, GBP).  
+
+### Optional (for prop-style tracking)
+
+- Daily loss limit  
+- Max drawdown and drawdown type  
+- Profit target  
+- Minimum trading days  
+
+These optional fields help TradeMonkey monitor prop-style rules but are not required for basic tracking.
+
+## How Accounts Affect Your Data
+
+### Analytics filters
+
+You can filter dashboards and reports by account (e.g., see "Win rate by emotion" for a single challenge only).
+
+### Rules vs Reality
+
+Rules can apply to:  
+- All accounts (global rules), or  
+- Specific accounts only (e.g., stricter limits on challenges than on a personal account).  
+
+### Balance tracking
+
+Each account has its own running balance and equity curve. When you import or log trades, you assign them to an account so its history stays accurate.
+
+## Best Practices
+
+### Separate each real-world account
+
+Create one TradeMonkey account for each live account or challenge. Don't merge multiple challenges or brokers into one.
+
+### Restart for new phases or resets
+
+If a challenge resets or moves to a new phase, create a new account instead of reusing the old one.
+
+### Use clear names
+
+Prefer descriptive names like FTMO 100K Phase 2 – Nov 2024 over Challenge 1.
+
+### Fill in prop-style limits for challenges
+
+Set daily loss, max drawdown, and profit target if you want Rules vs Reality to highlight potential compliance issues.
+
+## Important Notes
+
+You cannot delete an account that already has trades; archive or deactivate it instead.  
+Changing the starting balance after trades exist can make historical balances inaccurate and should only be done to correct obvious setup mistakes.  
+TradeMonkey does not perform automatic currency conversion. If broker and TradeMonkey currencies differ, you'll need to handle conversion yourself.  
+Account-level analytics assume a consistent risk/strategy profile. If you make major strategy changes, consider starting a new account for cleaner data.
+
+## Support
+
+If you're unsure how to structure your accounts or think balances look off, contact hello@trademonkey.app.
