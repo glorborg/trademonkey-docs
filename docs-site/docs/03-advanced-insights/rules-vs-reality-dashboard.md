@@ -8,25 +8,21 @@ sidebar_label: Rules vs Reality Dashboard
 
 ## Purpose
 
-The Rules vs Reality Dashboard is your long-term execution mirror for rule adherence. It shows how well you actually follow the trading rules you've set for yourself, over days, weeks, and months.
-
-It does **not** judge whether your rules are good or bad, and it is not a performance leaderboard. It answers a simpler question:
-
-> "Do I follow my rules? If not, when and in what context do I break them?"
+The Rules vs Reality Dashboard is your long-term view for rule adherence. It shows how well you actually follow the trading rules you've set for yourself, over days, weeks, and months.  
+It does not judge whether your rules are good or bad, and it is not a performance leaderboard. It answers a simpler question:  
+"Do I follow the rules I have defined in my trading plan? If not, when and in what context do I break them?"
 
 ## What This Feature Does
 
 The dashboard aggregates rule checks across your trades and shows:
+- Global adherence – Overall percentage of rule checks you passed across all trades.
+- Per-rule adherence – Which rules you follow consistently and which you break most often.
+- Time patterns – When violations happen (by day, week, or session such as morning vs afternoon).
+- Clusters and streaks – Whether violations are isolated mistakes or appear in cascades (multiple rules broken in a short window).
+- Trend over time – Whether your discipline is stable, improving, or eroding in recent trades vs your all-time baseline.
+- Context filters – How adherence changes by tag, account, or time window (for example, challenge vs funded, scalps vs swings).
 
-- **Global adherence** – Overall percentage of rule checks you passed across all trades.
-- **Per-rule adherence** – Which rules you follow consistently and which you break most often.
-- **Time patterns** – When violations happen (by day, week, or session such as morning vs afternoon).
-- **Clusters and streaks** – Whether violations are isolated mistakes or appear in cascades (multiple rules broken in a short window).
-- **Trend over time** – Whether your discipline is stable, improving, or eroding in recent trades vs your all-time baseline.
-- **Context filters** – How adherence changes by tag, account, or time window (for example, challenge vs funded, scalps vs swings).
-
-The dashboard reflects **adherence**, not **effectiveness**. You can have:
-
+The dashboard reflects adherence, not effectiveness. You can have:
 - High adherence + poor performance (rules might be misaligned)
 - Low adherence + good performance (discipline problem)
 - High adherence + good performance (rules are sound and followed)
@@ -34,56 +30,57 @@ The dashboard reflects **adherence**, not **effectiveness**. You can have:
 
 ## How to Use It
 
-1. **Make sure rules are defined**
-   - Set up your trading rules (for example, max trades per day, time window, minimum R:R, no trading after X losses).
-   - Scope rules where needed (by tag, account, or session).
+Make sure rules are defined  
+Set up your trading rules (for example, max trades per day, time window, minimum R:R, no trading after X losses).  
+Scope rules where needed (by tag, account, or session).
 
-2. **Open the dashboard after a meaningful sample**
-   - Review after a block of trades (for example, weekly or monthly), not after every single trade.
+Open the dashboard after a meaningful sample  
+Review after a block of trades (for example, weekly or monthly), not after every single trade.
 
-3. **Scan your global adherence**
-   - Look at the overall adherence percentage and the recent vs all-time comparison.
-   - Note if recent adherence is stable, improving, or slipping.
+Scan your global adherence  
+Look at the overall adherence percentage and the recent vs all-time comparison.  
+Note if recent adherence is stable, improving, or slipping.
 
-4. **Identify weak rules in the table**
-   - Sort by lowest adherence or highest violation count.
-   - Click into a rule to see when and where it tends to be broken (time of day, tags, outcomes).
+Identify weak rules in the table  
+Sort by lowest adherence or highest violation count.  
+Click into a rule to see when and where it tends to be broken (time of day, tags, outcomes).
 
-5. **Study the violation timeline**
-   - Look for clusters: days or streaks where multiple rules were broken together.
-   - Pay attention to periods that line up with losing streaks, emotional tags (for example, FOMO, revenge), or specific setups.
+Study the violation timeline  
+Look for clusters: days or streaks where multiple rules were broken together.  
+Pay attention to periods that line up with losing streaks, emotional tags (for example, FOMO, revenge), or specific setups.
 
-6. **Use filters for deeper context**
-   - Narrow by:
-     - Time window (Last 10 trades, Last 30 days, All Time)
-     - Account (challenge vs funded, demo vs live)
-     - Tags (for example, only scalps, only breakouts)
-   - Compare all-time vs recent windows to see if discipline is drifting or recovering.
+Use filters for deeper context  
+Narrow by:
+- Time window (Last 10 trades, Last 30 days, All Time)
+- Account (challenge vs funded, demo vs live)
+- Tags (for example, only scalps, only breakouts)
 
-7. **Translate insights into action elsewhere**
-   - Use what you see to refine rules (Rules Coach), adjust your trading schedule, or decide which contexts need more structure.
-   - The dashboard shows the pattern; you decide what to change.
+Compare all-time vs recent windows to see if discipline is drifting or recovering.
+
+Translate insights into action elsewhere  
+Use what you see to refine rules (Rules Coach), adjust your trading schedule, or decide which contexts need more structure.  
+The dashboard shows the pattern; you decide what to change.
 
 ## Important Notes
 
-- **Descriptive, not prescriptive**  
-  The dashboard describes when rules were followed or broken and under what conditions. It does not tell you what you "should" do next.
+Descriptive, not prescriptive  
+The dashboard describes when rules were followed or broken and under what conditions. It does not tell you what you "should" do next.
 
-- **Conditional rules only evaluate when applicable**  
-  Some rules (for example, "No trading after 3 losses") only evaluate when their condition is met. Their adherence is based on those limited situations, not all trades.
+Conditional rules only evaluate when applicable  
+Some rules (for example, "No trading after 3 losses") only evaluate when their condition is met. Their adherence is based on those limited situations, not all trades.
 
-- **Incomplete data reduces evaluations**  
-  Rules that depend on specific fields (for example, stop loss / take profit for R:R checks, tags for setup rules) are skipped if that data is missing. Skipped checks do not count as passes or violations.
+Incomplete data reduces evaluations  
+Rules that depend on specific fields (for example, stop loss / take profit for R:R checks, tags for setup rules) are skipped if that data is missing. Skipped checks do not count as passes or violations.
 
-- **Filters change what you see**  
-  Time windows, account filters, and tag filters recalculate all adherence numbers for the current view. Always check which filters are active before interpreting trends.
+Filters change what you see  
+Time windows, account filters, and tag filters recalculate all adherence numbers for the current view. Always check which filters are active before interpreting trends.
 
-- **Timezone matters for time-based rules**  
-  Time-window rules use your configured timezone. If it's wrong, time-based adherence may look off.
+Timezone matters for time-based rules  
+Time-window rules use your configured timezone. If it's wrong, time-based adherence may look off.
 
-- **Edits and deletions recalculate adherence**  
-  Editing trades or rules can change historical adherence. Deleting trades removes their violations and passes from the dashboard.
+Edits and deletions recalculate adherence  
+Editing trades or rules can change historical adherence. Deleting trades removes their violations and passes from the dashboard.
 
 ## Support
 
-If something in the Rules vs Reality Dashboard doesn't look right or you have questions about how it's calculated, email **hello@trademonkey.app**.
+If something in the Rules vs Reality Dashboard doesn't look right or you have questions about how it's calculated, email hello@trademonkey.app.
