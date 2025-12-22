@@ -53,6 +53,19 @@ const sidebars: SidebarsConfig = {
         'reference/security',
       ],
     },
+    {
+      type: 'category',
+      label: '5. Support & Resources',
+      collapsible: false,
+      items: [
+        'support-resources/troubleshooting',
+        'support-resources/support-bug-reporting',
+        'support-resources/open-office-hours',
+        'support-resources/guided-onboarding',
+        'support-resources/glossary',
+        'support-resources/faq',
+      ],
+    },
   ],
 };
 
