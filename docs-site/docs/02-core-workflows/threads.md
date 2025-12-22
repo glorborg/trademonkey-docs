@@ -8,92 +8,170 @@ sidebar_label: Threads
 
 ## Purpose
 
-Threads show the full chronological story of a single trade — from planning and entry, through execution, to post-trade reflection. They are designed to help you understand what actually happened inside one trade, including how your psychology evolved over time.
+Threads are the behavior timeline for a single trade.
+
+They show the chronological record of what actually occurred — from trade creation and entry state, through execution and rule checks, to exit and post-trade reflection.
+
+If Behavioral Recap is the condensed replay, Threads are the raw dashcam footage.
 
 ## What Threads Show
 
-Each thread is a timeline of events for one trade, typically including:
+Each thread is a timestamped sequence of events tied to one trade. Events are displayed in the order they occurred and preserved as a factual record.
 
-- **Entry events**
-  - Symbol, side, entry price, size, account
-  - Entry emotions and conviction
-  - Entry plan adherence
-  - Entry notes and screenshots
+## Entry Events
 
-- **Mid-trade events**
-  - Notes you add while the trade is open
-  - Rule checks and violations from your rules engine
-  - Additional screenshots and observations
-  - Signs of psychological shifts (e.g., doubt, FOMO, frustration)
+Trade creation (symbol, side, account)
 
-- **Exit events**
-  - Exit time, price, and P&L
-  - Exit emotions and conviction
-  - Exit plan adherence (did you follow your plan?)
-  - Exit notes and screenshots
+Entry price, size, and time
 
-- **Post-trade events**
-  - Reflections added minutes, hours, or days later
-  - Optional AI-generated summaries and deeper analyses
+Entry emotional state and conviction (1–10)
 
-**Threads vs Execution Recap**
+Entry plan adherence
 
-- **Execution Recap**: Multi-trade feed for scanning patterns across many trades.
-- **Threads**: Deep narrative for one trade to see exactly how it unfolded.
+Entry notes and screenshots (if added)
+
+This captures what you saw and felt at the moment of commitment.
+
+## Mid-Trade Events
+
+Notes or reflections added while the trade is open
+
+Rule evaluations and violations as they occur
+
+Additional screenshots or observations
+
+Visible psychological shifts (e.g., doubt, hesitation, FOMO, frustration)
+
+These events show how execution and psychology evolved while the trade was live.
+
+## Exit Events
+
+Exit time, price, and realized P&L
+
+Exit emotional state and conviction
+
+Exit plan adherence
+
+Exit notes and screenshots
+
+This marks how and why the trade was closed, not just the outcome.
+
+## Post-Trade Events
+
+Reflections added minutes, hours, or days later
+
+Optional AI-generated summaries or analyses (when you choose to run them)
+
+Post-trade entries are clearly timestamped so you can distinguish in-the-moment behavior from later interpretation.
+
+## Threads vs Behavioral Recap
+
+Behavioral Recap  
+A summarized, single-page replay designed for scanning and comparison across trades.
+
+Threads  
+The full event-by-event timeline for one trade, showing exactly how it unfolded over time.
+
+Use Recap to spot drift.  
+Use Threads to understand it.
 
 ## How to Use Threads
 
-1. **Open a thread**
-   - From your trade list, Execution Recap, or Trade Recap, open a specific trade and switch to its thread view.
+Open a thread
 
-2. **Read the timeline top to bottom**
-   - Start from the first entry event and scroll down through each moment in order.
-   - Pay attention to timestamps to see when key decisions and shifts happened.
+From Trades or Behavioral Recap, open a trade and switch to the Thread tab.
 
-3. **Check the entry**
-   - Confirm the setup: entry price, SL/TP, conviction, emotions, and whether you followed your plan.
-   - Review any entry screenshot and notes to see what you saw and why you pulled the trigger.
+Read the timeline top to bottom
 
-4. **Review mid-trade behavior**
-   - Read mid-trade notes to see how your thinking changed while the trade was open.
-   - Look at any rule violations in context (what was happening when you broke a rule).
-   - Use screenshots to compare the chart at different points in the trade.
+Threads are chronological by design.
 
-5. **Understand the exit**
-   - Check why you closed: hit stop, hit target, breakeven, or discretionary exit.
-   - Compare planned vs actual exit levels and plan adherence.
-   - Review exit emotions and conviction to see if confidence held or collapsed.
+Scroll through the events in order and pay attention to timestamps to see:
 
-6. **Add post-trade reflections**
-   - After the trade, add a reflection capturing lessons learned and patterns you notice.
-   - You can add more reflections later during end-of-day or weekly review.
+When decisions were made
 
-7. **Optionally use AI analysis**
-   - For important trades (big wins/losses, emotional trades, rule violations), run an AI summary or deep-dive.
-   - AI will use the full thread (events, emotions, notes, screenshots) to surface patterns and behavioral signals.
-   - AI usage may be subject to limits based on your subscription level; see the pricing page for details.
+When emotions or conviction shifted
 
-8. **Use threads in your review routines**
-   - **End of day**: Open threads for today's most important trades and skim through their stories.
-   - **End of week**: Use Execution Recap to find outliers and then read those trades' threads in detail.
-   - **Pre-session**: Revisit the thread for your last trade (especially a big loss or emotional trade) before you start trading again.
+When rules were evaluated or violated
 
-## When Threads Are Most Useful
+Review the entry context
 
-- Reviewing your biggest win or loss of the day or week  
-- Investigating a specific rule violation and what led to it  
-- Understanding why conviction collapsed or emotions spiked on a trade  
-- Preparing questions for deeper analysis or AI Deep Dive  
-- Building more accurate self-awareness about your execution habits
+Confirm entry price, SL/TP, emotions, conviction, and plan adherence
+
+Review entry screenshots and notes to see what you acted on
+
+Observe mid-trade behavior
+
+Read notes added while the trade was open
+
+View rule violations in the exact context they occurred
+
+Compare screenshots across different moments in the trade
+
+This is often where behavioral drift becomes visible.
+
+Understand the exit
+
+Identify whether the exit was planned or discretionary
+
+Compare planned vs actual exit levels
+
+Review exit emotions and conviction to see whether confidence held or collapsed
+
+Add post-trade reflections
+
+You can append reflections after the trade to capture:
+
+Lessons learned
+
+Behavioral patterns you notice
+
+What you would want to recognize earlier next time
+
+Later reflections never overwrite earlier events — they sit alongside them.
+
+Optionally analyze the full thread with AI
+
+For important trades (large wins/losses, emotional trades, rule violations), you can analyze the entire trade thread.
+
+When used:
+
+AI scans the full event timeline, emotions, conviction, notes, and rule outcomes
+
+It surfaces behavioral patterns and execution signals
+
+AI usage is optional and subject to limits based on your plan
+
+When Threads Are Most Useful
+
+Investigating a specific rule violation
+
+Understanding why conviction collapsed mid-trade
+
+Reviewing emotionally charged trades
+
+Preparing for deeper analysis or AI Deep Dive
+
+Building accurate self-awareness about execution habits
 
 ## Important Notes
 
-- Threads are **chronological and append-focused**: events are timestamped so you can see the real sequence. Notes, reflections, and screenshots can be updated; core event timing and rule logs are preserved for accuracy.
-- Threads are **private to you**. Any future accountability or sharing features would be strictly opt-in and under your control.
-- The quality of a thread depends on what you log. Emotions, conviction, notes, and screenshots make the narrative far more useful than bare P&L.
-- Threads do **not** replace multi-trade views. Use Execution Recap, analytics, and psychology dashboards to see patterns across trades, then use threads to understand individual trades in depth.
-- Core journaling, rules, and analytics continue to work even if you choose not to use AI features.
+Threads are append-focused and chronological.  
+Events are timestamped and preserved to maintain an accurate sequence.
+
+Threads document behavior — they do not prescribe action.  
+Once behavioral drift is visible, correction becomes possible.
+
+Thread quality depends on what you log.  
+Emotions, conviction, notes, and screenshots make the timeline far more informative than P&L alone.
+
+Threads are private by default.  
+Any future sharing or accountability features will be strictly opt-in.
+
+Threads complement, not replace, other views.  
+Use analytics and dashboards for patterns across trades; use Threads to understand individual trades in depth.
 
 ## Support
 
-If you have questions about Threads or something doesn't look right, contact **hello@trademonkey.app**.
+If something in a thread looks incorrect or you have questions, contact  
+hello@trademonkey.app  
+.

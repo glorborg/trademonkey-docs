@@ -1,0 +1,137 @@
+# Settings
+
+## Purpose
+
+Settings control how TradeMonkey displays your data, enforces optional workflows, and communicates with you. They do not change what data is collected or how analytics and rules actually work — they only change how everything is presented and when you're nudged to review it.
+
+There are two types of settings:
+
+User settings – your personal preferences.
+
+Organization settings – workspace-wide behavior (shared in multi-user setups).
+
+## User Settings
+
+## Profile
+
+Name – Used for greetings and reports. Optional.
+
+Email – Used for login and important notifications.
+
+If you need to change your login email, contact support at hello@trademonkey.app.
+
+## Timezone
+
+Used to show all times in your local time and to evaluate time-based rules (e.g. "no trading after X").
+
+Affects:
+
+How entry/exit times are displayed.
+
+When "per day" limits reset.
+
+When news events show up in the calendar.
+
+If you travel or relocate, update your timezone so rules and analytics line up with your actual session times.
+
+## Preferred Currency
+
+Controls how P&L and risk are displayed.
+
+Does not change how raw trade data is stored or automatically convert between currencies.
+
+If you trade in multiple currencies and want everything in one currency, you may need to convert values before logging.
+
+## Theme
+
+Switch between light and dark modes.
+
+Visual only; does not affect any data or analytics.
+
+## Email Recaps
+
+Turn daily and/or weekly email summaries on or off.
+
+Recaps can include:
+
+Trade counts and P&L summary.
+
+High-level rule violations and basic behavioral patterns.
+
+Core analytics are always available in-app, even if you disable emails.
+
+## Organization (Workspace) Settings
+
+In a single-user setup, these effectively act as "global" personal settings. In multi-user workspaces, they apply to everyone in that workspace.
+
+## Workspace Name
+
+Label shown in the UI and on exports/reports.
+
+Cosmetic only.
+
+## Behavior Mode
+
+Controls how "strict" and direct TradeMonkey feels in its messaging and prompts. It does not change the underlying data or rule checks.
+
+Gentler modes – Softer language, fewer interruptions, reflections mostly optional.
+
+Stricter modes – More direct language, more visible warnings, stronger encouragement to review trades and reflect.
+
+Choose the mode that matches how much accountability vs friction you want.
+
+## Reflection Requirement
+
+When off: reflections are optional; trades are considered complete as soon as they close.
+
+When on: trades are marked as "unreviewed" until you add at least one reflection.
+
+Helpful if you want enforced review; can feel heavy if you take many trades per day.
+
+## Streaks and Nudges
+
+Streaks – Can show win/loss streaks by day. Purely informational; does not affect rules.
+
+Nudge intensity – Controls how often you see reminders and pattern alerts (e.g. repeated rule violations, strong conviction gaps, recurring emotions).
+
+Lower intensity = fewer prompts, more self-directed review.
+
+Higher intensity = more prompts and reminders, more visible alerts.
+
+Adjust based on whether you want more awareness or fewer interruptions.
+
+## Morning Prompts
+
+Choose where to receive pre-session prompts (in-app, email, or both).
+
+Prompts can summarize recent performance, rule violations, and key patterns before you start trading.
+
+## AI Features and Limits
+
+Some features (e.g. AI summaries, deep-dive analysis, rules vs. reality) use AI and may have daily usage limits that reset regularly.
+
+Limits can vary by feature and subscription level.
+
+When you hit a limit for a feature, you'll see a clear in-app message and that feature will be temporarily unavailable until the next reset.
+
+Core tracking, rules, and analytics continue to work even if you've hit AI limits or choose not to use AI at all.
+
+For current AI availability and limits, see the pricing page.
+
+## Recommended Setup
+
+When you first start:
+
+Set your timezone and preferred currency.
+
+Pick a behavior mode that fits your personality (most traders start with a balanced/standard mode).
+
+Decide whether you want email recaps and adjust nudge intensity up or down after a week of use.
+
+Consider enabling reflection requirements only if you want strict accountability and don't take a large number of trades each day.
+
+You can change any of these settings later as your workflow evolves.
+
+## Support
+
+If you need help with settings, account changes, or something doesn't behave as expected, email hello@trademonkey.app
