@@ -1,0 +1,138 @@
+---
+id: support-bug-reporting
+title: Support & Bug Reporting
+sidebar_label: Support & Bug Reporting
+---
+
+# Support & Bug Reporting
+
+## How Support Works
+
+TradeMonkey provides live, in-app support during active trading hours, when issues are most likely to surface.
+
+Live support is available:
+
+During the London session
+
+During and up to the end of the New York session
+
+These windows are intentional — they align with when users are actively trading, reviewing trades, importing data, or reconciling sessions.
+
+Support is accessed inside the app via the support modal.
+
+## What Happens Outside Live Support Hours?
+
+If you submit a support request after the New York session has ended, your ticket is not ignored or delayed indefinitely.
+
+Instead:
+
+Your message is queued
+
+It is reviewed and responded to during the next live London session
+
+This ensures:
+
+Responses are thoughtful, accurate, and context-aware
+
+Issues are handled when the team is actively available
+
+You receive answers from people who understand the platform deeply
+
+TradeMonkey does not provide 24/7 reactive support, but it does provide consistent, predictable, human support.
+
+## What Support Is Best Used For
+
+Use in-app support when you need help with:
+
+Understanding something you're seeing in your data
+
+Trade imports or reconciliation questions
+
+Rules behaving differently than expected
+
+Clarifying how a feature is intended to work
+
+Confirming whether something is a bug or expected behavior
+
+If something "feels off," support is the right place to sanity-check it.
+
+## Reporting Bugs
+
+### What Counts as a Bug
+
+A bug is when the platform behaves contrary to its documented behavior, for example:
+
+Trades fail to import when the CSV is correctly formatted
+
+Data disappears or changes unexpectedly
+
+Rules evaluate incorrectly despite required data being present
+
+UI elements fail to load or respond
+
+Errors appear that prevent normal use
+
+Unexpected patterns or poor performance are not automatically bugs — often they are signals of missing data or incomplete reconciliation.
+
+If you're unsure, submit the issue anyway. Support will help determine what's happening.
+
+### How to Report a Bug (Best Practices)
+
+To help us resolve issues quickly, include:
+
+What you expected to happen
+
+What actually happened
+
+The account and date range involved
+
+Screenshots or screen recordings if helpful  
+(Do not include passwords or sensitive credentials)
+
+Clear context reduces back-and-forth and speeds resolution.
+
+### What Happens After You Submit a Bug
+
+Bugs are reviewed during live support hours
+
+Confirmed issues are logged and prioritized
+
+You'll be updated if further clarification is needed
+
+TradeMonkey favors fixing root causes, not quick patches that introduce new ambiguity.
+
+## A Note on Signals vs Bugs
+
+Because TradeMonkey is a behavior dashcam, it often reveals things users haven't seen before.
+
+Noticing:
+
+Skipped rules
+
+Missing emotions
+
+Conviction gaps
+
+Data gaps after imports
+
+Is usually a signal, not a failure.
+
+Support helps you distinguish between:
+
+"The system isn't working"
+
+"The system is showing me something new"
+
+Both matter — only one is a bug.
+
+## Summary
+
+Support is provided inside the app
+
+Live support runs during London and end of New York sessions
+
+Tickets submitted later are answered during the next London session
+
+Bugs and questions are handled through the same support flow
+
+Clear context leads to faster, better answers
