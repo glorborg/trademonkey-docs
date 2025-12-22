@@ -1,0 +1,80 @@
+# Security & Data Boundaries
+
+## Purpose
+
+This page explains, in plain terms, how TradeMonkey protects your data and where the security boundary ends.  
+TradeMonkey is a Behavior Dashcam, not a brokerage, trading platform, or account manager. It records your decisions and reflections so you can see your execution clearly — and nothing more.
+
+## What TradeMonkey Records
+
+TradeMonkey records only the information you intentionally log, including:
+- Trades (manual or imported)
+- Rules and limits you define
+- Reflections, emotions, conviction, and plan adherence
+- Screenshots or notes you attach
+- Analytics derived from your own data
+
+TradeMonkey does not place trades, access broker accounts, or interact with markets on your behalf.
+
+## Who Can See Your Data
+
+Only you — and anyone you explicitly grant access to within your account — can see your data.  
+Your trades, reflections, rules, and analytics are isolated to your account and are not visible to other users.  
+TradeMonkey does not sell, share, or expose your trading data to other customers.
+
+## When AI Is Involved
+
+Some features use AI to analyze patterns, not to make decisions for you.  
+Most AI insights are generated from aggregated metrics, such as:
+- Win rates
+- Rule adherence
+- Emotional frequency
+- Performance by context or time
+
+Reflection Analysis is optional.  
+If you choose to analyze a written reflection, the text you submit is sent for analysis only when you explicitly request it (for example, by clicking “Analyze with AI”).  
+If you don’t request analysis, your reflection remains private and untouched.
+
+AI features do not receive:
+- Your name or email
+- Login credentials
+- Broker account details
+- Payment information
+
+## What TradeMonkey Never Sees
+
+TradeMonkey does not have access to:
+- Broker usernames or passwords
+- Trading platform credentials (MT5, cTrader, TradingView, etc.)
+- Payment card numbers
+- Orders, executions, or balances in real time
+
+TradeMonkey observes behavior you record, not live trading activity.
+
+## Your Responsibilities
+
+TradeMonkey secures the application and the data you store in it. You remain responsible for:
+- Protecting your login credentials
+- Securing your devices
+- Keeping your browser and operating system up to date
+- Managing broker and prop firm security separately
+
+TradeMonkey cannot secure third-party platforms or devices you control.
+
+## Security Questions or Concerns
+
+If you have a security question or believe something isn’t working as expected:
+
+Email: hello@trademonkey.app  
+Subject: Security question  
+Please describe the issue clearly.  
+Do not include passwords or sensitive credentials.
+
+## Summary
+
+TradeMonkey records only what you intentionally log.  
+Your data is visible only to your account.  
+AI analysis is optional and limited to the context you choose.  
+TradeMonkey never accesses broker accounts or payment details.  
+You control when and how your data is analyzed.  
+The Behavior Dashcam exists to reveal execution truth — not to intrude beyond it.
