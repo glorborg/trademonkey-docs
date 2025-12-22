@@ -1,5 +1,5 @@
 ---
-id: execution-recap-basics
+id: behavioral-recap-basics
 title: Behavioral Recap
 sidebar_label: Behavioral Recap
 ---

@@ -1,5 +1,5 @@
 ---
-id: psychology-tracking
+id: drift-detection
 title: Drift Detection
 sidebar_label: Drift Detection
 ---

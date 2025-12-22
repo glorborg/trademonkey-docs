@@ -90,7 +90,7 @@ There are daily usage limits and each exploration is capped to a small number of
 
 Past Deep Dive sessions can be revisited, but if you want to keep them permanently, copy notes or save transcripts outside TradeMonkey.
 
-Deep Dive does not replace manual review. Use it alongside Drift Detection, Rules vs Reality, Behavioral Recap, and Trade Recap to validate what you see.
+Deep Dive does not replace manual review. Use it alongside Drift Detection, Rules vs Reality, and Behavioral Recap to validate what you see.
 
 ## Support
 

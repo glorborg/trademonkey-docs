@@ -12,7 +12,7 @@ const sidebars: SidebarsConfig = {
         'getting-started/import-trades',
         'getting-started/manual-trade-entry',
         'getting-started/reflections',
-        'getting-started/execution-recap-basics',
+        'getting-started/behavioral-recap-basics',
       ],
     },
     {
@@ -22,7 +22,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'core-workflows/rules-vs-reality',
         'core-workflows/rules-helper-ai',
-        'core-workflows/psychology-tracking',
+        'core-workflows/drift-detection',
         'core-workflows/threads',
         'core-workflows/behavioral-recap',
         'core-workflows/settings',
