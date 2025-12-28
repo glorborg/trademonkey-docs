@@ -86,11 +86,11 @@ Without this comparison, drift remains invisible.
 
 ## Related Concepts
 
-- [Behavioral Dashcam](/docs/lexicon/behavioral-dashcam) – A system that records execution behavior objectively instead of relying on memory.
-- [Plan Adherence](/docs/lexicon/plan-adherence) – A measure of how closely execution follows predefined rules and intent.
-- [Rules vs Reality Analysis](/docs/lexicon/rules-vs-reality) – A comparison between defined trading rules and actual trade behavior.
-- [Behavioral State Before Trading](/docs/lexicon/behavioral-state-before-trading) – The mental and emotional condition present prior to execution.
-- [Reconciliation Loop](/docs/lexicon/reconciliation-loop) – The process of aligning planned intent, recorded behavior, and realized outcomes.
+- [Behavioral Dashcam](/lexicon/behavioral-dashcam) – A system that records execution behavior objectively instead of relying on memory.
+- [Plan Adherence](/lexicon/plan-adherence) – A measure of how closely execution follows predefined rules and intent.
+- [Rules vs Reality Analysis](/lexicon/rules-vs-reality) – A comparison between defined trading rules and actual trade behavior.
+- [Behavioral State Before Trading](/lexicon/behavioral-state-before-trading) – The mental and emotional condition present prior to execution.
+- [Reconciliation Loop](/lexicon/reconciliation-loop) – The process of aligning planned intent, recorded behavior, and realized outcomes.
 
 ## Summary
 

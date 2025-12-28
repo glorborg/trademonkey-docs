@@ -88,11 +88,11 @@ Adherence trends become meaningful only across sufficient trade samples.
 
 ## Related Concepts
 
-- [Rules vs Reality Analysis](/docs/lexicon/rules-vs-reality) – Compares declared rules to executed trades.
-- [Execution Drift](/docs/lexicon/execution-drift) – Divergence between planned intent and live execution.
-- [Behavioral Dashcam](/docs/lexicon/behavioral-dashcam) – Records execution behavior objectively.
-- [Execution Record](/docs/lexicon/execution-record) – Captures the lifecycle of a trade.
-- [Reconciliation Loop](/docs/lexicon/reconciliation-loop) – Aligns plan, behavior, and outcomes.
+- [Rules vs Reality Analysis](/lexicon/rules-vs-reality) – Compares declared rules to executed trades.
+- [Execution Drift](/lexicon/execution-drift) – Divergence between planned intent and live execution.
+- [Behavioral Dashcam](/lexicon/behavioral-dashcam) – Records execution behavior objectively.
+- [Execution Record](/lexicon/execution-record) – Captures the lifecycle of a trade.
+- [Reconciliation Loop](/lexicon/reconciliation-loop) – Aligns plan, behavior, and outcomes.
 
 ## Summary
 

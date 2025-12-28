@@ -89,11 +89,11 @@ The loop gains value through repetition across many trades and time periods.
 
 ## Related Concepts
 
-- [Execution Record](/docs/lexicon/execution-record) – Captures execution behavior in detail.
-- [Rules vs Reality Analysis](/docs/lexicon/rules-vs-reality) – Compares declared rules to actual behavior.
-- [Plan Adherence](/docs/lexicon/plan-adherence) – Measures execution consistency relative to intent.
-- [Execution Drift](/docs/lexicon/execution-drift) – Describes divergence between plan and execution.
-- [Behavioral Dashcam](/docs/lexicon/behavioral-dashcam) – Records execution behavior objectively.
+- [Execution Record](/lexicon/execution-record) – Captures execution behavior in detail.
+- [Rules vs Reality Analysis](/lexicon/rules-vs-reality) – Compares declared rules to actual behavior.
+- [Plan Adherence](/lexicon/plan-adherence) – Measures execution consistency relative to intent.
+- [Execution Drift](/lexicon/execution-drift) – Describes divergence between plan and execution.
+- [Behavioral Dashcam](/lexicon/behavioral-dashcam) – Records execution behavior objectively.
 
 ## Summary
 

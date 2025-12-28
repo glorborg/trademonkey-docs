@@ -84,11 +84,11 @@ Execution records gain value through repetition and consistency, not isolated in
 
 ## Related Concepts
 
-- [Behavioral Dashcam](/docs/lexicon/behavioral-dashcam) – Captures execution behavior objectively.
-- [Execution Drift](/docs/lexicon/execution-drift) – Divergence between planned intent and execution behavior.
-- [Rules vs Reality Analysis](/docs/lexicon/rules-vs-reality) – Compares declared rules to actual behavior.
-- [Plan Adherence](/docs/lexicon/plan-adherence) – Measures consistency between plan and execution.
-- [Reconciliation Loop](/docs/lexicon/reconciliation-loop) – Aligns intent, execution, and outcomes.
+- [Behavioral Dashcam](/lexicon/behavioral-dashcam) – Captures execution behavior objectively.
+- [Execution Drift](/lexicon/execution-drift) – Divergence between planned intent and execution behavior.
+- [Rules vs Reality Analysis](/lexicon/rules-vs-reality) – Compares declared rules to actual behavior.
+- [Plan Adherence](/lexicon/plan-adherence) – Measures consistency between plan and execution.
+- [Reconciliation Loop](/lexicon/reconciliation-loop) – Aligns intent, execution, and outcomes.
 
 ## Summary
 

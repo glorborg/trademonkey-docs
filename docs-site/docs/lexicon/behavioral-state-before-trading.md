@@ -88,11 +88,11 @@ State data becomes meaningful only when viewed across repeated trades.
 
 ## Related Concepts
 
-- [Behavioral Dashcam](/docs/lexicon/behavioral-dashcam) – Records execution behavior objectively during trades.
-- [Execution Drift](/docs/lexicon/execution-drift) – Divergence between planned intent and actual execution.
-- [Plan Adherence](/docs/lexicon/plan-adherence) – Measures consistency between plan and execution.
-- [Execution Record](/docs/lexicon/execution-record) – Captures the lifecycle of a trade.
-- [Reconciliation Loop](/docs/lexicon/reconciliation-loop) – Aligns state, behavior, and outcomes.
+- [Behavioral Dashcam](/lexicon/behavioral-dashcam) – Records execution behavior objectively during trades.
+- [Execution Drift](/lexicon/execution-drift) – Divergence between planned intent and actual execution.
+- [Plan Adherence](/lexicon/plan-adherence) – Measures consistency between plan and execution.
+- [Execution Record](/lexicon/execution-record) – Captures the lifecycle of a trade.
+- [Reconciliation Loop](/lexicon/reconciliation-loop) – Aligns state, behavior, and outcomes.
 
 ## Summary
 

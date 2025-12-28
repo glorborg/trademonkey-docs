@@ -87,11 +87,11 @@ This data becomes meaningful only when viewed across multiple trades and time pe
 
 ## Related Concepts
 
-- [Plan Adherence](/docs/lexicon/plan-adherence) – A measure of how closely execution follows defined rules.
-- [Execution Drift](/docs/lexicon/execution-drift) – Divergence between planned rules and live execution behavior.
-- [Behavioral Dashcam](/docs/lexicon/behavioral-dashcam) – A system that records execution behavior objectively.
-- [Execution Record](/docs/lexicon/execution-record) – A structured record of a trade's lifecycle.
-- [Reconciliation Loop](/docs/lexicon/reconciliation-loop) – The process of aligning rules, behavior, and outcomes.
+- [Plan Adherence](/lexicon/plan-adherence) – A measure of how closely execution follows defined rules.
+- [Execution Drift](/lexicon/execution-drift) – Divergence between planned rules and live execution behavior.
+- [Behavioral Dashcam](/lexicon/behavioral-dashcam) – A system that records execution behavior objectively.
+- [Execution Record](/lexicon/execution-record) – A structured record of a trade's lifecycle.
+- [Reconciliation Loop](/lexicon/reconciliation-loop) – The process of aligning rules, behavior, and outcomes.
 
 ## Summary
 

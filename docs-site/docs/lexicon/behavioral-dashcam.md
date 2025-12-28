@@ -90,11 +90,11 @@ The value of the dashcam increases with consistency and sample size. Isolated tr
 
 ## Related Concepts
 
-- [Execution Drift](/docs/lexicon/execution-drift) – The gap between planned trading intent and actual execution behavior.
-- [Plan Adherence](/docs/lexicon/plan-adherence) – A measure of how closely execution follows predefined rules.
-- [Rules vs Reality Analysis](/docs/lexicon/rules-vs-reality) – Comparison between declared trading rules and actual behavior.
-- [Execution Record](/docs/lexicon/execution-record) – A structured, time-ordered capture of a trade's lifecycle.
-- [Reconciliation Loop](/docs/lexicon/reconciliation-loop) – Aligning intent, execution, and outcomes to identify drift.
+- [Execution Drift](/lexicon/execution-drift) – The gap between planned trading intent and actual execution behavior.
+- [Plan Adherence](/lexicon/plan-adherence) – A measure of how closely execution follows predefined rules.
+- [Rules vs Reality Analysis](/lexicon/rules-vs-reality) – Comparison between declared trading rules and actual behavior.
+- [Execution Record](/lexicon/execution-record) – A structured, time-ordered capture of a trade's lifecycle.
+- [Reconciliation Loop](/lexicon/reconciliation-loop) – Aligning intent, execution, and outcomes to identify drift.
 
 ## Summary
 
