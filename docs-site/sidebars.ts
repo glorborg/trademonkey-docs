@@ -4,6 +4,20 @@ const sidebars: SidebarsConfig = {
   docsSidebar: [
     {
       type: 'category',
+      label: 'Lexicon',
+      collapsible: false,
+      items: [
+        'lexicon/execution-drift',
+        'lexicon/behavioral-dashcam',
+        'lexicon/rules-vs-reality',
+        'lexicon/plan-adherence',
+        'lexicon/behavioral-state-before-trading',
+        'lexicon/execution-record',
+        'lexicon/reconciliation-loop',
+      ],
+    },
+    {
+      type: 'category',
       label: '1. Getting Started',
       collapsible: false,
       items: [
