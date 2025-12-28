@@ -11,8 +11,9 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://docs.trademonkey.app',
   baseUrl: '/',
+  trailingSlash: false,
 
   organizationName: 'glorborg',
   projectName: 'trademonkey-docs',
@@ -36,15 +37,25 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          filename: 'sitemap.xml',
+        },
       } satisfies Preset.Options,
     ],
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/trademonkey-social-card.png',
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    metadata: [
+      {name: 'twitter:card', content: 'summary_large_image'},
+      {name: 'og:type', content: 'website'},
+      {name: 'og:site_name', content: 'TradeMonkey Docs'},
+    ],
     navbar: {
       title: 'TradeMonkey Docs',
       logo: {

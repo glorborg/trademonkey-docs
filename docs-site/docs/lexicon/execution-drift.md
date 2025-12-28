@@ -1,11 +1,10 @@
 ---
 sidebar_position: 1
+slug: /lexicon/execution-drift
 title: What Is Execution Drift in Trading?
-description: Execution drift is the measurable divergence between a trader's stated plan and their actual execution under live trading conditions.
+description: Execution drift is the measurable gap between a trader's stated plan and actual execution behavior under live conditions. Learn how to detect it.
 keywords: [execution drift, trading psychology, behavioral trading, plan deviation, trading execution]
 ---
-
-# What Is Execution Drift in Trading?
 
 ![Diagram showing execution drift as the gap between a planned trade and actual execution behavior.](/img/lexicon/execution-drift-diagram.png)
 
@@ -99,3 +98,7 @@ Execution drift explains why traders can know exactly what to do—and still fai
 It is not a mystery, a mindset flaw, a lack of discipline, or a lack of effort. It is a measurable gap between intention and action that only appears during live execution.
 
 Once execution drift is made visible, it becomes possible to understand its patterns, conditions, and cost.
+
+---
+
+[Learn how TradeMonkey detects execution drift](https://trademonkey.app/#features) in your trading behavior.

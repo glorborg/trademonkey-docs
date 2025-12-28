@@ -12,7 +12,9 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "seo:check": "node scripts/seo-check.js",
+    "images:check": "node scripts/images-check.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
@@ -27,6 +29,8 @@
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
+    "glob": "^13.0.0",
+    "gray-matter": "^4.0.3",
     "typescript": "~5.6.2"
   },
   "browserslist": {

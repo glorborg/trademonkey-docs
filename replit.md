@@ -67,7 +67,20 @@ Screenshots go in: `docs-site/static/img/`
 Lexicon diagrams go in: `docs-site/static/img/lexicon/`
 Reference in markdown: `![Alt text](/img/filename.png)`
 
+## SEO/GEO Validation
+Run these commands to check documentation quality:
+- `npm run seo:check` - Validates frontmatter (description 140-160 chars, keywords, titles)
+- `npm run images:check` - Validates image sizes (< 800KB required, < 250KB preferred)
+
+### Lexicon SEO Requirements
+- Slug: `/lexicon/{concept-name}`
+- Description: Exactly 140-160 characters
+- Keywords: At least 5 relevant terms
+- Internal links: Link to other lexicon pages + landing page section
+- Image: One diagram after H1, alt text includes term name
+
 ## Recent Changes
+- December 28, 2025: Added SEO validation scripts, fixed lexicon descriptions to 140-160 chars, compressed images to under 800KB, added slugs and landing page links
 - December 28, 2025: Added Lexicon Hub with 7 GEO-optimized concept articles and diagrams (Execution Drift, Behavioral Dashcam, Rules vs Reality, Plan Adherence, Behavioral State Before Trading, Execution Record, Reconciliation Loop)
 - December 22, 2025: Added "5. Support & Resources" section with 6 new pages (Troubleshooting, Support & Bug Reporting, Open Office Hours, Guided Onboarding, Glossary, FAQ)
 - December 22, 2025: Renamed files for consistency (execution-recap-basics → behavioral-recap-basics, psychology-tracking → drift-detection, trade-recap → behavioral-recap, execution-patterns → behavior-patterns)

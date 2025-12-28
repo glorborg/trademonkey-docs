@@ -1,11 +1,10 @@
 ---
 sidebar_position: 6
+slug: /lexicon/execution-record
 title: What Is a Trading Execution Record?
-description: A trading execution record is a structured, time-ordered capture of everything that occurs during a trade's lifecycle.
+description: A trading execution record is a structured, time-ordered capture of everything that occurs during a trade's lifecycle including entries, exits, and rules.
 keywords: [execution record, trade log, trading lifecycle, execution data, behavioral evidence]
 ---
-
-# What Is a Trading Execution Record?
 
 ![Diagram showing a trading execution record as a structured capture of the trade lifecycle process versus outcome.](/img/lexicon/execution-record-diagram.png)
 
@@ -97,3 +96,7 @@ A trading execution record answers a fundamental question: **What actually happe
 It does not explain why or whether decisions were correct. It preserves execution truth so patterns can be observed later.
 
 Without execution records, behavior remains abstract. With them, execution becomes inspectable.
+
+---
+
+[See how TradeMonkey creates execution records](https://trademonkey.app/#features) for every trade.

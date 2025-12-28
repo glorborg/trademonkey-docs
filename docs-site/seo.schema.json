@@ -1,0 +1,35 @@
+{
+  "metaTitleMinLength": 55,
+  "metaTitleMaxLength": 60,
+  "metaDescriptionMinLength": 140,
+  "metaDescriptionMaxLength": 160,
+  "maxH1Count": 1,
+  "imageMaxSizeBytes": 838860,
+  "imageWarnSizeBytes": 262144,
+  "allowedImageFormats": [".webp", ".png", ".jpg", ".jpeg"],
+  "requiredMetaTags": [
+    "title",
+    "description",
+    "og:title",
+    "og:description",
+    "og:url",
+    "og:image",
+    "twitter:card",
+    "twitter:title",
+    "twitter:description",
+    "twitter:image"
+  ],
+  "primaryKeywords": {
+    "landing": "behavioral trading journal",
+    "category": ["trading psychology journal", "execution-based trading journal", "trading behavior tracking"]
+  },
+  "lexiconTerms": [
+    "execution drift",
+    "behavioral state",
+    "rules vs reality",
+    "behavior dashcam",
+    "behavioral recap",
+    "plan adherence",
+    "execution record"
+  ]
+}

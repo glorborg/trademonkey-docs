@@ -1,11 +1,10 @@
 ---
 sidebar_position: 4
+slug: /lexicon/plan-adherence
 title: What Is Plan Adherence in Trading?
-description: Plan adherence measures how closely a trader's executed trades conform to their predefined trading plan.
+description: Plan adherence measures how closely a trader's executed trades conform to their predefined trading plan, rules, risk parameters, and execution criteria.
 keywords: [plan adherence, trading plan, execution consistency, trading psychology, behavioral trading]
 ---
-
-# What Is Plan Adherence in Trading?
 
 ![Diagram showing plan adherence as a comparison between a trading plan and executed trades.](/img/lexicon/plan-adherence-diagram.png)
 
@@ -101,3 +100,7 @@ Plan adherence answers a foundational question: **Did you execute the plan you d
 It does not assess whether the plan was good or bad. It reveals whether the plan was actually followed.
 
 Without adherence measurement, traders revise plans in the dark. With it, execution becomes observable and verifiable.
+
+---
+
+[See how TradeMonkey measures plan adherence](https://trademonkey.app/#features) in your trading.

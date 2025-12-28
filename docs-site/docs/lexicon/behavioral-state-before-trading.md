@@ -1,11 +1,10 @@
 ---
 sidebar_position: 5
+slug: /lexicon/behavioral-state-before-trading
 title: What Is Behavioral State Before Trading?
-description: Behavioral state before trading refers to the trader's measurable psychological and cognitive condition immediately prior to entering a trade.
+description: Behavioral state before trading refers to the trader's psychological and cognitive condition immediately prior to entering a trade, including mindset.
 keywords: [behavioral state, pre-trade psychology, trading mindset, emotional state, trading context]
 ---
-
-# What Is Behavioral State Before Trading?
 
 ![Diagram showing behavioral state before trading as the recorded psychological context at trade entry.](/img/lexicon/behavioral-state-before-trading-diagram.png)
 
@@ -101,3 +100,7 @@ Behavioral state before trading describes the internal conditions present before
 It does not explain outcomes or excuse behavior. It provides context for why execution unfolded the way it did.
 
 Without state context, execution analysis is incomplete. With it, patterns become interpretable.
+
+---
+
+[Learn how TradeMonkey captures behavioral state](https://trademonkey.app/#features) before you trade.
