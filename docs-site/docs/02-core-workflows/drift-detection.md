@@ -2,6 +2,8 @@
 id: drift-detection
 title: Drift Detection
 sidebar_label: Drift Detection
+description: Identify behavioral and execution drift by analyzing how emotional state, conviction, and plan adherence correlate with outcomes across your trades.
+keywords: [drift detection, execution drift, trading patterns, behavioral analysis, trading psychology]
 ---
 
 # Drift Detection

@@ -2,6 +2,8 @@
 id: create-trading-account
 title: Create a Trading Account
 sidebar_label: Create Trading Account
+description: Set up trading accounts in TradeMonkey to separate trades, balances, and analytics by broker, prop firm challenge, funded account, or personal capital.
+keywords: [trading account, prop firm, funded account, trading challenge, account setup]
 ---
 
 # Create a Trading Account

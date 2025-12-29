@@ -1,6 +1,8 @@
 ---
 sidebar_position: 2
 title: Rules Helper AI
+description: Use the Rules Helper AI to turn vague trading intentions into clear, measurable, and enforceable rules that can be tracked against your actual behavior.
+keywords: [rules helper AI, trading rules, rule configuration, trading discipline, rule definition]
 ---
 
 # Rules Helper AI

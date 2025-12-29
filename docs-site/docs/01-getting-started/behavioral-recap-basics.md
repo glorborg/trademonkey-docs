@@ -2,6 +2,8 @@
 id: behavioral-recap-basics
 title: Behavioral Recap
 sidebar_label: Behavioral Recap
+description: Review trades as before/after snapshots combining charts, emotions, conviction, plan adherence and P&L to detect repeatable execution patterns.
+keywords: [behavioral recap, trade review, execution patterns, trading psychology, trade analysis]
 ---
 
 # Behavioral Recap

@@ -2,6 +2,8 @@
 id: manual-trade-entry
 title: Manual Trade Entry
 sidebar_label: Manual Trade Entry
+description: Log trades manually in TradeMonkey to capture real-time psychology including emotions, conviction, and plan adherence alongside financial details.
+keywords: [manual trade entry, trade logging, trading psychology, conviction tracking, plan adherence]
 ---
 
 # Manual Trade Entry

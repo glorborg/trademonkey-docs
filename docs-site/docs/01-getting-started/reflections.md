@@ -2,6 +2,8 @@
 id: reflections
 title: Reflections (Behavioral Record)
 sidebar_label: Reflections
+description: Create timestamped behavioral snapshots capturing your execution state, intent, and observed behavior for pattern analysis across time periods.
+keywords: [reflections, behavioral record, trading journal, execution state, behavior tracking]
 ---
 
 # Reflections (Behavioral Record)

@@ -2,6 +2,8 @@
 id: import-trades
 title: Importing Trades (Broker Reconciliation)
 sidebar_label: Import Trades
+description: Import broker CSV files to reconcile trades and establish financial ground truth. TradeMonkey matches behavioral data with actual execution outcomes.
+keywords: [trade import, broker CSV, trade reconciliation, execution data, trade history]
 ---
 
 # Importing Trades (Broker Reconciliation)

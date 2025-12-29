@@ -2,6 +2,8 @@
 id: settings
 title: Settings
 sidebar_label: Settings
+description: Configure TradeMonkey display preferences, timezone, currency, notification settings, and workspace-wide behavior for your trading journal workflow.
+keywords: [settings, configuration, preferences, timezone, notifications]
 ---
 
 # Settings

@@ -2,6 +2,8 @@
 id: rules-vs-reality
 title: Rules vs Reality
 sidebar_label: Rules vs Reality
+description: Compare the trading rules you define with actual trades you take, log every breach, and track how consistently you follow your own system over time.
+keywords: [rules vs reality, trading rules, rule compliance, trading discipline, rule violations]
 ---
 
 # Rules vs Reality
