@@ -2,7 +2,7 @@
 id: behavioral-recap
 title: Behavioral Recap
 sidebar_label: Behavioral Recap
-description: Replay what actually happened during a trade with financial outcomes, execution details, emotional state, rule checks, and screenshots in one view.
+description: "Replay what actually happened during a trade with financial outcomes, execution details, emotional state, rule checks, and screenshots in one view."
 keywords: [behavioral recap, trade replay, execution review, trading psychology, trade analysis]
 ---
 

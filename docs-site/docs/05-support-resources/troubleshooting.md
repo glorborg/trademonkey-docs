@@ -2,7 +2,7 @@
 id: troubleshooting
 title: Troubleshooting
 sidebar_label: Troubleshooting
-description: Resolve common TradeMonkey issues including P&L mismatches, missing analytics, rule check failures, and data reconciliation problems with this guide.
+description: "Resolve common TradeMonkey issues including P&L mismatches, missing analytics, rule check failures, and data reconciliation problems with this guide."
 keywords: [troubleshooting, common issues, problem solving, error resolution, data fixes]
 ---
 

@@ -2,7 +2,7 @@
 id: security
 title: Security & Data Boundaries
 sidebar_label: Security
-description: Understand how TradeMonkey protects your trading data, who can see it, and where the security boundary ends for this behavioral journaling tool.
+description: "Understand how TradeMonkey protects your trading data, who can see it, and where the security boundary ends for this behavioral journaling tool."
 keywords: [security, data privacy, data protection, AI privacy, trading data]
 ---
 

@@ -3,7 +3,7 @@ id: overview
 title: Getting Started with TradeMonkey
 sidebar_label: Overview
 slug: /
-description: Learn how TradeMonkey captures your trading behavior in real time through three lenses: plan adherence, behavioral state, and rules vs reality.
+description: "Learn how TradeMonkey captures your trading behavior in real time through three lenses: plan adherence, behavioral state, and rules vs reality."
 keywords: [trading journal, behavior tracking, plan adherence, trading psychology, rules vs reality]
 ---
 

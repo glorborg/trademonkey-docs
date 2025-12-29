@@ -2,7 +2,7 @@
 id: threads
 title: Threads (Life of a Trade)
 sidebar_label: Threads
-description: View the chronological behavior timeline for each trade from entry state through execution, rule checks, and exit with timestamped events preserved.
+description: "View the chronological behavior timeline for each trade from entry state through execution, rule checks, and exit with timestamped events preserved."
 keywords: [trade threads, trade timeline, execution history, trade lifecycle, behavior tracking]
 ---
 
