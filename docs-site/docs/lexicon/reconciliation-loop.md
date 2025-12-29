@@ -101,7 +101,3 @@ The reconciliation loop exists to answer a critical question: **Did the results 
 It does not assign blame or prescribe changes. It aligns intent, behavior, and outcome so learning is grounded in evidence.
 
 Without reconciliation, traders guess at causes. With it, execution behavior becomes understandable.
-
----
-
-[Learn how TradeMonkey closes the reconciliation loop](https://trademonkey.app/#features) for your trading.

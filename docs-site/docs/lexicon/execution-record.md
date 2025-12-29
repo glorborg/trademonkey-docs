@@ -96,7 +96,3 @@ A trading execution record answers a fundamental question: **What actually happe
 It does not explain why or whether decisions were correct. It preserves execution truth so patterns can be observed later.
 
 Without execution records, behavior remains abstract. With them, execution becomes inspectable.
-
----
-
-[See how TradeMonkey creates execution records](https://trademonkey.app/#features) for every trade.

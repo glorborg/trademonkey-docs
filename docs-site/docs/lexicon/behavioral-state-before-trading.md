@@ -100,7 +100,3 @@ Behavioral state before trading describes the internal conditions present before
 It does not explain outcomes or excuse behavior. It provides context for why execution unfolded the way it did.
 
 Without state context, execution analysis is incomplete. With it, patterns become interpretable.
-
----
-
-[Learn how TradeMonkey captures behavioral state](https://trademonkey.app/#features) before you trade.

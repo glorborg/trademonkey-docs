@@ -98,7 +98,3 @@ Execution drift explains why traders can know exactly what to do—and still fai
 It is not a mystery, a mindset flaw, a lack of discipline, or a lack of effort. It is a measurable gap between intention and action that only appears during live execution.
 
 Once execution drift is made visible, it becomes possible to understand its patterns, conditions, and cost.
-
----
-
-[Learn how TradeMonkey detects execution drift](https://trademonkey.app/#features) in your trading behavior.

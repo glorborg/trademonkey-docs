@@ -99,7 +99,3 @@ Rules vs Reality Analysis answers a simple question: **Did you trade the way you
 It does not judge rules or outcomes. It documents compliance and deviation with precision.
 
 Without this comparison, traders rely on assumptions about their rule-following. With it, rule violations and deviations become explicitly identifiable.
-
----
-
-[Learn how TradeMonkey performs Rules vs Reality analysis](https://trademonkey.app/#features) on your trades.

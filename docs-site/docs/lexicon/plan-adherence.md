@@ -100,7 +100,3 @@ Plan adherence answers a foundational question: **Did you execute the plan you d
 It does not assess whether the plan was good or bad. It reveals whether the plan was actually followed.
 
 Without adherence measurement, traders revise plans in the dark. With it, execution becomes observable and verifiable.
-
----
-
-[See how TradeMonkey measures plan adherence](https://trademonkey.app/#features) in your trading.

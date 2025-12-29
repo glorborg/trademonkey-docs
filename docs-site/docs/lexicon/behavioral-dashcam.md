@@ -102,7 +102,3 @@ A behavioral dashcam exists to remove ambiguity from trading behavior, acting as
 It does not judge performance, predict outcomes, or enforce discipline. It records execution truth so traders can see what actually happens when pressure is real.
 
 Without this record, execution problems remain abstract. With it, behavior becomes observable, measurable, and analyzable.
-
----
-
-[See how TradeMonkey works as a behavioral dashcam](https://trademonkey.app/#features) for your trading.
