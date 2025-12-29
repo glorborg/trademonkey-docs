@@ -4,6 +4,8 @@ slug: /lexicon/plan-adherence
 title: What Is Plan Adherence in Trading?
 description: Plan adherence measures how closely a trader's executed trades conform to their predefined trading plan, rules, risk parameters, and execution criteria.
 keywords: [plan adherence, trading plan, execution consistency, trading psychology, behavioral trading]
+tags: [lexicon, trading plan, execution]
+image: /img/lexicon/plan-adherence-diagram.png
 ---
 
 ![Diagram showing plan adherence as a comparison between a trading plan and executed trades.](/img/lexicon/plan-adherence-diagram.png)

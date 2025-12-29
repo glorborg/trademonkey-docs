@@ -4,6 +4,8 @@ slug: /lexicon/reconciliation-loop
 title: What Is the Reconciliation Loop in Trading?
 description: The reconciliation loop aligns a trader's planned intent, recorded execution behavior, and realized outcomes to identify drift patterns and causes.
 keywords: [reconciliation loop, trading feedback, intent vs execution, trading psychology, behavioral alignment]
+tags: [lexicon, trading feedback, behavioral alignment]
+image: /img/lexicon/reconciliation-loop-diagram.png
 ---
 
 ![Diagram showing the reconciliation loop as a systematic comparison of intent, execution, and outcomes.](/img/lexicon/reconciliation-loop-diagram.png)

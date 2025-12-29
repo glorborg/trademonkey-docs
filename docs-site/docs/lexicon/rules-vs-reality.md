@@ -4,6 +4,8 @@ slug: /lexicon/rules-vs-reality
 title: What Is Rules vs Reality Analysis in Trading?
 description: Rules vs Reality Analysis compares predefined trading rules against actual executed trades to objectively measure compliance and behavioral deviations.
 keywords: [rules vs reality, trading rules, rule compliance, trading analysis, execution behavior]
+tags: [lexicon, trading rules, compliance]
+image: /img/lexicon/rules-vs-reality-diagram.png
 ---
 
 ![Visual comparison of defined trading rules versus actual executed trades.](/img/lexicon/rules-vs-reality-diagram.png)

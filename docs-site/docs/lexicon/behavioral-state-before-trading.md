@@ -4,6 +4,8 @@ slug: /lexicon/behavioral-state-before-trading
 title: What Is Behavioral State Before Trading?
 description: Behavioral state before trading refers to the trader's psychological and cognitive condition immediately prior to entering a trade, including mindset.
 keywords: [behavioral state, pre-trade psychology, trading mindset, emotional state, trading context]
+tags: [lexicon, trading psychology, pre-trade]
+image: /img/lexicon/behavioral-state-before-trading-diagram.png
 ---
 
 ![Diagram showing behavioral state before trading as the recorded psychological context at trade entry.](/img/lexicon/behavioral-state-before-trading-diagram.png)

@@ -4,6 +4,8 @@ slug: /lexicon/execution-record
 title: What Is a Trading Execution Record?
 description: A trading execution record is a structured, time-ordered capture of everything that occurs during a trade's lifecycle including entries, exits, and rules.
 keywords: [execution record, trade log, trading lifecycle, execution data, behavioral evidence]
+tags: [lexicon, trade logging, execution]
+image: /img/lexicon/execution-record-diagram.png
 ---
 
 ![Diagram showing a trading execution record as a structured capture of the trade lifecycle process versus outcome.](/img/lexicon/execution-record-diagram.png)

@@ -4,6 +4,8 @@ slug: /lexicon/behavioral-dashcam
 title: What Is a Behavioral Dashcam in Trading?
 description: A behavioral dashcam objectively records a trader's real execution behavior during live trades, capturing decisions, rule adherence, and mindset.
 keywords: [behavioral dashcam, trading psychology, execution recording, trading behavior, objective trading data]
+tags: [lexicon, trading psychology, behavior tracking]
+image: /img/lexicon/behavioral-dashcam-diagram.png
 ---
 
 ![Diagram illustrating a behavioral dashcam recording trader execution decisions during a trade.](/img/lexicon/behavioral-dashcam-diagram.png)
