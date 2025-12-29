@@ -2,6 +2,8 @@
 id: open-office-hours
 title: Open Office Hours
 sidebar_label: Open Office Hours
+description: Join weekly live working sessions with the TradeMonkey team to walk through real data, clarify features, and get answers to your workflow questions.
+keywords: [office hours, live support, weekly sessions, TradeMonkey team, workflow help]
 ---
 
 # Open Office Hours

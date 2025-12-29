@@ -2,6 +2,8 @@
 id: behavior-patterns
 title: Behavior Patterns
 sidebar_label: Behavior Patterns
+description: Discover recurring behaviors across your trades that connect psychology, rule adherence, and outcomes to reveal what you tend to do and what it leads to.
+keywords: [behavior patterns, trading habits, recurring behaviors, execution patterns, trading psychology]
 ---
 
 # Behavior Patterns

@@ -2,6 +2,8 @@
 id: ai-deep-dive-explorer
 title: AI Deep Dive Explorer
 sidebar_label: AI Deep Dive Explorer
+description: Use conversational AI analysis to explore why-patterns in your trading data through focused follow-up questions about emotions, conviction, and outcomes.
+keywords: [AI deep dive, trading analysis, pattern exploration, conversational AI, trading insights]
 ---
 
 # AI Deep Dive Explorer

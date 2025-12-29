@@ -2,6 +2,8 @@
 id: glossary
 title: Glossary
 sidebar_label: Glossary
+description: Definitions of key TradeMonkey terms including behavior dashcam, behavioral record, reflections, conviction, plan adherence, and execution drift.
+keywords: [glossary, trading terms, TradeMonkey terminology, definitions, trading vocabulary]
 ---
 
 # Glossary

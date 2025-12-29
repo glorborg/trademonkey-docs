@@ -2,6 +2,8 @@
 id: time-scoped-analytics
 title: Time-Scoped Analytics
 sidebar_label: Time-Scoped Analytics
+description: View performance and behavior over specific time windows to see whether your trading is improving, stable, or slipping compared to your all-time baseline.
+keywords: [time-scoped analytics, performance trends, trading metrics, time windows, baseline comparison]
 ---
 
 # Time-Scoped Analytics

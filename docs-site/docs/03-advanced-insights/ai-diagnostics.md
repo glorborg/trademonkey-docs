@@ -2,6 +2,8 @@
 id: ai-diagnostics
 title: AI Diagnostics
 sidebar_label: AI Diagnostics
+description: Get an objective AI-generated report of main patterns in your trading behavior analyzing emotions, conviction, rules, and outcomes without coaching.
+keywords: [AI diagnostics, trading report, pattern analysis, behavioral insights, trading psychology]
 ---
 
 # AI Diagnostics

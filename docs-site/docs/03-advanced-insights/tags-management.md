@@ -2,6 +2,8 @@
 id: tags-management
 title: Tags
 sidebar_label: Tags
+description: Use tags to describe trade context so TradeMonkey can apply rules correctly, separate strategies, and surface meaningful patterns in your behavior.
+keywords: [trade tags, tag management, trade categorization, strategy tagging, context labels]
 ---
 
 # Tags

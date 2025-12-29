@@ -2,6 +2,8 @@
 id: calendar-news-events
 title: Calendar & News Events
 sidebar_label: Calendar & News Events
+description: Protect your trading discipline during scheduled volatility with high-impact event tracking and news-based rule enforcement via Rules vs Reality.
+keywords: [economic calendar, news events, volatility windows, trading discipline, high-impact events]
 ---
 
 # Calendar & News Events

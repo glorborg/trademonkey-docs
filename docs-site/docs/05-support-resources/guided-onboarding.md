@@ -2,6 +2,8 @@
 id: guided-onboarding
 title: Guided Onboarding
 sidebar_label: Guided Onboarding
+description: Complete the structured onboarding process to set up your trading accounts, rules, and imports correctly so your data is clear and reliable later.
+keywords: [onboarding, getting started, account setup, initial configuration, first steps]
 ---
 
 # Guided Onboarding

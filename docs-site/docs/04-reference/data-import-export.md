@@ -2,6 +2,8 @@
 id: data-import-export
 title: Data Import & Export
 sidebar_label: Data Import/Export
+description: Import historical trades via CSV using templates or broker mapping, and export your trading data at any time for full portability of your journal.
+keywords: [trade import, CSV export, broker data, data portability, trade history]
 ---
 
 # Data Import & Export

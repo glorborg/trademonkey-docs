@@ -2,6 +2,8 @@
 id: billing-subscription
 title: Billing
 sidebar_label: Billing & Subscription
+description: Learn how TradeMonkey subscriptions work including creation, renewal, changes, cancellation, and what happens to your data and access over time.
+keywords: [billing, subscription, Stripe payments, plan management, account access]
 ---
 
 # Billing

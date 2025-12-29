@@ -2,6 +2,8 @@
 id: ai-usage-limits
 title: AI Usage Limits
 sidebar_label: AI Usage Limits
+description: Understand daily AI usage quotas for TradeMonkey features including AI Diagnostics, Deep Dive Explorer, Rules Coach, and Reflection Analysis.
+keywords: [AI limits, usage quotas, AI features, daily limits, subscription limits]
 ---
 
 # AI Usage Limits

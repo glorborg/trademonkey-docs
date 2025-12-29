@@ -2,6 +2,8 @@
 id: rules-vs-reality-dashboard
 title: Rules vs Reality Dashboard
 sidebar_label: Rules vs Reality Dashboard
+description: View long-term rule adherence trends showing which rules you follow, when violations happen, and whether your trading discipline is improving or eroding.
+keywords: [rules vs reality dashboard, rule adherence, trading discipline, compliance trends, rule violations]
 ---
 
 # Rules vs Reality Dashboard

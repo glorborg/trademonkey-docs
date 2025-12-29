@@ -2,6 +2,8 @@
 id: faq
 title: Frequently Asked Questions (FAQ)
 sidebar_label: FAQ
+description: Find answers to common questions about TradeMonkey including how behavior tracking works, what data is needed, and how the system helps traders.
+keywords: [FAQ, frequently asked questions, trading journal questions, TradeMonkey help, common questions]
 ---
 
 # Frequently Asked Questions (FAQ)

@@ -2,6 +2,8 @@
 id: support-bug-reporting
 title: Support & Bug Reporting
 sidebar_label: Support & Bug Reporting
+description: Access live in-app support during London and New York trading sessions, and learn how to report bugs or issues for fast, context-aware responses.
+keywords: [support, bug reporting, help desk, customer support, issue reporting]
 ---
 
 # Support & Bug Reporting
