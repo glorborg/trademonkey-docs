@@ -3,7 +3,7 @@ id: manifesto
 title: The Architecture of Behavioral Execution
 sidebar_label: Manifesto
 slug: /manifesto
-description: "A manifesto for the Sovereign Trader: why trading psychology is a systems engineering problem, not a character defect, and how Behavioral Execution Psychology changes everything."
+description: "Why trading psychology is a systems engineering problem, not a character defect. Introducing Behavioral Execution Psychology for sovereign traders."
 keywords: [behavioral execution psychology, trading manifesto, sovereign trader, execution gap, behavioral drift, trading psychology]
 hide_table_of_contents: false
 ---
