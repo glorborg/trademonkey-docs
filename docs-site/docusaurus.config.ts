@@ -74,6 +74,11 @@ const config: Config = {
           label: 'Documentation',
         },
         {
+          to: '/manifesto',
+          label: 'Manifesto',
+          position: 'left',
+        },
+        {
           href: 'https://app.trademonkey.app',
           label: 'TradeMonkey App',
           position: 'right',

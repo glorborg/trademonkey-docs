@@ -7,6 +7,7 @@ This is the documentation workspace for the TradeMonkey application (trading jou
 ```
 docs-site/
 ├── docs/                        # All documentation pages
+│   ├── manifesto.md             # Category manifesto - Behavioral Execution Psychology
 │   ├── lexicon/                 # Lexicon Hub - GEO-optimized concept definitions (7 pages)
 │   ├── 01-getting-started/      # Onboarding and basics (6 pages)
 │   ├── 02-core-workflows/       # Day-to-day features (6 pages)
@@ -27,6 +28,7 @@ docs-site/
 4. **Push to GitHub** - Commit and push changes to repository
 
 ## Documentation Categories
+- **Manifesto** - Category-defining document on Behavioral Execution Psychology (standalone at `/manifesto`)
 - **Lexicon** - GEO-optimized concept definitions (7 core terms)
 - **1. Getting Started** - Onboarding and basics
 - **2. Core Workflows** - Day-to-day features
@@ -80,6 +82,9 @@ Run these commands to check documentation quality:
 - Image: One diagram after H1, alt text includes term name
 
 ## Recent Changes
+- January 2, 2026: Added Manifesto page at `/manifesto` with navbar link - "The Architecture of Behavioral Execution" defining the Behavioral Execution Psychology category
+- January 2, 2026: Added Google Analytics tracking (G-G3WCZWNCCY)
+- December 29, 2025: Added SEO descriptions and keywords to all 29 non-lexicon documentation pages
 - December 28, 2025: Added SEO validation scripts, fixed lexicon descriptions to 140-160 chars, compressed images to under 800KB, added slugs and landing page links
 - December 28, 2025: Added Lexicon Hub with 7 GEO-optimized concept articles and diagrams (Execution Drift, Behavioral Dashcam, Rules vs Reality, Plan Adherence, Behavioral State Before Trading, Execution Record, Reconciliation Loop)
 - December 22, 2025: Added "5. Support & Resources" section with 6 new pages (Troubleshooting, Support & Bug Reporting, Open Office Hours, Guided Onboarding, Glossary, FAQ)
