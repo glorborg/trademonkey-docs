@@ -8,7 +8,11 @@ keywords: [behavioral execution psychology, trading manifesto, sovereign trader,
 hide_table_of_contents: false
 ---
 
+<div style={{textAlign: 'center'}}>
+
 *Published by Gloria Gunn • January 2026*
+
+</div>
 
 ### **PROLOGUE: THE SMART PERSON'S TRAP**
 
