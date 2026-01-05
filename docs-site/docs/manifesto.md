@@ -8,6 +8,8 @@ keywords: [behavioral execution psychology, trading manifesto, sovereign trader,
 hide_table_of_contents: false
 ---
 
+*Published by Gloria Gunn • January 2026*
+
 ### **PROLOGUE: THE SMART PERSON'S TRAP**
 
 I entered trading because I thought it was an intellectual game. I consider myself to be above average intelligence. I have always been a professional, a quiet thinker, composed, and structurally immune to drama. I assumed trading was just another puzzle to be solved with logic and intellect. 
@@ -153,3 +155,8 @@ We are building the **Sensor for Human Reliability**.
 The future belongs to the **Sovereign Trader.** Not because they are smarter or less emotional, but because they are the first to stop flying blind. They are the first to realize that you cannot master what you do not measure.
 
 **The dashcam is recording. Are you ready to see how you drive?**
+
+---
+
+*© 2026 TradeMonkey. All rights reserved.*
+*Published January 2026*
