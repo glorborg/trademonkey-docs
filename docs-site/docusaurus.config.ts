@@ -74,7 +74,8 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          to: '/manifesto',
+          type: 'doc',
+          docId: 'manifesto',
           label: 'Manifesto',
           position: 'left',
         },
