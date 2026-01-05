@@ -158,5 +158,10 @@ The future belongs to the **Sovereign Trader.** Not because they are smarter or 
 
 ---
 
+<div style={{textAlign: 'center'}}>
+
 *© 2026 TradeMonkey. All rights reserved.*
+
 *Published January 2026*
+
+</div>
