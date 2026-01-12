@@ -13,8 +13,6 @@ TradeMonkey automatically classifies your trades so it knows which rules to appl
 
 You never need to define a tagging system or maintain a taxonomy.
 
----
-
 ## How Classification Works
 After each trade, TradeMonkey analyzes:
 * market context
@@ -31,8 +29,6 @@ These classifications are used internally by:
 * Pattern analysis
 * AI diagnostics
 
----
-
 ## Your Role (Minimal by Design)
 **You are not responsible for:**
 * creating labels
@@ -46,8 +42,6 @@ These classifications are used internally by:
 
 This keeps your focus on trading decisions, not system setup.
 
----
-
 ## When You'll Be Asked to Intervene
 TradeMonkey will only ask for input when:
 * a trade doesn't clearly fit existing patterns
@@ -59,8 +53,6 @@ You'll see prompts like:
 
 These corrections help the system learn and improve automatically.
 
----
-
 ## System Context vs Behavior
 **Some classifications are derived automatically** and never require confirmation, such as:
 * trading session
@@ -70,8 +62,6 @@ These corrections help the system learn and improve automatically.
 
 **Others relate to behavior and intent,** which only you can validate.
 
----
-
 ## Why This Matters
 Accurate classification allows TradeMonkey to:
 * apply the right rules to the right trades
@@ -80,8 +70,6 @@ Accurate classification allows TradeMonkey to:
 * surface patterns you would otherwise miss
 
 This happens without requiring upfront configuration.
-
----
 
 ## Key Principle
 If you ever feel like you're "setting up a tagging system," something has gone wrong.
