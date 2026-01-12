@@ -1,0 +1,81 @@
+# Trade Classification
+
+## Purpose
+TradeMonkey automatically classifies your trades so it knows which rules to apply, which patterns to analyze, and how to group behavior accurately.
+
+You never need to define a tagging system or maintain a taxonomy.
+
+---
+
+## How Classification Works
+After each trade, TradeMonkey analyzes:
+* market context
+* execution behavior
+* trade duration
+* psychology data
+* similarity to prior trades
+
+From this, it assigns each trade to a behavioral classification (e.g., momentum scalp, range trade, late entry).
+
+These classifications are used internally by:
+* Rules vs Reality
+* Execution Recaps
+* Pattern analysis
+* AI diagnostics
+
+---
+
+## Your Role (Minimal by Design)
+**You are not responsible for:**
+* creating labels
+* deciding tag names
+* managing consistency
+* configuring rule scopes
+
+**Your only role is to:**
+* confirm when a classification is correct
+* correct it when it's wrong
+
+This keeps your focus on trading decisions, not system setup.
+
+---
+
+## When You'll Be Asked to Intervene
+TradeMonkey will only ask for input when:
+* a trade doesn't clearly fit existing patterns
+* two similar trades behave differently
+* rule evaluation requires clarification
+
+You'll see prompts like:
+> "Does this trade belong with these similar ones?"
+
+These corrections help the system learn and improve automatically.
+
+---
+
+## System Context vs Behavior
+**Some classifications are derived automatically** and never require confirmation, such as:
+* trading session
+* direction (long/short)
+* duration bucket
+* instrument family
+
+**Others relate to behavior and intent,** which only you can validate.
+
+---
+
+## Why This Matters
+Accurate classification allows TradeMonkey to:
+* apply the right rules to the right trades
+* detect behavioral drift earlier
+* avoid false violations
+* surface patterns you would otherwise miss
+
+This happens without requiring upfront configuration.
+
+---
+
+## Key Principle
+If you ever feel like you're "setting up a tagging system," something has gone wrong.
+
+**TradeMonkey is designed to adapt to how you trade, not the other way around.**
